@@ -210,11 +210,23 @@
 			if(prob(8))
 				var/chaffepain = pick(10,10,10,10,20,20,30)
 				SEND_SIGNAL(handler, COMSIG_SEX_RECEIVE_ACTION, 3, chaffepain, 1, 0)
-				handler.visible_message(("<span class='love_mid'>[handler] squirms uncomfortably in [handler.p_their()] restraints.</span>"), \
-					("<span class='love_extreme'>I feel [handler.handcuffed] rub uncomfortably against my skin.</span>"))
+				handler.visible_message(("<span class='love_mid'>[handler] дергается, будучи связанным.</span>"), \
+					("<span class='love_extreme'>Я чувствую как путы неприятно трутся о мою кожу</span>"))
 			if(arousal_value < ACTIVE_EJAC_THRESHOLD)
 				SEND_SIGNAL(handler, COMSIG_SEX_ADJUST_AROUSAL, 0.25)
 
+/datum/sex_session/proc/handle_breast_milking(mob/living/carbon/human/milker, mob/living/carbon/human/target)
+	var/obj/item/organ/breasts/breasts = target.getorganslot(ORGAN_SLOT_BREASTS)
+	var/container = milker.get_active_held_item()
+	var/milk_to_add = min(max(breasts.breast_size, 1), breasts.milk_stored)
+	if(breasts.lactating && milk_to_add > 0)
+		breasts.milk_stored -= milk_to_add
+		milk_container(container, milk_to_add)
+
+/datum/sex_session/proc/milk_container(obj/item/reagent_containers/glass/C, amout)
+	user.visible_message(span_lovebold("[user.name] наполняет [C.name] молочком!"))
+	playsound(user, 'sound/misc/mat/segso.ogg', 50, TRUE, ignore_walls = FALSE)
+	C.reagents.add_reagent(/datum/reagent/consumable/milk, amout)
 
 /datum/sex_session/proc/get_speed_multiplier()
 	switch(speed)
