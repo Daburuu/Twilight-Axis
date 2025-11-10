@@ -45,7 +45,6 @@
 	. = ..()
 	user.visible_message(span_warning("[user] перестает доить грудь [target] в контейнер."))
 
-/datum/sex_action/milk_breasts/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	if(target.sexcon.finished_check())
-		return TRUE
-	return FALSE
+/datum/sex_action/milk_breasts/lock_sex_object(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	. = ..()
+	sex_locks |= new /datum/sex_session_lock(target, ORGAN_SLOT_BREASTS)
