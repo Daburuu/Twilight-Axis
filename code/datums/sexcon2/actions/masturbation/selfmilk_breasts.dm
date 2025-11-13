@@ -15,9 +15,11 @@
 	var/holding = user.get_active_held_item()
 	if(!.)
 		return FALSE
-	if(istype(holding, /obj/item/reagent_containers/glass) != TRUE)
+	if (!holding)
 		return FALSE
-	if(check_sex_lock(user, ORGAN_SLOT_PENIS))
+	if (!istype(holding, /obj/item/reagent_containers/glass))
+		return FALSE
+	if(check_sex_lock(user, ORGAN_SLOT_BREASTS))
 		return FALSE
 	if(user != target)
 		return FALSE
