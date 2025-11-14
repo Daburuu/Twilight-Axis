@@ -45,8 +45,8 @@
 	if(breasts.lactating && milk_to_add > 0 && prob(25))
 		user.reagents.add_reagent(/datum/reagent/consumable/milk, milk_to_add)
 		breasts.milk_stored -= milk_to_add
-		to_chat(user, span_notice("I can taste milk."))
-		to_chat(target, span_notice("I can feel milk leak from my buds."))
+		to_chat(user, span_notice("Я чувствую вкус молока."))
+		to_chat(target, span_notice("я чуствую, как мологу течет из моей груди"))
 	
 
 /datum/sex_action/suck_nipples/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
