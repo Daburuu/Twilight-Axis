@@ -15,7 +15,7 @@
 	color = "#eee4e4"
 	taste_description = "sweet and tart"
 
-/datum/reagent/erpjuice/on_mob_add(mob/living/carbon/M) 
+/datum/reagent/erpjuice/on_mob_add(mob/living/carbon/M) //milk effect on nymphos and baotha's worshippers
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(HAS_TRAIT(H, TRAIT_CRACKHEAD))
