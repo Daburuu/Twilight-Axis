@@ -1,7 +1,7 @@
 /datum/sex_action/masturbate/masturbate_container
 	name = "Мастурбация в контейнер"
 
-/datum/sex_action/masturbate_container/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/masturbate/masturbate_container/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user != target)
 		return FALSE
 	if(!user.getorganslot(ORGAN_SLOT_PENIS))

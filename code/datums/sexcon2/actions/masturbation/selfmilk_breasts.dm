@@ -41,13 +41,13 @@
 	sex_session.perform_sex_action(user, 2, 0, TRUE)
 
 	sex_session.handle_breast_milking(user, user)
-	
+
 	sex_session.handle_passive_ejaculation(user)
 
-/datum/sex_action/selfmilk_breasts/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/masturbate/selfmilk_breasts/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.visible_message(span_warning("[user] заканчивает себя доить."))
 
-/datum/sex_action/selfmilk_breasts/lock_sex_object(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/masturbate/selfmilk_breasts/lock_sex_object(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	sex_locks |= new /datum/sex_session_lock(target, ORGAN_SLOT_BREASTS)
