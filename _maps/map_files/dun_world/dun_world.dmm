@@ -6110,7 +6110,7 @@
 "bDY" = (
 /obj/machinery/light/rogue/wallfire/candle,
 /obj/structure/mannequin/male/female,
-/obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate,
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate,
 /obj/item/clothing/mask/rogue/facemask/psydonmask,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/inq/office)
@@ -14132,7 +14132,7 @@
 /area/rogue/outdoors/mountains/decap/stepbelow)
 "dEP" = (
 /obj/structure/mannequin,
-/obj/item/clothing/suit/roguetown/armor/plate/half,
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass,
 /obj/item/clothing/head/roguetown/helmet/sallet,
 /turf/open/floor/rogue/tile,
 /area/rogue/under/town/basement/keep)
@@ -22304,10 +22304,10 @@
 /area/rogue/indoors/inq/basement)
 "fEm" = (
 /obj/structure/rack/rogue,
-/obj/item/clothing/suit/roguetown/armor/plate/half/iron,
-/obj/item/clothing/suit/roguetown/armor/plate/half/iron,
-/obj/item/clothing/suit/roguetown/armor/plate/half/iron,
-/obj/item/clothing/suit/roguetown/armor/plate/half/iron,
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/iron,
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/iron,
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/iron,
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/iron,
 /obj/effect/decal/cobbleedge{
 	dir = 9
 	},
@@ -25850,7 +25850,7 @@
 /area/rogue/druidsgrove)
 "gAW" = (
 /obj/structure/mannequin,
-/obj/item/clothing/suit/roguetown/armor/plate/half/aalloy,
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/aalloy,
 /obj/item/clothing/mask/rogue/facemask/aalloy,
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/rogue/cobble,
@@ -35182,7 +35182,7 @@
 "iSi" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/mannequin,
-/obj/item/clothing/suit/roguetown/armor/plate/half/aalloy,
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/aalloy,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault)
 "iSk" = (
@@ -35715,7 +35715,7 @@
 "iZs" = (
 /obj/structure/mannequin,
 /obj/item/clothing/mask/rogue/facemask/goldmask,
-/obj/item/clothing/suit/roguetown/armor/plate/half/fluted{
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted{
 	color = "#FFD700"
 	},
 /turf/open/floor/rogue/cobble,
@@ -68183,7 +68183,7 @@
 "rkN" = (
 /obj/structure/mannequin/male,
 /obj/structure/rogue/trophy/deer,
-/obj/item/clothing/suit/roguetown/armor/plate/half/iron,
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/iron,
 /obj/machinery/light/rogue/wallfire/candle/r,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
@@ -75413,7 +75413,7 @@
 "tdA" = (
 /obj/structure/closet/crate/roguecloset/inn,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/clothing,
-/obj/item/clothing/suit/roguetown/armor/plate/half/aalloy,
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/aalloy,
 /obj/item/clothing/under/roguetown/chainlegs/kilt/aalloy,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/goblinfort)
@@ -77838,7 +77838,7 @@
 	lockid = "lich"
 	},
 /obj/item/clothing/gloves/roguetown/blacksteel/plategloves,
-/obj/item/clothing/suit/roguetown/armor/plate/blacksteel_full_plate,
+/obj/item/clothing/suit/roguetown/armor/plate/full/blacksteel,
 /obj/item/clothing/head/roguetown/helmet/blacksteel/bucket,
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/licharena/bossroom)
@@ -87225,10 +87225,7 @@
 /turf/open/floor/rogue/grassred,
 /area/rogue/under/underdark)
 "vYP" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/fox{
-	aggressive = 0;
-	name = "Mimi the fox"
-	},
+/mob/living/simple_animal/hostile/retaliate/rogue/fox/guildpet,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/dwarfin)
 "vYS" = (
@@ -92877,7 +92874,7 @@
 /area/rogue/indoors/shelter/mountains/decap)
 "xwc" = (
 /obj/structure/mannequin,
-/obj/item/clothing/suit/roguetown/armor/plate/half/aalloy,
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/aalloy,
 /obj/item/clothing/shoes/roguetown/boots/aalloy,
 /obj/item/clothing/neck/roguetown/gorget/aalloy,
 /obj/item/clothing/head/roguetown/helmet/heavy/guard/aalloy,
