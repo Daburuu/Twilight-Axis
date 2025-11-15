@@ -13,7 +13,7 @@
 	var/holding = user.get_active_held_item()
 	if(!.)
 		return FALSE
-	if (!holding)
+	if(!holding)
 		return FALSE
 	if(!istype(holding, /obj/item/reagent_containers/glass))
 		return FALSE
@@ -22,6 +22,8 @@
 	if(!check_location_accessible(user, target, BODY_ZONE_PRECISE_GROIN))
 		return FALSE
 	if(!user.getorganslot(ORGAN_SLOT_PENIS))
+		return FALSE
+	if(check_sex_lock(user, ORGAN_SLOT_PENIS))
 		return FALSE
 	return TRUE
 
@@ -32,7 +34,7 @@
 /datum/sex_action/masturbate_container/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	var/holding = user.get_active_held_item()
 	var/chosen_verb = pick(list("наслаждается собой над [user.get_active_held_item()]", "ласкает себя над [user.get_active_held_item()]", "мастурбирует над [user.get_active_held_item()]"))
-	user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] [chosen_verb]..."))
+	user.visible_message(sex_session.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] [chosen_verb]..."))
 	playsound(user, 'sound/misc/mat/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 
 	sex_session.perform_sex_action(user, 2, 0, TRUE)
