@@ -211,7 +211,7 @@
 				var/chaffepain = pick(10,10,10,10,20,20,30)
 				SEND_SIGNAL(handler, COMSIG_SEX_RECEIVE_ACTION, 3, chaffepain, 1, 0)
 				handler.visible_message(("<span class='love_mid'>[handler] дергается, будучи связанным.</span>"), \
-					("<span class='love_extreme'>Я чувствую, как путы неприятно трутся о мою кожу</span>"))
+					("<span class='love_extreme'>Я чувствую, как путы неприятно трутся о мою кожу.</span>"))
 			if(arousal_value < ACTIVE_EJAC_THRESHOLD)
 				SEND_SIGNAL(handler, COMSIG_SEX_ADJUST_AROUSAL, 0.25)
 
