@@ -215,22 +215,6 @@
 			if(arousal_value < ACTIVE_EJAC_THRESHOLD)
 				SEND_SIGNAL(handler, COMSIG_SEX_ADJUST_AROUSAL, 0.25)
 
-/datum/sex_session/proc/handle_container_ejaculation(mob/living/carbon/human/handler, /obj/item/reagent_containers/glass/C)
-	if(!handler)
-		handler = user
-	var/container = handler.get_active_held_item()
-	var/list/arousal_data = list()
-	SEND_SIGNAL(handler, COMSIG_SEX_GET_AROUSAL, arousal_data)
-	var/arousal_multiplier = arousal_data["arousal_multiplier"]
-	var/arousal_value = arousal_data["arousal"]
-	var/amout = rand(2, 5)
-	cum_container(container, amout)
-	if(arousal_multiplier > 1.5 && user.check_handholding())
-		if(prob(5))
-			SEND_SIGNAL(handler, COMSIG_SEX_RECEIVE_ACTION, 3, 0, 1, 0)
-		if(arousal_value < 70)
-			SEND_SIGNAL(handler, COMSIG_SEX_ADJUST_AROUSAL, 0.2)
-
 
 /datum/sex_session/proc/handle_breast_milking(mob/living/carbon/human/milker, mob/living/carbon/human/target)
 	var/obj/item/organ/breasts/breasts = target.getorganslot(ORGAN_SLOT_BREASTS)
