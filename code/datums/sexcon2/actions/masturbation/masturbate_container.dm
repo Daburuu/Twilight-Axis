@@ -34,7 +34,7 @@
 /datum/sex_action/masturbate/masturbate_container/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	var/datum/sex_session/sex_session = get_sex_session(user, target)
 	var/holding = user.get_active_held_item()
-	var/chosen_verb = pick(list("наслаждается собой над [user.get_active_held_item()]", "ласкает себя над [user.get_active_held_item()]", "мастурбирует над [user.get_active_held_item()]"))
+	var/chosen_verb = pick(list("наслаждается собой над [user.get_active_held_item()]", "ласкает себя над [holding]", "мастурбирует над [holding]"))
 	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] [chosen_verb]..."))
 	playsound(user, 'sound/misc/mat/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 
