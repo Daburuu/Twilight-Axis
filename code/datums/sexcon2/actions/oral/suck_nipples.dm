@@ -43,10 +43,10 @@
 	var/obj/item/organ/breasts/breasts = target.getorganslot(ORGAN_SLOT_BREASTS)
 	var/milk_to_add = min(max(breasts.breast_size, 1), breasts.milk_stored)
 	if(breasts.lactating && milk_to_add > 0 && prob(25))
-		user.reagents.add_reagent(/datum/reagent/consumable/milk, milk_to_add)
+		user.reagents.add_reagent(/datum/reagent/erpjuice/erp_milk, milk_to_add)
 		breasts.milk_stored -= milk_to_add
 		to_chat(user, span_notice("Я чувствую вкус молока."))
-		to_chat(target, span_notice("Я чувствую, как молоко течет из моей груди"))
+		to_chat(target, span_notice("Я чувствую, как молоко течет из моей груди."))
 	
 
 /datum/sex_action/suck_nipples/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)

@@ -6,6 +6,14 @@
 	taste_description = "salty and tangy"
 	metabolization_rate = 0.1
 
+/datum/reagent/erpjuice/erp_milk
+	name = "Breast Milk"
+	description = "A thick, transparent milk that clearly doesn't come from a cow."
+	reagent_state = LIQUID
+	color = "#eee4e4"
+	taste_description = "sweet and tart"
+	metabolization_rate = 0.1
+
 /datum/reagent/erpjuice/cum/on_mob_life(mob/living/carbon/M) //Rejoice, cum whores can now very inefficiently drink cum to substain themselves.
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -15,3 +23,4 @@
 		if(H.blood_volume < BLOOD_VOLUME_NORMAL)
 			H.blood_volume = min(H.blood_volume+10, BLOOD_VOLUME_NORMAL)
 	..()
+

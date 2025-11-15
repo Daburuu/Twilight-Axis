@@ -227,7 +227,7 @@
 /datum/sex_session/proc/milk_container(obj/item/reagent_containers/glass/C, amout)
 	user.visible_message(span_lovebold("[user.name] наполняет [C.name] молочком!"))
 	playsound(user, 'sound/misc/mat/segso.ogg', 50, TRUE, ignore_walls = FALSE)
-	C.reagents.add_reagent(/datum/reagent/consumable/milk, amout)
+	C.reagents.add_reagent(/datum/reagent/erpjuice/erp_milk, amout)
 
 /datum/sex_session/proc/cum_container(obj/item/reagent_containers/glass/C, amout)
 	user.visible_message(span_lovebold("[user.name] заполняет [C.name] спермой!"))
