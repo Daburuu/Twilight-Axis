@@ -793,6 +793,7 @@
 #include "code\datums\sexcon2\actions\masturbation\penis.dm"
 #include "code\datums\sexcon2\actions\masturbation\penis_over.dm"
 #include "code\datums\sexcon2\actions\masturbation\selfmilk_breasts.dm"
+#include "code\datums\sexcon2\actions\masturbation\masturbate_container.dm"
 #include "code\datums\sexcon2\actions\masturbation\vagina.dm"
 #include "code\datums\sexcon2\actions\masturbation\other\_base.dm"
 #include "code\datums\sexcon2\actions\masturbation\other\anus.dm"

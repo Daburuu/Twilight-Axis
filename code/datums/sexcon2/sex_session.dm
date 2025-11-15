@@ -218,13 +218,13 @@
 /datum/sex_session/proc/handle_container_ejaculation(mob/living/carbon/human/handler, /obj/item/reagent_containers/glass/C)
 	if(!handler)
 		handler = user
+	var/container = handler.get_active_held_item()
 	var/list/arousal_data = list()
 	SEND_SIGNAL(handler, COMSIG_SEX_GET_AROUSAL, arousal_data)
 	var/arousal_multiplier = arousal_data["arousal_multiplier"]
 	var/arousal_value = arousal_data["arousal"]
-	var/amout = rand(1, 3)
-	user.visible_message(span_love("[user] наполняет спермой [C]"))
-	C.reagents.add_reagent(/datum/reagent/erpjuice/cum, amout)
+	var/amout = rand(2, 5)
+	cum_container(container, amout)
 	if(arousal_multiplier > 1.5 && user.check_handholding())
 		if(prob(5))
 			SEND_SIGNAL(handler, COMSIG_SEX_RECEIVE_ACTION, 3, 0, 1, 0)
@@ -244,6 +244,11 @@
 	user.visible_message(span_lovebold("[user.name] наполняет [C.name] молочком!"))
 	playsound(user, 'sound/misc/mat/segso.ogg', 50, TRUE, ignore_walls = FALSE)
 	C.reagents.add_reagent(/datum/reagent/consumable/milk, amout)
+
+/datum/sex_session/proc/cum_container(obj/item/reagent_containers/glass/C, amout)
+	user.visible_message(span_lovebold("[user.name] заполняет [C.name] спермой!"))
+	playsound(user, 'sound/misc/mat/segso.ogg', 50, TRUE, ignore_walls = FALSE)
+	C.reagents.add_reagent(/datum/reagent/erpjuice/cum, amout)
 
 /datum/sex_session/proc/get_speed_multiplier()
 	switch(speed)
