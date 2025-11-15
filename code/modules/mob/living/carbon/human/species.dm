@@ -1,5 +1,5 @@
 // This code handles different species in the game.
-
+#define MILK_PRODUCTION_MULT 3
 GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species
@@ -970,7 +970,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		var/obj/item/organ/breasts/breasts = H.has_breasts()
 		if(breasts)
 			if(H.nutrition > NUTRITION_LEVEL_HUNGRY && breasts.lactating && breasts.milk_max > breasts.milk_stored) //Vrell - numbers may need to be tweaked for balance but hey this works for now.
-				var/milk_to_make = min(hunger_rate, breasts.milk_max - breasts.milk_stored)
+				var/milk_to_make = min((H.nutrition/(NUTRITION_LEVEL_FULL*MILK_PRODUCTION_MULT)), breasts.milk_max - breasts.milk_stored)
 				breasts.milk_stored += milk_to_make
 				H.adjust_nutrition(-milk_to_make)
 
@@ -2283,3 +2283,4 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/modifier = -distance
 	if(!prob(STASPD+skill_modifier+modifier))
 		Paralyze(15)
+#undef MILK_PRODUCTION_MULT
