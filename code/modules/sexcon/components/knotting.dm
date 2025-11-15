@@ -47,6 +47,8 @@
 
 	if(!can_knot(user, target))
 		return FALSE
+	if(user == target)
+		return FALSE
 	handle_existing_knots(user, target)
 	apply_knot(user, target, force_level, knot_count_param)
 	return TRUE
