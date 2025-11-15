@@ -73,14 +73,14 @@
 	stressadd = -1
 	desc = span_green("This music is relaxing.")
 
-/datum/stressevent/nympho_taste
+/datum/stressevent/nympho_taste //TA edit
 	timer = 1 MINUTES
 	stressadd = -1
 	desc = span_green("I really like this dirty taste.")
 
-/datum/stressevent/nympho_taste/baotha
+/datum/stressevent/nympho_taste/baotha //TA edit
 	stressadd = -2
-	desc = span_green("The holy nectar warms my insides")
+	desc = span_green("This holy nectar warms my insides.")
 
 /datum/stressevent/music/two
 	stressadd = -2
