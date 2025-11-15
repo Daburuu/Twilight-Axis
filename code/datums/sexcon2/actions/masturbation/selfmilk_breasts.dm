@@ -4,13 +4,11 @@
 /datum/sex_action/masturbate/selfmilk_breasts/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user != target)
 		return FALSE
-	if(!target.getorganslot(ORGAN_SLOT_BREASTS))
-		return FALSE
-	if(check_sex_lock(user, ORGAN_SLOT_PENIS))
+	if(!user.getorganslot(ORGAN_SLOT_BREASTS))
 		return FALSE
 	return TRUE
 
-/datum/sex_action/selfmilk_breasts/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/masturbate/selfmilk_breasts/can_perform(mob/living/user, mob/living/target)
 	. = ..()
 	var/holding = user.get_active_held_item()
 	if(!.)
@@ -40,11 +38,10 @@
 	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] [chosen_verb]..."))
 	playsound(user, 'sound/misc/mat/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 
-
 	sex_session.perform_sex_action(user, 2, 0, TRUE)
 
 	sex_session.handle_breast_milking(user, user)
-
+	
 	sex_session.handle_passive_ejaculation(user)
 
 /datum/sex_action/selfmilk_breasts/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
