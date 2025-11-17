@@ -8,6 +8,7 @@
 
 	outfit = /datum/outfit/job/roguetown/wretch/lunacyembracer
 	category_tags = list(CTAG_WRETCH)
+	extra_context = "Minimum PQ Required: 30"
 
 	traits_applied = list(
 		TRAIT_NUDIST,
@@ -29,15 +30,14 @@
 		/datum/skill/misc/athletics = SKILL_LEVEL_EXPERT,
 		/datum/skill/craft/sewing = SKILL_LEVEL_NOVICE,
 		/datum/skill/craft/tanning = SKILL_LEVEL_NOVICE,
+		/datum/skill/labor/butchering = SKILL_LEVEL_NOVICE,
 		/datum/skill/labor/farming = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/craft/carpentry = SKILL_LEVEL_NOVICE,
 		/datum/skill/misc/climbing = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/swimming = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/tracking = SKILL_LEVEL_JOURNEYMAN,
-		/datum/skill/craft/crafting = SKILL_LEVEL_APPRENTICE,
-		/datum/skill/craft/masonry = SKILL_LEVEL_NOVICE,
-		/datum/skill/craft/alchemy = SKILL_LEVEL_JOURNEYMAN,
-		/datum/skill/labor/fishing = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/craft/crafting = SKILL_LEVEL_NOVICE,
+		/datum/skill/craft/alchemy = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/magic/holy = SKILL_LEVEL_JOURNEYMAN,
 	)
 
@@ -45,7 +45,7 @@
 		STATKEY_STR = 3,
 		STATKEY_CON = 2,
 		STATKEY_WIL = 2,
-		STATKEY_SPD = 2,
+		STATKEY_SPD = 1,
 		STATKEY_LCK = 1,
 		STATKEY_INT = -3,
 		STATKEY_PER = -2
@@ -54,7 +54,7 @@
 /datum/outfit/job/roguetown/wretch/lunacyembracer/pre_equip(mob/living/carbon/human/H)
 	H.set_patron(/datum/patron/divine/dendor)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
-	C.grant_miracles(H, cleric_tier = CLERIC_T3, passive_gain = CLERIC_REGEN_MINOR, devotion_limit = CLERIC_REQ_3)
+	C.grant_miracles(H, cleric_tier = CLERIC_T3, passive_gain = CLERIC_REGEN_MINOR, devotion_limit = CLERIC_REQ_2)
 	neck = /obj/item/clothing/neck/roguetown/psicross/dendor
 
 	H.cmode_music = 'modular_twilight_axis/sound/music/combat_berserker.ogg'

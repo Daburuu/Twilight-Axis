@@ -17,7 +17,7 @@
 /obj/item/paper/scroll/quest/Initialize()
 	. = ..()
 	if(assigned_quest)
-		assigned_quest.quest_scroll = src 
+		assigned_quest.quest_scroll = src
 	update_quest_text()
 	START_PROCESSING(SSprocessing, src)
 
@@ -52,7 +52,7 @@
 		icon_state = info ? "[base_icon_state]_info" : "[base_icon_state]"
 	else
 		icon_state = "[base_icon_state]_closed"
-	
+
 
 /obj/item/paper/scroll/quest/process()
 	if(world.time > last_whisper + WHISPER_COOLDOWN)
@@ -144,7 +144,7 @@
 		return
 
 	var/scroll_text = "<center>HELP NEEDED</center><br>"
-	scroll_text += "<center><b>[assigned_quest.get_title()]</b></center><br><br>"
+	scroll_text += "<center><b>[assigned_quest.get_title()]</b></center><br>"
 	scroll_text += "<b>Issued by:</b> [assigned_quest.quest_giver_name ? "[assigned_quest.quest_giver_name]" : "The Mercenary's Guild"].<br>"
 	scroll_text += "<b>Issued to:</b> [assigned_quest.quest_receiver_name ? assigned_quest.quest_receiver_name : "whoever it may concern"].<br>"
 	scroll_text += "<b>Type:</b> [assigned_quest.quest_type] contract.<br>"
@@ -178,15 +178,15 @@
 /obj/item/paper/scroll/quest/proc/refresh_compass(mob/user)
 	if(!assigned_quest || assigned_quest.complete)
 		return FALSE
-	
+
 	// Update compass with precise directions
 	update_compass(user)
-	
+
 	// Only update text if we have a valid direction
 	if(last_compass_direction)
 		update_quest_text()
 		return TRUE
-	
+
 	return FALSE
 
 /obj/item/paper/scroll/quest/proc/update_compass(mob/user)

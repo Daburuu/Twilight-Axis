@@ -121,4 +121,5 @@
 		/obj/item/book/spellbook,
 		/obj/item/rogueweapon/huntingknife/idagger/silver/arcyne
 	)
-	SStreasury.give_money_account(ECONOMIC_RICH, H, "Savings.")
+	if(H.mind)
+		SStreasury.give_money_account(ECONOMIC_RICH, H, "Savings.")

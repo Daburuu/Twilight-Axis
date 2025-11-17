@@ -82,7 +82,8 @@
 	if(H.mind)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/appraise/secular)
 	H.verbs |= /mob/living/carbon/human/proc/adjust_taxes
-	SStreasury.give_money_account(ECONOMIC_RICH, H, "Savings.")
+	if(H.mind)
+		SStreasury.give_money_account(ECONOMIC_RICH, H, "Savings.")
 
 GLOBAL_VAR_INIT(steward_tax_cooldown, -50000) // Antispam
 /mob/living/carbon/human/proc/adjust_taxes()
