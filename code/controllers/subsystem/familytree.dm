@@ -68,8 +68,9 @@ SUBSYSTEM_DEF(familytree)
 	//Blank starter families that we can customize for players.
 	for(var/pioneer_household in preset_family_species)
 		for(var/I = 1 to 2)
-			families += new /datum/heritage(null, null, pioneer_household)
-
+			var/datum/heritage/family = new /datum/heritage
+			family.dominant_race = pioneer_household
+			families += family
 	return ..()
 
 /datum/controller/subsystem/familytree/proc/GetAgeValue(age_string)
@@ -339,7 +340,7 @@ SUBSYSTEM_DEF(familytree)
 		for(var/datum/heritage/house in families)
 			for(var/datum/family_member/M in house.members)
 				if(M.person && M.person.real_name == H.setspouse)
-					if(M.person.xenophobe == 1 && M.person.dna.species.name != our_race)
+					if(M.person.xenophobe == 1 && M.person.dna.species != our_race)
 						break
 					chosen_house = house
 
@@ -353,7 +354,7 @@ SUBSYSTEM_DEF(familytree)
 	// Try high priority houses first
 	if(!chosen_house)
 		for(var/datum/heritage/house in high_priority_houses)
-			if(house.dominant_race == our_race && house.members.len < 4)
+			if(house.dominant_race.name == our_race && house.members.len < 4)
 				if(!WouldCreateAgeConflict(house, H))
 					chosen_house = house
 					break
@@ -367,7 +368,7 @@ SUBSYSTEM_DEF(familytree)
 	// Try low priority houses if no high priority match
 	if(!chosen_house)
 		for(var/datum/heritage/house in low_priority_houses)
-			if(house.dominant_race == our_race)
+			if(house.dominant_race.name == our_race)
 				if(!WouldCreateAgeConflict(house, H))
 					chosen_house = house
 					break
@@ -448,7 +449,7 @@ SUBSYSTEM_DEF(familytree)
 
 	// Find houses that need a spouse
 	for(var/datum/heritage/house in families)
-		if(house.dominant_race != our_race)
+		if(house.dominant_race.name != our_race)
 			continue
 
 		// Check if there's a potential spouse
@@ -564,7 +565,7 @@ SUBSYSTEM_DEF(familytree)
 
 	// Find houses with established families that could use an aunt/uncle
 	for(var/datum/heritage/house in families)
-		if(house.dominant_race != base_species)
+		if(house.dominant_race.name != base_species)
 			continue
 		if(!house.housename || house.members.len < 2)
 			continue
