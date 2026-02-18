@@ -71,9 +71,12 @@
 #define SLASH_UPG_CLAMP_RAW 2.2
 #define SLASH_ARMORED_BLEED_CLAMP 9
 
-/datum/wound/dynamic/slash/upgrade(dam, armor)
+/datum/wound/dynamic/slash/upgrade(dam, armor, exposed)
 	whp += (dam * SLASH_UPG_WHPRATE)
-	set_bleed_rate(bleed_rate + clamp((dam * SLASH_UPG_BLEEDRATE), 0.1, ((armor > 0) ? SLASH_UPG_CLAMP_ARMORED : SLASH_UPG_CLAMP_RAW)))
+	var/clamp_max = ((armor > 0) ? SLASH_UPG_CLAMP_ARMORED : SLASH_UPG_CLAMP_RAW)
+	if(exposed)
+		clamp_max = SLASH_UPG_CLAMP_RAW
+	set_bleed_rate(bleed_rate + clamp((dam * SLASH_UPG_BLEEDRATE), 0.1, clamp_max))
 	sew_threshold += (dam * SLASH_UPG_SEWRATE)
 	woundpain += (dam * SLASH_UPG_PAINRATE)
 	armor_check(armor, SLASH_ARMORED_BLEED_CLAMP)
@@ -195,6 +198,12 @@
 	mob_overlay = "cut"
 	can_sew = TRUE
 	can_cauterize = FALSE	//Ouch owie oof
+	severity_names = list(
+		"light" = 5,
+		"deep" = 10,
+		"gnarly" = 15,
+		"lethal" = 20,
+	)
 
 //Lashing (Whip) Omniwounds
 //Vaguely: Painful, huge bleeds, but nearly nothing at all through any armor.
@@ -207,9 +216,12 @@
 #define LASHING_UPG_CLAMP_RAW 3.5
 #define LASHING_ARMORED_BLEED_CLAMP 2
 
-/datum/wound/dynamic/lashing/upgrade(dam, armor)
+/datum/wound/dynamic/lashing/upgrade(dam, armor, exposed)
 	whp += (dam * LASHING_UPG_WHPRATE)
-	set_bleed_rate(bleed_rate + clamp((dam * LASHING_UPG_BLEEDRATE), 0.1, ((armor > 0) ? LASHING_UPG_CLAMP_ARMORED : LASHING_UPG_CLAMP_RAW)))
+	var/clamp_max = ((armor > 0) ? LASHING_UPG_CLAMP_ARMORED : LASHING_UPG_CLAMP_RAW)
+	if(exposed)
+		clamp_max = LASHING_UPG_CLAMP_RAW
+	set_bleed_rate(bleed_rate + clamp((dam * LASHING_UPG_BLEEDRATE), 0.1, clamp_max))
 	sew_threshold += (dam * LASHING_UPG_SEWRATE)
 	woundpain += (dam * LASHING_UPG_PAINRATE)
 	armor_check(armor, LASHING_ARMORED_BLEED_CLAMP)
@@ -235,6 +247,12 @@
 	mob_overlay = "cut"
 	can_sew = TRUE
 	can_cauterize = FALSE	//Ouch owie oof
+	severity_names = list(
+		"light" = 5,
+		"deep" = 10,
+		"gnarly" = 15,
+		"lethal" = 20,
+	)
 
 //Special Punish omniwounds for whip (or anything else if desired) intent.
 //Vaguely: Really very giga painful. Not very bleedy. Can still be sewn!

@@ -16,7 +16,8 @@
 	climbable = TRUE
 	climb_time = 0
 	climb_offset = 10
-	on = TRUE
+	on = FALSE
+	roundstart_forbid = TRUE
 
 	/// Which ores are contained within us?
 	var/list/contained_items = list()
@@ -41,7 +42,7 @@
 
 /obj/machinery/light/rogue/smelter/examine(mob/user, params)
 	. = ..()
-	. += span_info("It can hold up to [max_contained_items] ores at a time.")
+	. += span_info("It can hold up to <b>[max_contained_items] ores at a time</b>.")
 	. += span_info("Left click to insert an item. If it is a fuel item, a prompt will show on whether you want to fuel or smelt it. Right click on the furnace to put an item inside for smelting only.")
 	if(length(contained_items))
 		. += span_notice("Peeking inside, you can see:")

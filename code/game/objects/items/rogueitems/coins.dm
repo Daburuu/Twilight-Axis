@@ -41,24 +41,7 @@
 
 /obj/item/roguecoin/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	playsound(loc, 'sound/foley/coins1.ogg', 100, TRUE, -2)
-	scatter(get_turf(src))
 	..() 
-
-/obj/item/roguecoin/proc/scatter(turf/T)
-	if(istransparentturf(T))
-		scatter(GET_TURF_BELOW(T))
-		return
-	pixel_x = rand(-8, 8)
-	pixel_y = rand(-5, 5)
-	if(isturf(T) && quantity > 1 && quantity <= 20)
-		var/obj/structure/table/TA = locate() in T
-		if(!TA) //no table
-			for(var/i in 2 to quantity)
-				var/obj/item/roguecoin/new_coin = new type(T)
-				new_coin.set_quantity(1) // prevent exploits with coin piles
-				new_coin.pixel_x = rand(-8, 8)
-				new_coin.pixel_y = rand(-5, 5)
-				set_quantity(quantity - 1)
 
 /obj/item/roguecoin/get_real_price()
 	return sellprice * quantity
@@ -88,10 +71,11 @@
 	G.set_quantity(G.quantity - amt_to_merge)
 	rigged_outcome = 0
 	G.rigged_outcome = 0
-	if(G.quantity <= 0)
+	if(user && G.quantity <= 0)
 		user.doUnEquip(G)
+		user.update_inv_hands()
+	if(G.quantity <= 0)
 		qdel(G)
-	user.update_inv_hands()
 	playsound(loc, 'sound/foley/coins1.ogg', 100, TRUE, -2)
 
 /obj/item/roguecoin/attack_right(mob/user)
@@ -218,11 +202,17 @@
 //OTAVAN MARQUE - WORTHLESS TO ANYONE BUT INQ.
 /obj/item/roguecoin/inqcoin
 	name = "otavan marque"
-	desc = "A blessed silver coin finished with a unique wash of black dye, bearing the post-kingdom Psycross. Kingsfield has denied the existence of such a coin when queried, as such coinage is rumoured to be used internally by the Otavan Inquisition."
+	desc = "A blessed silver coin finished with a unique wash of black dye, bearing the post-kingdom Psycross. Kingsfield has denied the existence of such a coin when queried, as such coinage is rumoured to be used internally by Otava's inquisitorial sects."
 	icon_state = "i1"
 	sellprice = 0
 	base_type = CTYPE_ICOIN
 	plural_name = "otavan marques"	
+
+/obj/item/roguecoin/inqcoin/get_mechanics_examine(mob/user)
+    . = ..()
+    . += span_info("By loading these coins into a HERMES, I can access the MARQUETTE; a discrete variant of the GOLDFACE, capable of supplying the Inquisition with whatever's needed.")
+    . += span_info("The MARQUETTE exclusively accepts these coins as payment. Purchased supplies are dropped off inside the Inquisition's abode.")
+    . += span_info("More coins can be obtained by filling INDEXERS, pairing them with signed ACCUSATIONS or CONFESSIONS, and sending them through the HERMES.")
 
 //GOLD
 /obj/item/roguecoin/gold
@@ -255,7 +245,7 @@
 // ANCIENT
 /obj/item/roguecoin/aalloy
 	name = "psilen"
-	desc = "A coin of polished gilbranze, beheld to a fallen kingdom that hadn't endured the passage of tyme."
+	desc = "A coin of polished gilbranze, beheld to a fallen kingdom that hadn't endured the passage of tyme. </br>Most sophisticated machines won't recognize its value, but keen-eyed Merchants and Stewards might still pay a fair sum for such a relic."
 	icon_state = "a1"
 	sellprice = 3 //Dungeon-specific coinage - valued by historians, collectors, and smelters. 
 	base_type = CTYPE_ANCIENT

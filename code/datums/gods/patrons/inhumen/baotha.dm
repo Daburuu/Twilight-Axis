@@ -6,7 +6,8 @@
 	mob_traits = list(TRAIT_DEPRAVED, TRAIT_CRACKHEAD)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison					= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/invoked/baothavice					= CLERIC_T0,
-					/obj/effect/proc_holder/spell/targeted/touch/loversruin				= CLERIC_T0,
+					/obj/effect/proc_holder/spell/self/bless_drink						= CLERIC_T0,
+					/obj/effect/proc_holder/spell/targeted/touch/loversruin				= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 					= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/baothablessings				= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/griefflower					= CLERIC_T1,
@@ -15,6 +16,7 @@
 					/obj/effect/proc_holder/spell/invoked/joyride						= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/lasthigh						= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/painkiller					= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/resurrect/baotha				= CLERIC_T4,
 	)
 	confess_lines = list(
 		"BAOTHA DEMANDS PLEASURE!",
@@ -26,7 +28,7 @@
 /datum/patron/inhumen/baotha/can_pray(mob/living/follower)
 	. = ..()
 	// Allows prayer in the Zzzzzzzurch(!)
-	if(istype(get_area(follower), /area/rogue/indoors/shelter/mountains))
+	if(istype(get_area(follower), /area/rogue/under/cave/inhumen))
 		return TRUE
 	// Allows prayer near EEEVIL psycross
 	for(var/obj/structure/fluff/psycross/zizocross/cross in view(4, get_turf(follower)))

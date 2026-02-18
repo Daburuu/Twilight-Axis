@@ -7,6 +7,7 @@
 	base_state = "oven"
 	density = FALSE
 	on = FALSE
+	roundstart_forbid = TRUE
 	var/list/food = list()
 	var/maxfood = 5
 	var/donefoods = FALSE
@@ -19,6 +20,11 @@
 	update_icon()
 
 	..(dirin, user)
+
+/obj/machinery/light/rogue/oven/get_mechanics_examine(mob/user)
+	. = ..()
+	. += span_info("Left clicking on the <b>top</b> of the oven's sprite will place an item to be baked inside.")
+	. += span_info("Left clicking on the <b>bottom</b> of the oven's sprite will attempt to fuel it.")
 
 /obj/machinery/light/rogue/oven/attackby(obj/item/W, mob/living/user, params)
 	lastuser = user

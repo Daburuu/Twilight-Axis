@@ -4,6 +4,10 @@
 /datum/species/kobold
 	name = "Kobold"
 	id = "kobold"
+	is_subrace = TRUE
+	origin_default = /datum/virtue/origin/gronn
+	origin = "Gronn"
+	base_name = "Zard"
 	desc = "<b>Kobold</b><br>\
 	Short in stature and typically scrawny, these little lizards make up for it in their natural agility. People typically stereotype them as thieves, though...<br>\
 	(+1 Fortune)"
@@ -63,6 +67,7 @@
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
 		/datum/customizer/bodypart_feature/legwear,
+		/datum/customizer/bodypart_feature/piercing,
 		/datum/customizer/organ/snout/lizard,
 		/datum/customizer/organ/frills/lizard,
 		/datum/customizer/organ/horns/humanoid,

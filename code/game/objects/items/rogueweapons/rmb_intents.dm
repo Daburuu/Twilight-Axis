@@ -13,6 +13,7 @@
 	if(!cmode)	//We just toggled it off.
 		addtimer(CALLBACK(src, PROC_REF(purge_bait)), 30 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 		addtimer(CALLBACK(src, PROC_REF(expire_peel)), 60 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+		addtimer(CALLBACK(src, PROC_REF(clear_tempo_all)), 30 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 	if(!HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS))
 		filtered_balloon_alert(TRAIT_COMBAT_AWARE, (cmode ? ("<i><font color = '#831414'>Tense</font></i>") : ("<i><font color = '#c7c6c6'>Relaxed</font></i>")), y_offset = 32)
 
@@ -40,19 +41,26 @@
 	var/mob/living/carbon/human/HU = user
 	var/target_zone = HT.zone_selected
 	var/user_zone = HU.zone_selected
+	var/newcd = (BASE_RCLICK_CD - HU.get_tempo_bonus(TEMPO_TAG_RCLICK_CD_BONUS))
 
 	if(HT.has_status_effect(/datum/status_effect/debuff/baited) || user.has_status_effect(/datum/status_effect/debuff/baitcd))
 		return	//We don't do anything if either of us is affected by bait statuses
 
+	if(!HT.can_see_cone(user) && HT.mind)
+		newcd = 5 SECONDS
+		to_chat(user, span_notice("[HT.p_they()] didn't see me! Nothing happened!"))
+		HU.apply_status_effect(/datum/status_effect/debuff/baitcd, newcd)
+		return
+
 	HU.visible_message(span_danger("[HU] baits an attack from [HT]!"))
-	HU.apply_status_effect(/datum/status_effect/debuff/baitcd)
+	
+	HU.apply_status_effect(/datum/status_effect/debuff/baitcd, newcd)
+
 
 	if((target_zone != user_zone) || ((target_zone == BODY_ZONE_CHEST) || (user_zone == BODY_ZONE_CHEST))) //Our zones do not match OR either of us is targeting chest.
 		var/guaranteed_fail = TRUE
-		switch(target_zone)
-			if(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE)
-				if(user_zone == BODY_ZONE_PRECISE_L_EYE || user_zone == BODY_ZONE_PRECISE_R_EYE)
-					guaranteed_fail = FALSE
+		if(check_face_subzone(target_zone) && check_face_subzone(user_zone))	//We simplify the myriad of face targeting zones
+			guaranteed_fail = FALSE
 		if(guaranteed_fail)
 			to_chat(HU, span_danger("It didn't work! [HT.p_their(TRUE)] footing returned!"))
 			to_chat(HT, span_notice("I fooled [HU.p_them()]! I've regained my footing!"))
@@ -111,7 +119,7 @@
 
 /datum/rmb_intent/strong
 	name = "strong"
-	desc = "Your attacks have +1 strength but use more stamina. Higher critrate with brutal attacks. Intentionally fails surgery steps."
+	desc = "Your attacks have +1 STR extra damage that ignores limits. Your attacks will cost the enemy more sharpness and integrity to defend against. Higher critrate with brutal attacks. Intentionally fails surgery steps.\nCosts more stamina per hit."
 	icon_state = "rmbstrong"
 	adjacency = FALSE
 	prioritize_turfs = TRUE
@@ -187,8 +195,9 @@
 	skill_factor = (ourskill - theirskill)/2
 
 	var/special_msg
+	var/newcd = (FEINT_RCLICK_CD - user.get_tempo_bonus(TEMPO_TAG_RCLICK_CD_BONUS))
 
-	if(L.has_status_effect(/datum/status_effect/debuff/exposed))
+	if(L.has_status_effect(/datum/status_effect/debuff/exposed) || L.has_status_effect(/datum/status_effect/debuff/vulnerable))
 		perc = 0
 
 	if(L.has_status_effect(/datum/status_effect/debuff/feinted))
@@ -197,6 +206,7 @@
 
 	if(!L.can_see_cone(user) && L.mind)
 		perc = 0
+		newcd = 5 SECONDS
 		special_msg = span_warning("They need to see me for me to feint them!")
 
 	perc = CLAMP(perc, 0, 90)
@@ -205,7 +215,7 @@
 		playsound(user, 'sound/combat/feint.ogg', 100, TRUE)
 		if(user.client?.prefs.showrolls)
 			to_chat(user, span_warning("[L.p_they(TRUE)] did not fall for my feint... [perc]%"))
-		user.apply_status_effect(/datum/status_effect/debuff/feintcd)
+		user.apply_status_effect(/datum/status_effect/debuff/feintcd, newcd)
 		if(special_msg)
 			to_chat(user, special_msg)
 		return
@@ -213,13 +223,17 @@
 	if(L.has_status_effect(/datum/status_effect/buff/clash))
 		L.remove_status_effect(/datum/status_effect/buff/clash)
 		to_chat(user, span_notice("[L.p_their(TRUE)] Guard disrupted!"))
-	L.apply_status_effect(/datum/status_effect/debuff/exposed, feintdur)
+	
+	var/effect_to_apply = (L.mind ? /datum/status_effect/debuff/vulnerable : /datum/status_effect/debuff/exposed)
+
+	L.apply_status_effect(effect_to_apply, feintdur)
 	L.apply_status_effect(/datum/status_effect/debuff/clickcd, max(1.5 SECONDS + skill_factor, 2.5 SECONDS))
-	L.apply_status_effect(/datum/status_effect/debuff/feinted, 30 SECONDS + feintdur)
 	L.Immobilize(0.5 SECONDS)
 	L.stamina_add(L.stamina * 0.1)
 	L.Slowdown(2)
-	user.apply_status_effect(/datum/status_effect/debuff/feintcd, 30 SECONDS + feintdur)
+
+	user.changeNext_move(CLICK_CD_FAST)	//We don't want the feint effect to be popped instantly.
+	user.apply_status_effect(/datum/status_effect/debuff/feintcd, newcd)
 	to_chat(user, span_notice("[L.p_they(TRUE)] fell for my feint attack!"))
 	to_chat(L, span_danger("I fall for [user.p_their()] feint attack!"))
 	playsound(user, 'sound/combat/riposte.ogg', 100, TRUE)
@@ -243,9 +257,10 @@
 		if(user.m_intent == MOVE_INTENT_RUN)
 			to_chat(user, span_warning("I can't focus on this while running."))
 			return
-		if(user.magearmor == FALSE && HAS_TRAIT(user, TRAIT_MAGEARMOR))	//The magearmor is ACTIVE, so we can't Guard. (Yes, it's active while FALSE / 0.)
-			to_chat(user, span_warning("I'm already focusing on my mage armor!"))
-			return
+		if(user.magearmor == 0 && HAS_TRAIT(user, TRAIT_MAGEARMOR))	//The magearmor is ACTIVE, so we break magearmor to guard.
+			user.magearmor = 1
+			user.apply_status_effect(/datum/status_effect/buff/magearmor)
+			to_chat(user, span_warning("I drop my Mage Armor to protect myself!"))
 		user.apply_status_effect(/datum/status_effect/buff/clash)
 
 /datum/rmb_intent/guard

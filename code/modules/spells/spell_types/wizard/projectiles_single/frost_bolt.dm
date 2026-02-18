@@ -29,11 +29,6 @@
 	xp_gain = TRUE
 	miracle = FALSE
 
-/obj/effect/proc_holder/spell/self/frostbolt/cast(mob/user = usr)
-	var/mob/living/target = user
-	target.visible_message(span_warning("[target] hurls a frosty beam!"), span_notice("You hurl a frosty beam!"))
-	. = ..()
-
 /obj/projectile/magic/frostbolt
 	name = "Frost Dart"
 	icon_state = "ice_2"
@@ -44,7 +39,6 @@
 	range = 10
 	speed = 1
 	nodamage = FALSE
-	var/aoe_range = 0
 
 /obj/projectile/magic/frostbolt/on_hit(target)
 	. = ..()
@@ -67,4 +61,5 @@
 				else
 					L.apply_status_effect(/datum/status_effect/buff/frost)
 			new /obj/effect/temp_visual/snap_freeze(get_turf(L))
+			L.apply_status_effect(/datum/status_effect/stacking/hypothermia, 1) //TA EDIT
 	qdel(src)

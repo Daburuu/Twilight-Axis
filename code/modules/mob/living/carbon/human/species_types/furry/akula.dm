@@ -4,6 +4,10 @@
 /datum/species/akula
 	name = "Axian"
 	id = "akula"
+	is_subrace = TRUE
+	origin_default = /datum/virtue/origin/etrusca
+	origin = "Etrusca"
+	base_name = "Beastvolk"
 	desc = "<b>Axian</b><br>\
 	Axians are a proud, shark-like people that have a heritage founded in maritime trade, \
 	tax evasion, and piracy. They have a strong distaste for the nobility and taxation, \
@@ -70,6 +74,7 @@
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
 		/datum/customizer/bodypart_feature/legwear,
+		/datum/customizer/bodypart_feature/piercing,
 		/datum/customizer/organ/snout/akula,
 		/datum/customizer/organ/tail/axian,
 		/datum/customizer/organ/ears/axian,

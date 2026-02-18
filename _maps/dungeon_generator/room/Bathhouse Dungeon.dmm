@@ -510,10 +510,6 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/open/floor/rogue/grass,
 /area/rogue/under/tomb/wilds)
-"kz" = (
-/mob/living/carbon/human/species/npc/deadite,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/under/tomb/indoors/royal)
 "kA" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -619,7 +615,7 @@
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/tomb/indoors/royal)
 "nW" = (
-/mob/living/carbon/human/species/npc/deadite,
+/mob/living/carbon/human/species/skeleton/npc/hard,
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors/royal)
 "ob" = (
@@ -778,6 +774,14 @@
 /obj/item/clothing/cloak/raincloak/furcloak,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb/indoors)
+"re" = (
+/obj/structure/chair/stool/rogue,
+/obj/effect/decal/cleanable/blood,
+/obj/machinery/light/rogue/campfire/fireplace{
+	pixel_y = -32
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/under/tomb/indoors)
 "ri" = (
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/tomb/indoors/royal)
@@ -845,7 +849,7 @@
 /turf/open/floor/rogue/blocks/newstone/alt,
 /area/rogue/under/tomb/sewer)
 "sy" = (
-/mob/living/carbon/human/species/npc/deadite,
+/mob/living/carbon/human/species/skeleton/npc/hard,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb/indoors)
 "sz" = (
@@ -1169,6 +1173,10 @@
 /obj/machinery/light/rogue/candle/weak,
 /turf/open/floor/rogue/grass,
 /area/rogue/under/tomb/wilds)
+"yC" = (
+/mob/living/carbon/human/species/skeleton/npc/medium,
+/turf/open/floor/carpet/royalblack,
+/area/rogue/under/tomb/indoors/royal)
 "yH" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/item/natural/cloth,
@@ -1277,7 +1285,9 @@
 /turf/open/floor/rogue/blocks/newstone/alt,
 /area/rogue/under/tomb/sewer)
 "AK" = (
-/obj/item/chair/wood/wings,
+/obj/item/chair/rogue{
+	dir = 4
+	},
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors/royal)
 "AN" = (
@@ -1322,8 +1332,8 @@
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/tomb/indoors)
 "BD" = (
-/obj/item/chair/wood/wings{
-	dir = 1
+/obj/item/chair/rogue{
+	dir = 8
 	},
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors/royal)
@@ -1425,6 +1435,11 @@
 "Da" = (
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/tomb/indoors)
+"Dd" = (
+/obj/effect/decal/cleanable/blood/old,
+/mob/living/carbon/human/species/skeleton/npc/medium,
+/turf/open/floor/carpet/royalblack,
+/area/rogue/under/tomb/indoors/royal)
 "De" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -1481,10 +1496,6 @@
 /area/rogue/under/tomb/indoors)
 "Eu" = (
 /obj/machinery/light/rogue/hearth,
-/turf/closed/wall/mineral/rogue/decostone,
-/area/rogue/under/tomb)
-"Ey" = (
-/obj/machinery/light/rogue,
 /turf/closed/wall/mineral/rogue/decostone,
 /area/rogue/under/tomb)
 "EB" = (
@@ -1560,8 +1571,8 @@
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/tomb)
 "Gn" = (
-/obj/item/chair/wood/wings,
 /obj/effect/decal/cleanable/blood,
+/obj/item/chair/rogue,
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors/royal)
 "Gq" = (
@@ -1745,10 +1756,6 @@
 	dir = 1
 	},
 /area/rogue/under/tomb/sewer)
-"Ka" = (
-/mob/living/carbon/human/species/npc/deadite,
-/turf/open/floor/rogue/blocks,
-/area/rogue/under/tomb/indoors/royal)
 "Kg" = (
 /obj/machinery/light/rogue/candle/weak,
 /turf/closed/wall/mineral/rogue/stone/moss,
@@ -1805,7 +1812,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "Lm" = (
 /obj/item/chair/rogue/fancy{
-	dir = 8
+	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/rogue/tile/masonic/inverted,
@@ -2631,7 +2638,7 @@ vW
 vW
 Eu
 iN
-nW
+iN
 hP
 iN
 zv
@@ -2664,7 +2671,7 @@ vW
 Zl
 Gr
 iN
-iN
+kN
 iN
 zv
 ri
@@ -2687,8 +2694,8 @@ HU
 OL
 od
 iH
-EB
-Ey
+re
+Zl
 vW
 "}
 (11,1,1) = {"
@@ -3641,9 +3648,9 @@ gQ
 GI
 SJ
 oJ
-Ka
+Qj
 LZ
-qg
+Dd
 MJ
 Nv
 jr
@@ -4090,8 +4097,8 @@ ri
 be
 Le
 ae
-kz
 ae
+yC
 LZ
 tv
 YN
@@ -4107,7 +4114,7 @@ Cl
 Cl
 Zl
 kO
-AK
+BD
 pA
 vk
 Dp

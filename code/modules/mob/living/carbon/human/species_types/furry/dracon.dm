@@ -4,6 +4,10 @@
 /datum/species/dracon
 	name = "Drakian"
 	id = "dracon"
+	is_subrace = TRUE
+	origin_default = /datum/virtue/origin/grenzelhoft
+	origin = "Grenzelhoft"
+	base_name = "Zard"
 	desc = "<b>Drakian</b><br>\
 	Mighty scaled individuals who claim to be descendants of the dragons of yore.<br>\
 	(+1 Strength)"
@@ -62,6 +66,7 @@
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
 		/datum/customizer/bodypart_feature/legwear,
+		/datum/customizer/bodypart_feature/piercing,
 		/datum/customizer/organ/wings/dracon,
 		/datum/customizer/organ/tail/lizard,
 		/datum/customizer/organ/tail_feature/lizard_spines,

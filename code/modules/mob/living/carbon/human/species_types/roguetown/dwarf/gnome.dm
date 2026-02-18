@@ -4,6 +4,10 @@
 /datum/species/dwarf/gnome
 	name = "Gnome"
 	id = "gnome"
+	is_subrace = TRUE
+	origin_default = /datum/virtue/origin/hammerhold
+	origin = "Hammerhold"
+	base_name = "Dwarf"
 	desc = "<b>Gnome</b><br>\
 	Gnomes are short delicate creatures known for their quick thinking and wit.<br>\
 The naturally inquisitive mind of a Gnome inclines them towards arcane pursuits, artificing and teaching others.\
@@ -13,6 +17,7 @@ Even though they are of mixed blood and smaller than typical dwarves, most gnome
 	(+1 Intelligence, +1 Perception)"
 
 	skin_tone_wording = "Skintone"
+	use_skin_tone_wording_for_examine = FALSE
 
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,YOUNGBEARD,STUBBLE,OLDGREY)
@@ -65,6 +70,8 @@ Even though they are of mixed blood and smaller than typical dwarves, most gnome
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/bodypart_feature/legwear,
+		/datum/customizer/bodypart_feature/piercing,
 		/datum/customizer/organ/testicles/anthro,
 		/datum/customizer/organ/penis/anthro,
 		/datum/customizer/organ/breasts/human,
