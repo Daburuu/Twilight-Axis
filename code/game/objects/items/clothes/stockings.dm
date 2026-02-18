@@ -4,13 +4,11 @@
 	icon = 'icons/obj/items/clothes/stockings.dmi'
 	icon_state = "stockings"
 	resistance_flags = FLAMMABLE
-	w_class = WEIGHT_CLASS_TINY
 	obj_flags = CAN_BE_HIT
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	blade_dulling = DULLING_CUT
 	max_integrity = 200
-	integrity_failure = ARMOR_INTEG_FAILURE
-	throw_speed = 0.5
+	integrity_failure = 0.1
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	var/gendered
 	var/race
@@ -116,8 +114,6 @@
 /obj/item/legwears/fishnet/purple
 	color = "#664357"
 
-//Thigh-high
-
 /obj/item/legwears/thigh_high
 	name = "thigh-high stockings"
 	desc = "A legwear popular among those who plan to venture into colder climates."
@@ -130,16 +126,6 @@
 /obj/item/legwears/thigh_high/white
 	color = "#e6e5e5"
 
-//Thigh-high - Silk
-/obj/item/legwears/thigh_high_silk
-	name = "silk thigh-high stockings"
-	desc = "A legwear popular amongst the aristocracy and wealth burghers. Goes well with any dress!"
-	icon_state = "thigh_silk"
-
-/obj/item/legwears/thigh_high_silk/white
-	color = "#e6e5e5"
-
-//Knee-high
 /obj/item/legwears/knee_high
 	name = "knee-high stockings"
 	desc = "A legwear popular among those who enjoy taller boots."
@@ -150,15 +136,6 @@
 	color = pick("#e6e5e5", CLOTHING_BLACK, CLOTHING_BLUE, "#6F0000", "#664357")
 
 /obj/item/legwears/knee_high/white
-	color = "#e6e5e5"
-
-//Knee-high
-/obj/item/legwears/knee_high_silk
-	name = "knee-high stockings"
-	desc = "A legwear popular amongst wealthy courtesans and people with sense of style."
-	icon_state = "knee_silk"
-
-/obj/item/legwears/knee_high_silk/white
 	color = "#e6e5e5"
 
 // Supply
@@ -303,49 +280,35 @@
 // Craft
 
 /datum/crafting_recipe/roguetown/sewing/stockings_white
-	name = "stockings"
+	name = "stockings (1 fibers, 1 cloth)"
 	result = list(/obj/item/legwears/white)
 	reqs = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/sewing/stockings_thigh_white
-	name = "stockings - thigh"
+	name = "stockings - thigh (1 fibers, 1 cloth)"
 	result = list(/obj/item/legwears/thigh_high/white)
 	reqs = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/sewing/stockings_knee_white
-	name = "stockings - knee"
+	name = "stockings - knee (1 fibers, 1 cloth)"
 	result = list(/obj/item/legwears/knee_high)
 	reqs = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/sewing/stockings_white_silk
-	name = "silk stockings"
+	name = "silk stockings (1 fibers, 1 silk)"
 	result = list(/obj/item/legwears/silk/white)
 	reqs = list(/obj/item/natural/silk = 1,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 5
 
-/datum/crafting_recipe/roguetown/sewing/stockings_thigh_silk_white
-	name = "silk stockings - thigh"
-	result = list(/obj/item/legwears/thigh_high_silk/white)
-	reqs = list(/obj/item/natural/silk = 1,
-				/obj/item/natural/fibers = 1)
-	craftdiff = 5
-
-/datum/crafting_recipe/roguetown/sewing/stockings_knee_silk_white
-	name = "silk stockings - knee"
-	result = list(/obj/item/legwears/knee_high_silk/white)
-	reqs = list(/obj/item/natural/silk = 1,
-				/obj/item/natural/fibers = 1)
-	craftdiff = 5
-
 /datum/crafting_recipe/roguetown/sewing/stockings_white_fishnet
-	name = "fishnet stockings"
+	name = "fishnet stockings (2 fibers)"
 	result = list(/obj/item/legwears/fishnet/white)
 	reqs = list(/obj/item/natural/fibers = 2)
 	craftdiff = 3

@@ -26,9 +26,7 @@
 		/datum/language/etruscan,
 		/datum/language/gronnic,
 		/datum/language/aavnic,
-		/datum/language/undead,
-		/datum/language/abyssal,
-		/datum/language/oldazurian
+		/datum/language/undead
 	))
 
 /obj/item/organ/tongue/Initialize(mapload)

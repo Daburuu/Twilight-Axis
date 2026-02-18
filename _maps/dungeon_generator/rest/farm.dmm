@@ -154,11 +154,6 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/under/tomb/cave/wet)
-"rr" = (
-/obj/structure/closet/crate/roguecloset/dark,
-/obj/item/clothing/suit/roguetown/armor/chainmail/bikini,
-/turf/open/floor/rogue/carpet,
-/area/rogue/under/tomb/indoors)
 "tr" = (
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/tomb/indoors)
@@ -720,7 +715,7 @@ La
 Dl
 MF
 if
-rr
+if
 aR
 gO
 gO

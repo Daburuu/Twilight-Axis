@@ -106,12 +106,6 @@
 	color_keys = 2
 	color_key_names = list("Snout", "Eyes")
 
-/datum/sprite_accessory/snout/bugna
-	name = "Bug (No Antennae)"
-	icon_state = "bugna"
-	color_keys = 2
-	color_key_names = list("Snout", "Eyes")
-
 /datum/sprite_accessory/snout/elephant
 	name = "Elephant"
 	icon_state = "elephant"
@@ -343,12 +337,6 @@
 /datum/sprite_accessory/snout/front/bug
 	name = "Bug (Top)"
 	icon_state = "fbug"
-	color_keys = 2
-	color_key_names = list("Snout", "Eyes")
-
-/datum/sprite_accessory/snout/front/bugna
-	name = "Bug (No Antenna) (Top)"
-	icon_state = "fbugna"
 	color_keys = 2
 	color_key_names = list("Snout", "Eyes")
 

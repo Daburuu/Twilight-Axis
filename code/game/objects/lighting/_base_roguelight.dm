@@ -12,7 +12,6 @@
 	var/cookonme = FALSE
 	var/crossfire = TRUE
 	var/can_damage = FALSE
-	var/roundstart_forbid = FALSE
 
 /obj/machinery/light/rogue/Initialize()
 	if(soundloop)
@@ -22,8 +21,7 @@
 	if(fueluse > 0)
 		fueluse = fueluse - (rand(fueluse*0.1,fueluse*0.3))
 	update_icon()
-	if(!roundstart_forbid)
-		seton(TRUE)
+	seton(TRUE)
 	. = ..()
 
 /obj/machinery/light/rogue/weather_trigger(W)
@@ -45,7 +43,7 @@
 				minsleft = "less than a minute"
 			else
 				minsleft = "[round(minsleft)] minutes"
-			. += span_info("The fire will last for <b>[minsleft]</b>.")
+			. += span_info("The fire will last for [minsleft].")
 		else
 			if(initial(fueluse) > 0)
 				. += span_warning("The fire is burned out and hungry...")
@@ -122,7 +120,7 @@
 				var/foundstab = FALSE
 				for(var/X in A.possible_item_intents)
 					var/datum/intent/D = new X
-					if(D.blade_class in GLOB.stab_bclasses)
+					if(D.blade_class == BCLASS_STAB)
 						foundstab = TRUE
 						break
 				if(foundstab)

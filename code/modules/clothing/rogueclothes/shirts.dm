@@ -20,16 +20,6 @@
 	grid_width = 64
 	grid_height = 64
 
-/obj/item/clothing/suit/roguetown/shirt/MiddleClick(mob/user, params)
-	var/mob/living/carbon/H = user
-	if(!ishuman(H))
-		return
-	if(flags_inv & HIDEWINGS)
-		flags_inv &= ~HIDEWINGS
-	else
-		flags_inv |= HIDEWINGS
-	H.update_inv_armor()
-
 /obj/item/clothing/suit/roguetown/shirt/undershirt
 	name = "shirt"
 	desc = "Modest and humble. It lets you walk around in public with your dignity intact."
@@ -53,11 +43,6 @@
 	boobed = TRUE
 	flags_inv= HIDEBOOB|HIDECROTCH
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
-
-/obj/item/clothing/suit/roguetown/shirt/get_mechanics_examine(mob/user)
-	. = ..()
-	. += span_info("Shift-right click while targeting either arm to tear a sleeve off, which can be used to bandage wounds in an emergency.")
-	. += span_info("The chance to successfully tear a sleeve off scales with your character's Strength.")
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 	color = CLOTHING_BLACK
@@ -109,9 +94,6 @@
 /obj/item/clothing/suit/roguetown/shirt/undershirt/random/Initialize()
 	color = pick("#6b5445", "#435436", "#704542", "#79763f")
 	..()
-
-/obj/item/clothing/suit/roguetown/shirt/undershirt/green
-	color = CLOTHING_GREEN
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
 	name = "formal silks"
@@ -201,20 +183,16 @@
 			pic.color = get_detail_color()
 		add_overlay(pic)
 
-/obj/item/clothing/suit/roguetown/shirt/dress/royal/lordcolor(primary, secondary)
+/obj/item/clothing/suit/roguetown/shirt/dress/royal/lordcolor(primary,secondary)
 	detail_color = primary
-	color = secondary
 	update_icon()
-
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
-		H.update_inv_armor()
 
 /obj/item/clothing/suit/roguetown/shirt/dress/royal/Initialize()
 	. = ..()
-	GLOB.lordcolor += src
 	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary, GLOB.lordsecondary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
 
 /obj/item/clothing/suit/roguetown/shirt/dress/royal/Destroy()
 	GLOB.lordcolor -= src
@@ -262,7 +240,7 @@
 	name = "silky dress"
 	desc = "Despite not actually being made of silk, the legendary expertise needed to sew this puts the quality on par."
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
-	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	icon_state = "silkydress"
 	item_state = "silkydress"
 	sleevetype = null
@@ -436,7 +414,7 @@
 	desc = "Modest and fashionable, with the right colors."
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
 	icon_state = "tunic"
-	boobed = TRUE
+	boobed = FALSE
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	flags_inv = HIDECROTCH|HIDEBOOB
@@ -675,6 +653,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	flags_inv = HIDECROTCH|HIDEBOOB
+	allowed_race = NON_DWARVEN_RACE_TYPES
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/eastshirt2
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
@@ -689,6 +668,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	flags_inv = HIDECROTCH|HIDEBOOB
+	allowed_race = NON_DWARVEN_RACE_TYPES
 
 //tattoo code
 /obj/item/clothing/suit/roguetown/armor/regenerating/easttats
@@ -699,15 +679,15 @@
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	prevent_crits = PREVENT_CRITS_NONE
 	armor = ARMOR_RUMACLAN
-	body_parts_covered = COVERAGE_ALL_BUT_HANDFEET
-	body_parts_inherent = COVERAGE_ALL_BUT_HANDFEET
+	body_parts_covered = COVERAGE_FULL
+	body_parts_inherent = COVERAGE_FULL
 	icon = 'icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/shirts.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_shirts.dmi'
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	allowed_race = NON_DWARVEN_RACE_TYPES
-	max_integrity = 270
+	max_integrity = 195
 	flags_inv = null //free the breast
 	surgery_cover = FALSE // cauterize and surgery through it.
 
@@ -760,55 +740,3 @@
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_armor()
-
-/obj/item/clothing/suit/roguetown/shirt/courtphysician
-	name = "sanguine vest"
-	desc = "A silk vest, perhaps it will make it another dae without being bloodied."
-	boobed = FALSE
-	icon_state = "docvest"
-	item_state = "docvest"
-	icon = 'icons/roguetown/clothing/special/courtphys.dmi'
-	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_courtphys.dmi'
-	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/courtphys.dmi'
-	detail_tag = "_detail"
-	detail_color = CLOTHING_RED
-	salvage_result = /obj/item/natural/silk
-
-/obj/item/clothing/suit/roguetown/shirt/courtphysician/Initialize()
-	. = ..()
-	update_icon()
-
-/obj/item/clothing/suit/roguetown/shirt/courtphysician/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
-
-/obj/item/clothing/suit/roguetown/shirt/courtphysician/female
-	name = "sanguine blouse"
-	desc = "A silk blouse, elegant, but it does you no good in surgery."
-	boobed = FALSE
-	icon_state = "docblouse"
-	item_state = "docblouse"
-	icon = 'icons/roguetown/clothing/special/courtphys.dmi'
-	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_courtphys.dmi'
-	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/courtphys.dmi'
-	detail_tag = "_detail"
-	detail_color = CLOTHING_RED
-	salvage_result = /obj/item/natural/silk
-
-/obj/item/clothing/suit/roguetown/shirt/courtphysician/female/Initialize()
-	. = ..()
-	update_icon()
-
-/obj/item/clothing/suit/roguetown/shirt/courtphysician/female/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)

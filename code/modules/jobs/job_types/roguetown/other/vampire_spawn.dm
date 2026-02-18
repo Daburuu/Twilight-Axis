@@ -2,7 +2,7 @@
 /datum/job/roguetown/vampire_spawn
 	title = "Vampire Spawn"
 	flag = VAMPIRE_SERVANT
-	department_flag = ANTAGONIST
+	department_flag = SLOP
 	faction = "Station"
 	total_positions = 0
 	spawn_positions = 0
@@ -71,7 +71,7 @@
 			"Claymore",
 			"Great Mace",
 			"Battle Axe",
-			"Poleaxe",
+			"Greataxe",
 			"Estoc",
 			"Lucerne",
 			"Partizan",
@@ -104,8 +104,8 @@
 				r_hand = /obj/item/rogueweapon/mace/goden/steel
 			if("Battle Axe")
 				r_hand = /obj/item/rogueweapon/stoneaxe/battle
-			if("Poleaxe")
-				r_hand = /obj/item/rogueweapon/greataxe/steel/knight
+			if("Greataxe")
+				r_hand = /obj/item/rogueweapon/greataxe/steel
 				backl = /obj/item/rogueweapon/scabbard/gwstrap
 			if("Estoc")
 				r_hand = /obj/item/rogueweapon/estoc
@@ -140,7 +140,7 @@
 
 		var/armors = list(
 			"Brigandine"		= /obj/item/clothing/suit/roguetown/armor/brigandine/retinue,
-			"Coat of Plates"	= /obj/item/clothing/suit/roguetown/armor/plate/scale/knight,
+			"Coat of Plates"	= /obj/item/clothing/suit/roguetown/armor/brigandine/coatplates,
 			"Steel Cuirass"		= /obj/item/clothing/suit/roguetown/armor/plate/cuirass,
 			"Fluted Cuirass"	= /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted,
 		)

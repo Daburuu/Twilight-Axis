@@ -67,22 +67,17 @@
 /datum/supply_pack/rogue/drugs/zigbox
 	name = "Zigbox (Empty)"
 	cost = 5
-	contains = list(/obj/item/storage/belt/rogue/pouch/zigarrete)
+	contains = list(/obj/item/quiver/zigs)
 
 /datum/supply_pack/rogue/drugs/zigbox_pipezig
 	name = "Zigbox (Pipeweed)"
 	cost = 25
-	contains = list(/obj/item/storage/belt/rogue/pouch/zigarrete/nicotine)
+	contains = list(/obj/item/quiver/zigs/nicotine)
 
 /datum/supply_pack/rogue/drugs/zigbox_swampzig
 	name = "Zigbox (Swampweed)"
 	cost = 55
-	contains = list(/obj/item/storage/belt/rogue/pouch/zigarrete/cannabis)
-
-/datum/supply_pack/rogue/drugs/zigdolier
-	name = "Zigdolier (Empty)"
-	cost = 35
-	contains = list(/obj/item/storage/belt/rogue/leather/zig_bandolier)
+	contains = list(/obj/item/quiver/zigs/cannabis)
 
 /datum/supply_pack/rogue/drugs/fermented_crab
 	name = "Fermented Crab"

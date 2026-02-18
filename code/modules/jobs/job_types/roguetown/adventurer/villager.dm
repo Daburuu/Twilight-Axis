@@ -36,10 +36,22 @@
 		/datum/advclass/peasant,
 		/datum/advclass/potter,
 		/datum/advclass/seamstress,
-		/datum/advclass/thug/goon,
-		/datum/advclass/thug/wiseguy,
-		/datum/advclass/thug/bigman,
-		/datum/advclass/levy,
+		/datum/advclass/thug,
 		/datum/advclass/witch,
 		/datum/advclass/woodworker
 	)
+
+/*
+/datum/job/roguetown/adventurer/villager/New()
+	. = ..()
+	for(var/X in GLOB.peasant_positions)
+		peopleiknow += X
+		peopleknowme += X
+	for(var/X in GLOB.yeoman_positions)
+		peopleiknow += X
+	for(var/X in GLOB.church_positions)
+		peopleiknow += X
+	for(var/X in GLOB.garrison_positions)
+		peopleiknow += X
+	for(var/X in GLOB.noble_positions)
+		peopleiknow += X*/

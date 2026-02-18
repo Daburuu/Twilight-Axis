@@ -73,7 +73,6 @@
 
 /obj/effect/decal/remains/bigrat
 	name = "remains"
-	desc = "All that remains of a once-living rous. All that comes from filth returns to filth."
 	gender = PLURAL
 	icon_state = "ratbones"
 	icon = 'icons/roguetown/mob/monster/bigrat.dmi'

@@ -95,8 +95,7 @@ export const RecipeDisplay = (props) => {
     })
     .sort(
       (a, b) =>
-        (a.category || '').localeCompare(b.category || '') ||
-        (a.name || '').localeCompare(b.name || ''),
+        a.category.localeCompare(b.category) || a.name.localeCompare(b.name),
     );
 
   return (

@@ -1,7 +1,6 @@
 /mob/living/simple_animal/hostile/rogue/deepone
 	name = "Deep One"
-	desc = "It is said that, when the world was young and Abyssor did not yet dream, he took a mass of humenity \
-	in his hand and brought them to the abyss, sculpting from them speechless men in his own image."
+	desc = ""
 	icon = 'icons/roguetown/mob/monster/fishman.dmi'
 	icon_state = "deep1"
 	icon_living = "deep1"
@@ -44,6 +43,7 @@
 
 /mob/living/simple_animal/hostile/rogue/deepone/arm
 	name = "Deep One"
+	desc = ""
 	icon = 'icons/roguetown/mob/monster/fishman.dmi'
 	icon_state = "deep1_arm"
 	health = DEEPONE_HEALTH * 1.4
@@ -56,6 +56,7 @@
 
 /mob/living/simple_animal/hostile/rogue/deepone/spit
 	name = "Deep One"
+	desc = ""
 	icon = 'icons/roguetown/mob/monster/fishman.dmi'
 	icon_state = "deep1_spit"
 	icon_living = "deep1_spit"
@@ -71,6 +72,7 @@
 
 /mob/living/simple_animal/hostile/rogue/deepone/wiz
 	name = "Deep One Devout"
+	desc = ""
 	icon = 'icons/roguetown/mob/monster/fishman.dmi'
 	icon_state = "deep1_wiz"
 	icon_living = "deep1_wiz"

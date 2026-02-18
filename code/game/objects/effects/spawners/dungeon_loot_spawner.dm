@@ -65,8 +65,8 @@
 
 		//medical
 		/obj/item/needle = 4,
-		/obj/item/natural/cloth/bandage = 5,
-		/obj/item/natural/bundle/cloth/bandage/full = 3,
+		/obj/item/natural/cloth = 5,
+		/obj/item/natural/bundle/cloth = 3,
 
 		//weapons
 		/obj/item/rogueweapon/mace = 2,
@@ -239,8 +239,8 @@
 	loot = list(
 		//medical
 		/obj/item/needle = 4,
-		/obj/item/natural/cloth/bandage = 5,
-		/obj/item/natural/bundle/cloth/bandage/full = 3,
+		/obj/item/natural/cloth = 5,
+		/obj/item/natural/bundle/cloth = 3
 	)
 	lootcount = 2
 
@@ -351,7 +351,7 @@
 		/obj/item/book/granter/spell/blackstone/bonechill = 5,
 		/obj/item/book/granter/spell/blackstone/featherfall = 5,
 		/obj/item/book/granter/spell/blackstone/sicknessray = 5,
-
+		/obj/item/book/granter/spell/blackstone/aerosolize = 5,
 		/obj/item/book/granter/spell/blackstone/frostbolt = 5,
 		/obj/item/book/granter/spell/blackstone/forcewall_weak = 4,
 		/obj/item/book/granter/spell/blackstone/guidance = 4,

@@ -92,7 +92,6 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	bodypart_owner = null
 	owner = null
 	. = ..()
-	return QDEL_HINT_IWILLGC
 
 /// Description of this wound returned to the player when a bodypart is examined and such
 /datum/wound/proc/get_visible_name(mob/user)
@@ -383,10 +382,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	var/oldname = name
 	if(length(severity_names))
 		for(var/sevname in severity_names)
-			if(!bleed_rate) //if it's a hematoma, use whp for naming
-				if(severity_names[sevname] <= whp)
-					newname = sevname
-			else if(severity_names[sevname] <= bleed_rate)
+			if(severity_names[sevname] <= bleed_rate)
 				newname = sevname
 	name = "[newname  ? "[newname] " : ""][initial(name)]"	//[adjective] [name], aka, "gnarly slash" or "slash"
 	if(name != oldname)
@@ -418,7 +414,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 #define CLOT_THRESHOLD_ARTERY 2
 
 /// Make sure this is called AFTER your child upgrade proc, unless you have a reason for the bleed rate to be above artery on a regular wound.
-/datum/wound/dynamic/upgrade(dam as num, armor, exposed = FALSE)
+/datum/wound/dynamic/upgrade(dam as num)
 	if(!bodypart_owner.unlimited_bleeding)
 		if(bleed_rate >= ARTERY_LIMB_BLEEDRATE)
 			set_bleed_rate(ARTERY_LIMB_BLEEDRATE)

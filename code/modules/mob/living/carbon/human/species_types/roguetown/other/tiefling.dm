@@ -4,10 +4,6 @@
 /datum/species/tieberian
 	name = "Tiefling"
 	id = "tiefling"
-	origin_default = /datum/virtue/origin/etrusca
-	origin = "Etrusca"
-	base_name = "Godtouched"
-	is_subrace = TRUE
 	desc = "<b>Tiefling</b><br>\
 	The offspring of demons with mortal races, a consequence of demonic incursions into the mortal realm and dark pacts. \
 	Their origins dating back to the demonic invasion of Archdevil Vheslyn who pillaged and ravaged the mortal lands and its people before being stopped by Psydon. \
@@ -20,7 +16,6 @@
 	(+1 Constitution, +1 Intelligence)"
 
 	skin_tone_wording = "Progenitor"
-	use_skin_tone_wording_for_examine = FALSE
 
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP)
@@ -75,7 +70,6 @@
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
 		/datum/customizer/bodypart_feature/legwear,
-		/datum/customizer/bodypart_feature/piercing,
 		/datum/customizer/organ/horns/anthro,
 		/datum/customizer/organ/tail/tiefling,
 		/datum/customizer/organ/testicles/anthro,
@@ -137,14 +131,6 @@
 		"Chyerno" = SKIN_COLOR_CHYERNO,
 		"Drema"	= SKIN_COLOR_DREMA,
 		"Chir"	= SKIN_COLOR_CHIR,
-		"Vesyl"	= SKIN_COLOR_VESYL,
-		"Krosec" = SKIN_COLOR_KROSEC,
-		"Asza" = SKIN_COLOR_ASZA,
-		"Krizzsha" = SKIN_COLOR_KRIZZSHA,
-		"Tosiz" = SKIN_COLOR_TOSIZ,
-		"Velothel" = SKIN_COLOR_VELOTHEL,
-		"Xir" = SKIN_COLOR_XIR,
-		"Esse" = SKIN_COLOR_ESSE,
 		"Glasya"	= SKIN_COLOR_GLASYA,
 		"Asmodeus"	= SKIN_COLOR_ASMODEUS
 	)

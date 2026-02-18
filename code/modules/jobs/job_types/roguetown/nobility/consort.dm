@@ -20,9 +20,6 @@
 	min_pq = 5
 	max_pq = null
 	round_contrib_points = 3
-
-	vice_restrictions = list(/datum/charflaw/mute, /datum/charflaw/unintelligible) //Needs to use the throat - sometimes
-
 	same_job_respawn_delay = 30 MINUTES
 
 /datum/job/roguetown/lady/after_spawn(mob/living/spawned, client/player_client)
@@ -50,7 +47,7 @@
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
 //		SSticker.rulermob = H
 	if(should_wear_femme_clothes(H))
-		beltl = /obj/item/storage/keyring/lady
+		beltl = /obj/item/storage/keyring/royal
 		neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 		belt = /obj/item/storage/belt/rogue/leather/cloth/lady
 		head = /obj/item/clothing/head/roguetown/nyle/consortcrown
@@ -64,7 +61,7 @@
 		armor = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 		belt = /obj/item/storage/belt/rogue/leather
-		beltl = /obj/item/storage/keyring/lady
+		beltl = /obj/item/storage/keyring/royal
 		beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 		backr = /obj/item/storage/backpack/rogue/satchel
 		id = /obj/item/clothing/ring/silver
@@ -85,7 +82,6 @@
 	H.change_stat(STATKEY_LCK, 5)
 	if(H.mind)
 		SStreasury.give_money_account(ECONOMIC_RICH, H, "Savings.")
-		record_round_statistic(STATS_MARRIAGES_MADE)//Terrible way to do this but like, it wouldn't work off the "I'm married proc" so here we are.
 
 /obj/effect/proc_holder/spell/self/convertrole/servant
 	name = "Recruit Servant"

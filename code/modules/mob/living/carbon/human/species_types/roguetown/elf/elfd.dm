@@ -4,10 +4,6 @@
 /datum/species/elf/dark
 	name = "Dark Elf"
 	id = "elfd"
-	is_subrace = TRUE
-	origin_default = /datum/virtue/origin/racial/underdark
-	origin = "Underdark"
-	base_name = "Elf"
 	desc = "<b>Dark Elf</b><br>\
 	\"Elf\" is a catch-all term used for tall, pointy-eared humanoids who can trace their \
 	heritage to the ancient and mysterious Snow Elves. This species of elf, less frequently \
@@ -41,8 +37,7 @@
 	without careful upkeep...\
 	They typically trace their beginnings to how their progenator died before being raised."
 */
-	skin_tone_wording = "City-State"
-	use_skin_tone_wording_for_examine = FALSE
+	skin_tone_wording = "Origin City-State"
 	max_age = 850
 
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,OLDGREY)
@@ -53,7 +48,6 @@
 	use_skintones = TRUE
 	disliked_food = NONE
 	liked_food = NONE
-	inherent_traits = list(TRAIT_CAVEDWELLER)
 	possible_ages = ALL_AGES_LIST
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mem.dmi'
@@ -100,7 +94,6 @@
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
 		/datum/customizer/bodypart_feature/legwear,
-		/datum/customizer/bodypart_feature/piercing,
 		/datum/customizer/organ/ears/elf,
 		/datum/customizer/organ/testicles/anthro,
 		/datum/customizer/organ/penis/anthro,
@@ -129,6 +122,8 @@
 	stress_examine = TRUE
 	stress_desc = span_red("A loathesome dark elf.")
 
+/datum/species/elf/dark/after_creation(mob/living/carbon/C)
+	C.faction += "spider_lowers"
 
 /datum/species/elf/dark/get_span_language(datum/language/message_language)
 	if(!message_language)

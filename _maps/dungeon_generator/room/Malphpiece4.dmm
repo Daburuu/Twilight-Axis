@@ -26,6 +26,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "cG" = (
 /obj/structure/fluff/walldeco/painting/seraphina,
+/obj/structure/fluff/walldeco/painting/seraphina,
 /turf/closed/wall/mineral/rogue/wood,
 /area/rogue/under/tomb/indoors/royal)
 "cO" = (

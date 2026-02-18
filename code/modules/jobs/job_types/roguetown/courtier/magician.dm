@@ -2,6 +2,7 @@
 	title = "Court Magician"
 	flag = WIZARD
 	department_flag = COURTIERS
+	selection_color = JCOLOR_COURTIER
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -47,7 +48,6 @@
 		STATKEY_STR = -1,
 		STATKEY_CON = -1,
 	)
-	age_mod = /datum/class_age_mod/court_magician
 	subclass_skills = list(
 		/datum/skill/combat/staves = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/polearms = SKILL_LEVEL_JOURNEYMAN,
@@ -74,6 +74,11 @@
 /datum/outfit/job/roguetown/magician/choose_loadout(mob/living/carbon/human/H)
 	. = ..()
 	if(H.age == AGE_OLD)
+		H.adjust_skillrank_up_to(/datum/skill/magic/arcane, 6, TRUE)
+		H.change_stat(STATKEY_SPD, -1)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_PER, 1)
+		H.mind?.adjust_spellpoints(6)
 		if(ishumannorthern(H))
 			belt = /obj/item/storage/belt/rogue/leather/plaquegold
 			cloak = null
@@ -105,7 +110,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	saiga_shoes = /obj/item/clothing/shoes/roguetown/horseshoes
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
-	beltr = /obj/item/storage/keyring/magician
+	beltr = /obj/item/storage/keyring/mage
 	beltl = /obj/item/storage/magebag/associate
 	id = /obj/item/clothing/ring/gold
 	r_hand = /obj/item/rogueweapon/woodstaff/riddle_of_steel/magos
@@ -120,4 +125,3 @@
 	)
 	if(H.mind)
 		SStreasury.give_money_account(ECONOMIC_RICH, H, "Savings.")
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/arcane_announcement) //TA EDIT

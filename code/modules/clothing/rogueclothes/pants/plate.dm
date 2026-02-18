@@ -1,6 +1,6 @@
 /obj/item/clothing/under/roguetown/platelegs
 	name = "steel plate chausses"
-	desc = "Armored leggings, covered in segmented plates of steel. The trouseres beneath are lined with quilted cloth, ensuring that neither pintle-nor-gudgeon shall succumb to the motions-of-war."
+	desc = "Reinforced armor to protect the legs."
 	gender = PLURAL
 	icon_state = "plate_legs"
 	item_state = "plate_legs"
@@ -23,12 +23,10 @@
 /obj/item/clothing/under/roguetown/platelegs/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_STEP, 8)
-	AddComponent(/datum/component/armour_filtering/negative, TRAIT_FENCERDEXTERITY)
-	AddComponent(/datum/component/armour_filtering/negative, TRAIT_HONORBOUND)
 
 /obj/item/clothing/under/roguetown/platelegs/iron
 	name = "iron plate chausses"
-	desc = "Armored leggings, covered in segmented plates of iron. The leather trousers beneath do chafe under longer marches, but it's nothing that a smidge of smeared fat can't soothe."
+	desc = "Reinforced armor to protect the legs."
 	icon_state = "iplate_legs"
 	item_state = "iplate_legs"
 	max_integrity = ARMOR_INT_LEG_IRON_PLATE
@@ -41,7 +39,6 @@
 	max_integrity = ARMOR_INT_LEG_DECREPIT_PLATE
 	color = "#bb9696"
 	chunkcolor = "#532e25"
-	material_category = ARMOR_MAT_PLATE
 	smeltresult = /obj/item/ingot/aaslag
 	anvilrepair = null
 	prevent_crits = PREVENT_CRITS_NONE
@@ -54,7 +51,7 @@
 
 /obj/item/clothing/under/roguetown/platelegs/graggar
 	name = "vicious leggings"
-	desc = "Fluted chausses, marinated in the afterbirth of disemboweled tyrants. Never kneel, again - never fall, again; cripple the ones who sought to keep you a slave, and force them to see the monster they've made of you."
+	desc = "Plate chausses which stir with the innate violence driving our world"
 	icon_state = "graggarplatelegs"
 	armor = ARMOR_ASCENDANT
 	max_integrity = ARMOR_INT_LEG_STEEL_PLATE // Good good resistances, but less crit resist than the other ascendant armors. In trade, we can take off our pants to repair, and they are medium rather than heavy.
@@ -87,7 +84,7 @@
 /obj/item/clothing/under/roguetown/platelegs/zizo
 	max_integrity = ARMOR_INT_LEG_ANTAG
 	name = "avantyne garments"
-	desc = "An unstemmable cognitovirus, laminated into thrice-parted leggings worn by only the truest - those, anointed by the Dame of Progress. In Her name."
+	desc = "Leg garments worn by true anointed of the Dame of Progress. In Her name."
 	icon_state = "zizocloth"
 	armor = ARMOR_ASCENDANT
 	prevent_crits = PREVENT_CRITS_ALL

@@ -59,145 +59,107 @@ GLOBAL_LIST_INIT(nonhuman_positions, list(
 	"Cyborg",
 	ROLE_PAI))
 
-///////////////
-// ROGUETOWN //
-///////////////
-
-GLOBAL_LIST_INIT(leadership_positions, list( // Used for boldening text primarily
-	"Grand Duke",
-	"Hand",
-	"Court Magician",
-	"Marshal",
-	"Sergeant",
-	"Bishop",
-	"Martyr",
-	"Merchant",
-	"Guildmaster",
-	"Head Physician",
-	"Innkeeper",
-	"Bathmaster",
-	"Inquisitor"
-))
-
-GLOBAL_LIST_INIT(regency_positions, list( // Used to determine elligibility for Regency
-	"Consort",
-	"Prince",
-	"Hand",
-	"Steward",
-	"Councillor",
-	"Marshal",
-))
-
-GLOBAL_LIST_INIT(noble_positions, list( //Royal family only
+GLOBAL_LIST_INIT(noble_positions, list(
 	"Grand Duke",
 	"Consort",
-	"Prince",
-))
-
-GLOBAL_LIST_INIT(courtier_positions, list( //Anyone that is officially part of the court
-	"Hand",
-	"Steward",
-	"Councillor",
-	"Clerk",
-	"Jester",
-	"Court Magician",
-	"Archivist",
-	"Seneschal",
 	"Suitor",
-))
-
-GLOBAL_LIST_INIT(retinue_positions, list( //Manorites
+	"Prince",
+	"Hand",
+	"Knight Captain",
 	"Marshal",
+	"Councillor",
+	"Steward",
 	"Knight",
-	"Squire",
 ))
 
-GLOBAL_LIST_INIT(garrison_positions, list( //Guards
+GLOBAL_LIST_INIT(courtier_positions, list(
+	"Court Magician",
+	"Head Physician",
+	"Jester",
+	"Seneschal",
+))
+
+GLOBAL_LIST_INIT(garrison_positions, list(
+	"Watchman",
+	"Warden",
 	"Sergeant",
 	"Man at Arms",
-	"Warden",
-	"Watchman",
+	"Squire",
+	"Dungeoneer",
 ))
 
-GLOBAL_LIST_INIT(church_positions, list( //Church of the Ten
+GLOBAL_LIST_INIT(church_positions, list(
 	"Bishop",
-	"Martyr",
-	"Templar",
-	"Keeper",
-	"Druid",
+	"Confessor",
 	"Acolyte",
+	"Mortician",
+	"Keeper",
+	"Templar",
+	"Druid",
+	"Martyr",
 	"Sexton",
 ))
 
-GLOBAL_LIST_INIT(burgher_positions, list( //Artisans, store owners what have you.
+GLOBAL_LIST_INIT(inquisition_positions, list(
+	"Inquisitor",
+	"Orthodoxist",
+	"Absolver",
+))
+
+
+GLOBAL_LIST_INIT(yeoman_positions, list(
 	"Merchant",
+	"Innkeeper",
+	"Archivist",
+	"Scribe",
+	"Town Crier",
+	"Bathmaster",
 	"Guildmaster",
 	"Guildsman",
-	"Tailor",
-	"Head Physician",
-	"Apothecary",
-	"Innkeeper",
-	"Bathmaster",
-	"Town Crier",
-	"Magicians Associate",
+	"Tailor"
 ))
 
-GLOBAL_LIST_INIT(peasant_positions, list( //Serfs / peasants / generic towners
-	"Bathhouse Attendant",
+GLOBAL_LIST_INIT(peasant_positions, list(
+	"Soilson",
 	"Cook",
+	"Lunatic",
+	"Miner",
+	"Hunter",
+	"Fisher",
+	"Lumberjack",
+	"Towner",
+	"Nightmaster",
 	"Tapster",
+	"Bathhouse Attendant",
+	"Prisoner",
+	"Beggar",
+	"Trader",
+	"Pilgrim",
+))
+
+GLOBAL_LIST_INIT(mercenary_positions, list(
+	"Grenzelhoft Mercenary",
+	"Desert Rider Mercenary",
+))
+
+GLOBAL_LIST_INIT(youngfolk_positions, list(
+	"Clerk",
+	"Apothecary",
+	"Smithy Apprentice",
+	"Magicians Associate",
 	"Servant",
 	"Shophand",
-	"Soilson",
-	"Towner",
-))
-
-GLOBAL_LIST_INIT(sidefolk_positions, list( //Weerdoes who hang around the town
-	"Lunatic",
 	"Vagabond",
-	"Migrant",
-	"Pilgrim",
-	"Mercenary",	
+))
+
+GLOBAL_LIST_INIT(wanderer_positions, list(
 	"Veteran",
-))
-
-GLOBAL_LIST_INIT(wanderer_positions, list( //Homeless
 	"Adventurer",
+	"Mercenary",
+	"Bandit",
+	"Assassin",
 	"Court Agent",
-	"Trader",
-))
-
-GLOBAL_LIST_INIT(antagonist_positions, list( //Mostly lesser antagonists
-	"Assassin",
-	"Bandit",
 	"Wretch",
-	"Gnoll",
-))
-
-GLOBAL_LIST_INIT(inquisition_positions, list( //Self explanatory
-	"Inquisitor",
-	"Absolver",
-	"Orthodoxist",
-))
-
-GLOBAL_LIST_INIT(rogueoverthrow_positions, list( //Used for Aspirant / Peasant Rebellion
-	"Grand Duke",
-	"Consort",
-	"Suitor",
-	"Prince",
-	"Hand",
-	"Steward",
-	"Councillor",
-	"Suitor",
-	"Marshal",
-	"Knight",
-	"Inquisitor",
-	"Absolver",
-	"Orthodoxist",
-	"Assassin",
-	"Bandit",
-	"Wretch",
-	"Gnoll"
 ))
 
 GLOBAL_LIST_INIT(roguewar_positions, list(
@@ -237,14 +199,12 @@ GLOBAL_LIST_INIT(job_assignment_order, get_job_assignment_order())
 	var/list/sorting_order = list()
 	sorting_order += GLOB.noble_positions
 	sorting_order += GLOB.courtier_positions
-	sorting_order += GLOB.retinue_positions
 	sorting_order += GLOB.garrison_positions
 	sorting_order += GLOB.church_positions
-	sorting_order += GLOB.burgher_positions
-	sorting_order += GLOB.peasant_positions
-	sorting_order += GLOB.sidefolk_positions
-	sorting_order += GLOB.antagonist_positions
 	sorting_order += GLOB.inquisition_positions
+	sorting_order += GLOB.yeoman_positions
+	sorting_order += GLOB.peasant_positions
+	sorting_order += GLOB.youngfolk_positions
 	return sorting_order
 
 GLOBAL_LIST_INIT(exp_jobsmap, list(

@@ -4,7 +4,6 @@
 /datum/species/anthromorph
 	name = "Wild-Kin"
 	id = "anthromorph"
-	base_name = "Beastvolk"
 	desc = "A product of Dendor's enigmatic meddling in mortals races. The average wild-kin suffers from animalistic urges that vary in severity, \
 	from simply avoiding certain foods to smoldering desires to howl at the moon or chase prey. Usually these urges are tied to the animal that the wild-kin is melded with, \
 	making them rather predictable. Despite this, the way each wild-kin approaches their bizarre physiology and psychology varies, \
@@ -24,7 +23,6 @@
 		/obj/item/bodypart/taur/lamia,
 		/obj/item/bodypart/taur/spider,
 		/obj/item/bodypart/taur/horse,
-		/obj/item/bodypart/taur/goat,
 	)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
@@ -78,7 +76,6 @@
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
 		/datum/customizer/bodypart_feature/legwear,
-		/datum/customizer/bodypart_feature/piercing,
 		/datum/customizer/organ/tail/anthro,
 		/datum/customizer/organ/tail_feature/anthro,
 		/datum/customizer/organ/snout/anthro,

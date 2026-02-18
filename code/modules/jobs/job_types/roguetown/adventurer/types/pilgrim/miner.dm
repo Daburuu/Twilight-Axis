@@ -33,7 +33,6 @@
 		/datum/skill/craft/smelting = SKILL_LEVEL_EXPERT,
 		/datum/skill/misc/reading = SKILL_LEVEL_NOVICE,
 	)
-	maximum_possible_slots = 20 // Should not fill, just a hack to make it shows what types of towners are in round
 
 
 /datum/outfit/job/roguetown/adventurer/miner/pre_equip(mob/living/carbon/human/H)
@@ -56,10 +55,10 @@
 						/obj/item/rogueweapon/huntingknife = 1,
 						/obj/item/storage/hip/orestore/bronze = 1
 						)
-	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F || H.pronouns == IT_ITS)
+	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/brown
-	if(H.pronouns == HE_HIM || H.pronouns == THEY_THEM || H.pronouns == IT_ITS_M)
+	if(H.pronouns == HE_HIM || H.pronouns == THEY_THEM || H.pronouns == IT_ITS)
 		armor = /obj/item/clothing/suit/roguetown/armor/workervest
 		pants = /obj/item/clothing/under/roguetown/trou
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random

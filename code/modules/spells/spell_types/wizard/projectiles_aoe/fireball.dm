@@ -26,13 +26,13 @@
 
 /obj/projectile/magic/aoe/fireball/rogue
 	name = "fireball"
-	exp_heavy = -1
-	exp_light = -1
+	exp_heavy = 0
+	exp_light = 0
 	exp_flash = 0
 	exp_fire = 1
 	damage = 50
 	damage_type = BURN
-	npc_simple_damage_mult = 2.4 // 1 shotting crawlers is cool. intentionally different from other fireballs due to arcyne mark disparity
+	npc_simple_damage_mult = 2 // HAHAHA
 	accuracy = 40 // Base accuracy is lower for burn projectiles because they bypass armor
 	nodamage = FALSE
 	flag = "magic"

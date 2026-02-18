@@ -4,9 +4,6 @@
 /datum/species/aasimar
 	name = "Aasimar"
 	id = "aasimar"
-	origin_default = /datum/virtue/origin/otava
-	origin = "Otava"
-	base_name = "Godtouched"
 	desc = "<b>Aasimar</b><br>\
 	Aasimar are born of a rare union between Humens and Angels. \
 	They bear the mark of their celestial touch through their many varying physical features. \
@@ -18,6 +15,7 @@
 	Due to their celestial nature, it is widely believed that an Aasimar's death is a bad omen...<br>\
 	(+1 Stat of their choice, or Lack of Hunger & Thirst)"
 
+	skin_tone_wording = "Craft"
 	max_age = "???"
 
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY)
@@ -56,7 +54,6 @@
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
 		/datum/customizer/bodypart_feature/legwear,
-		/datum/customizer/bodypart_feature/piercing,
 		/datum/customizer/organ/testicles/anthro,
 		/datum/customizer/organ/penis/anthro,
 		/datum/customizer/organ/breasts/human,

@@ -11,7 +11,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 
 /datum/job/roguetown/priest
 	title = "Bishop"
-	flag = BISHOP
+	flag = PRIEST
 	department_flag = CHURCHMEN
 	faction = "Station"
 	total_positions = 1
@@ -27,7 +27,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 
 	spells = list(/obj/effect/proc_holder/spell/invoked/cure_rot, /obj/effect/proc_holder/spell/self/convertrole/templar, /obj/effect/proc_holder/spell/self/convertrole/monk, /obj/effect/proc_holder/spell/invoked/projectile/divineblast, /obj/effect/proc_holder/spell/invoked/wound_heal, /obj/effect/proc_holder/spell/invoked/takeapprentice)
 	outfit = /datum/outfit/job/roguetown/priest
-	display_order = JDO_BISHOP
+	display_order = JDO_PRIEST
 	give_bank_account = TRUE
 	min_pq = 12 // You should know the basics of things if you're going to lead the town's entire religious sector
 	max_pq = null
@@ -35,7 +35,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	same_job_respawn_delay = 30 MINUTES
 	//No nobility for you, being a member of the clergy means you gave UP your nobility. It says this in many of the church tutorial texts.
 	virtue_restrictions = list(/datum/virtue/utility/noble)
-	job_traits = list(TRAIT_CHOSEN, TRAIT_RITUALIST, TRAIT_GRAVEROBBER, TRAIT_HOMESTEAD_EXPERT, TRAIT_MEDICINE_EXPERT, TRAIT_CLERGY)
+	job_traits = list(TRAIT_CHOSEN, TRAIT_RITUALIST, TRAIT_GRAVEROBBER, TRAIT_HOMESTEAD_EXPERT, TRAIT_MEDICINE_EXPERT)
 	advclass_cat_rolls = list(CTAG_BISHOP = 2)
 	job_subclasses = list(
 		/datum/advclass/bishop
@@ -57,7 +57,6 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		STATKEY_CON = -1,
 		STATKEY_SPD = -1
 	)
-	age_mod = /datum/class_age_mod/priest
 	subclass_skills = list(
 		/datum/skill/combat/wrestling = SKILL_LEVEL_MASTER,
 		/datum/skill/combat/unarmed = SKILL_LEVEL_MASTER,
@@ -88,7 +87,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/priest
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
-	beltl = /obj/item/storage/keyring/church
+	beltl = /obj/item/storage/keyring/priest
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 	id = /obj/item/clothing/ring/active/nomag
@@ -102,6 +101,8 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		/obj/item/clothing/neck/roguetown/psicross/undivided = 1
 	)
 	H.AddComponent(/datum/component/wise_tree_alert)
+	if(H.age == AGE_OLD)
+		H.adjust_skillrank_up_to(/datum/skill/magic/holy, 6, TRUE)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron) // This creates the cleric holder used for devotion spells
 	C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, start_maxed = TRUE)	//Starts off maxed out.
 
@@ -114,10 +115,6 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	H.verbs |= /mob/living/carbon/human/proc/completesermon
 	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/convert_heretic_priest)
 	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/revive)
-	H.mind.special_items["Bishop Cape"] = /obj/item/clothing/cloak/bishop
-	H.mind.special_items["Bishop Hood"] = /obj/item/clothing/head/roguetown/roguehood/bishop
-	H.mind.special_items["Bishop Mask"] = /obj/item/clothing/mask/rogue/ragmask/bishop
-	H.mind.special_items["Bishop Robe"] = /obj/item/clothing/suit/roguetown/shirt/robe/bishop
 	if(H.mind)
 		SStreasury.give_money_account(ECONOMIC_UPPER_CLASS, H, "Church Funding.")
 	switch(H.patron?.type)
@@ -266,7 +263,6 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		ADD_TRAIT(H, TRAIT_ARCYNE_T1, TRAIT_GENERIC)
 	if(H.patron?.type == /datum/patron/divine/abyssor)
 		ADD_TRAIT(H, TRAIT_WATERBREATHING, TRAIT_GENERIC)
-		H.grant_language(/datum/language/abyssal)
 	if(H.patron?.type == /datum/patron/divine/necra)
 		ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_SOUL_EXAMINE, TRAIT_GENERIC)
@@ -281,11 +277,12 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		ADD_TRAIT(H, TRAIT_SMITHING_EXPERT, TRAIT_GENERIC)
 	if(H.patron?.type == /datum/patron/divine/ravox)
 		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_BATTLEMASTER, TRAIT_GENERIC)
 
 /datum/job/priest/vice //just used to change the priest title
 	title = "Vice Priest"
 	f_title = "Vice Priestess"
-	flag = BISHOP
+	flag = PRIEST
 	department_flag = CHURCHMEN
 	total_positions = 0
 	spawn_positions = 0
@@ -323,7 +320,6 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		//Coronate new King (or Queen)
 		HU.mind.assigned_role = "Grand Duke"
 		HU.job = "Grand Duke"
-	//	ADD_TRAIT(HU, TRAIT_DNR, TRAIT_GENERIC) // Consequences, Johnathan.
 		SSticker.set_ruler_mob(HU)
 		SSticker.regentmob = null
 		var/dispjob = mind.assigned_role
@@ -353,13 +349,10 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		if (!COOLDOWN_FINISHED(src, priest_announcement))
 			to_chat(src, span_warning("You must wait before speaking again."))
 			return
-		visible_message(span_warning("[src] takes a deep breath, preparing to make an announcement."))
+		visible_message(span_warning("[src] takes a deep breath, preparing to make an announcement.."))
 		if(do_after(src, 15 SECONDS, target = src)) // Reduced to 15 seconds from 30 on the original Herald PR. 15 is well enough time for sm1 to shove you.
 			say(announcementinput)
-			var/sanitized_input = trim(copytext(sanitize(announcementinput), 1, MAX_MESSAGE_LEN))
-			var/accented_input = treat_message_accent(sanitized_input, strings("accent_universal.json", "universal"), 1)
-			var/treated_input = treat_message(accented_input, /datum/language/common)
-			priority_announce("[treated_input]", "The Bishop Preaches", 'sound/misc/bell.ogg', sender = src)
+			priority_announce("[announcementinput]", "The Bishop Preaches", 'sound/misc/bell.ogg', sender = src)
 			COOLDOWN_START(src, priest_announcement, PRIEST_ANNOUNCEMENT_COOLDOWN)
 		else
 			to_chat(src, span_warning("Your announcement was interrupted!"))
@@ -686,10 +679,6 @@ code\modules\admin\verbs\divinewrath.dm has a variant with all the gods so keep 
 	var/mob/living/carbon/human/target = targets[1]
 
 	if(!ishuman(target))
-		revert_cast()
-		return FALSE
-
-	if(target.cmode)
 		revert_cast()
 		return FALSE
 

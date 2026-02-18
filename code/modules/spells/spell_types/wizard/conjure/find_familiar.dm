@@ -17,7 +17,7 @@
 
 	xp_gain = TRUE
 	spell_tier = 1
-	cost = 0
+	cost = 1
 
 	invocations = list("Appare, spiritus fidus.")
 	invocation_type = "whisper"
@@ -33,12 +33,7 @@
 /obj/effect/proc_holder/spell/self/findfamiliar/cast(list/targets, mob/living/carbon/user)
 	if (!user)
 		return FALSE
-	
-	if(istype(get_area(user), /area/rogue/indoors/ravoxarena))
-		to_chat(user, span_userdanger("I reach for outer help, but something rebukes me! This challenge is only for me to overcome!"))
-		revert_cast()
-		return FALSE
-		
+
 	// Prevent multiple simultaneous summon attempts
 	if (user.busy_summoning_familiar)
 		to_chat(user, span_warning("You are already attempting to summon a familiar! Please wait for your current summon to resolve."))
@@ -63,8 +58,6 @@
 						return FALSE
 					else
 						revive_familiar(magic_stone, fam, user)
-						if (fam.buff_given)
-							user.apply_status_effect(fam.buff_given)
 						user.busy_summoning_familiar = FALSE
 						return TRUE
 				else if(choice == "Free them")
@@ -198,8 +191,6 @@
 		fam.faction |= faction_to_add
 		log_game("[key_name(user)] summoned non-sentient familiar of type [familiar_type]")
 		user.busy_summoning_familiar = FALSE
-		if (fam.buff_given)
-			user.apply_status_effect(fam.buff_given)
 		return TRUE
 	else
 		user.busy_summoning_familiar = FALSE
@@ -309,8 +300,8 @@
 	user.visible_message(span_notice("[awakener.summoning_emote]"))
 
 	// Apply summoner's familiar buff
-	if (awakener.buff_given)
-		user.apply_status_effect(awakener.buff_given)
+	//if (awakener.buff_given)
+	//	user.apply_status_effect(awakener.buff_given)
 
 	// Transfer player's mind to the familiar
 	if (!chosen_one.mind)
@@ -318,9 +309,7 @@
 		qdel(awakener)
 		return
 
-	if (chosen_one.ckey)
-		awakener.ckey = chosen_one.ckey
-
+	chosen_one.mind.transfer_to(awakener, 1)
 	var/datum/mind/mind_datum = awakener.mind
 	if (!mind_datum)
 		to_chat(user, span_warning("Familiar summoning failed: Mind transfer failed."))
@@ -378,10 +367,12 @@
 	return TRUE
 
 /proc/revive_familiar(obj/item/natural/stone/magic_stone, mob/living/simple_animal/pet/familiar/fam, mob/living/carbon/user)
-	if(fam.revive(full_heal = TRUE, admin_revive = TRUE))
-		to_chat(user, span_notice("You channel the stone's magic into [fam.name], reviving them!"))
-		qdel(magic_stone)
-		fam.grab_ghost(force = TRUE)
-		fam.familiar_summoner = user
-		fam.visible_message(span_notice("[fam.name] is restored to life by [user]'s magic!"))
-		return TRUE
+    // Consume the stone
+    to_chat(user, span_notice("You channel the stone's magic into [fam.name], reviving them!"))
+    qdel(magic_stone)
+
+    // Revive and fully heal the familiar
+    fam.revive(full_heal = TRUE, admin_revive = TRUE)
+    fam.familiar_summoner = user
+    fam.visible_message(span_notice("[fam.name] is restored to life by [user]'s magic!"))
+    return TRUE

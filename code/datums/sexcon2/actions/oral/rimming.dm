@@ -1,7 +1,5 @@
 /datum/sex_action/rimming
-	name = "Rim them"
-	intensity = 3
-	flipped = TRUE
+	name = "Римминг"
 
 /datum/sex_action/rimming/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
@@ -26,20 +24,20 @@
 
 /datum/sex_action/rimming/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
-	user.visible_message(span_warning("[user] starts rimming [target]'s butt..."))
+	user.visible_message(span_warning("[user] прижимает язычок к анальному отверстию [target]..."))
 
 /datum/sex_action/rimming/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	var/datum/sex_session/sex_session = get_sex_session(user, target)
-	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] rims [target]'s butt..."))
+	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] вылизывает попку [target]..."))
 	user.make_sucking_noise()
-	do_thrust_animate(user, target, sex_session)
+	do_thrust_animate(user, target)
 
 	sex_session.perform_sex_action(target, 2, 0, TRUE)
 	sex_session.handle_passive_ejaculation(target)
 
 /datum/sex_action/rimming/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
-	user.visible_message(span_warning("[user] stops rimming [target]'s butt ..."))
+	user.visible_message(span_warning("[user] перестает ласкать попку [target] своим языком..."))
 
 /datum/sex_action/rimming/lock_sex_object(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	sex_locks |= new /datum/sex_session_lock(user, BODY_ZONE_PRECISE_MOUTH)

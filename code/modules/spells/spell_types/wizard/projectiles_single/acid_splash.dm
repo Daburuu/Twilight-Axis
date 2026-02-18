@@ -60,7 +60,7 @@
 /datum/status_effect/buff/acidsplash
 	id = "acid splash"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/acidsplash
-	duration = 10 SECONDS
+	duration = 20 SECONDS
 
 /datum/status_effect/buff/acidsplash/on_apply()
 	. = ..()
@@ -70,7 +70,7 @@
 
 /datum/status_effect/buff/acidsplash/tick()
 	var/mob/living/target = owner
-	target.adjustFireLoss(10)
+	target.adjustFireLoss(5)
 
 /atom/movable/screen/alert/status_effect/buff/acidsplash
 	name = "Acid Burn"

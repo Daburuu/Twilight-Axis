@@ -85,7 +85,7 @@
 	if(newdam <= 8)
 		return FALSE
 	if(prob(P.embedchance) && P.dropped)
-		BP.add_embedded_object(P.dropped, silent = FALSE, crit_message = TRUE, ranged = TRUE)
+		BP.add_embedded_object(P.dropped, silent = FALSE, crit_message = TRUE)
 		return TRUE
 	return FALSE
 
@@ -324,7 +324,8 @@
 	. = ..()
 	if(. & EMP_PROTECT_CONTENTS)
 		return
-	for(var/obj/item/organ/O as anything in internal_organs)
+	for(var/X in internal_organs)
+		var/obj/item/organ/O = X
 		O.emp_act(severity)
 
 ///Adds to the parent by also adding functionality to propagate shocks through pulling and doing some fluff effects.

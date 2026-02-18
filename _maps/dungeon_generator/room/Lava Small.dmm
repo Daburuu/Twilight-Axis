@@ -6,6 +6,10 @@
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave/lava)
+"g" = (
+/obj/item/natural/rock/coal,
+/turf/open/floor/rogue/volcanic,
+/area/rogue/under/tomb/cave/lava)
 "h" = (
 /obj/structure/flora/rock,
 /turf/open/floor/rogue/naturalstone,
@@ -29,19 +33,15 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "D" = (
-/obj/item/natural/rock/dungeon,
+/obj/item/natural/rock/random_ore,
 /turf/open/floor/rogue/volcanic,
-/area/rogue/under/tomb/cave/lava)
-"E" = (
-/obj/item/natural/rock/iron,
-/turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "F" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "G" = (
-/obj/item/natural/rock/dungeon,
+/obj/item/natural/rock/random_ore,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "H" = (
@@ -49,10 +49,6 @@
 /area/rogue/under/tomb/cave/lava)
 "O" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/under/tomb/cave/lava)
-"P" = (
-/obj/item/natural/rock/copper,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "S" = (
@@ -113,7 +109,7 @@ a
 a
 U
 U
-p
+g
 x
 x
 a
@@ -122,15 +118,15 @@ U
 a
 "}
 (5,1,1) = {"
-E
-E
+D
+D
 x
 p
 x
 x
 O
 p
-E
+D
 G
 "}
 (6,1,1) = {"
@@ -176,8 +172,8 @@ a
 x
 x
 x
-E
-E
+D
+D
 a
 a
 "}
@@ -214,7 +210,7 @@ z
 x
 x
 G
-P
+G
 a
 a
 "}
@@ -232,27 +228,27 @@ a
 "}
 (4,1,2) = {"
 x
-x
+G
 a
 a
 x
 x
 x
 a
-E
+G
 a
 "}
 (5,1,2) = {"
 x
-m
-m
+G
+G
 x
 x
 a
 x
 x
-P
 x
+G
 "}
 (6,1,2) = {"
 x
@@ -295,7 +291,7 @@ a
 a
 x
 x
-m
+G
 x
 a
 a
@@ -308,7 +304,7 @@ a
 a
 x
 x
-E
+G
 a
 a
 a

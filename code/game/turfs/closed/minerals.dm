@@ -7,7 +7,6 @@
 	icon_state = "rock"
 	var/smooth_icon = 'icons/turf/smoothrocks.dmi'
 	smooth = SMOOTH_MORE|SMOOTH_BORDER
-	flags_1 = CHECK_RICOCHET_1
 	canSmoothWith = null
 	baseturfs = list(/turf/open/floor/rogue/naturalstone)
 	opacity = 1
@@ -30,7 +29,6 @@
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	attacked_sound = list('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg')
 	neighborlay = "dirtedge"
-	explosion_block = 2
 
 /turf/closed/mineral/Initialize()
 	if (!canSmoothWith)
@@ -111,9 +109,7 @@
 		var/explo_mineral_amount = mineralAmt
 		var/obj/item/natural/rock/explo_rock = rockType
 		ScrapeAway()
-		var/turf/T = get_turf(src)
-		if(T)
-			GLOB.mined_resource_loc |= T
+		GLOB.mined_resource_loc |= get_turf(src)
 		queue_smooth_neighbors(src)
 		new /obj/item/natural/stone(src)
 		if(prob(30))
@@ -225,7 +221,6 @@
 		/turf/closed/mineral/rogue/salt = 5,
 		/turf/closed/mineral/rogue/iron = 15,
 		/turf/closed/mineral/rogue/copper = 10,
-		/turf/closed/mineral/rogue/tin = 7,
 		/turf/closed/mineral/rogue/coal = 25)
 	mineralChance = 23
 
@@ -256,7 +251,7 @@
 		/turf/closed/mineral/rogue/silver = 5,
 		/turf/closed/mineral/rogue/iron = 33,
 		/turf/closed/mineral/rogue/copper = 20,
-		/turf/closed/mineral/rogue/tin = 14,
+		/turf/closed/mineral/rogue/tin = 12,
 		/turf/closed/mineral/rogue/coal = 19,
 		/turf/closed/mineral/rogue/gem = 3)
 

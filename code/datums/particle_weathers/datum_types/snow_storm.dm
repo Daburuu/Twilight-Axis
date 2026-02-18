@@ -21,21 +21,17 @@
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/snow)
 
-	minSeverity = 5
-	maxSeverity = 20
+	minSeverity = 1
+	maxSeverity = 10
 	maxSeverityChange = 5
 	severitySteps = 5
 	immunity_type = TRAIT_SNOWSTORM_IMMUNE
-	probability = 15
+	probability = 1
 	target_trait = PARTICLEWEATHER_SNOW
 
 //Makes you a little chilly
 /datum/particle_weather/snow_gentle/weather_act(mob/living/L)
-	if(HAS_TRAIT(L, TRAIT_WEATHER_PROTECTED))
-		L.add_stress(/datum/stressevent/parasol_snow)
-		return
-
-	L.adjust_bodytemperature(-rand(5,10))
+	L.adjust_bodytemperature(-rand(1,3))
 
 
 /datum/particle_weather/snow_storm
@@ -51,9 +47,19 @@
 	maxSeverityChange = 50
 	severitySteps = 50
 	immunity_type = TRAIT_SNOWSTORM_IMMUNE
-	probability = 10
+	probability = 1
 	target_trait = PARTICLEWEATHER_SNOW
 
 //Makes you a lot little chilly
 /datum/particle_weather/snow_storm/weather_act(mob/living/L)
-	L.adjust_bodytemperature(-rand(10,25))
+	L.adjust_bodytemperature(-rand(5,15))
+
+/turf
+	var/turf_flags = TURF_EFFECT_AFFECTABLE
+
+/turf/Exited(atom/movable/gone, direction)
+	if(!istype(gone))
+		return
+	SEND_SIGNAL(src, COMSIG_TURF_EXITED, gone, direction)
+	SEND_SIGNAL(gone, COMSIG_MOVABLE_TURF_EXITED, src, direction)
+

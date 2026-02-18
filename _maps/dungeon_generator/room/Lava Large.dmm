@@ -35,16 +35,8 @@
 /turf/open/floor/rogue/volcanic,
 /area/rogue/under/tomb/cave/lava)
 "i" = (
-/obj/item/natural/rock/dungeon,
-/obj/item/natural/rock/dungeon,
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/under/tomb/cave/lava)
-"j" = (
-/obj/item/natural/rock/tin,
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/under/tomb/cave/lava)
-"k" = (
-/obj/item/natural/rock/copper,
+/obj/item/natural/rock/random_ore,
+/obj/item/natural/rock/random_ore,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "l" = (
@@ -63,22 +55,14 @@
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/under/tomb/cave/lava)
-"o" = (
-/obj/item/natural/rock/coal,
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/under/tomb/cave/lava)
 "q" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "r" = (
-/obj/item/natural/rock/dungeon,
+/obj/item/natural/rock/random_ore,
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/rogue/naturalstone,
-/area/rogue/under/tomb/cave/lava)
-"s" = (
-/obj/item/natural/rock/iron,
-/turf/open/floor/rogue/volcanic,
 /area/rogue/under/tomb/cave/lava)
 "t" = (
 /obj/effect/dungeon_directional_helper/east,
@@ -87,15 +71,11 @@
 "u" = (
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/under/tomb/cave/lava)
-"v" = (
-/obj/item/natural/rock/iron,
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/under/tomb/cave/lava)
 "x" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/lava)
 "y" = (
-/obj/item/natural/rock/dungeon,
+/obj/item/natural/rock/random_ore,
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/rogue/volcanic,
 /area/rogue/under/tomb/cave/lava)
@@ -115,16 +95,12 @@
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave/lava)
-"E" = (
-/obj/item/natural/rock/copper,
-/turf/open/floor/rogue/volcanic,
-/area/rogue/under/tomb/cave/lava)
 "F" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/under/tomb/cave/lava)
 "G" = (
-/obj/item/natural/rock/dungeon,
+/obj/item/natural/rock/random_ore,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "H" = (
@@ -137,10 +113,6 @@
 /obj/effect/decal/cleanable/blood,
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/rogue/naturalstone,
-/area/rogue/under/tomb/cave/lava)
-"J" = (
-/obj/item/natural/rock/cinnabar,
-/turf/open/floor/rogue/volcanic,
 /area/rogue/under/tomb/cave/lava)
 "K" = (
 /obj/item/natural/rock/gem,
@@ -158,13 +130,14 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave/lava)
-"O" = (
-/obj/item/natural/rock/tin,
-/turf/open/floor/rogue/volcanic,
-/area/rogue/under/tomb/cave/lava)
 "P" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/rogue/naturalstone,
+/area/rogue/under/tomb/cave/lava)
+"Q" = (
+/obj/item/natural/rock/random_ore,
+/obj/structure/fluff/nest,
+/turf/open/floor/rogue/volcanic,
 /area/rogue/under/tomb/cave/lava)
 "R" = (
 /turf/open/floor/rogue/woodturned,
@@ -191,7 +164,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "W" = (
-/obj/item/natural/rock/dungeon,
+/obj/item/natural/rock/random_ore,
 /turf/open/floor/rogue/volcanic,
 /area/rogue/under/tomb/cave/lava)
 "X" = (
@@ -283,14 +256,14 @@ M
 a
 M
 M
-a
+G
 u
 u
 u
 a
 a
-v
 a
+G
 e
 e
 e
@@ -301,18 +274,18 @@ u
 u
 u
 u
-M
-k
-a
-M
+W
 a
 a
 M
+G
+G
+W
 u
 L
 M
 W
-a
+G
 Z
 e
 e
@@ -324,17 +297,17 @@ u
 u
 u
 K
-M
+W
 a
 M
 M
 M
+W
+W
 M
-o
 M
-M
-v
-k
+G
+G
 W
 u
 e
@@ -345,8 +318,8 @@ u
 e
 u
 K
-M
-a
+W
+G
 a
 a
 a
@@ -403,7 +376,7 @@ e
 e
 u
 u
-v
+M
 a
 "}
 (10,1,1) = {"
@@ -504,13 +477,13 @@ a
 M
 a
 a
-v
+W
 u
 u
 u
 a
 a
-k
+a
 G
 u
 u
@@ -520,19 +493,19 @@ u
 u
 u
 M
-a
+G
 i
+G
+W
 a
-o
-v
 M
-M
-v
+W
+W
 u
 u
 M
 a
-M
+W
 u
 u
 e
@@ -543,14 +516,14 @@ u
 u
 e
 e
-o
 W
-s
+W
+W
 L
 a
 a
-a
-a
+G
+G
 a
 a
 G
@@ -676,17 +649,17 @@ u
 u
 x
 M
-o
-s
-a
+W
+W
+G
 M
 M
 M
 a
 a
 a
-E
-o
+M
+G
 x
 x
 u
@@ -699,8 +672,8 @@ u
 x
 x
 g
+G
 a
-k
 M
 M
 a
@@ -734,7 +707,7 @@ u
 u
 x
 a
-v
+G
 u
 "}
 (5,1,2) = {"
@@ -748,7 +721,7 @@ u
 u
 g
 M
-a
+G
 G
 M
 M
@@ -764,15 +737,15 @@ u
 u
 u
 u
-v
+a
 M
 M
 u
 u
 u
 Y
-M
-M
+W
+W
 u
 u
 u
@@ -785,7 +758,7 @@ u
 u
 u
 u
-v
+G
 a
 M
 a
@@ -793,7 +766,7 @@ u
 u
 u
 u
-o
+Q
 u
 u
 u
@@ -806,8 +779,8 @@ u
 (8,1,2) = {"
 u
 u
-v
-s
+G
+W
 M
 h
 L
@@ -871,8 +844,8 @@ M
 "}
 (11,1,2) = {"
 M
-M
-o
+W
+G
 a
 M
 M
@@ -885,8 +858,8 @@ u
 u
 u
 u
-Y
-E
+Q
+W
 a
 M
 M
@@ -895,7 +868,7 @@ M
 G
 u
 u
-v
+a
 a
 M
 M
@@ -908,7 +881,7 @@ u
 u
 u
 u
-J
+W
 a
 M
 a
@@ -920,8 +893,8 @@ u
 L
 a
 a
-M
-M
+W
+W
 u
 u
 u
@@ -930,19 +903,19 @@ u
 Y
 u
 u
-M
-M
+W
+W
 M
 u
 "}
 (14,1,2) = {"
 u
 u
-M
-j
-G
+W
 a
-M
+i
+G
+W
 u
 u
 u
@@ -961,8 +934,8 @@ u
 u
 M
 M
-O
 M
+W
 u
 u
 u
@@ -990,7 +963,7 @@ u
 u
 u
 W
-v
+W
 a
 M
 M
@@ -1013,7 +986,7 @@ M
 a
 a
 y
-a
+G
 a
 M
 a

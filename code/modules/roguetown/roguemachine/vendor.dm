@@ -71,7 +71,7 @@
 /obj/structure/roguemachine/vendor/attackby(obj/item/P, mob/user, params)
 	if(istype(P, /obj/item/roguecoin/aalloy))
 		return
-	if(istype(P, /obj/item/roguecoin/inqcoin))
+	if(istype(P, /obj/item/roguecoin/inqcoin))	
 		return
 	if(istype(P, /obj/item/roguecoin))
 		budget += P.get_real_price()
@@ -89,7 +89,7 @@
 		else
 			if(!locked)
 				insert(P, user)
-			else
+			else	
 				to_chat(user, span_warning("Wrong key."))
 				return
 	if(istype(P, /obj/item/storage/keyring))
@@ -387,14 +387,14 @@
 		held_items[P]["PRICE"] = 20
 
 	// Add fancy keys with a price of 100
-	for (var/Y in list(/obj/item/storage/keyring/innfancyi, /obj/item/storage/keyring/innfancyii, /obj/item/storage/keyring/innfancyiii, /obj/item/storage/keyring/innfancyiv, /obj/item/storage/keyring/innfancyv))
+	for (var/Y in list(/obj/item/roguekey/fancyroomi, /obj/item/roguekey/fancyroomii, /obj/item/roguekey/fancyroomiii, /obj/item/roguekey/fancyroomiv, /obj/item/roguekey/fancyroomv))
 		var/obj/Q = new Y(src)
 		held_items[Q] = list()
 		held_items[Q]["NAME"] = Q.name
 		held_items[Q]["PRICE"] = 100
 
 	// Add penthouse suite key
-	for (var/Z in list(/obj/item/storage/keyring/innhunt))
+	for (var/Z in list(/obj/item/roguekey/roomhunt))
 		var/obj/F = new Z(src)
 		held_items[F] = list()
 		held_items[F]["NAME"] = F.name
@@ -423,110 +423,5 @@
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 100 // relatively expensive, but cheaper than importing a whole mount
+		held_items[P]["PRICE"] = 30
 	update_icon()
-
-/obj/structure/roguemachine/vendor/church_bedroomset_one //contains the keys to the church bedrooms, better visually than having them on a table
-	keycontrol = "priest"
-	will_hawk = FALSE
-
-/obj/structure/roguemachine/vendor/church_bedroomset_one/Initialize()
-	. = ..()
-
-	for (var/X in list(/obj/item/roguekey/church/roomi, /obj/item/roguekey/church/roomii, /obj/item/roguekey/church/roomiii, /obj/item/roguekey/church/roomiv, /obj/item/roguekey/church/roomv))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 0
-
-/obj/structure/roguemachine/vendor/church_bedroomset_two //contains the keys to the church bedrooms, better visually than having them on a table
-	keycontrol = "priest"
-	will_hawk = FALSE
-
-/obj/structure/roguemachine/vendor/church_bedroomset_two/Initialize()
-	. = ..()
-
-	for (var/X in list(/obj/item/roguekey/church/roomvi, /obj/item/roguekey/church/roomvii, /obj/item/roguekey/church/roomviii, /obj/item/roguekey/church/roomix, /obj/item/roguekey/church/roomx, /obj/item/roguekey/church/roomxi, /obj/item/roguekey/church/roomxii, /obj/item/roguekey/church/roomxiii, /obj/item/roguekey/church/roomxiv))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 0
-
-/obj/structure/roguemachine/vendor/keep_knights
-	keycontrol = "lord"
-	will_hawk = FALSE
-
-/obj/structure/roguemachine/vendor/keep_knights/Initialize()
-	. = ..()
-
-	for (var/X in list(/obj/item/roguekey/manor/knight, /obj/item/roguekey/manor/knight/two, /obj/item/roguekey/manor/knight/three, /obj/item/roguekey/manor/knight/four))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 0
-
-/obj/structure/roguemachine/vendor/keep_princes
-	keycontrol = "lord"
-	will_hawk = FALSE
-
-/obj/structure/roguemachine/vendor/keep_princes/Initialize()
-	. = ..()
-
-	for (var/X in list(/obj/item/roguekey/heir/one, /obj/item/roguekey/heir/two))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 0
-
-/obj/structure/roguemachine/vendor/keep_councillors
-	keycontrol = "lord"
-	will_hawk = FALSE
-
-/obj/structure/roguemachine/vendor/keep_councillors/Initialize()
-	. = ..()
-
-	for (var/X in list(/obj/item/roguekey/manor/councillor, /obj/item/roguekey/manor/councillor/two, /obj/item/roguekey/manor/councillor/three))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 0
-
-/obj/structure/roguemachine/vendor/keep_guests
-	keycontrol = "lord"
-	will_hawk = FALSE
-
-/obj/structure/roguemachine/vendor/keep_guests/Initialize()
-	. = ..()
-
-	for (var/X in list(/obj/item/roguekey/manor/guest, /obj/item/roguekey/manor/guest/two, /obj/item/roguekey/manor/guest/three, /obj/item/roguekey/manor/guest/four))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 0
-
-/obj/structure/roguemachine/vendor/keep_squire
-	keycontrol = "lord"
-	will_hawk = FALSE
-
-/obj/structure/roguemachine/vendor/keep_squire/Initialize()
-	. = ..()
-
-	for (var/X in list(/obj/item/roguekey/manor/squire, /obj/item/roguekey/manor/squire/two, /obj/item/roguekey/manor/squire/three, /obj/item/roguekey/manor/squire/four))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 0
-
-
-/obj/structure/roguemachine/vendor/keep_servant
-	keycontrol = "lord"
-	will_hawk = FALSE
-
-/obj/structure/roguemachine/vendor/keep_servant/Initialize()
-	. = ..()
-
-	for (var/X in list(/obj/item/roguekey/manor/servant, /obj/item/roguekey/manor/servant/two, /obj/item/roguekey/manor/servant/three, /obj/item/roguekey/manor/servant/four, /obj/item/roguekey/manor/servant/five, /obj/item/roguekey/manor/servant/six))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 0

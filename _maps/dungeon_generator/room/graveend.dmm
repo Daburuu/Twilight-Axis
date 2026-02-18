@@ -50,7 +50,6 @@
 "aR" = (
 /obj/structure/table/wood,
 /obj/item/storage/belt/rogue/leather/plaquegold,
-/obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb)
 "aZ" = (
@@ -164,10 +163,6 @@
 /area/rogue/under/tomb)
 "YK" = (
 /obj/structure/bars/cemetery,
-/turf/open/floor/rogue/hexstone,
-/area/rogue/under/tomb)
-"YM" = (
-/obj/effect/spawner/lootdrop/valuable_clutter_spawner,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb)
 "Zi" = (
@@ -538,7 +533,7 @@ aO
 "}
 (17,1,2) = {"
 aO
-YM
+aN
 fx
 YK
 aN

@@ -35,6 +35,13 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/tomb/cave)
+"bQ" = (
+/obj/item/natural/stone{
+	pixel_x = 5;
+	pixel_y = 11
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/tomb/indoors)
 "bZ" = (
 /turf/closed/wall/mineral/rogue/decostone/end{
 	dir = 8
@@ -71,6 +78,13 @@
 /obj/item/reagent_containers/food/snacks/grown/oat,
 /obj/item/reagent_containers/food/snacks/grown/oat,
 /obj/item/reagent_containers/food/snacks/grown/oat,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/tomb/indoors)
+"dc" = (
+/obj/item/natural/stone{
+	pixel_x = 10;
+	pixel_y = -10
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/tomb/indoors)
 "dm" = (
@@ -467,6 +481,10 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb)
+"qe" = (
+/obj/machinery/light/rogue,
+/turf/closed/wall/mineral/rogue/wooddark/vertical,
+/area/rogue/under/tomb/indoors)
 "qf" = (
 /obj/structure/flora/roguegrass,
 /turf/closed/mineral/rogue/bedrock,
@@ -597,6 +615,10 @@
 "vh" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood,
+/obj/item/natural/stone{
+	pixel_x = 5;
+	pixel_y = 0
+	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/tomb/indoors)
 "vl" = (
@@ -615,7 +637,10 @@
 	pixel_x = -4;
 	pixel_y = 5
 	},
-/obj/effect/spawner/lootdrop/valuable_candle_spawner,
+/obj/item/candle/yellow/lit{
+	pixel_x = 9;
+	pixel_y = -1
+	},
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/under/tomb/indoors)
 "vZ" = (
@@ -728,6 +753,10 @@
 "AP" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood,
+/obj/item/natural/stone{
+	pixel_y = 12;
+	pixel_x = -8
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/tomb/indoors)
 "AU" = (
@@ -948,6 +977,12 @@
 "Ky" = (
 /turf/closed/wall/mineral/rogue/decostone/long,
 /area/rogue/under/tomb/indoors)
+"Kz" = (
+/obj/item/natural/stone{
+	pixel_x = 10
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/tomb/indoors)
 "Lh" = (
 /obj/structure/spider/stickyweb/solo,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
@@ -1010,7 +1045,6 @@
 /area/rogue/under/tomb)
 "Oe" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
-/obj/machinery/light/rogue/campfire/fireplace,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "ON" = (
@@ -1299,33 +1333,6 @@
 /obj/structure/mineral_door/bars,
 /turf/open/floor/rogue/grass,
 /area/rogue/under/tomb)
-"Zp" = (
-/obj/item/roguegem/random{
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/item/grown/log/tree/stake{
-	pixel_x = -2;
-	pixel_y = 3
-	},
-/obj/item/natural/rock{
-	pixel_x = 6;
-	pixel_y = -7
-	},
-/obj/item/natural/stone{
-	pixel_x = -13;
-	pixel_y = -12
-	},
-/obj/item/natural/stone{
-	pixel_x = 12;
-	pixel_y = 11
-	},
-/obj/item/natural/stone{
-	pixel_x = -9;
-	pixel_y = 9
-	},
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/under/tomb/cave/spider)
 "ZE" = (
 /obj/structure/table/wood/crafted,
 /obj/effect/spawner/lootdrop/general_loot_low,
@@ -1947,7 +1954,7 @@ qv
 gV
 hs
 ju
-yQ
+qe
 Oe
 gi
 uM
@@ -2094,7 +2101,7 @@ lS
 bv
 AP
 bl
-Hm
+dc
 Hm
 BB
 ql
@@ -2159,8 +2166,8 @@ lS
 lS
 lS
 vd
-BB
-Hm
+bQ
+Kz
 Et
 ON
 ON
@@ -2446,7 +2453,7 @@ go
 go
 AU
 EJ
-Zp
+nF
 AU
 DW
 go

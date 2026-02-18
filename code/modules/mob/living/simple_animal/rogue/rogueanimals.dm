@@ -42,7 +42,7 @@
 
 	var/deaggroprob = 10
 	var/eat_forever
-
+	
 	candodge = TRUE
 
 	var/summon_tier = 0 // Tier of summoning
@@ -188,7 +188,7 @@
 	retreat_distance = initial(retreat_distance)
 	minimum_distance = initial(minimum_distance)
 
-/mob/living/simple_animal/hostile/retaliate/rogue/tamed(mob/user)
+/mob/living/simple_animal/hostile/retaliate/rogue/tamed()
 	del_on_deaggro = 0
 	aggressive = 0
 	if(enemies.len)
@@ -198,8 +198,6 @@
 			LoseTarget()
 		else
 			return
-	if(user)
-		friends |= user
 	..()
 
 /mob/living/simple_animal/hostile/retaliate/rogue/Destroy()

@@ -39,6 +39,7 @@
 					forging_comp.material_quality += previous_material_quality
 				forging_comp.current_recipe.num_of_materials += 1
 				T.hingot = null
+				qdel(consumed)
 				T.update_icon()
 				update_icon()
 				return
@@ -151,6 +152,7 @@
 			forging_comp.current_recipe.num_of_materials += 1
 			if(user?.is_holding(W))
 				user.temporarilyRemoveItemFromInventory(W, TRUE)
+			qdel(W)
 			return
 
 	if(W.anvilrepair)
@@ -181,8 +183,6 @@
 	var/datum/asset/spritesheet/spritesheet = get_asset_datum(/datum/asset/spritesheet/anvil_recipes)
 
 	for(var/datum/anvil_recipe/R in GLOB.anvil_recipes)
-		if(R.required_tech_node && !R.tech_unlocked)
-			continue
 		var/valid_recipe = FALSE
 
 		if(current_workpiece)
@@ -312,9 +312,3 @@
 		M.pixel_y = 5
 		M.pixel_x = 3
 		add_overlay(M)
-
-/obj/machinery/anvil/bronze
-	name = "bronze anvil"
-	desc = "Elevating humenity from its primordial stupor since the earliest daes of Psydonia."
-	icon_state = "broanvil"
-	max_integrity = 400

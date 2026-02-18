@@ -4,10 +4,6 @@
 /datum/species/dwarf/mountain
 	name = "Dwarf"
 	id = "dwarfm"
-	psydonic = TRUE
-	origin_default = /datum/virtue/origin/hammerhold
-	origin = "Hammerhold"
-	sub_name = "Mountain Dwarf"
 	clothes_id = "dwarf"
 	desc = "<b>Dwarf</b><br>\
 	A proud and robust race of short mountain folk, \
@@ -29,7 +25,7 @@
 
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,YOUNGBEARD,STUBBLE,OLDGREY)
-	inherent_traits = list(TRAIT_DRUNK_HEALING, TRAIT_CAVEDWELLER)
+	inherent_traits = list(TRAIT_DRUNK_HEALING)
 	possible_ages = ALL_AGES_LIST
 	default_features = MANDATORY_FEATURE_LIST
 	use_skintones = TRUE
@@ -66,7 +62,6 @@
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
 		/datum/customizer/bodypart_feature/legwear,
-		/datum/customizer/bodypart_feature/piercing,
 		/datum/customizer/organ/testicles/anthro,
 		/datum/customizer/organ/penis/anthro,
 		/datum/customizer/organ/breasts/human,

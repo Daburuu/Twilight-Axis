@@ -65,7 +65,6 @@
 					. += span_notice(" Smells weakly of [minor_smell].")
 /obj/item/alch/viscera
 	name = "viscera"
-	desc = "Butchered entrails. Quite useful for alchemy, if a little unappealing to handle."
 	icon_state = "viscera"
 	major_pot = /datum/alch_cauldron_recipe/big_health_potion
 	med_pot = /datum/alch_cauldron_recipe/health_potion
@@ -129,7 +128,6 @@
 
 /obj/item/alch/sinew
 	name = "sinew"
-	desc = "The sinew of an animal, pulled out of said animal. Has some alchemical uses."
 	icon_state = "sinew"
 	dropshrink = 0.9
 	major_pot = /datum/alch_cauldron_recipe/aphrodisiac
@@ -292,8 +290,7 @@
 
 /obj/item/alch/berrypowder
 	name = "berry powder"
-	desc = "Berries ground and dried into a soft, fragrant powder. It'd probably \
-	make you sneeze if you accidentally inhaled any."
+	desc = "Berries ground and dried into a soft fragrant powder."
 	icon_state = "berrypowder"
 
 	major_pot = /datum/alch_cauldron_recipe/berrypoison
@@ -313,11 +310,6 @@
 /obj/item/alch/matricaria
 	name = "matricaria"
 	icon_state = "matricaria"
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
-	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
-	body_parts_covered = NONE
-	w_class = WEIGHT_CLASS_TINY
-	alternate_worn_layer  = 8.9 //On top of helmet
 
 	major_pot = /datum/alch_cauldron_recipe/berrypoison
 	med_pot = /datum/alch_cauldron_recipe/per_potion
@@ -358,11 +350,6 @@
 /obj/item/alch/calendula
 	name = "calendula"
 	icon_state = "calendula"
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
-	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
-	body_parts_covered = NONE
-	w_class = WEIGHT_CLASS_TINY
-	alternate_worn_layer  = 8.9 //On top of helmet
 
 	major_pot = /datum/alch_cauldron_recipe/big_health_potion
 	med_pot = /datum/alch_cauldron_recipe/end_potion
