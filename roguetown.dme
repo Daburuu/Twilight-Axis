@@ -2887,6 +2887,7 @@
 #include "code\modules\spells\pantheon\inhumen\matthios.dm"
 #include "code\modules\spells\pantheon\inhumen\zizo.dm"
 #include "modular_twilight_axis\code\datums\flaws\lawless.dm"
+#include "modular_twilight_axis\code\modules\client\family_options.dm"
 #include "statpacks\agile.dm"
 #include "statpacks\mental.dm"
 #include "statpacks\physical.dm"

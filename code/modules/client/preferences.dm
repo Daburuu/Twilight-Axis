@@ -231,6 +231,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/race_bonus
 
 	var/datum/loadout_panel/loadoutpanel
+	var/datum/family_options/family_options
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -238,6 +239,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	familiar_prefs = new /datum/familiar_prefs(src)
 
 	loadoutpanel = new(C.mob)
+	family_options = new(C.mob)
 
 	for(var/custom_name_id in GLOB.preferences_custom_names)
 		custom_names[custom_name_id] = get_default_name(custom_name_id)
@@ -589,6 +591,8 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<br><a href='?_src_=prefs;preference=ooc_preview;task=input'><b>Preview Examine</b></a>"
 
 			dat += "<br><b>Loadout Items:</b> <a href='?_src_=prefs;preference=loadout_item;task=input'>Change</a>"
+
+			dat += "<br><b>Family Preferences</b> <a href='?_src_=prefs;preference=family_options;task=input'>Change</a>"
 
 			dat += "</td>"
 
@@ -2074,6 +2078,9 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					clean_loadout(user)
 
 					loadoutpanel.ui_interact(user)
+
+				if("family_options")
+					family_options.ui_interact(user)
 
 				if("vampire_hair")
 					var/new_vampirehair = input(user, "Choose your character's vampire hair color:", "Character Preference","#"+vampire_hair) as color|null
