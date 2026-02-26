@@ -9,7 +9,7 @@
 	return GLOB.always_state
 
 /datum/family_options/ui_interact(mob/user, datum/tgui/ui)
-	var/prefs = user?.client?.prefs?.family_prefs
+	var/prefs = user?.client?.prefs?.prefs
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "FamilySettingsPanel")

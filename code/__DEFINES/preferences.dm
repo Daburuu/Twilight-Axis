@@ -37,13 +37,9 @@
 //Combat toggles
 #define FLOATING_TEXT			(1<<0)
 #define XP_TEXT					(1<<1)
-<<<<<<< HEAD
-#define TOGGLES_TEXT_DEFAULT (FLOATING_TEXT|XP_TEXT)
-=======
 #define HITZONE_TEXT			(1<<2)
 #define CMODE_STRIPPING			(1<<3)
 #define TOGGLES_TEXT_DEFAULT (FLOATING_TEXT|XP_TEXT|HITZONE_TEXT)
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 //Ghost toggles
 #define TOGGLE_ANTIGHOST		(1<<0)
@@ -146,15 +142,6 @@
 // Pronouns (LETHALSTONE)
 #define HE_HIM			"he/him"
 #define SHE_HER			"she/her"
-<<<<<<< HEAD
-#define THEY_THEM		"they/them (Masc Clothes)"
-#define THEY_THEM_F		"they/them (Femme Clothes)"
-#define IT_ITS			"it/its"
-#define HE_HIM_F		"he/him (Femme Clothes)"
-#define SHE_HER_M		"she/her (Masc Clothes)"
-
-GLOBAL_LIST_INIT(pronouns_list, list(HE_HIM, SHE_HER, THEY_THEM, THEY_THEM_F, IT_ITS, HE_HIM_F, SHE_HER_M))
-=======
 #define THEY_THEM		"they/them"
 #define IT_ITS			"it/its"
 
@@ -169,7 +156,6 @@ GLOBAL_LIST_INIT(titles_list, list(TITLES_M, TITLES_F))
 #define CLOTHES_F "Feminine"
 
 GLOBAL_LIST_INIT(clothespref_list, list(CLOTHES_M, CLOTHES_F))
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 // Voice types (LETHALSTONE)
 

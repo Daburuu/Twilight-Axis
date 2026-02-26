@@ -319,8 +319,6 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 #define BAD_GUARD_FATIGUE_DRAIN 20 //Percentage of your green bar lost on letting a guard expire.
 #define GUARD_PEEL_REDUCTION 2	//How many Peel stacks to lose if a Guard is hit.
 #define BAIT_PEEL_REDUCTION 1	//How many Peel stacks to lose if we perfectly bait.
-<<<<<<< HEAD
-=======
 #define EXPOSED_INTEG_MOD 2.5	//Multiplier for integrity damage if we hit an Exposed target.
 #define VULN_INTEG_MOD 1.3		//Multiplier for integrity damage if we hit a Vulnerable target.
 #define BASE_RCLICK_CD 30 SECONDS
@@ -347,7 +345,6 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 #define TEMPO_TAG_FEINTBAIT_FOV "feintbaitfov"
 #define TEMPO_TAG_DEF_BONUS	"defbonus"
 
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /*
 Medical defines
