@@ -1,32 +1,26 @@
 /datum/family_options
-	var/datum/family_prefs/prefs
-
-/datum/family_options/New(mob/holder_mob)
-	if(holder_mob)
-		var/holder = holder_mob
 
 /datum/family_options/ui_state(mob/user)
-	return GLOB.always_state
+    return GLOB.always_state
 
 /datum/family_options/ui_interact(mob/user, datum/tgui/ui)
-	var/prefs = user?.client?.prefs?.prefs
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "FamilySettingsPanel")
-		ui.open()
+    ui = SStgui.try_update_ui(user, src, ui)
+    if(!ui)
+        ui = new(user, src, "FamilySettingsPanel")
+        ui.open()
 
 /datum/family_options/ui_data(mob/user)
     . = ..()
 
-    var/mob/living/carbon/human/H = user
-    if(!ishuman(H))
+    var/datum/preferences/P = user?.client?.prefs
+    if(!P)
+        .["familySettings"] = list()
         return
 
     .["familySettings"] = list(
-        "familyType" = H.familytree_pref,
-        "racePreference" = H.xenophobe,
-        "genderPreference" = H.gender_choice_pref,
-        "favoriteName" = H.setspouse
+        "familyType" = P.family,
+        "genderPreference" = P.gender_choice,
+        "favoriteName" = P.setspouse
     )
 
 /datum/family_options/ui_act(action, params)
@@ -34,15 +28,13 @@
     if(. != TRUE)
         return
 
-    var/mob/living/carbon/human/H = usr
-    if(!ishuman(H))
+    var/datum/preferences/P = usr?.client?.prefs
+    if(!P)
         return
 
     switch(action)
         if("save")
-            H.familytree_pref = text2num(params["familyType"])
-            H.xenophobe = text2num(params["racePreference"])
-            H.gender_choice_pref = text2num(params["genderPreference"])
-            H.setspouse = params["favoriteName"]
-
+            P.family = text2num(params["familyType"])
+            P.gender_choice = text2num(params["genderPreference"])
+            P.setspouse = params["favoriteName"]
             return TRUE
