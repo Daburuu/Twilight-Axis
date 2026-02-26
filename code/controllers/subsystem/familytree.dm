@@ -466,6 +466,8 @@ SUBSYSTEM_DEF(familytree)
 					if(!member.person.setspouse || member.person.setspouse == H.real_name)
 						var/ok_gender_H = H.pronouns_match(H, member.person)
 						var/ok_gender_M = member.person.pronouns_match(member.person, H)
+						if(!ok_gender_H || !ok_gender_M)
+							continue
 						if((member.person.xenophobe == 1 || H.xenophobe == 1) && member.person.dna.species.name != our_race)
 							continue
 						if(member.person.familytree_pref == FAMILY_PARTIAL)

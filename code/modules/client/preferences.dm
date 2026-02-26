@@ -233,6 +233,11 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/datum/loadout_panel/loadoutpanel
 	var/datum/family_options/family_options
 
+	//FAMILY SS
+	var/family_type = FAMILY_NONE
+	var/gender_choice_pref = ANY_GENDER
+	var/xenophobe = FALSE
+
 /datum/preferences/New(client/C)
 	parent = C
 	migrant  = new /datum/migrant_pref(src)
@@ -574,7 +579,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<br><b>Headshot:</b> <a href='?_src_=prefs;preference=headshot;task=input'>Change</a>"
 			if(headshot_link != null)
 				dat += "<br><img src='[headshot_link]' width='100px' height='100px'>"
-			
 			dat += "<br><b>NSFW Headshot:</b> <a href='?_src_=prefs;preference=nsfw_headshot;task=input'>Change</a>" //TA edit
 			if(nsfw_headshot_link != null) //TA edit
 				dat += "<br><img src='[nsfw_headshot_link]' width='125px' height='175px'>" //TA edit
@@ -1416,7 +1420,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	else if(href_list["preference"] == "descriptors")
 		show_descriptors_ui(user)
 		return
-	
 	else if(href_list["preference"] == "lore_primer")
 		LorePopup(user)
 		return
@@ -2593,7 +2596,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						to_chat(user, span_notice("You will now have resistance from people violating you, but be punished for trying to violate others." + " " + span_boldwarning("(COMBAT Mode will disable ERP interactions. Bypassing this is a bannable offense, AHELP if necessary.)")))
 					else
 						to_chat(user, span_boldwarning("You fully immerse yourself in the grim experience, waiving your resistance from people violating you, but letting you do the same unto other non-defiants"))
-		
 				if("schizo_voice")
 					toggles ^= SCHIZO_VOICE
 					if(toggles & SCHIZO_VOICE)
@@ -2779,7 +2781,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	character.ooc_notes = ooc_notes
 
 	character.nsfwflavortext = nsfwflavortext
-	
 	character.nsfw_headshot_link = nsfw_headshot_link //TA edit
 
 	character.erpprefs = erpprefs
