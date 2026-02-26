@@ -1,6 +1,10 @@
 // Actual coastal coastal area
 /area/rogue/outdoors/beach
+<<<<<<< HEAD
 	name = "Central Coast"
+=======
+	name = "City Harbor"
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	icon_state = "beach"
 	warden_area = TRUE
 	ambientsounds = AMB_BEACH
@@ -9,7 +13,11 @@
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
 	converted_type = /area/rogue/under/lake
+<<<<<<< HEAD
 	first_time_text = "CENTRAL COAST"
+=======
+	first_time_text = "CITY HARBOR"
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	deathsight_message = "a windswept shore"
 	detail_text = DETAIL_TEXT_ACTUAL_COAST
 

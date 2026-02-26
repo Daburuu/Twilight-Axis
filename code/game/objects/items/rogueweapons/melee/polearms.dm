@@ -16,6 +16,38 @@
 /datum/intent/spear/thrust/militia
 	penfactor = 40
 
+<<<<<<< HEAD
+=======
+/datum/intent/spear/thrust/pike		//EXPERIMENTAL
+	name = "pike thrust"
+	desc = "Thrust your pike forward from its furthest end to reach farther ahead than any spear ever could. Only effective at three paces."
+	damfactor = 1.15
+	reach = 3
+	effective_range = 3
+	clickcd = CLICK_CD_CHARGED + 1
+	swingdelay = 1.5
+
+/datum/intent/spear/thrust/pike/skewer		//EXPERIMENTAL
+	name = "pike lance"
+	desc = "Grab your pike from a closer end and charge forward with your whole body for devastating damage."
+	clickcd = CLICK_CD_HEAVY + 4
+	swingdelay = 6
+	damfactor = 1.5
+	penfactor = 35
+	max_intent_damage = 54
+	reach = 2
+	effective_range = 2
+	icon_state = "inlance"
+	attack_verb = list("lances", "runs through", "skewers")
+
+/datum/intent/spear/thrust/short
+	reach = 1
+	damfactor = 0.9
+	penfactor = 30
+	effective_range = null
+	effective_range_type = EFF_RANGE_NONE
+
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 /datum/intent/spear/bash
 	name = "bash"
 	blade_class = BCLASS_BLUNT
@@ -59,6 +91,9 @@
 /datum/intent/spear/cut/glaive
 	damfactor = 1.2
 	chargetime = 0
+
+/datum/intent/spear/cut/short
+	reach = 1
 
 /datum/intent/spear/cast
 	name = "cast"
@@ -287,6 +322,43 @@
 	thrown_bclass = BCLASS_STAB
 	throwforce = 25
 	resistance_flags = FLAMMABLE
+<<<<<<< HEAD
+=======
+	special = /datum/special_intent/polearm_backstep
+
+/obj/item/rogueweapon/spear/short
+	force = 25
+	force_wielded = 25
+	possible_item_intents = list(SHORT_SPEAR_THRUST, SHORT_SPEAR_CUT)
+	gripped_intents = list(SHORT_SPEAR_THRUST, SHORT_SPEAR_CUT, SPEAR_BASH) 
+	name = "short spear"
+	icon_state = "short_spear"
+	wlength = WLENGTH_LONG
+
+/obj/item/rogueweapon/spear/trainer
+	name = "sparring spear"
+	desc = "An old dulled spear with a shaft worn by the hands of countless trainees before you. The fabric and watting wrap is meant to protect combatants, \
+	but getting hit with this still leaves welts and breaks fingers."
+	icon_state = "spear_trainer"
+	possible_item_intents = list(SPEAR_BASH)
+	gripped_intents = list(SPEAR_BASH,/datum/intent/mace/smash/wood)
+	force = 7
+	force_wielded = 15
+	sharpness = IS_BLUNT
+	thrown_bclass = BCLASS_BLUNT
+	wdefense = 7
+	wdefense_wbonus = 8
+
+/obj/item/rogueweapon/spear/trainer/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.6,"sx" = -6,"sy" = 2,"nx" = 8,"ny" = 2,"wx" = -4,"wy" = 2,"ex" = 1,"ey" = 2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -38,"sturn" = 300,"wturn" = 32,"eturn" = -23,"nflip" = 0,"sflip" = 100,"wflip" = 8,"eflip" = 0)
+			if("wielded")
+				return list("shrink" = 0.6,"sx" = 4,"sy" = -2,"nx" = -3,"ny" = -2,"wx" = -5,"wy" = -1,"ex" = 3,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
+
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /obj/item/rogueweapon/spear/trident
 	// Better one handed & throwing weapon, flimsier.

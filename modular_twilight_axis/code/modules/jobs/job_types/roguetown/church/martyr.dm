@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+=======
+/datum/job/roguetown/martyr/after_spawn(mob/living/H, mob/M, latejoin = TRUE)
+	..()
+	if(ishuman(H))
+		var/prev_real_name = H.real_name
+		var/prev_name = H.name
+		var/churchiny = "Brother"
+		if(should_wear_femme_clothes(H))
+			churchiny = "Sister"
+		H.real_name = "[churchiny] [prev_real_name]"
+		H.name = "[churchiny] [prev_name]"
+
+		for(var/X in peopleknowme)
+			for(var/datum/mind/MF in get_minds(X))
+				if(MF.known_people)
+					MF.known_people -= prev_real_name
+					H.mind.person_knows_me(MF)
+
+/datum/advclass/martyr
+	subclass_languages = list(/datum/language/valorian)
+
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 /datum/outfit/job/roguetown/martyr/basic/pre_equip(mob/living/carbon/human/H)
 	..()
 	ADD_TRAIT(H, TRAIT_CLERGY, TRAIT_GENERIC)

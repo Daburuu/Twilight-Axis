@@ -703,6 +703,22 @@
 	icon_state = "arquebus"
 	item_state = "arquebus"
 
+/obj/item/gun/ballistic/twilight_firearm/arquebus/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/rogueweapon/huntingknife))
+		user.visible_message(span_warning("[user] starts attaching a bayonet to [src]."))
+		if(do_after(user, 6 SECONDS))
+			var/obj/item/gun/ballistic/twilight_firearm/arquebus/bayonet/P = new /obj/item/gun/ballistic/twilight_firearm/arquebus/bayonet(get_turf(src.loc))
+			if(user.is_holding(src))
+				user.dropItemToGround(src)
+				user.put_in_hands(P)
+			P.obj_integrity = src.obj_integrity
+			qdel(src)
+			qdel(I)
+		else
+			user.visible_message(span_warning("[user] stops attaching the bayonet to [src]."))
+		return TRUE
+	return ..()
+
 /obj/item/gun/ballistic/twilight_firearm/arquebus/bayonet
 	name = "arquebus rifle"
 	desc = "Пороховое оружие второго поколения, стреляющее бронебойными свинцовыми пулями. Оснащена штыком для использования в ближнем бою."
@@ -719,6 +735,22 @@
 	name = "Jägerbüchse"
 	desc = "Редкая разновидность колесцовой аркебузы, изготавливаемая мастерами Грензельхофта для егерей Фрейкорпс, отличившихся в ходе боевых действий. Легче и менее подвержена износу в сравнении с серийными образцами."
 	icon = 'modular_twilight_axis/firearms/icons/jagerrifle.dmi'
+
+/obj/item/gun/ballistic/twilight_firearm/arquebus/jagerrifle/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/rogueweapon/huntingknife))
+		user.visible_message(span_warning("[user] starts attaching a bayonet to [src]."))
+		if(do_after(user, 6 SECONDS))
+			var/obj/item/gun/ballistic/twilight_firearm/arquebus/bayonet/jagerrifle/P = new /obj/item/gun/ballistic/twilight_firearm/arquebus/bayonet/jagerrifle(get_turf(src.loc))
+			if(user.is_holding(src))
+				user.dropItemToGround(src)
+				user.put_in_hands(P)
+			P.obj_integrity = src.obj_integrity
+			qdel(src)
+			qdel(I)
+		else
+			user.visible_message(span_warning("[user] stops attaching the bayonet to [src]."))
+		return TRUE
+	return ..()
 
 /obj/item/gun/ballistic/twilight_firearm/arquebus/bayonet/jagerrifle
 	name = "Jägerbüchse"

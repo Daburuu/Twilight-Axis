@@ -45,14 +45,26 @@
 	if (!H)
 		return
 	var/should_update = FALSE
+<<<<<<< HEAD
 	var/list/choices = list("hairstyle", "facial hairstyle", "accessory", "face detail", "horns", "ears", "ear color one", "ear color two", "tail", "tail color one", "tail color two", "hair color", "facial hair color", "eye color", "natural gradient", "natural gradient color", "dye gradient", "dye gradient color", "penis", "testicles", "breasts", "vagina", "breast size", "penis size", "testicle size")
+=======
+	var/list/choices = list("Accessory", "Breast Quantity", "Breast Size", "Ears", "Ear Color One", "Ear Color Two", "Eye Color", "Facial Hairstyle", "Facial Hair Color", "Face Detail", "Hairstyle", "Hair Primary Color", "Hair Secondary Gradient", "Hair Secondary Natural Color", "Hair Third Gradient", "Hair Third Dye Color", "Horns", "Horn Color", "Penis", "Penis Size", "Tail", "Tail Color One", "Tail Color Two", "Testicles", "Testicle Size", "Vagina", "Wings", "Wing Color", "Nudeshot") //TA edit - new ERP SYSTEM
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	var/chosen = input(H, "Change what?", "Appearance") as null|anything in choices
 
 	if(!chosen)
 		return
 
 	switch(chosen)
+<<<<<<< HEAD
 		if("hairstyle")
+=======
+		//TA addition start - new ERP SYSTEM
+		if("Nudeshot")
+			H.mirror_set_nudeshot_url()
+		//TA addition end - new ERP SYSTEM
+		if("Hairstyle")
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 			var/datum/customizer_choice/bodypart_feature/hair/head/humanoid/hair_choice = CUSTOMIZER_CHOICE(/datum/customizer_choice/bodypart_feature/hair/head/humanoid)
 			var/list/valid_hairstyles = list()
 			for(var/hair_type in hair_choice.sprite_accessories)
@@ -391,7 +403,21 @@
 						penis = new()
 						penis.Insert(H, TRUE, FALSE)
 					penis.accessory_type = valid_penis_types[new_style]
+<<<<<<< HEAD
 					penis.color = H.dna.features["mcolor"]
+=======
+					var/datum/sprite_accessory/penis/penis_type = SPRITE_ACCESSORY(penis.accessory_type)
+					
+					penis.accessory_colors = mirror_pick_accessory_colors(H, penis_type, penis.accessory_colors)
+					//TA edit start - new ERP SYSTEM
+					if(penis.sex_organ)
+						var/datum/erp_sex_organ/penis/SP = penis.sex_organ
+						SP.refresh_from_organ(penis)
+					else
+						penis.refresh_sex_organ()
+
+					//TA edit end - new ERP SYSTEM
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 					H.update_body()
 					should_update = TRUE
 
@@ -443,7 +469,12 @@
 						breasts.Insert(H, TRUE, FALSE)
 
 					breasts.accessory_type = valid_breast_types[new_style]
+<<<<<<< HEAD
 					breasts.color = H.dna.features["mcolor"]
+=======
+					var/datum/sprite_accessory/breasts/breasts_type = SPRITE_ACCESSORY(breasts.accessory_type)
+					breasts.accessory_colors = mirror_pick_accessory_colors(H, breasts_type, breasts.accessory_colors) //TA edit - new ERP SYSTEM
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 					H.update_body()
 					should_update = TRUE
 
@@ -470,7 +501,12 @@
 					if(new_color)
 						vagina.color = sanitize_hexcolor(new_color, 6, TRUE)
 					else
+<<<<<<< HEAD
 						vagina.color = H.dna.features["mcolor"]
+=======
+						var/datum/sprite_accessory/vagina/vag_type = SPRITE_ACCESSORY(vagina.accessory_type)
+						vagina.color = mirror_pick_accessory_colors(H, vag_type, vagina.color) //TA edit - new ERP SYSTEM
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 					H.update_body()
 					should_update = TRUE
@@ -708,3 +744,60 @@
 		H.update_hair()
 		H.update_body()
 		H.update_body_parts()
+		erp_mark_actor_organs_dirty(H)
+
+/proc/mirror_pick_accessory_colors(mob/living/carbon/human/H, datum/sprite_accessory/A, current_colors)
+	if(!H || !A)
+		return current_colors
+
+	var/list/src_color = color_key_source_list_from_carbon(H)
+	for(var/k in src_color)
+		if(istext(src_color[k]))
+			src_color[k] = sanitize_hexcolor(src_color[k], 6, TRUE)
+
+	var/list/colors = color_string_to_list(A.validate_color_keys_for_owner(H, current_colors))
+	if(!colors)
+		colors = list()
+	while(length(colors) < A.color_keys)
+		colors += "#FFFFFF"
+
+	for(var/i in 1 to A.color_keys)
+		var/label = "Color #[i]"
+		if(A.color_key_names && length(A.color_key_names) >= i)
+			label = "[A.color_key_names[i]]"
+
+		var/list/modes = list("Skin", "Mutant 1", "Mutant 2", "Mutant 3", "Custom")
+		var/mode = input(H, "Set [label] (current: [colors[i]])", "Colors") as null|anything in modes
+		if(!mode)
+			continue
+
+		switch(mode)
+			if("Skin")      colors[i] = src_color[KEY_SKIN_COLOR]
+			if("Mutant 1")  colors[i] = src_color[KEY_MUT_COLOR_ONE]
+			if("Mutant 2")  colors[i] = src_color[KEY_MUT_COLOR_TWO]
+			if("Mutant 3")  colors[i] = src_color[KEY_MUT_COLOR_THREE]
+			if("Custom")
+				var/c = color_pick_sanitized(H, "Pick custom color for [label]", "Colors", colors[i])
+				if(c)
+					colors[i] = sanitize_hexcolor(c, 6, TRUE)
+
+	return color_list_to_string(colors)
+
+/proc/erp_mark_actor_organs_dirty(mob/living/M)
+	if(!M)
+		return
+
+	var/datum/erp_controller/C = SSerp.get_controller_for(M)
+	if(C)
+		var/datum/erp_actor/A = C.get_actor_by_mob(M)
+		if(A)
+			A.mark_organs_dirty()
+		return
+
+	for(var/datum/erp_controller/C2 in SSerp.controllers)
+		if(!C2 || QDELETED(C2))
+			continue
+		var/datum/erp_actor/A2 = C2.get_actor_by_mob(M)
+		if(A2)
+			A2.mark_organs_dirty()
+			return

@@ -55,7 +55,22 @@
 	max_integrity = 40
 	prevent_crits = PREVENT_CRITS_NONE
 	icon_state = "ancientboots"
+	smeltresult = /obj/item/ingot/aaslag
 	color = "#bb9696"
+
+/obj/item/clothing/shoes/roguetown/boots/paalloy
+	name = "ancient boots"
+	desc = "Polished gilbranze sabatons, curved around to loosely mimic the calves of another. </br>It looks chivalry is dead, after all.. and walking, no less!"
+	icon_state = "ancientboots"
+	color = null
+	blocksound = PLATEHIT
+	resistance_flags = FIRE_PROOF
+	max_integrity = ARMOR_INT_SIDE_STEEL
+	armor = ARMOR_PLATE
+	pickup_sound = 'sound/foley/equip/equip_armor_plate.ogg'
+	equip_sound = 'sound/foley/equip/equip_armor_plate.ogg'
+	anvilrepair = /datum/skill/craft/armorsmithing
+	smeltresult = /obj/item/ingot/aaslag
 
 /obj/item/clothing/shoes/roguetown/boots/psydonboots
 	name = "psydonic leather boots"
@@ -164,6 +179,14 @@
 	icon_state = "ancientsandals"
 	color = "#bb9696"
 	prevent_crits = PREVENT_CRITS_NONE
+
+/obj/item/clothing/shoes/roguetown/sandals/paalloy
+	name = "ancient sandals"
+	desc = "Polished gilbranze platforms, laced with bog-reeds to remain secured beneath skeletal soles. A thousand yils later, and they still clack-and-clop like new."
+	icon_state = "ancientsandals"
+	color = null
+	max_integrity = 100			//Half that of iron boots
+	armor = ARMOR_LEATHER_GOOD			//Better than regular leather.
 
 /obj/item/clothing/shoes/roguetown/shalal
 	name = "babouche"
@@ -426,8 +449,9 @@
 
 // ----------------- BLACKSTEEL -----------------------
 
-/obj/item/clothing/shoes/roguetown/boots/blacksteel/modern/plateboots
+/obj/item/clothing/shoes/roguetown/boots/armor/blacksteel/modern
 	name = "blacksteel plate boots"
+<<<<<<< HEAD
 	desc = "Boots forged of durable blacksteel, using a modern design."
 	body_parts_covered = FEET
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
@@ -443,22 +467,27 @@
 	smeltresult = /obj/item/ingot/blacksteel
 	resistance_flags = FIRE_PROOF
 	chunkcolor = "#303036"
+=======
+	desc = "Magnificent sabatons of blacksteel, pointed-yet-restrained. By the click of your heels, a thousand levymen shall march without question - and 'pon a leaping start, they shall see the bravery that earned such alloyed gifts to begin with."
+	icon_state = "bplateboots"
+	item_state = "bplateboots"
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
-/obj/item/clothing/shoes/roguetown/boots/blacksteel/plateboots
+/obj/item/clothing/shoes/roguetown/boots/armor/blacksteel
 	name = "ancient blacksteel plate boots"
+<<<<<<< HEAD
 	desc = "Boots forged of durable blacksteel."
 	body_parts_covered = FEET
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
+=======
+	desc = "Antiquated sabatons, forged from segmented plates of blacksteel. Am I the cancer that is killing this world? Is it my hate, my spite, my lust - that, which poisons the ones around me, and siphons away the hope of Man and God alike? When the last hearth is quenched and Psydonia is nothing more than a shriveled husk, will I still blame the corpses for what I had done? </br>‎  </br>Let go of your hate. Your lyfe is yours, and yours alone to arbitrate."
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	icon_state = "bkboots"
 	item_state = "bkboots"
-	color = null
-	blocksound = PLATEHIT
 	max_integrity = ARMOR_INT_SIDE_BLACKSTEEL
 	armor = ARMOR_PLATE_BSTEEL
-	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/blacksteel
-	resistance_flags = FIRE_PROOF
 	chunkcolor = "#303036"
 
 // ----------------- BLACKSTEEL END -----------------------
@@ -481,6 +510,7 @@
 	item_state = "eastsandals"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 	armor = ARMOR_LEATHER_GOOD
+	sewrepair = TRUE
 
 // horseshoes!
 /obj/item/clothing/shoes/roguetown/horseshoes

@@ -187,6 +187,7 @@
 
 /datum/migrant_role/heartfelt/knight/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
+<<<<<<< HEAD
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		if(istype(H.cloak, /obj/item/clothing/cloak/tabard/knight/guard))
@@ -206,6 +207,28 @@
 		if(findtextEx(H.real_name, "[honorary] ") == 0)
 			H.real_name = "[honorary] [prev_real_name]"
 			H.name = "[honorary] [prev_name]"
+=======
+	if(!ishuman(L))
+		return
+	var/mob/living/carbon/human/H = L
+	if(istype(H.cloak, /obj/item/clothing/cloak/tabard))
+		var/obj/item/clothing/S = H.cloak
+		var/index = findtext(H.real_name, " ")
+		if(index)
+			index = copytext(H.real_name, 1,index)
+		if(!index)
+			index = H.real_name
+		S.name = "knight's tabard ([index])"
+	var/prev_real_name = H.real_name
+	var/prev_name = H.name
+	var/honorary = "Ser"
+	if(H.titles_pref == TITLES_F)
+		honorary = "Dame"
+	// check if they already have it to avoid stacking titles
+	if(findtextEx(H.real_name, "[honorary] ") == 0)
+		H.real_name = "[honorary] [prev_real_name]"
+		H.name = "[honorary] [prev_name]"
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /datum/migrant_role/heartfelt/magos
 	name = "Magos of Heartfelt"

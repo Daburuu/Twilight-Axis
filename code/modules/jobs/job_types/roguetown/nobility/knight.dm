@@ -185,6 +185,24 @@
 				)
 		var/heraldychoice = input("Choose your heraldy.", "RAISE UP THE BANNER") as anything in heraldy
 		cloak = heraldy[heraldychoice]
+
+		var/onhelm = list(
+			"horns" = /obj/item/clothing/head/roguetown/tw_d_horns,
+			"towers" = /obj/item/clothing/head/roguetown/tw_d_castle_red,
+			"afreet" = /obj/item/clothing/head/roguetown/tw_d_efreet,
+			"sun" = /obj/item/clothing/head/roguetown/tw_d_sun,
+			"astrata" = /obj/item/clothing/head/roguetown/tw_d_peace,
+			"feathers" = /obj/item/clothing/head/roguetown/tw_d_feathers,
+			"lion" = /obj/item/clothing/head/roguetown/tw_d_lion,
+			"dragon" = /obj/item/clothing/head/roguetown/tw_d_dragon_red,
+			"swan" = /obj/item/clothing/head/roguetown/tw_d_swan,
+			"Le Fishe" = /obj/item/clothing/head/roguetown/tw_d_fish,
+			"mighty windmill" = /obj/item/clothing/head/roguetown/tw_d_windmill,
+			"oath" = /obj/item/clothing/head/roguetown/tw_d_oathtaker,
+			"skull" = /obj/item/clothing/head/roguetown/tw_d_skull
+			)
+		var/onhelmchoice = input("Choose your decor.", "RAISE UP THE SYMBOL") as anything in onhelm
+		l_hand = onhelm[onhelmchoice]
  
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
@@ -283,6 +301,24 @@
 		var/heraldychoice = input("Choose your heraldy.", "RAISE UP THE BANNER") as anything in heraldy
 		cloak = heraldy[heraldychoice]
 
+		var/onhelm = list(
+			"horns" = /obj/item/clothing/head/roguetown/tw_d_horns,
+			"towers" = /obj/item/clothing/head/roguetown/tw_d_castle_red,
+			"afreet" = /obj/item/clothing/head/roguetown/tw_d_efreet,
+			"sun" = /obj/item/clothing/head/roguetown/tw_d_sun,
+			"astrata" = /obj/item/clothing/head/roguetown/tw_d_peace,
+			"feathers" = /obj/item/clothing/head/roguetown/tw_d_feathers,
+			"lion" = /obj/item/clothing/head/roguetown/tw_d_lion,
+			"dragon" = /obj/item/clothing/head/roguetown/tw_d_dragon_red,
+			"swan" = /obj/item/clothing/head/roguetown/tw_d_swan,
+			"Le Fishe" = /obj/item/clothing/head/roguetown/tw_d_fish,
+			"mighty windmill" = /obj/item/clothing/head/roguetown/tw_d_windmill,
+			"oath" = /obj/item/clothing/head/roguetown/tw_d_oathtaker,
+			"skull" = /obj/item/clothing/head/roguetown/tw_d_skull
+			)
+		var/onhelmchoice = input("Choose your decor.", "RAISE UP THE SYMBOL") as anything in onhelm
+		r_hand = onhelm[onhelmchoice]
+
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
 		/obj/item/rope/chain = 1,
@@ -357,7 +393,11 @@
 				beltr = /obj/item/quiver/arrows
 				beltl = /obj/item/rogueweapon/mace/goden/steel
 			if("Sabre + Recurve Bow")
+<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/nobility/knight.dm
 				l_hand = /obj/item/rogueweapon/scabbard/sword
+=======
+				backl = /obj/item/rogueweapon/scabbard/sword/noble
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e:code/modules/jobs/job_types/roguetown/retinue/knight.dm
 				r_hand = /obj/item/rogueweapon/sword/sabre
 				beltr = /obj/item/quiver/arrows
 				beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
@@ -404,6 +444,24 @@
 		var/heraldychoice = input("Choose your heraldy.", "RAISE UP THE BANNER") as anything in heraldy
 		cloak = heraldy[heraldychoice]
 
+		var/onhelm = list(
+			"horns" = /obj/item/clothing/head/roguetown/tw_d_horns,
+			"towers" = /obj/item/clothing/head/roguetown/tw_d_castle_red,
+			"afreet" = /obj/item/clothing/head/roguetown/tw_d_efreet,
+			"sun" = /obj/item/clothing/head/roguetown/tw_d_sun,
+			"astrata" = /obj/item/clothing/head/roguetown/tw_d_peace,
+			"feathers" = /obj/item/clothing/head/roguetown/tw_d_feathers,
+			"lion" = /obj/item/clothing/head/roguetown/tw_d_lion,
+			"dragon" = /obj/item/clothing/head/roguetown/tw_d_dragon_red,
+			"swan" = /obj/item/clothing/head/roguetown/tw_d_swan,
+			"Le Fishe" = /obj/item/clothing/head/roguetown/tw_d_fish,
+			"mighty windmill" = /obj/item/clothing/head/roguetown/tw_d_windmill,
+			"oath" = /obj/item/clothing/head/roguetown/tw_d_oathtaker,
+			"skull" = /obj/item/clothing/head/roguetown/tw_d_skull,
+			)
+		var/onhelmchoice = input("Choose your decor.", "RAISE UP THE SYMBOL") as anything in onhelm
+		l_hand = onhelm[onhelmchoice]
+
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
 		/obj/item/rope/chain = 1,
@@ -449,6 +507,11 @@
 	..()
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	H.verbs |= /mob/proc/haltyell
+	backpack_contents = list(
+		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
+		/obj/item/rope/chain = 1,
+		/obj/item/rogueweapon/scabbard/sheath/noble = 1
+	)
 
 	H.adjust_blindness(-3)
 	if(H.mind)
@@ -489,12 +552,16 @@
 				beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/sling
 
 			if("Shamshir + Pistol")
-				l_hand = /obj/item/twilight_powderflask
 				r_hand = /obj/item/rogueweapon/sword/sabre/shamshir
 				backl = /obj/item/rogueweapon/scabbard/sword
 				beltr = /obj/item/gun/ballistic/twilight_firearm/arquebus_pistol
 				beltl = /obj/item/quiver/twilight_bullet/lead
 				H.adjust_skillrank_up_to(/datum/skill/combat/twilight_firearms, 4, TRUE)
+				backpack_contents = list(
+					/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
+					/obj/item/rope/chain = 1,
+					/obj/item/rogueweapon/scabbard/sheath/noble = 1,
+					/obj/item/twilight_powderflask = 1)
 
 		switch(armor_choice)
 			if("Light Armor")
@@ -537,6 +604,7 @@
 				)
 		var/heraldychoice = input("Choose your heraldy.", "RAISE UP THE BANNER") as anything in heraldy
 		cloak = heraldy[heraldychoice]
+<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/nobility/knight.dm
  
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
@@ -545,3 +613,243 @@
 	)
 	if(H.mind)
 		SStreasury.give_money_account(ECONOMIC_UPPER_CLASS, H, "Savings.")
+=======
+
+		var/onhelm = list(
+			"horns" = /obj/item/clothing/head/roguetown/tw_d_horns,
+			"towers" = /obj/item/clothing/head/roguetown/tw_d_castle_red,
+			"afreet" = /obj/item/clothing/head/roguetown/tw_d_efreet,
+			"sun" = /obj/item/clothing/head/roguetown/tw_d_sun,
+			"astrata" = /obj/item/clothing/head/roguetown/tw_d_peace,
+			"feathers" = /obj/item/clothing/head/roguetown/tw_d_feathers,
+			"lion" = /obj/item/clothing/head/roguetown/tw_d_lion,
+			"dragon" = /obj/item/clothing/head/roguetown/tw_d_dragon_red,
+			"swan" = /obj/item/clothing/head/roguetown/tw_d_swan,
+			"Le Fishe" = /obj/item/clothing/head/roguetown/tw_d_fish,
+			"mighty windmill" = /obj/item/clothing/head/roguetown/tw_d_windmill,
+			"oath" = /obj/item/clothing/head/roguetown/tw_d_oathtaker,
+			"skull" = /obj/item/clothing/head/roguetown/tw_d_skull
+			)
+		var/onhelmchoice = input("Choose your decor.", "RAISE UP THE SYMBOL") as anything in onhelm
+		l_hand = onhelm[onhelmchoice]
+
+	if(H.mind)
+		SStreasury.give_money_account(ECONOMIC_UPPER_CLASS, H, "Savings.")
+
+
+/datum/advclass/knight/knightchampion
+	name = "Knight Banneret"
+	tutorial = "Wrought through warfare, or nepotism. The crowned apex of chivalry and ability, \
+    you are the prime bodyguard of the ducal family. \
+    You are charged with protecting both the ruler and their heirs. If battle comes to the city, your arms and armor will decide \
+    whether Azure Peak continues a benevolent reign or falls to the dark powers beyond these comforting walls..."
+	maximum_possible_slots = 1
+
+	category_tags = list(CTAG_ROYALGUARD)
+	outfit = /datum/outfit/job/roguetown/knightchampion
+	traits_applied = list(TRAIT_HEAVYARMOR)
+
+	subclass_stashed_items = list("Ducal Caparison" = /obj/item/caparison/azure)
+	extra_context = "This class gains Master skill in their weapon of choice. Recieves Azurean Caparison in it's stash."
+
+	subclass_stats = list(
+		STATKEY_STR = 2,
+		STATKEY_CON = 2,
+		STATKEY_WIL = 2,
+		STATKEY_INT = 2,
+		STATKEY_PER = 2,
+		STATKEY_LCK = 2
+	)
+
+	subclass_skills = list(
+		/datum/skill/combat/swords = SKILL_LEVEL_EXPERT,
+		/datum/skill/combat/polearms = SKILL_LEVEL_EXPERT,
+		/datum/skill/combat/wrestling = SKILL_LEVEL_EXPERT,
+		/datum/skill/combat/maces = SKILL_LEVEL_EXPERT,
+		/datum/skill/combat/shields = SKILL_LEVEL_EXPERT,
+		/datum/skill/misc/athletics = SKILL_LEVEL_EXPERT,
+		/datum/skill/misc/riding = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/combat/unarmed = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/knives = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/climbing = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/reading = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/crossbows = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/combat/bows = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/misc/swimming = SKILL_LEVEL_APPRENTICE,
+	)
+
+	subclass_virtues = list(
+		/datum/virtue/utility/riding
+	)
+
+/datum/outfit/job/roguetown/knightchampion/pre_equip(mob/living/carbon/human/H)
+	backpack_contents = list(
+		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
+		/obj/item/rogueweapon/scabbard/sheath/royal = 1,
+		/obj/item/clothing/cloak/banneret = 1,
+		/obj/item/scomstone/garrison = 1
+		)
+	cloak = /obj/item/clothing/cloak/tabard/retinue/banneret
+	neck = /obj/item/clothing/neck/roguetown/bevor
+	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
+	gloves = /obj/item/clothing/gloves/roguetown/plate
+	wrists = /obj/item/clothing/wrists/roguetown/bracers
+	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
+
+	job_bitflag = BITFLAG_ROYALTY | BITFLAG_GARRISON
+
+	if(!H.mind)
+		return
+
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/movemovemove)
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/takeaim)
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/hold)
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/onfeet)
+	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
+
+	H.verbs |= list(
+		/mob/living/carbon/human/proc/request_outlaw,
+		/mob/proc/haltyell,
+		/mob/living/carbon/human/mind/proc/setorders
+	)
+
+	SStreasury.give_money_account(ECONOMIC_RICH, H, "Savings.")
+
+	H.adjust_blindness(-3)
+	var/weapons = list(
+		"Edict & Aegis (Sabre & Buckler)",
+		"Claymore",
+		"Great Mace",
+		"Battle Axe",
+		"Poleaxe",
+		"Estoc",
+		"Longsword",
+		"Flail",
+		"Sabre",
+		"Lance",
+		)
+	var/weapon_choice = input(H, "Choose your weapon.", "TAKE UP ARMS") as anything in weapons
+	H.set_blindness(0)
+	switch(weapon_choice)
+		if("Edict & Aegis (Sabre & Buckler)")
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_MASTER, TRUE)
+			r_hand = /obj/item/rogueweapon/sword/sabre/banneret
+			beltl = /obj/item/rogueweapon/shield/buckler/banneret
+			beltr = /obj/item/rogueweapon/scabbard/sword/royal
+		if("Claymore")
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_MASTER, TRUE)
+			r_hand = /obj/item/rogueweapon/greatsword/zwei
+			backl = /obj/item/rogueweapon/scabbard/gwstrap
+		if("Poleaxe")
+			H.adjust_skillrank_up_to(/datum/skill/combat/axes, SKILL_LEVEL_MASTER, TRUE)
+			r_hand = /obj/item/rogueweapon/greataxe/steel/knight
+			backl = /obj/item/rogueweapon/scabbard/gwstrap
+		if("Estoc")
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_MASTER, TRUE)
+			r_hand = /obj/item/rogueweapon/estoc
+			backl = /obj/item/rogueweapon/scabbard/gwstrap
+		if("Battle Axe")
+			H.adjust_skillrank_up_to(/datum/skill/combat/axes, SKILL_LEVEL_MASTER, TRUE)
+			r_hand = /obj/item/rogueweapon/stoneaxe/battle
+		if("Great Mace")
+			H.adjust_skillrank_up_to(/datum/skill/combat/maces, SKILL_LEVEL_MASTER, TRUE)
+			r_hand = /obj/item/rogueweapon/mace/goden/steel
+		if("Longsword")
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_MASTER, TRUE)
+			r_hand = /obj/item/rogueweapon/sword/long
+			beltr = /obj/item/rogueweapon/scabbard/sword/royal
+		if("Flail")
+			H.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, SKILL_LEVEL_MASTER, TRUE)
+			beltr = /obj/item/rogueweapon/flail/sflail
+		if("Sabre")
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_MASTER, TRUE)
+			beltr = /obj/item/rogueweapon/scabbard/sword/royal
+			r_hand = /obj/item/rogueweapon/sword/sabre
+		if("Lance")
+			H.adjust_skillrank_up_to(/datum/skill/combat/polearms, SKILL_LEVEL_MASTER, TRUE)
+			r_hand = /obj/item/rogueweapon/spear/lance
+	if(weapon_choice in list("Battle Axe", "Great Mace", "Longsword", "Flail", "Sabre", "Lance"))
+		var/secondary = list(
+			"Kite Shield",
+			"Crossbow",
+			"Recurve Bow",
+		)
+		var/secondary_choice = input(H, "Choose your secondary.", "TAKE UP ARMS") as anything in secondary
+		switch(secondary_choice)
+			if("Kite Shield")
+				backl = /obj/item/rogueweapon/shield/tower/metal
+			if("Crossbow")
+				H.adjust_skillrank_up_to(/datum/skill/combat/crossbows, 4, TRUE)
+				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+				beltl = /obj/item/quiver/bolts
+			if("Recurve Bow")
+				H.adjust_skillrank_up_to(/datum/skill/combat/bows, 4, TRUE)
+				beltl = /obj/item/quiver/arrows
+				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
+
+	var/armors = list(
+		"Brigandine",
+		"Coat of Plates",
+		"Fluted Cuirass",
+		"Champion's Plate"
+	)
+	var/armorchoice = input(H, "Choose your armor.", "TAKE UP ARMOR") as anything in armors
+	switch(armorchoice)
+		if("Brigandine")
+			armor = /obj/item/clothing/suit/roguetown/armor/brigandine/retinue
+			pants = /obj/item/clothing/under/roguetown/chainlegs
+		if("Coat of Plates")
+			armor = /obj/item/clothing/suit/roguetown/armor/plate/scale/knight
+			pants = /obj/item/clothing/under/roguetown/chainlegs
+		if("Fluted Cuirass")
+			armor = /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted
+			pants = /obj/item/clothing/under/roguetown/chainlegs
+		if("Champion's Plate")
+			armor = /obj/item/clothing/suit/roguetown/armor/brigandine/banneret
+			pants = /obj/item/clothing/under/roguetown/chainlegs/banneret
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/banneret
+
+	if(armorchoice == "Champion's Plate")
+		return // Get helmet from armor selection
+
+	var/helmets = list(
+		"Pigface Bascinet" 	= /obj/item/clothing/head/roguetown/helmet/bascinet/pigface,
+		"Guard Helmet"		= /obj/item/clothing/head/roguetown/helmet/heavy/guard,
+		"Barred Helmet"		= /obj/item/clothing/head/roguetown/helmet/heavy/sheriff,
+		"Bucket Helmet"		= /obj/item/clothing/head/roguetown/helmet/heavy/bucket,
+		"Knight's Armet"	= /obj/item/clothing/head/roguetown/helmet/heavy/knight,
+		"Knight's Helmet"	= /obj/item/clothing/head/roguetown/helmet/heavy/knight/old,
+		"Froggemund Helmet"	= /obj/item/clothing/head/roguetown/helmet/heavy/frogmouth,
+		"Visored Sallet"	= /obj/item/clothing/head/roguetown/helmet/sallet/visored,
+		"Armet"				= /obj/item/clothing/head/roguetown/helmet/heavy/knight/armet,
+		"Hounskull Bascinet" = /obj/item/clothing/head/roguetown/helmet/bascinet/pigface/hounskull,
+		"Klappvisier Bascinet" = /obj/item/clothing/head/roguetown/helmet/bascinet/etruscan,
+		"Etruscan Bascinet" = /obj/item/clothing/head/roguetown/helmet/bascinet/etruscan,
+		"Slitted Kettle"	= /obj/item/clothing/head/roguetown/helmet/heavy/knight/skettle,
+		"None"
+	)
+	var/helmchoice = input(H, "Choose your Helm.", "TAKE UP HELMS") as anything in helmets
+	if(helmchoice != "None")
+		head = helmets[helmchoice]
+
+	var/onhelm = list(
+		"horns" = /obj/item/clothing/head/roguetown/tw_d_horns,
+		"towers" = /obj/item/clothing/head/roguetown/tw_d_castle_red,
+		"afreet" = /obj/item/clothing/head/roguetown/tw_d_efreet,
+		"sun" = /obj/item/clothing/head/roguetown/tw_d_sun,
+		"astrata" = /obj/item/clothing/head/roguetown/tw_d_peace,
+		"feathers" = /obj/item/clothing/head/roguetown/tw_d_feathers,
+		"lion" = /obj/item/clothing/head/roguetown/tw_d_lion,
+		"dragon" = /obj/item/clothing/head/roguetown/tw_d_dragon_red,
+		"swan" = /obj/item/clothing/head/roguetown/tw_d_swan,
+		"Le Fishe" = /obj/item/clothing/head/roguetown/tw_d_fish,
+		"mighty windmill" = /obj/item/clothing/head/roguetown/tw_d_windmill,
+		"oath" = /obj/item/clothing/head/roguetown/tw_d_oathtaker,
+		"skull" = /obj/item/clothing/head/roguetown/tw_d_skull
+		)
+	var/onhelmchoice = input("Choose your decor.", "RAISE UP THE SYMBOL") as anything in onhelm
+	l_hand = onhelm[onhelmchoice]
+
+	if(HAS_TRAIT(H, TRAIT_GOODTRAINER))
+		REMOVE_TRAIT(H, TRAIT_GOODTRAINER, JOB_TRAIT)
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e:code/modules/jobs/job_types/roguetown/retinue/knight.dm

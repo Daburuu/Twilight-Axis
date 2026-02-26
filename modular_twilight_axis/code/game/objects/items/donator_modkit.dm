@@ -110,8 +110,15 @@
 /obj/item/enchantingkit/jagerrifle
 	name = "'Jägerbüchse' morphing elixir"
 	desc = "A small container of special morphing dust, perfect to make a specifc item. Required: Arquebus"
+<<<<<<< HEAD
 	target_items = list(/obj/item/gun/ballistic/twilight_firearm/arquebus, /obj/item/gun/ballistic/twilight_firearm/arquebus/bayonet)
 	result_item = /obj/item/gun/ballistic/twilight_firearm/arquebus/jagerrifle
+=======
+	target_items = list(
+		/obj/item/gun/ballistic/twilight_firearm/arquebus/bayonet = /obj/item/gun/ballistic/twilight_firearm/arquebus/bayonet/jagerrifle,
+		/obj/item/gun/ballistic/twilight_firearm/arquebus = /obj/item/gun/ballistic/twilight_firearm/arquebus/jagerrifle)
+	icon_loadout = /obj/item/gun/ballistic/twilight_firearm/arquebus/jagerrifle
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /obj/item/enchantingkit/jagerrifle/pre_attack(obj/item/I, mob/user)
 	if(is_type_in_list(I, target_items))

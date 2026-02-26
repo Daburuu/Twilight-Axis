@@ -95,6 +95,43 @@
 		else
 			. = list(span_info("ø ------------ ø\nThis is the <EM>[used_name]</EM>, the [race_name]."))
 
+<<<<<<< HEAD
+=======
+		for(var/obj/item/bodypart/BP in bodyparts)
+			if(BP.brand_text)
+				if(observer_privilege || get_location_accessible(src, BP.body_zone))
+					. += "<span class='userdanger' style='font-size: 1.2em'>BRAND ON [uppertext(BP.name)]: \"[BP.brand_text]\"</span>"
+		//Origins
+		var/pronoun	//They / Their
+		if(!dna.species.use_skin_tone_wording_for_examine)
+			if(user == src)
+				pronoun = "I"
+			else
+				pronoun = capitalize(p_they(TRUE))
+		else
+			pronoun = capitalize(m2)
+		var/wording = (dna.species.use_skin_tone_wording_for_examine ? "[lowertext(dna.species.skin_tone_wording)]" : "hail[(user == src) ? "" : "s"] from")	//Ancestry / Tribe or hails from
+		var/origin
+		if(dna.species.use_skin_tone_wording_for_examine)
+			if(dna.species.origin == "Unknown")
+				origin = span_bold("is implacable..")
+			else
+				origin = "originates in [origin_name]"
+		else
+			if(dna.species.origin == "Unknown")
+				origin = span_bold("nowhere..")
+			else
+				origin = dna.species.origin
+		var/astratan_symbol
+		var/astratan_tooltip
+		if(HAS_TRAIT(user, TRAIT_ASTRATAN_AFFINITY) && get_dist(user, src) <= 2)
+			if(!HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS))	//Guarded virtue protects from this
+				if(issunelf(src) || patron?.type == /datum/patron/divine/astrata)
+					astratan_symbol = icon2html('icons/misc/language.dmi', world, "celestial")
+					astratan_tooltip = SPAN_TOOLTIP("One of Astrata's [issunelf(src) ? "chosen" : "followers"]", astratan_symbol)
+		. += span_info("[pronoun] [wording] [origin]. [astratan_tooltip]")	//"He hails from [X / Nowhere]" || "His [word] originates from [X]" || "His [word] is implacable..."
+
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 		if(HAS_TRAIT(src, TRAIT_WITCH))
 			if(HAS_TRAIT(user, TRAIT_NOBLE) || HAS_TRAIT(user, TRAIT_INQUISITION) || HAS_TRAIT(user, TRAIT_WITCH))
 				. += span_warning("A witch! Their presence brings an unsettling aura.")
@@ -103,13 +140,15 @@
 			else
 				. += span_notice("Something about them seems... different.")
 
-		// Leashed pet status effect message
+		if(SSticker.rulermob == src)
+			. += span_notice("<b>The ruler of this land.</b>")
+		else if(GLOB.lord_titles[name])
+			. += span_notice("[m3] been granted the title of \"[GLOB.lord_titles[name]]\".")
+    
+    		// Leashed pet status effect message
 		if(has_status_effect(/datum/status_effect/leash_pet))
 			. += span_warning("A leash is hooked to their collar. They are being led like a pet.")
-
-		if(GLOB.lord_titles[name])
-			. += span_notice("[m3] been granted the title of \"[GLOB.lord_titles[name]]\".")
-
+ 
 		if(HAS_TRAIT(src, TRAIT_NOBLE) || HAS_TRAIT(src, TRAIT_DEFILED_NOBLE))
 			if(HAS_TRAIT(user, TRAIT_NOBLE) || HAS_TRAIT(user, TRAIT_DEFILED_NOBLE))
 				. += span_notice("A fellow noble.")
@@ -124,33 +163,85 @@
 			. += span_warning("A knot is locked inside them. They're being pulled around like a pet.")
 
 		// Facial/Creampie effect message
-		var/datum/status_effect/facial/facial = has_status_effect(/datum/status_effect/facial)
-		var/datum/status_effect/facial/internal/creampie = null
-		if(observer_privilege || get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE))
-			creampie = has_status_effect(/datum/status_effect/facial/internal)
-		if(facial && creampie)
-			var/facial_wet_or_dry = !facial?.has_dried_up ? "glazed" : "plastered"
-			var/creampie_wet_or_dry = !creampie?.has_dried_up ? "dripping out" : "stained with"
-			var/we_wet_or_dry = facial?.has_dried_up && creampie?.has_dried_up ? "dried cum" : "cum" // only show dried if both status are set to dry
-			if(user != src && isliving(user))
-				var/mob/living/L = user
-				. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_aiprivradio("[m1] [facial_wet_or_dry] and [creampie_wet_or_dry] [we_wet_or_dry]!") : span_warning("[m1] covered in something glossy!")
-			else
-				. += span_aiprivradio("[m1] [facial_wet_or_dry] and [creampie_wet_or_dry] [we_wet_or_dry]!")
-		else if(facial)
-			var/wet_or_dry = !facial?.has_dried_up ? "glazed with cum" : "plastered with dried cum"
-			if(user != src && isliving(user))
-				var/mob/living/L = user
-				. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_aiprivradio("[m1] [wet_or_dry]!") : span_warning("[m1] smeared with something glossy!")
-			else
-				. += span_aiprivradio("[m1] [wet_or_dry]!")
-		else if(creampie)
-			var/wet_or_dry = !creampie?.has_dried_up ? "dripping out cum" : "stained with dried cum"
-			if(user != src && isliving(user))
-				var/mob/living/L = user
-				. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_aiprivradio("[m1] [wet_or_dry]!") : span_warning("[m1] letting out some glossy stuff!")
-			else
-				. += span_aiprivradio("[m1] [wet_or_dry]!")
+		// var/datum/status_effect/facial/facial = has_status_effect(/datum/status_effect/facial)
+		// var/datum/status_effect/facial/internal/creampie = null
+		// if(observer_privilege || get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE))
+		// 	creampie = has_status_effect(/datum/status_effect/facial/internal)
+		// if(facial && creampie)
+		// 	var/facial_wet_or_dry = !facial?.has_dried_up ? "glazed" : "plastered"
+		// 	var/creampie_wet_or_dry = !creampie?.has_dried_up ? "dripping out" : "stained with"
+		// 	var/we_wet_or_dry = facial?.has_dried_up && creampie?.has_dried_up ? "dried cum" : "cum" // only show dried if both status are set to dry
+		// 	if(user != src && isliving(user))
+		// 		var/mob/living/L = user
+		// 		. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_aiprivradio("[m1] [facial_wet_or_dry] and [creampie_wet_or_dry] [we_wet_or_dry]!") : span_warning("[m1] covered in something glossy!")
+		// 	else
+		// 		. += span_aiprivradio("[m1] [facial_wet_or_dry] and [creampie_wet_or_dry] [we_wet_or_dry]!")
+		// else if(facial)
+		// 	var/wet_or_dry = !facial?.has_dried_up ? "glazed with cum" : "plastered with dried cum"
+		// 	if(user != src && isliving(user))
+		// 		var/mob/living/L = user
+		// 		. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_aiprivradio("[m1] [wet_or_dry]!") : span_warning("[m1] smeared with something glossy!")
+		// 	else
+		// 		. += span_aiprivradio("[m1] [wet_or_dry]!")
+		// else if(creampie)
+		// 	var/wet_or_dry = !creampie?.has_dried_up ? "dripping out cum" : "stained with dried cum"
+		// 	if(user != src && isliving(user))
+		// 		var/mob/living/L = user
+		// 		. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_aiprivradio("[m1] [wet_or_dry]!") : span_warning("[m1] letting out some glossy stuff!")
+		// 	else
+		// 		. += span_aiprivradio("[m1] [wet_or_dry]!")
+		
+		// ERP: coating + active partner (hidden-mode aware)
+		var/datum/erp_controller/erpC = SSerp?.get_controller_for(src)
+		var/erp_hidden = erpC?.hidden_mode
+		var/close_enough = Adjacent(user)
+		var/can_see_hidden = observer_privilege || close_enough || (user == src)
+		if(erpC)
+			var/mob/living/partner_mob = erpC._get_partner_effect_mob()
+			if(partner_mob && partner_mob != src && erpC.has_active_actions())
+				if(erp_hidden)
+					if(can_see_hidden)
+						. += span_warning("[m1] сплетается с [partner_mob].")
+				else
+					if(user != src && isliving(user))
+						var/mob/living/L = user
+						. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_aiprivradio("[m1] сплетается с [partner_mob].") : span_warning("[m1] сплетается с кем-то...")
+					else
+						. += span_aiprivradio("[m1] сплетается с [partner_mob].")
+
+		if(!erp_hidden || can_see_hidden)
+			var/datum/status_effect/erp_coating/groin/G = null
+			if(observer_privilege || get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE))
+				G = has_status_effect(/datum/status_effect/erp_coating/groin)
+
+			var/datum/status_effect/erp_coating/chest/CH = null
+			if(observer_privilege || get_location_accessible(src, BODY_ZONE_CHEST, skipundies = TRUE))
+				CH = has_status_effect(/datum/status_effect/erp_coating/chest)
+
+			var/datum/status_effect/erp_coating/face/B = has_status_effect(/datum/status_effect/erp_coating/face)
+			if(G)
+				var/txt = !G.has_dried_up ? "имеет влажные стекающие следы выделений на паху" : "имеет влажные подсхощие следы выделений на паху"
+				if(user != src && isliving(user))
+					var/mob/living/L = user
+					. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_aiprivradio("[m1] [txt].") : span_warning("[m1] выглядит грязно в районе паха.")
+				else
+					. += span_aiprivradio("[m1] [txt].")
+
+			if(CH)
+				var/txt = !CH.has_dried_up ? "имеет влажные следы выделений на груди" : "имеет подсхохшие выделения на груди"
+				if(user != src && isliving(user))
+					var/mob/living/L = user
+					. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_aiprivradio("[m1] [txt].") : span_warning("[m1] имеет чем-то запачканную грудь.")
+				else
+					. += span_aiprivradio("[m1] [txt].")
+
+			if(B)
+				var/txt = !B.has_dried_up ? "блестит влажными выделениями" : "имеет сухие следы выделений на лице"
+				if(user != src && isliving(user))
+					var/mob/living/L = user
+					. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_aiprivradio("[m1] [txt].") : span_warning("[m1] выглядит грязно.")
+				else
+					. += span_aiprivradio("[m1] [txt].")
 
 		//For tennite schism god-event
 		if(length(GLOB.tennite_schisms))
@@ -213,15 +304,44 @@
 
 			if(has_flaw(/datum/charflaw/paranoid) && user.has_flaw(/datum/charflaw/paranoid))
 				if(ishuman(user))
+<<<<<<< HEAD
 					var/mob/living/carbon/human/H = user
 					if(dna.species.name == H.dna.species.name)
 						. += span_nicegreen("[m1] privy to the dangers of all these strangers around us. [m1] just as afraid as I am.")
+=======
+					if(has_flaw(/datum/charflaw/addiction/paranoid))
+						. += span_nicegreen("[m1] is the kind who sticks to their own. I understand.")
+						user.sate_addiction(/datum/charflaw/addiction/paranoid)
+					else if(pflaw.check_faction(src))
+						. += span_nicegreen("One of my own.")
+						user.sate_addiction(/datum/charflaw/addiction/paranoid)
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 					else
 						. += span_nicegreen("[m1] one of the good ones. [m1] just as afraid as I am.")
 			if(has_flaw(/datum/charflaw/addiction/masochist) && user.has_flaw(/datum/charflaw/addiction/sadist))
 				. += span_secradio("[m1] marked by scars inflicted for pleasure. A delectable target for my urges.")
 			if(has_flaw(/datum/charflaw/addiction/sadist) && user.has_flaw(/datum/charflaw/addiction/masochist))
 				. += span_secradio("[m1] looking with eyes filled with a desire to inflict pain. So exciting.")
+<<<<<<< HEAD
+=======
+
+			if(has_flaw(/datum/charflaw/addiction/thrillseeker) && user.has_flaw(/datum/charflaw/addiction/thrillseeker))
+				. += span_rose("[m1] twitching for a thrilling fight. So am I.")
+			
+			if(user.has_flaw(/datum/charflaw/averse))
+				var/datum/charflaw/averse/averseflaw = user.get_flaw(/datum/charflaw/averse)
+				if(averseflaw.check_aversion(user, src))
+					user.add_stress(/datum/stressevent/averse)
+					. += span_secradio("One of <b>them...</b>")
+
+			if(user.has_flaw(/datum/charflaw/addiction/voyeur) && get_dist(src, user) <= 3)
+				if(charflaws.len)
+					var/list/vice_desc = list()
+					for(var/datum/charflaw/cf in charflaws)
+						vice_desc.Add(cf.voyeur_descriptor)
+					. += span_voyeurvice("[m1][english_list(vice_desc)]...")
+
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 			if(HAS_TRAIT(user, TRAIT_EMPATH) && HAS_TRAIT(src, TRAIT_PERMAMUTE))
 				. += span_notice("[m1] lacks a voice. [m1] is a mute!")
 
@@ -238,6 +358,7 @@
 		if (HAS_TRAIT(src, TRAIT_LEPROSY))
 			. += span_necrosis("A LEPER...")
 
+<<<<<<< HEAD
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(family_datum == H.family_datum && family_datum)
@@ -246,12 +367,19 @@
 					. += family_text
 
 		if (HAS_TRAIT(src, TRAIT_BEAUTIFUL))
+=======
+		if (HAS_TRAIT(src, TRAIT_BEAUTIFUL) || (issunelf(src) && issunelf(user)))
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 			switch (pronouns)
-				if (HE_HIM, SHE_HER_M)
+				if (HE_HIM)
 					. += span_beautiful_masc("[m1] handsome!")
-				if (SHE_HER, HE_HIM_F)
+				if (SHE_HER)
 					. += span_beautiful_fem("[m1] beautiful!")
+<<<<<<< HEAD
 				if (THEY_THEM, THEY_THEM_F, IT_ITS)
+=======
+				if (THEY_THEM, IT_ITS)
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 					. += span_beautiful_nb("[m1] good-looking!")
 
 		if (HAS_TRAIT(src, TRAIT_UNSEEMLY))
@@ -260,7 +388,11 @@
 					. += span_redtext("[m1] revolting!")
 				if (SHE_HER)
 					. += span_redtext("[m1] repugnant!")
+<<<<<<< HEAD
 				if (THEY_THEM, THEY_THEM_F, IT_ITS)
+=======
+				if (THEY_THEM, IT_ITS)
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 					. += span_redtext("[m1] repulsive!")
 
 		var/datum/antagonist/vampire/vamp_inspect = src.mind?.has_antag_datum(/datum/antagonist/vampire)
@@ -278,7 +410,7 @@
 		if(HAS_TRAIT(src, TRAIT_DNR) && src != user && !HAS_TRAIT(user, TRAIT_DEATHSIGHT)) // A lot of conditional to avoid a redundant message, but we also want unknown DNRs to be covered.
 			. += span_danger("Their body holds not even a glimmer of life. No medicine can bring them back.")
 
-	if (HAS_TRAIT(src, TRAIT_CRITICAL_WEAKNESS) && (!HAS_TRAIT(src, TRAIT_VAMP_DREAMS)))
+	if (HAS_TRAIT(src, TRAIT_CRITICAL_WEAKNESS) && (!HAS_TRAIT(src, TRAIT_VAMP_DREAMS)) && (!HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS)))
 		if(isliving(user))
 			var/mob/living/L = user
 			if(L.STAINT > 9 && L.STAPER > 9)
@@ -987,14 +1119,14 @@
 	if(HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS))
 		return
 	if(HAS_TRAIT(src, TRAIT_COMMIE) && HAS_TRAIT(examiner, TRAIT_COMMIE))
-		heretic_text += "♠"
+		heretic_text += "⚖️" //♠ is the original
 	//Defunct as of *fsalute changes, leaving here as a symbol reference.
-	/*else if(HAS_TRAIT(src, TRAIT_CABAL) && HAS_TRAIT(examiner, TRAIT_CABAL))
+	else if(HAS_TRAIT(src, TRAIT_CABAL) && HAS_TRAIT(examiner, TRAIT_CABAL))
 		heretic_text += "♦"
 	else if(HAS_TRAIT(src, TRAIT_HORDE) && HAS_TRAIT(examiner, TRAIT_HORDE))
 		heretic_text += "♠"
 	else if(HAS_TRAIT(src, TRAIT_DEPRAVED) && HAS_TRAIT(examiner, TRAIT_DEPRAVED))
-		heretic_text += "♥"*/
+		heretic_text += "♥"
 
 	return heretic_text
 
@@ -1028,7 +1160,8 @@
 				villain_text += span_userdanger("A MONSTER!")
 		if(mind.assigned_role == "Lunatic")
 			villain_text += span_userdanger("LUNATIC!")
-
+	if(HAS_TRAIT(src, TRAIT_ZIZOEYES))
+		villain_text += span_userdanger("Their eyes send chills down your spine...")
 	return villain_text
 
 /proc/get_blade_dulling_text(obj/item/rogueweapon/I, verbose = FALSE)

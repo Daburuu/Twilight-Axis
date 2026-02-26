@@ -385,6 +385,59 @@
 	color = "#8b1414"
 	detail_color = "#99b2b1"
 
+<<<<<<< HEAD
+=======
+/datum/inqports/wardrobe/psycross
+	name = "1 Psycross"
+	item_type = /obj/item/clothing/neck/roguetown/psicross
+	marquescost = 2
+
+/datum/inqports/wardrobe/psycrosssilver
+	name = "1 Silver Psycross"
+	item_type = /obj/item/clothing/neck/roguetown/psicross/silver
+	maximum = 3
+	marquescost = 12
+
+/datum/inqports/wardrobe/otavansatchel
+	name = "1 Satchel, Otavan Leather"
+	item_type = /obj/item/storage/backpack/rogue/satchel/otavan
+	marquescost = 3
+
+/datum/inqports/wardrobe/satchelbelted
+	name = "1 Satchel, Belted"
+	item_type = /obj/item/storage/backpack/rogue/satchel/beltpack
+	marquescost = 6
+
+/datum/inqports/wardrobe/psysack
+	name = "1 Psydonian Facemask"
+	item_type = /obj/item/clothing/mask/rogue/sack/psy
+	marquescost = 3
+
+/datum/inqports/wardrobe/strangemask
+	name = "1 Confessor's Strange Mask"
+	item_type = /obj/item/clothing/mask/rogue/facemask/steel/confessor
+	marquescost = 6
+
+/datum/inqports/wardrobe/psydonthorns
+	name = "1 Psydonian Crown of Thorns"
+	item_type = /obj/item/clothing/wrists/roguetown/bracers/psythorns
+	marquescost = 12
+
+/datum/inqports/wardrobe/psydonhelms
+	name = "The 'Greathelms of Psydon' Crate"
+	item_type = /obj/structure/closet/crate/chest/inqcrate/equipment/psydonhelms
+	marquescost = 12
+	maximum = 1
+
+/obj/structure/closet/crate/chest/inqcrate/equipment/psydonhelms/Initialize()
+	. = ..()
+	new /obj/item/clothing/head/roguetown/helmet/heavy/psydonbarbute(src)
+	new /obj/item/clothing/head/roguetown/helmet/heavy/psysallet(src)
+	new /obj/item/clothing/head/roguetown/helmet/heavy/psybucket(src)
+	new /obj/item/clothing/head/roguetown/helmet/heavy/psydonhelm(src)
+	new /obj/item/clothing/head/roguetown/helmet/heavy/absolver/unblessed(src)
+
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 /datum/inqports/wardrobe/fencerset
 	name = "The Otavan Fencer's Finest Set Crate"
 	item_type = /obj/structure/closet/crate/chest/inqcrate/wardrobe/fencerset

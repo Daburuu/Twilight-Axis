@@ -32,7 +32,7 @@ GLOBAL_LIST_INIT(drowraider_aggro, world.file2list("strings/rt/drowaggrolines.tx
 
 /mob/living/carbon/human/species/elf/dark/drowraider/Initialize()
 	. = ..()
-	set_species(/datum/species/elf/dark)
+	set_species(/datum/species/elf/dark/raider)
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 	is_silent = TRUE
 
@@ -133,8 +133,28 @@ GLOBAL_LIST_INIT(drowraider_aggro, world.file2list("strings/rt/drowaggrolines.tx
 		neck = /obj/item/clothing/neck/roguetown/gorget
 	gloves = /obj/item/clothing/gloves/roguetown/chain/iron
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
+<<<<<<< HEAD
 	H.STASTR = 14 // 8 Points
 	H.STASPD = 11 // +1 - Drow
+=======
+	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants/shadowpants/drowraider
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/shadowvest/drowraider
+	shirt = /obj/item/clothing/suit/roguetown/shirt/shadowshirt/elflock/drowraider
+	gloves = /obj/item/clothing/gloves/roguetown/fingerless/shadowgloves/elflock
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
+	mask = /obj/item/clothing/mask/rogue/facemask
+	neck = /obj/item/clothing/neck/roguetown/coif/heavypadding
+	r_hand = /obj/item/rogueweapon/whip
+	if(prob(45))
+		r_hand = /obj/item/rogueweapon/sword/falx/stalker
+		l_hand = /obj/item/rogueweapon/sword/falx/stalker
+	else if(prob(15))
+		r_hand = /obj/item/rogueweapon/huntingknife/idagger/steel/corroded/dirk
+		l_hand = /obj/item/rogueweapon/huntingknife/idagger/steel/corroded/dirk
+
+	H.STASTR = 12 // 6 Points
+	H.STASPD = 13 // 3 points
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	H.STACON = 14 // 4 points
 	H.STAWIL = 12 // 2 points - 14 points spread. Equal to 1 more than a KC accounting for Statpack.
 	H.STAPER = 10

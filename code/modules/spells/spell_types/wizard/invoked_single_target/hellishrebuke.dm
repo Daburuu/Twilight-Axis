@@ -25,6 +25,7 @@
 
 
 /obj/effect/proc_holder/spell/invoked/rebuke/cast(list/targets, mob/living/user)
+<<<<<<< HEAD
 	if(isliving(targets[1]))
 		var/mob/living/carbon/target = targets[1]
 		target.adjustFireLoss(30) //damage
@@ -33,4 +34,21 @@
 		target.visible_message(span_warning("[user] makes a rude gesture at [target] and causes them to burst into flames!"), \
 		span_userdanger("[user] makes a rude gesture at you and causes you to burst into flames!"))
 		playsound(get_turf(target), 'sound/misc/explode/incendiary (1).ogg', 100, TRUE)
+=======
+	if(!isliving(targets[1]))
+		return FALSE
+
+	var/mob/living/carbon/target = targets[1]
+	if(spell_guard_check(target, TRUE))
+		target.visible_message(span_warning("[target] shrugs off the flames!"))
+		return TRUE
+	target.adjustFireLoss(30) //damage
+	target.adjust_fire_stacks(4)
+	target.ignite_mob()
+	target.visible_message(span_warning("[user] makes a rude gesture at [target] and causes them to burst into flames!"), \
+	span_userdanger("[user] makes a rude gesture at you and causes you to burst into flames!"))
+	playsound(get_turf(target), 'sound/misc/explode/incendiary (1).ogg', 100, TRUE)
+
+	return TRUE
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 

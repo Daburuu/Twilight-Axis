@@ -129,6 +129,9 @@
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
 		if(target.mob_biotypes & MOB_UNDEAD)
+			if(spell_guard_check(target, TRUE))
+				target.visible_message(span_warning("[target] resists Ravox's judgment!"))
+				return TRUE
 			if(ishuman(target)) //BLEED AND PAIN
 				var/mob/living/carbon/human/human_target = target
 				var/datum/physiology/phy = human_target.physiology
@@ -200,6 +203,9 @@
 /obj/effect/proc_holder/spell/invoked/tug_of_war/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
+		if(spell_guard_check(target, TRUE))
+			target.visible_message(span_warning("[target] holds firm against the pull!"))
+			return TRUE
 		var/chance = 0
 		if(target.mob_biotypes & MOB_UNDEAD)
 			pull_distance++
@@ -304,8 +310,19 @@ GLOBAL_LIST_EMPTY(arenafolks) // we're just going to use a list and add to it. S
 		new /obj/structure/fluff/ravox/challenger/recall(storedchallengerturf)
 		new /obj/structure/fluff/ravox/challenged/recall(storedchallengedturf)
 
+<<<<<<< HEAD
 		to_chat(user, span_userdanger("THE TRIAL IS CALLED, IMPRESS US, PROSECUTOR!!"))
 		to_chat(target, span_userdanger("A TRIAL OF RAVOX BEGINS. IMPRESS US, DEFENDANT!!"))
+=======
+	if(spell_guard_check(target, TRUE))
+		target.visible_message(span_warning("[target] stands firm, refusing the trial!"))
+		return TRUE
+
+	for(var/obj/structure/fluff/ravox/challenger/aflag in thearena)
+		challengerspawnpoint = get_turf(aflag)
+	for(var/obj/structure/fluff/ravox/challenged/bflag in thearena)
+		challengedspawnpoint = get_turf(bflag)
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 		user.cmode_change('sound/music/ravoxarena.ogg')
 		target.cmode_change('sound/music/ravoxarena.ogg')

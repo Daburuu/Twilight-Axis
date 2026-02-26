@@ -40,8 +40,13 @@
 
 /datum/supply_pack/rogue/Knight/mblkstelarmet
 	name = "Blacksteel Armet"
+<<<<<<< HEAD
 	cost = 100
 	contains = list(/obj/item/clothing/head/roguetown/helmet/blacksteel/modern/armet)
+=======
+	cost = 200
+	contains = list(/obj/item/clothing/head/roguetown/helmet/blacksteel/modern)
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /datum/supply_pack/rogue/Knight/blkstelbuckhelm
 	name = "Ancient Blacksteel Bucket Helm"
@@ -127,8 +132,13 @@
 
 /datum/supply_pack/rogue/Knight/mblkplategaunt
 	name = "Blacksteel Plate Gauntlets"
+<<<<<<< HEAD
 	cost = 50
 	contains = list(/obj/item/clothing/gloves/roguetown/blacksteel/modern/plategloves)
+=======
+	cost = 100
+	contains = list(/obj/item/clothing/gloves/roguetown/plate/blacksteel/modern)
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /datum/supply_pack/rogue/Knight/blkplategaunt
 	name = "Ancient Blacksteel Plate Gauntlets"
@@ -166,8 +176,13 @@
 
 /datum/supply_pack/rogue/Knight/mblkplateboots
 	name = "Blacksteel Plated boots"
+<<<<<<< HEAD
 	cost = 40
 	contains = list(/obj/item/clothing/shoes/roguetown/boots/blacksteel/modern/plateboots)
+=======
+	cost = 80
+	contains = list(/obj/item/clothing/shoes/roguetown/boots/armor/blacksteel/modern)
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /datum/supply_pack/rogue/Knight/blkplateboots
 	name = "Ancient Blacksteel Plated boots"

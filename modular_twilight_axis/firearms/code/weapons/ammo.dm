@@ -6,6 +6,9 @@
 	var/gunpowder_npc_critfactor = 1
 	var/gunpowder
 
+/obj/item/ammo_casing
+	var/obj/item/quiver/twilight_bullet/runicbag/linked_bag = null
+
 /**
  * Generic ammo used by handgonnes and arquebuses
  */
@@ -87,7 +90,10 @@
 	embedchance = 100
 	woundclass = BCLASS_STAB
 	flag = "piercing"
+<<<<<<< HEAD
 	always_drop = TRUE
+=======
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /obj/projectile/bullet/twilight_lead/twilight_runelock/blessed
 	name = "blessed sphere"
@@ -215,8 +221,49 @@
 					if(!T.mind)
 						damage *= gunpowder_npc_critfactor
 				else
+<<<<<<< HEAD
 					T.visible_message(span_danger("The [src.name] misses [T] narrowly, grazing them!"), \
 									span_danger("The [src.name] misses me narrowly, grazing me!"), null, COMBAT_MESSAGE_RANGE)
+=======
+					switch(gunpowder) //Hande gunpowder types that are NOT BLOCKED by shields and armor
+						if("fyrepowder")
+							if(istype(src, /obj/projectile/bullet/twilight_grapeshot))
+								T.adjust_fire_stacks(1)
+							else
+								T.adjust_fire_stacks(3)
+							T.ignite_mob()
+						if("holy fyrepowder")
+							if(HAS_TRAIT(T, TRAIT_SILVER_WEAK))
+								if(!T.has_status_effect(/datum/status_effect/fire_handler/fire_stacks/sunder))
+									if(T.patron)
+										to_chat(T, span_danger("The trice-cursed Otavan silver! By [T.patron.name], it hurts!!"))
+									else
+										to_chat(T, span_danger("The trice-cursed Otavan silver! By all that's holy, it hurts!!"))
+								if(istype(src, /obj/projectile/bullet/twilight_grapeshot))
+									T.adjust_fire_stacks(1, /datum/status_effect/fire_handler/fire_stacks/sunder/blessed)
+								else
+									T.adjust_fire_stacks(3, /datum/status_effect/fire_handler/fire_stacks/sunder/blessed)
+							else
+								if(istype(src, /obj/projectile/bullet/twilight_grapeshot))
+									T.adjust_fire_stacks(1, /datum/status_effect/fire_handler/fire_stacks/divine)
+								else
+									T.adjust_fire_stacks(3, /datum/status_effect/fire_handler/fire_stacks/divine)
+							T.ignite_mob()
+						if("corrosive gunpowder")
+							playsound(src, 'sound/misc/drink_blood.ogg', 100)
+							T.apply_status_effect(/datum/status_effect/debuff/corrosivesplash)
+							new /obj/effect/temp_visual/acidsplash(get_turf(T))
+						if("thunderpowder")
+							T.Immobilize(10)
+							T.apply_status_effect(/datum/status_effect/debuff/thunderpowder)
+						if("terrorpowder")
+							gunpowder_npc_critfactor += 1
+				if(!T.mind)
+					damage *= gunpowder_npc_critfactor
+			else
+				T.visible_message(span_danger("The [src.name] misses [T] narrowly, grazing them!"), \
+								span_danger("The [src.name] misses me narrowly, grazing me!"), null, COMBAT_MESSAGE_RANGE)
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	. = ..()
 	if(isliving(firer) && (istype(fired_from, /obj/item/gun/ballistic/twilight_firearm) || istype(fired_from, /obj/item/gun/ballistic/revolver/grenadelauncher/twilight_runelock)))
 		var/mob/living/M = firer
@@ -336,6 +383,11 @@
 	var/filter = src.get_filter("rune_filter")
 	if(!filter)
 		src.add_filter("rune_filter", 2, list("type" = "outline", "color" = rgb(112, 28, 28, 1), "alpha" = 200, "size" = 2))
+
+/obj/item/ammo_casing/caseless/twilight_lead/runelock/ready_proj(atom/target, mob/living/user, quiet, zone_override = "", atom/fired_from)
+	. = ..()
+	if(linked_bag)
+		linked_bag.linked_ammo_types += type
 
 /obj/item/ammo_casing/caseless/twilight_lead/runelock/equipped(mob/living/user)
 	if(ishuman(user))

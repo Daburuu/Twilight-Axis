@@ -21,6 +21,8 @@ GLOBAL_LIST_EMPTY(virtues)
 	var/custom_text
 	//if a virtue hits the soft cap we give them a 1 skill point boost
 	var/softcap = FALSE
+	/// Whether a virtue should show up in regular selection
+	var/unlisted = FALSE
 
 /datum/virtue/New()
 	. = ..()
@@ -124,7 +126,16 @@ GLOBAL_LIST_EMPTY(virtues)
 			SStreasury.generate_money_account(20, recipient)
 		else
 			SStreasury.create_bank_account(recipient, 20)
+<<<<<<< HEAD
 	record_featured_object_stat(FEATURED_STATS_VIRTUES, virtue_type.name)
+=======
+	if(virtue_type.unlisted)
+		return
+	if(istype(virtue_type, /datum/virtue/origin))
+		record_featured_object_stat(FEATURED_STATS_ORIGINS, virtue_type.name)
+	else
+		record_featured_object_stat(FEATURED_STATS_VIRTUES, virtue_type.name)
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 /datum/virtue/none
 	name = "None"
 	desc = "Without virtue."

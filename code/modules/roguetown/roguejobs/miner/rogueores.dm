@@ -302,3 +302,86 @@
 	smeltresult = /obj/item/ingot/draconic
 	color = "#70b8ff"
 	sellprice = 333
+<<<<<<< HEAD
+=======
+
+/obj/item/ingot/draconic/Initialize()
+  ..()
+  add_filter(FORCE_FILTER, 2, list("type" = "outline", "color" = GLOW_COLOR_FIRE, "alpha" = 100, "size" = 1))
+
+/obj/item/ingot/lithmyc
+	name = "lithmyc ingot"
+	desc = "A strange green ingot. It seems to be covered in an oily metal-liquid, though it refuses to leave the ingot-shape no matter how you much you try. No one in the region yet knows what the metal can be shaped into, as it's exceedingly stubborn. But, it sure seems priceless."
+	icon_state = "ingotlithmyc"
+	smeltresult = /obj/item/ingot/lithmyc
+	sellprice = 444
+
+/obj/item/ingot/lithmyc/Initialize()
+  ..()
+  add_filter(FORCE_FILTER, 2, list("type" = "outline", "color" = GLOW_COLOR_BUFF, "alpha" = 100, "size" = 1))
+
+/obj/item/ingot/ketryl
+	name = "ketryl ingot"
+	desc = "Named after its mythical status, this ingot is forged as per the dwarven standards etched in a small imprint on the ingot's surface. Ketryl is often folded in thin layers, stronger than steel, yet unusually light at the same time."
+	icon_state = "ingotketryl"
+	smeltresult = null
+	sellprice = 555
+
+/obj/item/ingot/drow
+	name = "skikudic ingot"
+	desc = "This ingot offers an alternative - if rarely-heard - solution to riddle of steel, courtesy of the Underdark's fungus-fueled forges. Sunlight refuses to illuminate its presence, no matter how bright its glare becomes. </br>'..perhaps, the forge's heat can scald away its fungal temperance..'"
+	icon_state = "ingotsteel"
+	smeltresult = /obj/item/ingot/iron //Smelting the ingot again 'burns away' the fungal temperance, allowing it to be reused for said recipes.
+	color = "#bc9ab7"
+	sellprice = 30 //Rarer to obtain than iron, and feasible to sell off as salvage.
+
+//Components!
+
+/obj/item/ingot/component //Root. Don't use under most circumstances.
+	name = "substanceless presence"
+	desc = "Something that you were likely never meant to see. Pray to a higher presence for assistance, before rendering it asunder in the forge's flames once more."
+	icon_state = "oreada"
+	smeltresult = /obj/item/ingot/iron
+	sellprice = 1
+
+/obj/item/ingot/component/glutcrystal
+	name = "crystalline glut"
+	desc = "Fractal violence, gleaming with a crimson haze that beckons for its final purpose to be accomplished."
+	icon_state = "component_blood"
+	smeltresult = /obj/item/roguegem/blood_diamond //Ensures that it can be reused for any Glut-specific ritual, should one find this in its crystalline form.
+	sellprice = 33
+
+/obj/item/ingot/component/glutcrystal/examine(mob/user)
+	. = ..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.patron.type == /datum/patron/inhumen/graggar)
+			. += span_danger("You know this gem well. They are born out of great violence, but only if it involves the mightiest of warriors. </br>Fleshcrafting it with the meat of whatever warrior birthed this gem will allow me to summon another of their kind into this world.  </br>Melting away its crystalline shell is ideal, if you wish to ensure no chance for error while conducting such a ritual.")
+
+/obj/item/ingot/component/glutcrystal/Initialize()
+  ..()
+  add_filter(FORCE_FILTER, 2, list("type" = "outline", "color" = GLOW_COLOR_VAMPIRIC, "alpha" = 120, "size" = 1))
+
+/obj/item/ingot/component/heapofrawiron
+	name = "heap of raw iron"
+	desc = "A massive hunk, born from the incoherent fusion of molten iron. Chunks of ore-and-ingotry peak out from its jagged surface, yearning to be refined - be it into ingots, or something more purposeful."
+	icon_state = "component_berserkheap"
+	smeltresult = /obj/item/rogueore/iron
+	sellprice = 44
+	smelt_bar_num = 4
+
+/obj/item/ingot/component/berserkswordblade
+	name = "blade of the berserkers sword"
+	desc = "A massive blade, forged from a raw heap of iron. The unique spike-styled tang seems to be longer than what'd be seen on most greatswords, stowable only by the innards of a fittingly large handle."
+	icon_state = "component_berserkblade"
+	smeltresult = /obj/item/ingot/iron
+	sellprice = 33
+	smelt_bar_num = 3
+
+/obj/item/ingot/component/berserkswordgrip
+	name = "handle of the berserkers sword"
+	desc = "A massive handle, assembled from the double-handed grip of an Executioner's Sword. The unique crescent-styled crossguard seems to have a slot, fittable only by the tang of a fittingly large blade."
+	icon_state = "component_berserkhandle"
+	smeltresult = /obj/item/ingot/iron
+	sellprice = 33
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e

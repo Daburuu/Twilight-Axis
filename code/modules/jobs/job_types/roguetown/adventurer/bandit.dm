@@ -36,8 +36,11 @@
 		/datum/advclass/hedgeknight,
 		/datum/advclass/iconoclast,
 		/datum/advclass/knave,
+<<<<<<< HEAD
 		/datum/advclass/roguemage,
 		/datum/advclass/sawbones,
+=======
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 		/datum/advclass/sellsword,
 		/datum/advclass/twilight_afreet
 	)
@@ -92,3 +95,21 @@
 	if (!my_crime)
 		my_crime = "Brigandry"
 	add_bounty(H.real_name, race, gender, descriptor_height, descriptor_body, descriptor_voice, bounty_total, FALSE, my_crime, bounty_poster)
+<<<<<<< HEAD
+=======
+
+/proc/update_bandits_slots()
+	var/datum/job/bandit_job = SSjob.GetJob("Bandit")
+	if(!bandit_job)
+		return
+
+	var/player_count = length(GLOB.joined_player_list)
+	var/ready_player_count = length(GLOB.ready_player_list)
+	var/slots = 0
+
+	if((SSticker.current_state == GAME_STATE_PREGAME && ready_player_count > 60) || (player_count > 60))
+		slots = 5
+
+	bandit_job.total_positions = slots
+	bandit_job.spawn_positions = slots
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e

@@ -364,6 +364,33 @@
 	icon_state = "idagger"
 	sheathe_icon = "idagger"
 	smeltresult = /obj/item/ingot/iron
+<<<<<<< HEAD
+=======
+	special = /datum/special_intent/dagger_dash
+
+// Standard dagger for wardens, or for any other forester-styled class. While a pick-dagger penetrates
+// armour, this is more focused on breaking *through* it and then dealing a lot of damage via REND.
+/obj/item/rogueweapon/huntingknife/idagger/warden_machete
+	possible_item_intents = list(/datum/intent/dagger/cut/heavy, /datum/intent/dagger/thrust/weak, /datum/intent/dagger/cut/rend, /datum/intent/dagger/sucker_punch)
+	force = 22 // Slightly more damage than a steel dagger.
+	max_integrity = 130 // Slightly less integrity than a steel dagger.
+	name = "warden's seax"
+	desc = "A well-worn seax utilised by the Fraternity of Wardens both as a tool and weapon. Nearly as effective for hacking \
+	down men as it is foiliage, but not quite as durable as more modern steel tools. More suitable for cutting than for thrusting."
+	icon_state = "warden_machete"
+	sheathe_icon = "warden_machete"
+
+/obj/item/rogueweapon/huntingknife/combat/messser //Just as Grenzelhoft intended
+	name = "kampfmesser"
+	desc = "An undersized steel messer that barely fits into a conventional dagger sheath, the saving grace of any hunter. It lacks a tip for stabbing - yet the edge alone is sharp enough to hack most issues right away. \
+	While it was brought over by Grenzelhoftian migrants, it is considered an Azurean staple these daes - the right tool for the right job."
+	possible_item_intents = list(/datum/intent/dagger/cut/heavy, /datum/intent/dagger/chop/cleaver, /datum/intent/dagger/cut/rend, /datum/intent/dagger/sucker_punch)
+	icon_state = "minimesser"
+	sheathe_icon = "minimesser"
+	max_blade_int = 200
+	max_integrity = 150
+	special = /datum/special_intent/shin_swipe
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /obj/item/rogueweapon/huntingknife/idagger/virtue
 	possible_item_intents = list(/datum/intent/dagger/thrust,/datum/intent/dagger/cut, /datum/intent/dagger/thrust/pick, /datum/intent/dagger/sucker_punch)

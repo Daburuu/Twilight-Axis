@@ -60,4 +60,8 @@
 		shirt = /obj/item/clothing/suit/roguetown/armor/regenerating/easttats
 		gloves = /obj/item/clothing/gloves/roguetown/eastgloves2
 		cloak = /obj/item/clothing/cloak/eastcloak1
+<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/mercenaries/classes/seonjang.dm
 		shoes = /obj/item/clothing/shoes/roguetown/armor/rumaclan
+=======
+	H.merctype = 9
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e:code/modules/jobs/job_types/roguetown/sidefolk/mercenary/seonjang.dm

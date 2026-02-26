@@ -119,8 +119,18 @@ GLOBAL_LIST_INIT(yeoman_positions, list(
 	"Tailor"
 ))
 
+<<<<<<< HEAD
 GLOBAL_LIST_INIT(peasant_positions, list(
 	"Soilson",
+=======
+GLOBAL_LIST_INIT(bathhouse_positions, list(
+	"Bathmaster",
+	"Bathhouse Attendant",
+))
+
+GLOBAL_LIST_INIT(peasant_positions, list( //Serfs / peasants / generic towners
+	"Bathhouse Attendant",
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	"Cook",
 	"Lunatic",
 	"Miner",

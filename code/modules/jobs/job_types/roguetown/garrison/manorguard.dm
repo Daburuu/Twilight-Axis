@@ -264,8 +264,12 @@
 	horse = /mob/living/simple_animal/hostile/retaliate/rogue/saiga/tame/saddled //Since knights start with the Buck
 
 	category_tags = list(CTAG_MENATARMS)
+<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/garrison/manorguard.dm
 	traits_applied = list(TRAIT_MEDIUMARMOR)
 	//Garrison mounted class; charge and charge often.
+=======
+	traits_applied = list(TRAIT_JAILOR, TRAIT_CIVILIZEDBARBARIAN, TRAIT_CRITICAL_RESISTANCE, TRAIT_IGNOREDAMAGESLOWDOWN)//This is surely going to be funny
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e:code/modules/jobs/job_types/roguetown/garrison/manatarms.dm
 	subclass_stats = list(
 		STATKEY_CON = 2,// seems kinda lame but remember guardsman bonus!!
 		STATKEY_WIL = 2,// Your name is speed, and speed is running.
@@ -273,6 +277,7 @@
 		STATKEY_INT = 1, // No strength to account for the nominally better weapons. We'll see.
 	)
 	subclass_skills = list(
+<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/garrison/manorguard.dm
 		/datum/skill/combat/polearms = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/swords = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/knives = SKILL_LEVEL_APPRENTICE,
@@ -281,6 +286,82 @@
 		/datum/skill/combat/whipsflails = SKILL_LEVEL_JOURNEYMAN,	//Best whip training out of MAAs, they're strong.
 		/datum/skill/combat/bows = SKILL_LEVEL_NOVICE,			// We discourage horse archers, though.
 		/datum/skill/combat/slings = SKILL_LEVEL_NOVICE,
+=======
+		/datum/skill/combat/whipsflails = SKILL_LEVEL_EXPERT,//Primary way they are meant to dispose of ppl
+		/datum/skill/combat/wrestling = SKILL_LEVEL_MASTER, //hilarious
+		/datum/skill/combat/unarmed = SKILL_LEVEL_EXPERT,
+		/datum/skill/combat/swords = SKILL_LEVEL_NOVICE, //You are not actually meant to use this in combat.
+		/datum/skill/combat/slings = SKILL_LEVEL_JOURNEYMAN,//Funny
+		/datum/skill/combat/knives = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/misc/medicine = SKILL_LEVEL_JOURNEYMAN,//Enough for majority of surgeries without grinding.
+		/datum/skill/craft/cooking = SKILL_LEVEL_NOVICE,
+		/datum/skill/craft/sewing = SKILL_LEVEL_NOVICE,
+		/datum/skill/craft/traps = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/reading = SKILL_LEVEL_NOVICE,
+		/datum/skill/misc/athletics = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/swimming = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/misc/climbing = SKILL_LEVEL_JOURNEYMAN,//Since they are MAA now I guess
+		/datum/skill/misc/sneaking = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/misc/tracking = SKILL_LEVEL_APPRENTICE
+	)
+	subclass_stashed_items = list(
+		"Branding letters" = /obj/item/branding_letters,
+		"Branding iron" = /obj/item/branding_iron
+	)
+
+/datum/outfit/job/roguetown/manorguard/bailiff/pre_equip(mob/living/carbon/human/H)
+	..()
+
+	head = /obj/item/clothing/head/roguetown/menacing/executioner
+	neck = /obj/item/clothing/neck/roguetown/gorget
+	mask = /obj/item/clothing/head/roguetown/roguehood/black
+	armor = /obj/item/clothing/suit/roguetown/armor/regenerating/skin/disciple/bailiff
+	wrists = /obj/item/clothing/wrists/roguetown/bracers
+	gloves = /obj/item/clothing/gloves/roguetown/leather
+	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
+	beltr = /obj/item/rogueweapon/whip/antique
+	backl = /obj/item/rogueweapon/sword/long/exe/cloth
+
+	H.adjust_blindness(-3)
+	if(H.mind)
+		H.set_blindness(0)
+	backpack_contents = list(
+		/obj/item/rogueweapon/huntingknife = 1,
+		/obj/item/rope/chain = 1,
+		/obj/item/storage/keyring/manatarms = 1,
+		/obj/item/rogueweapon/scabbard/sheath = 1,
+		/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1
+		)
+	H.verbs |= /mob/proc/haltyell
+
+	if(H.mind)
+		SStreasury.give_money_account(ECONOMIC_LOWER_MIDDLE_CLASS, H, "Savings.")
+
+// Carries the ducal standard.
+// When carrying it, he's granted a few unique traits.
+// Bonuses, relaying location, etc.
+// The stats are middling, as a result. Really bad, honestly.
+// No armour trait, but gets crit resist. STAY STANDING!!!
+/datum/advclass/manorguard/standard_bearer
+	name = "Standard Bearer"
+	tutorial = "You are one of the Man at Arms entrusted with the keep's standard when you sally out into battle. \
+	Your fellow soldiers know to rally around you, should you keep it safe."
+	outfit = /datum/outfit/job/roguetown/manorguard/standard_bearer
+	category_tags = list(CTAG_MENATARMS)
+	traits_applied = list(TRAIT_STANDARD_BEARER)
+	// on-par with footman, with one less CON and INT swapped out for PER
+	subclass_stats = list(
+		STATKEY_STR = 2, // seems kinda lame but remember guardsman bonus!!
+		STATKEY_PER = 1,
+		STATKEY_CON = 2,
+		STATKEY_WIL = 1
+	)
+	subclass_skills = list(
+		/datum/skill/combat/polearms = SKILL_LEVEL_EXPERT, // SWING THAT THING.
+		/datum/skill/combat/wrestling = SKILL_LEVEL_EXPERT, // OR THOSE ARMS, I GUESS.
+		/datum/skill/combat/unarmed = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/knives = SKILL_LEVEL_JOURNEYMAN,
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e:code/modules/jobs/job_types/roguetown/garrison/manatarms.dm
 		/datum/skill/misc/climbing = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/athletics = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/swimming = SKILL_LEVEL_APPRENTICE,

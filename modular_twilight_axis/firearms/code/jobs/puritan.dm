@@ -45,7 +45,9 @@
 		/datum/skill/craft/alchemy = SKILL_LEVEL_APPRENTICE,
 	)
 	subclass_stashed_items = list(
-		"Tome of Psydon" = /obj/item/book/rogue/bibble/psy
+		"Tome of Psydon" = /obj/item/book/rogue/bibble/psy,
+		"Branding letters" = /obj/item/branding_letters,
+		"Branding iron" = /obj/item/branding_iron
 	)
 	extra_context = "This subclass gets different skillsets depending on the chosen relic - a stealth-focused agent with the Umbra, an assassin's firearm, or a combat-focused sharpshooter with the Doomsdae, a runelock rifle."
 

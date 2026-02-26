@@ -441,3 +441,32 @@
 	timer = 1 MINUTES
 	stressadd = 4
 	desc = span_red("I was shushed by the archivist!")
+<<<<<<< HEAD
+=======
+
+// this generally only happens if you're below 10 FOR, this is a little nudge to work on your luck stat
+/datum/stressevent/xylixian_pity
+	timer = 5 MINUTES
+	stressadd = 1
+	desc = span_red("Xylix took pity upon me and saved me from the consequences of bad luck. I must do better!")
+
+/datum/stressevent/debt
+	timer = 25 MINUTES
+	stressadd = 3
+	desc = span_red("I couldn't pay my debts in time.")
+
+/datum/stressevent/revenant_cross // When a revenant looks at a necran cross that's blessed.
+	timer = 2 MINUTES
+	stressadd = 3
+	desc = span_boldred("The undermaiden is watching me with disgust!")
+
+/datum/stressevent/hatezizo
+	timer = 666 MINUTES
+	stressadd = 666 // :)
+	desc = span_red("ZIZOZIZOZIZO")
+
+/datum/stressevent/something_stirs // Psydonites can pray in blood rain. For a price.
+	timer = 5 MINUTES
+	stressadd = 4
+	desc = span_boldred("I feel watched... did something *hear* me?")
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e

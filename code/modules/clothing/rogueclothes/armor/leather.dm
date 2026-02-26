@@ -98,9 +98,22 @@
 	
 /obj/item/clothing/suit/roguetown/armor/leather/studded/psyaltrist
 	name = "cuir-bouilli armor"
-	desc = "Treated, water-boiled and composite-layered leather armor of fine Otavan make."
+	desc = "A padded vest that's been reinforced with 'cuir-bouilli' - leather that's been treated, water-boiled, and composite-layered together. The \
+	thickness makes it an excellent alternative to lighter cuirasses, at the cost of being unfittable beneath most dedicated suits of armor. If the \
+	blacksteel-studded reinforcements and psystitchings're anything to go by, this particular vest was likely fashioned to vestume Otava's finest. "
 	icon_state = "cuirbouilli"
 	item_state = "cuirbouilli"
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER + 30
+
+/obj/item/clothing/suit/roguetown/armor/leather/studded/cuirbouilli
+	name = "cuir-bouilli vest"
+	desc = "A padded vest that's been reinforced with 'cuir-bouilli' - leather that's been treated, water-boiled, and composite-layered together. It \
+	is traditionally worn beneath a heavier cuirass to protect against bludgeons-and-thrusts, but can be confidently worn on its own without qualm."
+	icon_state = "cuirbouilli"
+	item_state = "cuirbouilli"
+	body_parts_covered = CHEST | VITALS
+	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER - 30
 
 /obj/item/clothing/suit/roguetown/armor/leather/heavy
 	name = "hardened leather armor"
@@ -118,7 +131,7 @@
 	desc = "A heavy steerhide jerkin that reaches past the hips and better protects the vitals."
 	icon_state = "roguearmor_coat"
 	item_state = "roguearmor_coat"
-	body_parts_covered = COVERAGE_ALL_BUT_ARMS
+	body_parts_covered = COVERAGE_ALL_BUT_ARMFEET
 	armor = ARMOR_LEATHER_GOOD
 	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
 	sellprice = 25
@@ -131,7 +144,12 @@
 	body_parts_covered = COVERAGE_FULL
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	armor = ARMOR_LEATHER_STUDDED
+<<<<<<< HEAD
 	max_integrity = ARMOR_INT_CHEST_LIGHT_BASE	
+=======
+	max_integrity = ARMOR_INT_CHEST_LIGHT_BASE
+	color = null
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/raneshen
 	name = "megarmach scale coat"
@@ -145,16 +163,40 @@
 	icon_state = "hatangafur"
 	item_state = "hatangafur"
 
+/obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/gravecoat
+	name = "gravetender's coat"
+	desc = "A padded coat bearing the same hues one would find on a Necran. Small steel braces adorn the wrists, a symbol of Necra's grasp on those who serve her."
+	icon_state = "gravecoat"
+	item_state = "gravecoat"
+	max_integrity = ARMOR_INT_CHEST_LIGHT_BASE
+	body_parts_covered = COVERAGE_ALL_BUT_HANDFEET
+	color = null
+
 /obj/item/clothing/suit/roguetown/armor/leather/heavy/jacket
 	name = "hardened leather jacket"
 	desc = "A heavy leather jacket that covers the arms and protects the vitals."
 	icon_state = "leatherjacketo"
 	item_state = "leatherjacketo"
-	body_parts_covered = COVERAGE_ALL_BUT_LEGS
+	body_parts_covered = COVERAGE_ALL_BUT_HANDLEGS
 	armor = ARMOR_LEATHER_GOOD
 	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
 	sellprice = 25
 
+<<<<<<< HEAD
+=======
+/obj/item/clothing/suit/roguetown/armor/leather/heavy/shadowvest
+	name = "drowcraft vest"
+	desc = "Traditional Drow armour, made from the hide of one of the Underdark's many beasts. Durable yet still flexible, perfect for skirmishers."
+	icon_state = "shadowvest"
+	item_state = "shadowvest"
+	allowed_race = NON_DWARVEN_RACE_TYPES
+
+/obj/item/clothing/suit/roguetown/armor/leather/heavy/shadowvest/drowraider
+	name = "custom-fit drowcraft vest"
+	desc = "Traditional Drow armour, made from the hide of one of the Underdark's many beasts. Durable yet still flexible, perfect for skirmishers. Custom-fit for its (now deceased) wearer."
+	allowed_race = list(/datum/species/elf/dark/raider)
+
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 /obj/item/clothing/suit/roguetown/armor/leather/heavy/freifechter
 	name = "fencing jacket"
 	desc = "A light, flexible button-up leather jacket that will keep your vitals out of harm's way."

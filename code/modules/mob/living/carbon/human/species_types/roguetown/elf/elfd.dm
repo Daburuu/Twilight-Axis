@@ -20,7 +20,7 @@
 	individual, such as a kinder heart fleeing from a brutal society that scorns them for their \
 	less cruel nature. However, not every dark elf seen on the surface can be safely assumed as \
 	kind, for some leave the Underdark simply to find their own greater heights of power.<br>\
-	(+1 Intellect, +1 Perception)"
+	<span style='color: #6a8cb7;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;'><b>+1 PER | +1 WIL </b></span><br>"
 
 /*
 	Former RT Desc: These guys were undead which doesn't really fit considering now you have a ton of them walking around.
@@ -122,8 +122,17 @@
 	stress_examine = TRUE
 	stress_desc = span_red("A loathesome dark elf.")
 
+<<<<<<< HEAD
 /datum/species/elf/dark/after_creation(mob/living/carbon/C)
 	C.faction += "spider_lowers"
+=======
+/datum/species/elf/dark/raider
+	name = "Dark Elf Raider"
+	id = "elfd_raider"
+	is_subrace = FALSE
+	desc = "A hardened dark elf adapted for ruthless Underdark raids."
+
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /datum/species/elf/dark/get_span_language(datum/language/message_language)
 	if(!message_language)

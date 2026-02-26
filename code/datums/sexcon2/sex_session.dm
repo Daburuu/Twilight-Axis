@@ -445,7 +445,8 @@
 			if(collective)
 				collective.collective_display_name = params["name"]
 			. = TRUE
-
+		if("refresh")
+			. = TRUE
 	if(.)
 		SStgui.update_uis(src)
 

@@ -30,6 +30,11 @@
 /datum/outfit/job/roguetown/hand
 	backr = /obj/item/storage/backpack/rogue/satchel/short
 	shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
+<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/nobility/hand.dm
+=======
+	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/light/fencer //steel protection with awful integrity, to go under the awful integrity gambeson- light tho
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy/hand
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e:code/modules/jobs/job_types/roguetown/courtier/hand.dm
 	belt = /obj/item/storage/belt/rogue/leather/steel
 	id = /obj/item/scomstone/garrison
 	job_bitflag = BITFLAG_ROYALTY
@@ -55,12 +60,13 @@
 	outfit = /datum/outfit/job/roguetown/hand/blademaster
 
 	category_tags = list(CTAG_HAND)
-	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_HEAVYARMOR)
+	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_MEDIUMARMOR)
 	subclass_stats = list(
 		STATKEY_PER = 3,
 		STATKEY_INT = 3,
 		STATKEY_STR = 2,
-		STATKEY_LCK = 1,
+		STATKEY_CON = 1,
+		STATKEY_LCK = 1, //less lucky than the rest... go figure
 	)
 	subclass_skills = list(
 		/datum/skill/combat/maces = SKILL_LEVEL_APPRENTICE,
@@ -84,10 +90,6 @@
 	head = /obj/item/clothing/head/roguetown/chaperon/noble/hand
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
 	pants = /obj/item/clothing/under/roguetown/tights/black
-	if(should_wear_femme_clothes(H))
-		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/hand_f
-	else if(should_wear_masc_clothes(H))
-		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/hand_m
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife/idagger/dtace = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1,
@@ -114,7 +116,7 @@
 		STATKEY_SPD = 3,
 		STATKEY_PER = 2,
 		STATKEY_INT = 2,
-		STATKEY_STR = -1,
+		STATKEY_LCK = 2,
 	)
 	subclass_skills = list(
 		/datum/skill/combat/crossbows = SKILL_LEVEL_EXPERT,
@@ -143,14 +145,12 @@
 		/obj/item/lockpickring/mundane = 1,
 	)
 	if(H.dna.species.type in NON_DWARVEN_RACE_TYPES)
-		shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/shadowrobe
 		cloak = /obj/item/clothing/cloak/half/shadowcloak
 		gloves = /obj/item/clothing/gloves/roguetown/fingerless/shadowgloves
 		mask = /obj/item/clothing/mask/rogue/shepherd/shadowmask
 		pants = /obj/item/clothing/under/roguetown/trou/shadowpants
 	else
 		cloak = /obj/item/clothing/cloak/raincloak/mortus //cool spymaster cloak
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
 		backr = /obj/item/storage/backpack/rogue/satchel/black
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
 		pants = /obj/item/clothing/under/roguetown/tights/black
@@ -172,14 +172,20 @@
 	subclass_stats = list(
 		STATKEY_INT = 4,
 		STATKEY_PER = 3,
-		STATKEY_WIL = 2,
+		STATKEY_SPD = 1,
+		STATKEY_WIL = 1,
 		STATKEY_LCK = 2,
 	)
 	subclass_spellpoints = 15
 	subclass_skills = list(
 		/datum/skill/combat/crossbows = SKILL_LEVEL_JOURNEYMAN,
+<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/nobility/hand.dm
 		/datum/skill/combat/knives = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/combat/swords = SKILL_LEVEL_APPRENTICE,
+=======
+		/datum/skill/combat/knives = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/swords = SKILL_LEVEL_JOURNEYMAN, //they get the whole cane sword, they should use the whole cane sword
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e:code/modules/jobs/job_types/roguetown/courtier/hand.dm
 		/datum/skill/combat/staves = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/swimming = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/climbing = SKILL_LEVEL_JOURNEYMAN,
@@ -196,6 +202,7 @@
 
 //Advisor start. Trades combat skills for more knowledge and skills - for older hands, hands that don't do combat - people who wanna play wizened old advisors.
 /datum/outfit/job/roguetown/hand/advisor/pre_equip(mob/living/carbon/human/H)
+<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/nobility/hand.dm
 	r_hand = /obj/item/rogueweapon/sword/rapier/dec
 	beltr = /obj/item/rogueweapon/scabbard/sword
 	head = /obj/item/clothing/head/roguetown/chaperon/noble/hand
@@ -205,6 +212,8 @@
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/hand_f
 	else if(should_wear_masc_clothes(H))
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/hand_m
+=======
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e:code/modules/jobs/job_types/roguetown/courtier/hand.dm
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife/idagger/dtace = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1,

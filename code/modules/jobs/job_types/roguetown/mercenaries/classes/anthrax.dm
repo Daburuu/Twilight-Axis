@@ -41,7 +41,12 @@
 		/datum/skill/combat/wrestling = SKILL_LEVEL_EXPERT,
 
 	)
+<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/mercenaries/classes/anthrax.dm
 	extra_context = "This subclass is race-limited to: Dark Elves Only."
+=======
+	subclass_languages = list(/datum/language/undercommon)
+	extra_context = "This subclass is race-limited to: Dark Elves Only. Chooses either free Saddleborn virtue with access to Drider Spider mount, or +1 to Athlethics level."
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e:code/modules/jobs/job_types/roguetown/sidefolk/mercenary/anthrax.dm
 
 /datum/outfit/job/roguetown/mercenary/anthrax/pre_equip(mob/living/carbon/human/H)
 	..()

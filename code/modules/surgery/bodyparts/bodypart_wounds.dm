@@ -145,7 +145,7 @@
 		var/mob/living/carbon/human/human_owner = owner
 		if(human_owner.checkcritarmor(zone_precise, bclass))
 			do_crit = FALSE
-		if(owner.mind && (get_damage() <= (max_damage * CRIT_DISMEMBER_DAMAGE_THRESHOLD))) //No crits unless the damage is maxed out.
+		if((owner.mind || HAS_TRAIT(owner, TRAIT_CRIT_THRESHOLD)) && (get_damage() <= (max_damage * CRIT_DISMEMBER_DAMAGE_THRESHOLD))) //No crits unless the damage is maxed out.
 			do_crit = FALSE // We used to check if they are buckled or lying down but being grounded is a big enough advantage.
 	if(user)
 		if(user.goodluck(2))
@@ -160,6 +160,34 @@
 		var/sundering = HAS_TRAIT(owner, TRAIT_SILVER_WEAK) && istype(weapon) && weapon?.is_silver && psyblessed?.is_blessed
 		var/crit_attempt = try_crit(sundering ? BCLASS_SUNDER : bclass, dam, user, zone_precise, silent, crit_message)
 		if(crit_attempt)
+<<<<<<< HEAD
+=======
+			if(ishuman(owner))
+				var/mob/living/carbon/human/human_owner = owner
+				human_owner.hud_used?.stressies?.flick_pain(TRUE)
+				var/suppress_attack_blip = FALSE //At 'Always' we're guaranteed to have already emoted due to a successful attack.
+				if(user.client?.prefs?.attack_blip_frequency == ATTACK_BLIP_PREF_ALWAYS || user.client?.prefs?.attack_blip_frequency == ATTACK_BLIP_PREF_NEVER)
+					suppress_attack_blip = TRUE 
+				if(!suppress_attack_blip)
+					user.emote("attack", forced = TRUE)
+				human_owner.emote("paincrit", forced = TRUE)
+
+			if(user)
+				if(user.has_flaw(/datum/charflaw/addiction/thrillseeker))
+					var/datum/component/arousal/CAR = user.GetComponent(/datum/component/arousal)
+					if(CAR)
+						user.sate_addiction(/datum/charflaw/addiction/thrillseeker)
+						user.add_stress(/datum/stressevent/thrill)
+						CAR.ejaculate_special()
+
+				if(owner.has_flaw(/datum/charflaw/addiction/thrillseeker))
+					var/datum/component/arousal/CAR = owner.GetComponent(/datum/component/arousal)
+					if(CAR)
+						owner.sate_addiction(/datum/charflaw/addiction/thrillseeker)
+						owner.add_stress(/datum/stressevent/thrill)
+						CAR.ejaculate_special()
+
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 			return crit_attempt
 	return dynwound
 

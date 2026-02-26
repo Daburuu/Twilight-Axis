@@ -8,6 +8,7 @@
 	var/list/stealpos = list()
 	var/list/mobsbehind = list()
 	var/exp_to_gain = user_human.STAINT
+<<<<<<< HEAD
 	to_chat(user, span_notice("I try to steal from [target_human]..."))	
 	if(do_after(user, 5, target = target_human, progress = 0))
 		if(stealroll > targetperception)
@@ -56,6 +57,65 @@
 						GLOB.azure_round_stats[STATS_ITEMS_PICKPOCKETED]++
 					if(user.has_flaw(/datum/charflaw/addiction/kleptomaniac))
 						user.sate_addiction()
+=======
+	var/steal_timer = 1 SECONDS
+	if(user.STASPD < target_human.STASPD)
+		steal_timer += ((target_human.STASPD - user.STASPD) * 5)
+	if(user.STAPER < target_human.STAPER)
+		steal_timer += ((target_human.STAPER - user.STAPER) * 3)
+	if(user.Adjacent(target))
+		to_chat(user, span_notice("I try to steal from [target_human]..."))	
+		if(do_after(user, steal_timer, target = target_human, progress = 0))
+			if(!user.Adjacent(target))
+				return to_chat(user, span_warning("They moved away!"))	
+			if(stealroll > targetperception)
+				if(target_human.cmode && target_human.stat == CONSCIOUS)
+					to_chat(user, span_warning("[target_human] is alert. I am not getting my chance against them."))
+					return
+				if(target_human.can_see_cone(user) && target_human.stat == CONSCIOUS)
+					to_chat(user, span_warning("[target_human] is looking right at me. This isn't going to work."))
+					return
+				if(user_human.get_active_held_item())
+					to_chat(user, span_warning("I can't pickpocket while my hand is full!"))
+					return
+				if(!(user.zone_selected in stealablezones))
+					to_chat(user, span_warning("What am I going to steal from there?"))
+					return
+				mobsbehind |= cone(target_human, list(turn(target_human.dir, 180)), list(user))
+				if(mobsbehind.Find(user) || target_human.IsUnconscious() || target_human.eyesclosed || target_human.eye_blind || target_human.eye_blurry || !(target_human.mobility_flags & MOBILITY_STAND))
+					switch(user_human.zone_selected)
+						if("chest")
+							if (target_human.get_item_by_slot(SLOT_BACK_L))
+								stealpos.Add(target_human.get_item_by_slot(SLOT_BACK_L))
+							if (target_human.get_item_by_slot(SLOT_BACK_R))
+								stealpos.Add(target_human.get_item_by_slot(SLOT_BACK_R))
+						if("neck")
+							if (target_human.get_item_by_slot(SLOT_NECK))
+								stealpos.Add(target_human.get_item_by_slot(SLOT_NECK))
+						if("groin")
+							if (target_human.get_item_by_slot(SLOT_BELT_R))
+								stealpos.Add(target_human.get_item_by_slot(SLOT_BELT_R))
+							if (target_human.get_item_by_slot(SLOT_BELT_L))
+								stealpos.Add(target_human.get_item_by_slot(SLOT_BELT_L))
+					if(length(stealpos) > 0)
+						var/obj/item/picked = pick(stealpos)
+						target_human.dropItemToGround(picked)
+						user.put_in_active_hand(picked)
+						to_chat(user, span_green("I stole [picked]!"))
+						if(targetperception > 13)
+							to_chat(target_human, span_danger("[picked] is gone, how could this happen!"))
+						target_human.log_message("has had \the [picked] stolen by [key_name(user_human)]", LOG_ATTACK, color="white")
+						user_human.log_message("has stolen \the [picked] from [key_name(target_human)]", LOG_ATTACK, color="white")
+						if(target_human.client && target_human.stat != DEAD)
+							SEND_SIGNAL(user_human, COMSIG_ITEM_STOLEN, target_human)
+							record_featured_stat(FEATURED_STATS_THIEVES, user_human)
+							record_featured_stat(FEATURED_STATS_CRIMINALS, user_human)
+							GLOB.azure_round_stats[STATS_ITEMS_PICKPOCKETED]++
+						user.sate_addiction(/datum/charflaw/addiction/kleptomaniac)
+					else
+						exp_to_gain /= 2 // these can be removed or changed on reviewer's discretion
+						to_chat(user, span_warning("I didn't find anything there. Perhaps I should look elsewhere."))
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 				else
 					exp_to_gain /= 2 // these can be removed or changed on reviewer's discretion
 					to_chat(user, span_warning("I didn't find anything there. Perhaps I should look elsewhere."))

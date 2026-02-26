@@ -32,6 +32,59 @@
 	category_tags = list(CTAG_COUNCILLOR)
 	subclass_stats = list(
 		STATKEY_SPD = 2,
+<<<<<<< HEAD
+=======
+		STATKEY_INT = 1,
+		STATKEY_PER = 1,
+		STATKEY_STR = -1,
+		STATKEY_CON = -1
+	)
+
+	// better movement skills
+	subclass_skills = list(
+		/datum/skill/misc/riding = SKILL_LEVEL_EXPERT,
+		/datum/skill/misc/reading = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/unarmed = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/wrestling = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/misc/swimming = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/climbing = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/athletics = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/swords = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/combat/knives = SKILL_LEVEL_APPRENTICE,
+	)
+
+
+/datum/advclass/councillor/advisor
+	name = "Council Advisor"
+	tutorial = "You have a keen sense of political acumen. Much like the jester, albeit in a less farcical manner, you are well-suited to giving the court advice on daily matters. They might even listen if you tell them that a plan of theirs may have a hole in it that would sink it. You may be the lowest rung of the ladder, but that rung still towers over everyone else in town."
+	outfit = /datum/outfit/job/roguetown/councillor/advisor
+	category_tags = list(CTAG_COUNCILLOR)
+	subclass_stats = list(
+		STATKEY_INT = 3, // smart and savvy
+		STATKEY_PER = 2,
+		STATKEY_STR = -2,
+		STATKEY_CON = -1
+	)
+	subclass_skills = list(
+		/datum/skill/misc/reading = SKILL_LEVEL_EXPERT,
+		/datum/skill/combat/unarmed = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/wrestling = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/misc/swimming = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/misc/climbing = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/misc/athletics = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/combat/swords = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/combat/knives = SKILL_LEVEL_APPRENTICE,
+	)
+
+
+/datum/advclass/councillor/cofferer
+	name = "Cofferer"
+	tutorial = "Whether born into wealth, or earned through working up from the bottom, you have quite the reserve of mammon at your disposal. Use your silver-tongue to acquire more, or buy more favour with the court. You may be the lowest rung of the ladder, but that rung still towers over everyone else in town."
+	outfit = /datum/outfit/job/roguetown/councillor/cofferer
+	category_tags = list(CTAG_COUNCILLOR)
+	subclass_stats = list(
+		STATKEY_WIL = 2,
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 		STATKEY_INT = 2,
 		STATKEY_PER = 2,
 		STATKEY_STR = -1,

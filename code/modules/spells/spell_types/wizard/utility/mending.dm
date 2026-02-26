@@ -69,6 +69,12 @@
 				I.repair_coverage()
 				to_chat(user, span_info("[I]'s shorn layers mend together, completely."))
 
+<<<<<<< HEAD
+=======
+	deactivate(user)
+
+	return TRUE
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /obj/effect/proc_holder/spell/invoked/mending/lesser
 	name = "Lesser Mending"

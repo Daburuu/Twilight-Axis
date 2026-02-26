@@ -203,6 +203,16 @@
 	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop, /datum/intent/sword/peel)
 	wdefense = 2
 
+<<<<<<< HEAD
+=======
+/obj/item/rogueweapon/stoneaxe/woodcut/woodcutter
+	name = "woodcutter's handaxe"
+	icon_state = "axeclassic"
+	desc = "A short-handled axe with a carved grip, made of high quality wood. Perfect for the discerning carpenter."
+	max_integrity = 275
+	demolition_mod = 2.3 //Slightly lesser than the dedicated variant.
+
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 /obj/item/rogueweapon/stoneaxe/woodcut/aaxe
 	name = "decrepit axe"
 	desc = "A hatchet of frayed bronze. It reigns from a tyme before the Comet Syon's impact; when Man wrought metal not to spill blood, but to better shape the world in His image."
@@ -269,7 +279,7 @@
 	toolspeed = 2
 
 /obj/item/rogueweapon/stoneaxe/woodcut/wardenpick
-	name = "Wardens' axe"
+	name = "warden's axe"
 	desc = "A multi-use axe smithed by the Wardens since time immemorial for both it's use as a tool and a weapon."
 	icon_state = "wardenpax"
 	force = 22
@@ -301,6 +311,18 @@
 	smeltresult = /obj/item/ingot/iron
 	gripped_intents = null
 	wdefense = 2
+<<<<<<< HEAD
+=======
+	throwforce = 25 //You ever had an axe thrown at you? 
+	embedding = list("embedded_pain_multiplier" = 6, "embed_chance" = 30, "embedded_fall_chance" = 50) //Lesser variant of the Hurlbat's dedicated power.
+	wlength = WLENGTH_SHORT
+	w_class = WEIGHT_CLASS_SMALL
+	wbalance = WBALANCE_SWIFT
+	grid_height = 96 //Can be stowed in the belt as a larger - if slightly more intimidating - counterpart to the Hunting Knife.
+	grid_width = 32
+	throw_speed = 3 
+	armor_penetration = 25
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /obj/item/rogueweapon/stoneaxe/woodcut/bronze
 	name = "bronze axe"
@@ -620,3 +642,75 @@
 	max_blade_int = 300
 	minstr = 13							//Heavy, but still good.
 	wdefense = 3						//Slightly better than norm, has 6 defense 2 handing it.
+<<<<<<< HEAD
+=======
+	minstr_req = TRUE
+
+/datum/intent/axe/cut/battle/frost
+	intent_effect = /datum/status_effect/buff/frostbite
+
+/datum/intent/axe/chop/battle/frost
+	intent_effect = /datum/status_effect/buff/frostbite
+
+/obj/item/rogueweapon/stoneaxe/battle/ice
+	name = "deathfrost axe"
+	desc = "This axe's blade is as sharp as it is cold."
+	icon = 'icons/roguetown/weapons/axes64.dmi'
+	icon_state = "iceaxe"
+	smeltresult = null
+	special = /datum/special_intent/permafrost
+	var/active_intents =  list(/datum/intent/axe/cut/battle/frost, /datum/intent/axe/chop/battle/frost, /datum/intent/axe/bash, /datum/intent/sword/peel)
+	var/active_gripped_intents = list(/datum/intent/axe/cut/battle/frost, /datum/intent/axe/chop/battle/frost, /datum/intent/axe/bash, /datum/intent/sword/peel)
+	var/inactive_intents = list()
+	var/inactive_gripped_intents = list()
+
+////////////////////////
+// TRIUMPH-EXCLUSIVE! //
+////////////////////////
+
+/obj/item/rogueweapon/stoneaxe/woodcut/triumph
+	name = "valorian axe"
+	icon_state = "axelegacy"
+	desc = "'Through thick-and-thin, I have never failed you. May we trounce through the Terrorbog, one last time, before Astrata's glare vanishes 'neath the horizon?'"
+
+/obj/item/rogueweapon/stoneaxe/handaxe/triumph
+	name = "valorian hatchet"
+	icon_state = "hatchetlegacy"
+	desc = "'What is that rag for, anyways?'"
+
+/obj/item/rogueweapon/stoneaxe/woodcut/triumphalt
+	name = "double-headed axe"
+	desc = "'For Karl!'"
+	icon_state = "axedouble"
+	swingsound = BLADEWOOSH_HUGE
+
+/obj/item/rogueweapon/stoneaxe/woodcut/bronze/triumph
+	name = "double-headed bronze axe"
+	desc = "'Give them nothing.. but take from them, EVERYTHING!'"
+	icon_state = "bronzeaxedouble"
+	swingsound = BLADEWOOSH_HUGE
+
+/obj/item/rogueweapon/stoneaxe/woodcut/steel/triumph
+	name = "double-headed steel axe"
+	desc = "'Last man alive, lock the doors!'"
+	icon_state = "saxedouble"
+	swingsound = BLADEWOOSH_HUGE
+
+/obj/item/rogueweapon/stoneaxe/battle/triumph
+	name = "double-headed battle axe"
+	desc = "'Never thought I'd die side-by-side wi' an elve.' </br>'How about with a friend?' </br>'Aye, I coul' do that.'"
+	icon_state = "battleaxedouble"
+	swingsound = BLADEWOOSH_HUGE
+
+/obj/item/rogueweapon/stoneaxe/woodcut/silver/triumph
+	name = "double-headed silver axe"
+	desc = "'I'll swallow your soul, I'll swallow your soul!' </br>'Swallow this.'"
+	icon_state = "silveraxedouble"
+	swingsound = BLADEWOOSH_HUGE
+
+/obj/item/rogueweapon/stoneaxe/battle/psyaxe/triumph
+	name = "double-headed psydonic axe"
+	desc = "'Hail to the king, baby.'"
+	icon_state = "psyaxedouble"
+	swingsound = BLADEWOOSH_HUGE
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e

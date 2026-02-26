@@ -41,7 +41,19 @@
 			last_dist = dist
 			sleep(2 + min(range - last_dist, 12) * 0.5) //gets faster
 		new /obj/effect/temp_visual/targetlightning(T)
+		addtimer(CALLBACK(src, PROC_REF(lightning_strike), T), 15)
 
+/obj/effect/proc_holder/spell/invoked/sundering_lightning/proc/lightning_strike(turf/T)
+	playsound(T, 'sound/magic/lightning.ogg', 80, TRUE)
+	new /obj/effect/temp_visual/lightning(T)
+	for(var/mob/living/L in T.contents)
+		if(L.anti_magic_check())
+			continue
+		if(spell_guard_check(L, TRUE))
+			L.visible_message(span_warning("[L] weathers the lightning strike!"))
+			continue
+		L.electrocute_act(65)	//a little over half the damage of thunderstrike, but doesn't degrade on each subsequent ring.
+		to_chat(L, span_userdanger("You're hit by lightning!!!"))
 
 /obj/effect/temp_visual/lightning
 	icon = 'icons/effects/32x96.dmi'
@@ -62,6 +74,7 @@
 	layer = BELOW_MOB_LAYER
 	plane = GAME_PLANE
 	light_outer_range = 2
+<<<<<<< HEAD
 	duration =15
 	var/explode_sound = list('sound/misc/explode/incendiary (1).ogg','sound/misc/explode/incendiary (2).ogg')
 
@@ -80,3 +93,6 @@
 			continue
 		L.electrocute_act(65)	//a little over half the damage of thunderstrike, but doesn't degrade on each subsequent ring.
 		to_chat(L, span_userdanger("You're hit by lightning!!!"))
+=======
+	duration = 15
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e

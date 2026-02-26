@@ -263,6 +263,74 @@
 /obj/item/natural/cloth/wash_act()
 	. = ..()
 	wet = 10
+<<<<<<< HEAD
+=======
+	bandage_health = initial(bandage_health)
+	medicine_amount = 0
+	medicine_quality = 0
+	detail_color = null
+	desc = initial(desc)
+	update_icon()
+
+/obj/item/natural/cloth/attackby(obj/item/I, mob/living/user, params)
+	var/obj/item/reagent_containers/C = I
+	if(!istype(C))
+		return ..()
+	if(C.reagents.has_reagent(/datum/reagent/medicine/healthpot, 10) && !medicine_amount)
+		to_chat(user, span_notice("You start soaking the [src] in lyfeblood..."))
+		if(do_after(user, 3 SECONDS, target = src))
+			C.reagents.remove_reagent(/datum/reagent/medicine/healthpot, 10)
+			medicine_quality = 1
+			medicine_amount += 10
+			desc += " It has been soaked in lyfeblood."
+			detail_color = "#ff0000"
+			update_icon()
+	if(C.reagents.has_reagent(/datum/reagent/medicine/stronghealth, 10) && !medicine_amount)
+		to_chat(user, span_notice("You start soaking the [src] in strong lyfeblood..."))
+		if(do_after(user, 3 SECONDS, target = src))
+			C.reagents.remove_reagent(/datum/reagent/medicine/stronghealth, 10)
+			medicine_quality = 2
+			medicine_amount += 10
+			desc += " It has been soaked in strong lyfeblood."
+			detail_color = "#820000"
+			update_icon()
+	if(C.reagents.has_reagent(/datum/reagent/consumable/ethanol/aqua_vitae, 10) && !medicine_amount)
+		to_chat(user, span_notice("You start soaking the [src] in aqua vitae..."))
+		if(do_after(user, 3 SECONDS, target = src))
+			C.reagents.remove_reagent(/datum/reagent/consumable/ethanol/aqua_vitae, 10)
+			medicine_quality = 0.5 //slower than health potions, more healing overall. Good for fractures or other big wounds.
+			medicine_amount += 60
+			desc += " It has been soaked in aqua vitae."
+			detail_color = "#6e6e6e"
+			update_icon()
+	if(C.reagents.has_reagent(/datum/reagent/water/blessed, 10) && !medicine_amount)
+		to_chat(user, span_notice("You start soaking the [src] in blessed water..."))
+		if(do_after(user, 3 SECONDS, target = src))
+			C.reagents.remove_reagent(/datum/reagent/water/blessed, 10)
+			medicine_quality = 0.2 //cheap, easy to get, doesn't even heal wounds if it's not on a bandage
+			medicine_amount += 20
+			desc += " It has been soaked in blessed water."
+			detail_color = "#6a9295"
+			update_icon()
+	if(C.reagents.has_reagent(/datum/reagent/water/medicine, 10) && !medicine_amount)
+		to_chat(user, span_notice("You start soaking the [src] in Pestran Medicine..."))
+		if(do_after(user, 3 SECONDS, target = src))
+			C.reagents.remove_reagent(/datum/reagent/water/medicine, 10)
+			medicine_quality = 0.2 //cheap, easy to get, doesn't even heal wounds if it's not on a bandage
+			medicine_amount += 20
+			desc += " It has been soaked in Pestran Medicine."
+			detail_color = "#428b42"
+			update_icon()
+
+/obj/item/natural/cloth/update_icon()
+	cut_overlays()
+	if(medicine_amount > 0)
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /obj/item/natural/cloth/proc/bandage(mob/living/M, mob/user)
 	if(!M.can_inject(user, TRUE))

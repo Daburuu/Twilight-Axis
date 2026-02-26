@@ -77,7 +77,53 @@
 	woundclass = BCLASS_BLUNT
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/bolt/blunt
 
+<<<<<<< HEAD
 /obj/projectile/bullet/reusable/bolt/on_hit(atom/target)
+=======
+//superbolts ฅ^•ﻌ•^ฅ
+
+//
+
+/obj/item/ammo_casing/caseless/rogue/heavy_bolt
+	name = "heavy bolt"
+	desc = "A massive steel bolt that is designed to pulverize the defenses of \
+	another, whether it be a castle's parapit or a knight's plate."
+	projectile_type = /obj/projectile/bullet/reusable/heavy_bolt
+	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
+	caliber = "heabolt"
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "heavybolt" //NOTE!!! FIND A WAY TO MAKE BOLTS DEAL EXTRA DAMAGE TO BARRICADES AND STRUCTURES ASAP!!! IF YOU KNOW, FEEL FREE TO PR IT ASAP!!!
+	dropshrink = 0.8
+	max_integrity = 15
+	force = 15
+	grid_height = 96 //Effectively as large as a shortsword. Two in a belt, four in a satchel. Unideal for carrying without a purpose-made pouch.
+	grid_width = 32
+	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH //Carry it on the hip or bite down like a carrot, if you're out of options.
+	equip_delay_self = 2 SECONDS //Girth. Pack a siege bolt pouch if you want to circumvent it.
+	unequip_delay_self = 2 SECONDS
+	inv_storage_delay = 1 SECONDS
+
+/obj/projectile/bullet/reusable/heavy_bolt
+	name = "heavy bolt"
+	damage = BOLT_DAMAGE + 20 // +33% the damage.
+	damage_type = BRUTE
+	armor_penetration = BOLT_PENETRATION + 25 // +50% the penetrative power.
+	object_damage_multiplier = 14 //Determines the multiplier that's applied to the bolt's damage value, when striking a structure. By default, it can destroy any wooden defense - a door, barricade, wall - in one shot.
+	wall_impact_break_probability = 100 //Determines the chance that a bolt will destroy itself, when striking a structure. By default, it will always destroy itself after successfully impacting a wall.
+	damages_turf_walls = TRUE //Determines whether the bolt can damage turfs or not. By default, yes.
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "heavybolt_proj"
+	ammo_type = /obj/item/ammo_casing/caseless/rogue/heavy_bolt
+	range = 30
+	hitsound = 'sound/combat/hits/hi_bolt (2).ogg'
+	embedchance = 100
+	woundclass = BCLASS_PIERCE
+	flag = "piercing"
+	speed = 1.2
+	npc_simple_damage_mult = 5 //..or 350 damage against mindless opponents. Run them through!
+
+/obj/item/ammo_casing/caseless/rogue/heavy_bolt/getonmobprop(tag)
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	. = ..()
 
 	var/mob/living/L = firer
@@ -91,8 +137,67 @@
 		if(T.stat != DEAD) // If theyre alive
 			skill_multiplier = 4
 
+<<<<<<< HEAD
 	if(skill_multiplier && can_train_combat_skill(L, /datum/skill/combat/crossbows, SKILL_LEVEL_EXPERT))
 		L.mind.add_sleep_experience(/datum/skill/combat/crossbows, L.STAINT * skill_multiplier)
+=======
+/obj/projectile/bullet/reusable/heavy_bolt/blunt
+	name = "blunt heavy bolt"
+	armor_penetration = 0
+	embedchance = 0 //'If you're reading this, duck!'
+	woundclass = BCLASS_BLUNT
+	flag = "blunt"
+	icon_state = "heavybolt_proj"
+
+/obj/item/ammo_casing/caseless/rogue/heavy_bolt/aalloy
+	name = "decrepit heavy bolt"
+	desc = "A length of frayed bronze, quilled to take flight and tear down the living. \
+	Metal flakes occassionally peel off from its core, mysteriously hovering about - \
+	tolerable by the undying, but unbearibly noxious to the living."
+	icon_state = "ancientheavybolt"
+	projectile_type = /obj/projectile/bullet/reusable/heavy_bolt/aalloy
+	color = "#bb9696"
+
+/obj/projectile/bullet/reusable/heavy_bolt/aalloy
+	name = "decrepit heavy bolt"
+	damage = BOLT_DAMAGE - 10
+	object_damage_multiplier = 20 //Ensures the bolt can still, at a minimum, destroy most wooden barricades and doors in one shot.
+	icon_state = "ancientbolt_proj"
+	poisontype = /datum/reagent/stampoison
+	poisonamount = 1 //You are, in essence, giving them tenantus.
+	slur = 2
+	eyeblur = 2
+	drowsy = 2
+
+/obj/item/ammo_casing/caseless/rogue/heavy_bolt/paalloy
+	name = "ancient heavy bolt"
+	desc = "A polished length of gilbranze, which chisels away stone-and-spirit alike with each vaulting. It whispers to you; a half-glance to the right, further up to compensate, so that the living's humors may taste utter disruption."
+	icon_state = "ancientheavybolt"
+	projectile_type = /obj/projectile/bullet/reusable/heavy_bolt/paalloy
+
+/obj/projectile/bullet/reusable/heavy_bolt/paalloy
+	name = "ancient heavy bolt"
+	icon_state = "ancientbolt_proj"
+	object_damage_multiplier = 16
+	poisontype = /datum/reagent/stampoison
+	poisonamount = 1 //You are, in essence, giving them tenantus. Roughly 50% stronger than a poisoned iron arrow.
+	slur = 3
+	eyeblur = 3
+	drowsy = 3
+
+/obj/item/ammo_casing/caseless/rogue/heavy_bolt/bronze
+	name = "bronze heavy bolt"
+	desc = "A siege-weapon's most treasured compatriot, fitted with a surprisingly light spearhead of bronze. It screams through the air, releasing a haunting whistle that's purported to be purpose-made; an added caveat to wither away the wits of a besieged defender."
+	icon_state = "bronzeheavybolt"
+	projectile_type = /obj/projectile/bullet/reusable/heavy_bolt/bronze
+
+/obj/projectile/bullet/reusable/heavy_bolt/bronze
+	name = "bronze heavy bolt"
+	icon_state = "bronzebolt_proj"
+	speed = 0.8
+
+//
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 //arrows ฅ^•ﻌ•^ฅ
 
@@ -270,6 +375,69 @@
 	name = "poison stone arrow"
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow/stone
 
+<<<<<<< HEAD
+=======
+//SILVER AMMO
+/obj/item/ammo_casing/caseless/rogue/arrow/silver
+	name = "silver arrow"
+	icon_state = "silvarrow"
+	desc = "A masterworked arrow; boswellia wood, lovingly carved into a javelin \
+	that has been fitted with a spearhead of silver. It is expensive, yet unrivaled \
+	in power - pray that you have the will to see its aim unfettered-and-true."
+	projectile_type = /obj/projectile/bullet/reusable/arrow/silver
+	is_silver = FALSE //Give these to the bad guys, if you want to be a little evil. Realistically wouldn't blight someone, unless they're touching the tip.
+
+/obj/projectile/bullet/reusable/arrow/silver
+	name = "silver arrow"
+	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow/silver
+	damage = 60 //The rarest, but most powerful arrow subtype. Intended to be incredibly scarce, in practice - a 'silver bullet', to the most literal extent.
+	armor_penetration = 60
+	embedchance = 100
+	poisontype = /datum/reagent/water/blessed
+	poisonamount = 7
+	npc_simple_damage_mult = 7 //..or 420 damage against a mindless mob. Strike true; reduce if these become craftable or more easily acquirable, through any means.
+
+/obj/item/ammo_casing/caseless/rogue/bolt/silver
+	name = "silver bolt"
+	desc = "A masterworked bolt of silver, fitted to a winged rod of boswellia wood. Expensive, yet uncompromisingly lethal; the final adjucation of abberants, delivered from afar. </br>'Non timebo mala..' - '..I will fear no evil.'"
+	projectile_type = /obj/projectile/bullet/reusable/bolt/silver
+	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
+	caliber = "regbolt"
+	icon_state = "silvbolt"
+	is_silver = FALSE //Ditto.
+
+/obj/projectile/bullet/reusable/bolt/silver
+	name = "silver bolt"
+	damage = 80 //One shot. Make it count. Pray your aim is true - and that whoever's on the other side isn't packing a shield or knows how to sidestep.
+	armor_penetration = 80
+	icon_state = "silvbolt_proj"
+	ammo_type = /obj/item/ammo_casing/caseless/rogue/bolt/silver
+	embedchance = 100
+	npc_simple_damage_mult = 6 //..or 480 damage against a mindless mob. Only if you're desperate.
+	poisontype = /datum/reagent/water/blessed
+	poisonamount = 7
+
+/obj/item/ammo_casing/caseless/rogue/heavy_bolt/silver
+	name = "heavy silver bolt"
+	desc = "A silvered lance, poised to impale the unimaginable. You feel the hands of another guiding your own, as you prepare to load; may it be guidence from a higher power, or your wit upon the verge of breaking? </br>'God, please..'"
+	projectile_type = /obj/projectile/bullet/reusable/heavy_bolt/silver
+	icon_state = "silvheavybolt"
+	max_integrity = 30
+	force = 12
+	is_silver = TRUE
+
+/obj/projectile/bullet/reusable/heavy_bolt/silver
+	name = "heavy silver bolt"
+	damage = BOLT_DAMAGE + 30
+	armor_penetration = 777 //Same damage, but with absolute penetration. 
+	ammo_type = /obj/item/ammo_casing/caseless/rogue/heavy_bolt/silver
+	icon_state = "silvheavybolt_proj"
+	hitsound = 'sound/combat/hits/hi_bolt (3).ogg'
+	speed = 0.8 //Same speed as a crossbow bolt. 
+	poisontype = /datum/reagent/water/blessed
+	poisonamount = 10
+	npc_simple_damage_mult = 10 //..or 1000 damage against a mindless mob. If you're using this against one, you're either a fool or have no other choice left. Godspeed.
+>>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 // PYRO AMMO
 
