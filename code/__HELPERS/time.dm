@@ -27,12 +27,7 @@ GLOBAL_LIST_INIT(time_change_tips, world.file2list("strings/rt/timechangetips.tx
 GLOBAL_VAR_INIT(tod, FALSE)
 GLOBAL_VAR_INIT(forecast, FALSE)
 GLOBAL_VAR_INIT(todoverride, FALSE)
-GLOBAL_VAR_INIT(dayspassed, 0)
-
-GLOBAL_VAR_INIT(date_override_enabled, FALSE)
-GLOBAL_VAR_INIT(date_override_day, 1)
-GLOBAL_VAR_INIT(date_override_month, 1)
-GLOBAL_VAR_INIT(date_override_offset, 0)
+GLOBAL_VAR_INIT(dayspassed, FALSE)
 
 /proc/settod()
 	var/time = station_time()
@@ -104,8 +99,7 @@ GLOBAL_VAR_INIT(date_override_offset, 0)
 		return
 	if(GLOB.tod == "dawn")
 		var/text_to_show
-		var/day_number = get_current_day_of_week()
-		switch(day_number)
+		switch(GLOB.dayspassed)
 			if(1)
 				text_to_show = "DAWN OF THE FIRST DAE\nMOON'S DAE"
 			if(2)

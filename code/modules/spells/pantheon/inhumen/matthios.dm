@@ -97,8 +97,7 @@
 	range = 4
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
-	invocations = list("I offer thee myne gift!", "Blessings upon thine humble servant!", "Grant me thine fyre my lord!", "A transaction for myne lyfe!")
-	invocation_type = "shout"//So someone might actually figures out you are supposed to be valid using this.
+	invocation_type = "none"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	recharge_time = 20 SECONDS
@@ -126,35 +125,19 @@
 			target.visible_message(span_info("[target] stirs for a moment, the miracle dissipates."), span_notice("A dull warmth swells in your heart, only to fade as quickly as it arrived."))
 			playsound(target, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 			return FALSE
-<<<<<<< HEAD
 		user.visible_message(span_notice("The transaction Is made, [target] Is bathed In empowerment!"))
 		to_chat(user, "<font color='yellow'>[held_item] burns into the air suddenly, my Transaction is accepted.</font>")
-=======
-		user.visible_message(span_notice("The transaction is made! [target] is bathed in a golden light!"))
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
 			var/datum/status_effect/buff/healing/heal_effect = C.apply_status_effect(/datum/status_effect/buff/healing)
 			heal_effect.healing_on_tick = helditemvalue/2
 			playsound(user, 'sound/combat/hits/burn (2).ogg', 100, TRUE)
-			if(istype(held_item, /obj/item/rogueweapon))
-				to_chat(user, "<font color='yellow'>[held_item] melts at it's very fabric turning it into a heap of scrap. My transaction is accepted.</font>")
-				held_item.obj_break(TRUE)
-				held_item.sellprice = 1
-			else
-				to_chat(user, "<font color='yellow'>[held_item] is engulfed in unholy flame and dissipates into ash. My transaction is accepted.</font>")
-				qdel(held_item)
+			qdel(held_item)
 		else
 			target.adjustBruteLoss(helditemvalue/2)
 			target.adjustFireLoss(helditemvalue/2)
 			playsound(user, 'sound/combat/hits/burn (2).ogg', 100, TRUE)
-			if(istype(held_item, /obj/item/rogueweapon))
-				to_chat(user, "<font color='yellow'>[held_item] melts at it's very fabric turning it into a heap of scrap. My transaction is accepted.</font>")
-				held_item.obj_break(TRUE)
-				held_item.sellprice = 1
-			else
-				to_chat(user, "<font color='yellow'>[held_item] is engulfed in unholy flame and dissipates into ash. My transaction is accepted.</font>")
-				qdel(held_item)
+			qdel(held_item)
 		return TRUE
 	revert_cast()
 	return FALSE
@@ -182,9 +165,6 @@
 /obj/effect/proc_holder/spell/invoked/equalize/cast(list/targets, mob/living/user)
 	if(ishuman(targets[1]))
 		var/mob/living/target = targets[1]
-		if(spell_guard_check(target, TRUE))
-			target.visible_message(span_warning("[target] resists EQUALITY!"))
-			return TRUE
 		target.apply_status_effect(/datum/status_effect/debuff/equalizedebuff)
 		user.apply_status_effect(/datum/status_effect/buff/equalizebuff)
 		return TRUE
@@ -265,9 +245,6 @@
 			to_chat(user, "<font color='yellow'>The Free-God compels me to face [target] on level ground before I transact.</font>")
 			revert_cast()
 			return
-		if(spell_guard_check(target, TRUE))
-			target.visible_message(span_warning("[target] resists the weight of their greed!"))
-			return TRUE
 		var/mammonsonperson = get_mammons_in_atom(target)
 		var/mammonsinbank = SStreasury.bank_accounts[target]
 		var/totalvalue = mammonsinbank + mammonsonperson

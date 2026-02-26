@@ -39,7 +39,6 @@
 /obj/projectile/energy/arcynebolt
 	name = "Arcyne Bolt"
 	icon_state = "arcane_barrage"
-	guard_deflectable = TRUE
 	damage = 40
 	woundclass = BCLASS_BLUNT
 	nodamage = FALSE

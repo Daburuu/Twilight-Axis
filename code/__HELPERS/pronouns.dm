@@ -139,9 +139,15 @@
 		switch (pronouns)
 			if (HE_HIM)
 				. = "he"
+			if (HE_HIM_F)
+				. = "he"
 			if (SHE_HER)
 				. = "she"
+			if (SHE_HER_M)
+				. = "she"
 			if (THEY_THEM)
+				. = "they"
+			if (THEY_THEM_F)
 				. = "they"
 			if (IT_ITS)
 				. = "it"
@@ -169,9 +175,15 @@
 		switch (pronouns)
 			if (HE_HIM)
 				. = "his"
+			if (HE_HIM_F)
+				. = "his"
 			if (SHE_HER)
 				. = "her"
+			if (SHE_HER_M)
+				. = "her"
 			if (THEY_THEM)
+				. = "their"
+			if (THEY_THEM_F)
 				. = "their"
 			if (IT_ITS)
 				. = "its"
@@ -198,9 +210,15 @@
 		switch (pronouns)
 			if (HE_HIM)
 				. = "him"
+			if (HE_HIM_F)
+				. = "him"
 			if (SHE_HER)
 				. = "her"
+			if (SHE_HER_M)
+				. = "her"
 			if (THEY_THEM)
+				. = "them"
+			if (THEY_THEM_F)
 				. = "them"
 			if (IT_ITS)
 				. = "it"
@@ -217,7 +235,7 @@
 		return
 	// LETHALSTONE EDIT: use pronouns where possible
 	if (pronouns)
-		if (pronouns == THEY_THEM)
+		if (pronouns == THEY_THEM || pronouns == THEY_THEM_F)
 			. = "have"
 	// LETHALSTONE EDIT END
 
@@ -230,7 +248,7 @@
 		return
 	// LETHALSTONE EDIT: use pronouns where possible
 	if (pronouns)
-		if (pronouns == THEY_THEM)
+		if (pronouns == THEY_THEM || pronouns == THEY_THEM_F)
 			. = "are"
 	// LETHALSTONE EDIT END
 
@@ -243,7 +261,7 @@
 		return
 	// LETHALSTONE EDIT: use pronouns where possible
 	if (pronouns)
-		if (pronouns == THEY_THEM)
+		if (pronouns == THEY_THEM || pronouns == THEY_THEM_F)
 			. = "were"
 	// LETHALSTONE EDIT END
 
@@ -256,7 +274,7 @@
 		return
 	// LETHALSTONE EDIT: use pronouns where possible
 	if (pronouns)
-		if (pronouns == THEY_THEM)
+		if (pronouns == THEY_THEM || pronouns == THEY_THEM_F)
 			. = "do"
 	// LETHALSTONE EDIT END
 
@@ -267,7 +285,7 @@
 		. = "s"
 	// LETHALSTONE EDIT: use pronouns where possible
 	if (pronouns)
-		if (pronouns != THEY_THEM)
+		if (pronouns != THEY_THEM && pronouns != THEY_THEM_F)
 			. = "s"
 	// LETHALSTONE EDIT END
 
@@ -278,7 +296,7 @@
 		. = "es"
 	// LETHALSTONE EDIT: use pronouns where possible
 	if (pronouns)
-		if (pronouns != THEY_THEM)
+		if (pronouns != THEY_THEM && pronouns != THEY_THEM_F)
 			. = "es"
 	// LETHALSTONE EDIT END
 

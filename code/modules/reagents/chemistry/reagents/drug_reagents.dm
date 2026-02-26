@@ -18,7 +18,8 @@
 		else
 			M.emote(pick("twitch_s","chuckle"))
 	M.apply_status_effect(/datum/status_effect/buff/weed)
-	M.sate_addiction(/datum/charflaw/addiction/smoker)
+	if(M.has_flaw(/datum/charflaw/addiction/smoker))
+		M.sate_addiction()
 	..()
 
 /datum/reagent/drug/space_drugs/on_mob_end_metabolize(mob/living/M)
@@ -84,7 +85,16 @@
 	..()
 
 /datum/reagent/drug/nicotine/on_mob_life(mob/living/carbon/M)
-	M.sate_addiction(/datum/charflaw/addiction/smoker)
+/*	if(prob(1))
+		var/smoke_message = pick("You feel relaxed.", "You feel calmed.","You feel alert.","You feel rugged.")
+		to_chat(M, "<span class='notice'>[smoke_message]</span>")
+	M.AdjustStun(-5, FALSE)
+	M.AdjustKnockdown(-5, FALSE)
+	M.AdjustUnconscious(-5, FALSE)
+	M.AdjustParalyzed(-5, FALSE)
+	M.AdjustImmobilized(-5, FALSE)*/
+	if(M.has_flaw(/datum/charflaw/addiction/smoker))
+		M.sate_addiction()
 	..()
 	. = 1
 

@@ -287,15 +287,6 @@
 			visible_message(span_combatsecondary(def_msg), span_boldwarning(def_msg), COMBAT_MESSAGE_RANGE, list(user))
 			to_chat(user, span_boldwarning(def_msg))
 
-<<<<<<< HEAD
-=======
-			for(var/mob/living/L in get_hearers_in_view(4, src, RECURSIVE_CONTENTS_CLIENT_MOBS))
-				if(!L.has_flaw(/datum/charflaw/addiction/clamorous))
-					continue
-				if(prob(7 + (L.STALUC - 10)))
-					L.sate_addiction(/datum/charflaw/addiction/clamorous)
-
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 			if(!iscarbon(user))	//Non-carbon mobs never make it to the proper parry proc where the other calculations are done.
 				if(W.max_blade_int)
 					W.remove_bintegrity(SHARPNESS_ONHIT_DECAY, user)

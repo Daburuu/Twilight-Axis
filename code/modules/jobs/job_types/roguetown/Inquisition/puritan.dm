@@ -74,9 +74,7 @@
 		/datum/skill/craft/sewing = SKILL_LEVEL_APPRENTICE,
 	)
 	subclass_stashed_items = list(
-		"Tome of Psydon" = /obj/item/book/rogue/bibble/psy,
-		"Branding letters" = /obj/item/branding_letters,
-		"Branding iron" = /obj/item/branding_iron
+		"Tome of Psydon" = /obj/item/book/rogue/bibble/psy
 	)
 
 /datum/outfit/job/roguetown/puritan/inspector/pre_equip(mob/living/carbon/human/H)
@@ -116,8 +114,6 @@
 
 /datum/outfit/job/roguetown/puritan/inspector/choose_loadout(mob/living/carbon/human/H)
 	. = ..()
-	if(!isdarkelf(H)) //TA EDIT
-		change_origin(H, /datum/virtue/origin/otava, "Holy order")
 	var/weapons = list("Psydonic Longsword", "Psydonic Rapier", "Daybreak (Whip)", "Stigmata (Halberd)", "Eucharist (Rapier)")
 	var/weapon_choice = input(H,"FLOURISH YOUR SILVER.", "WIELD THEM IN HIS NAME.") as anything in weapons
 	switch(weapon_choice)
@@ -177,9 +173,7 @@
 		/datum/skill/misc/tracking = SKILL_LEVEL_MASTER,
 	)
 	subclass_stashed_items = list(
-		"Tome of Psydon" = /obj/item/book/rogue/bibble/psy,
-		"Branding letters" = /obj/item/branding_letters,
-		"Branding iron" = /obj/item/branding_iron
+		"Tome of Psydon" = /obj/item/book/rogue/bibble/psy
 	)
 
 /datum/outfit/job/roguetown/puritan/ordinator/pre_equip(mob/living/carbon/human/H)
@@ -209,11 +203,6 @@
 
 /datum/outfit/job/roguetown/puritan/ordinator/choose_loadout(mob/living/carbon/human/H)
 	. = ..()
-<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/Inquisition/puritan.dm
-=======
-	if(!isdarkelf(H)) //TA EDIT
-		change_origin(H, /datum/virtue/origin/otava, "Holy order")
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e:code/modules/jobs/job_types/roguetown/Inquisition/inquisitor.dm
 	var/weapons = list("Psydonic Broadsword + Dagger", "Psydonic Poleaxe + Dagger", "Apocrypha (Greatsword) + Dagger", "Covenant And Creed (Broadsword + Shield)", "Covenant and Consecratia (Flail + Shield)")
 	var/weapon_choice = input(H,"CHOOSE YOUR RELIQUARY PIECE.", "WIELD THEM IN HIS NAME.") as anything in weapons
 	switch(weapon_choice)

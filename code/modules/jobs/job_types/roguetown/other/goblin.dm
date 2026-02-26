@@ -61,9 +61,8 @@
 		eyes.Insert(H)
 		H.ambushable = FALSE
 		H.underwear = "Nude"
-		for(var/datum/charflaw/cf in H.charflaws)
-			H.charflaws.Remove(cf)
-			QDEL_NULL(cf)
+		if(H.charflaw)
+			QDEL_NULL(H.charflaw)
 		H.update_body()
 		H.faction = list("orcs")
 		H.name = "goblin"

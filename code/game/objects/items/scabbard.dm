@@ -34,8 +34,8 @@
 	/// Specific weapons that are not allowed. Bypassed valid_blade
 	var/list/obj/item/rogueweapon/invalid_blades
 
-	/// Stores the holster component
-	var/datum/component/holster/hol_comp
+	/// Stores weapon
+	var/obj/item/rogueweapon/sheathed
 
 	var/sheathe_time = 0.1 SECONDS
 	var/sheathe_sound = 'sound/foley/equip/scabbard_holster.ogg'
@@ -44,20 +44,6 @@
 	. = ..()
 	. += span_info("Left click to sheath a weapon, or to draw a sheathed weapon. Will only draw if held in hand, belt, or back.")
 	. += span_info("Right click to draw a sheathed weapon.")
-<<<<<<< HEAD
-=======
-	. += span_info("Middle click to transform it into a strap, which allows for a weapon to be openly carried without any delays to drawing or sheathing.")
-	. += span_info("Straps cannot be transformed back into scabbards or sheaths.")
-
-/obj/item/rogueweapon/scabbard/Initialize()
-	. = ..()
-
-	hol_comp = GetComponent(/datum/component/holster)
-
-/obj/item/rogueweapon/scabbard/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/holster, (valid_blade ? valid_blade : null), (length(valid_blades) ? valid_blades : null), (length(invalid_blades) ? invalid_blades : null))
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /obj/item/rogueweapon/scabbard/attack_obj(obj/O, mob/living/user)
 	return FALSE
@@ -221,9 +207,9 @@
 					"sturn" = 0,
 					"wturn" = 0,
 					"eturn" = 0,
-					"nflip" = 4,
+					"nflip" = 1,
 					"sflip" = 0,
-					"wflip" = 8,
+					"wflip" = 1,
 					"eflip" = 0
 				)
 			if("onback")
@@ -391,16 +377,15 @@
 				)
 
 /obj/item/rogueweapon/scabbard/sheath/MiddleClick(mob/user)
-	if(hol_comp.sheathed)
+	if(sheathed)
 		to_chat(user, span_notice("There's something inside!"))
-		return FALSE
+		return
 	to_chat(user, span_notice("I start to strip the sheath down..."))
-	if(!do_after(user, 5 SECONDS, src))
-		return FALSE
-	var/obj/item/S = new /obj/item/rogueweapon/scabbard/sheath/strap
-	qdel(src)
-	user.put_in_hands(S)
-	return TRUE
+	if(do_after(user, 5 SECONDS, src))
+		var/obj/item/S = new /obj/item/rogueweapon/scabbard/sheath/strap
+		qdel(src)
+		user.put_in_hands(S)
+		return TRUE
 
 /obj/item/rogueweapon/scabbard/sheath/strap
 	name = "dagger strap"
@@ -409,9 +394,9 @@
 	item_state = "beltstrapl"
 
 /obj/item/rogueweapon/scabbard/sheath/strap/update_icon(mob/living/user)
-	if(hol_comp.sheathed)
-		icon = hol_comp.sheathed.icon
-		icon_state = hol_comp.sheathed.icon_state
+	if(sheathed)
+		icon = sheathed.icon
+		icon_state = sheathed.icon_state
 		experimental_onback = TRUE
 		experimental_onhip = TRUE
 	else
@@ -660,7 +645,7 @@
 			return FALSE
 
 /obj/item/rogueweapon/scabbard/sword/MiddleClick(mob/user)
-	if(hol_comp.sheathed)
+	if(sheathed)
 		to_chat(user, span_notice("There's something inside!"))
 		return
 	to_chat(user, span_notice("I start to strip the scabbard down..."))
@@ -677,7 +662,6 @@
 	item_state = "beltstrapr"
 	force = 3
 
-<<<<<<< HEAD
 /obj/item/rogueweapon/scabbard/sword/strap/update_icon(mob/living/user)
 	if(sheathed)
 		if(sheathed.bigboy)
@@ -698,10 +682,6 @@
 		user.update_inv_belt()
 
 	getonmobprop(tag)
-=======
-/obj/item/rogueweapon/scabbard/sword/strap/ComponentInitialize()
-	AddComponent(/datum/component/holster/simplestrap, (valid_blade ? valid_blade : null), (length(valid_blades) ? valid_blades : null), (length(invalid_blades) ? invalid_blades : null))
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /obj/item/rogueweapon/scabbard/sword/strap/getonmobprop(tag)
 	..()
@@ -792,13 +772,11 @@
 	icon_state = "kazscab"
 	item_state = "kazscab"
 
-	force = 20
 	valid_blade = /obj/item/rogueweapon/sword/sabre/mulyeog
-	associated_skill = /datum/skill/combat/swords
+	associated_skill = /datum/skill/combat/shields
 	possible_item_intents = list(SHIELD_BASH, SHIELD_BLOCK)
 	can_parry = TRUE
 	wdefense = 8
-	special = /datum/special_intent/limbguard
 
 	max_integrity = 0
 
@@ -808,7 +786,6 @@
 
 	valid_blade = /obj/item/rogueweapon/sword/long/kriegmesser/ssangsudo
 	can_parry = FALSE
-	special = null
 
 
 /obj/item/rogueweapon/scabbard/sword/kazengun/steel
@@ -834,7 +811,6 @@
 	item_state = "kazscabyuruku"
 	valid_blade = /obj/item/rogueweapon/sword/short/kazengun
 	wdefense = 4
-	special = null
 
 /obj/item/rogueweapon/scabbard/sheath/kazengun
 	name = "plain lacquer sheath"
@@ -842,183 +818,9 @@
 	icon_state = "kazscabdagger"
 	item_state = "kazscabdagger"
 	valid_blade = /obj/item/rogueweapon/huntingknife/idagger/steel/kazengun
-	associated_skill = /datum/skill/combat/knives
+	associated_skill = /datum/skill/combat/shields
 	possible_item_intents = list(SHIELD_BASH, SHIELD_BLOCK)
 	can_parry = TRUE
 	wdefense = 3
 
 	max_integrity = 0
-<<<<<<< HEAD
-=======
-
-/obj/item/rogueweapon/scabbard/sheath/courtphysician
-	name = "fancy cane"
-	desc = "A decorated cane bearing the visage of a vulture."
-	icon_state = "doccanesheath"
-	item_state = "doccanesheath"
-	valid_blade = /obj/item/rogueweapon/sword/rapier/courtphysician
-	sellprice = 45
-
-/obj/item/rogueweapon/scabbard/sheath/courtphysician/getonmobprop(tag)
-	. = ..()
-	if(tag)
-		switch(tag)
-			if("gen")
-				return list(
-					"shrink" = 0.5,
-					"sx" = -6,
-					"sy" = -6,
-					"nx" = 6,
-					"ny" = -5,
-					"wx" = -1,
-					"wy" = -5,
-					"ex" = -1,
-					"ey" = -5,
-					"nturn" = -45,
-					"sturn" = -45,
-					"wturn" = -45,
-					"eturn" = -45,
-					"nflip" = 0,
-					"sflip" = 0,
-					"wflip" = 0,
-					"eflip" = 0,
-					"northabove" = FALSE,
-					"southabove" = TRUE,
-					"eastabove" = TRUE,
-					"westabove" = FALSE
-				)
-			if("wielded")
-				return list(
-					"shrink" = 0.5,
-					"sx" = 0,
-					"sy" = 0,
-					"nx" = 0,
-					"ny" = 0,
-					"wx" = -3,
-					"wy" = 0,
-					"ex" = 3,
-					"ey" = 0,
-					"nturn" = -90,
-					"sturn" = 0,
-					"wturn" = -90,
-					"eturn" = 0,
-					"nflip" = 0,
-					"sflip" = 0,
-					"wflip" = 0,
-					"eflip" = 0,
-					"northabove" = FALSE,
-					"southabove" = TRUE,
-					"eastabove" = TRUE,
-					"westabove" = TRUE
-				)
-			if("onbelt")
-				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
-
-/obj/item/rogueweapon/scabbard/sheath/courtphysician/hand
-	name = "velvet sister"
-	desc = "Sleek, fashionable and deadly. Traits shared by both staff and the one holding it. Never let yourself be outdone, never rely on merely one trick.\
-	The rontz embedded in the handle serves as focus for arcyne arts."
-	icon = 'icons/roguetown/weapons/special/hand32.dmi'
-	icon_state = "staffsheath"
-	item_state = "staffsheath"
-	valid_blade = /obj/item/rogueweapon/sword/rapier/hand
-	sellprice = 100
-	cast_time_reduction = null //The component alters this. 
-
-/obj/item/rogueweapon/scabbard/sheath/courtphysician/hand/ComponentInitialize()
-	AddComponent(/datum/component/holster/handstaff, valid_blade, null, null, sheathe_time)
-
-
-///////////////////////
-//	GREATWEP. STRAPS //
-///////////////////////
-
-/obj/item/rogueweapon/scabbard/gwstrap
-	name = "greatweapon strap"
-	desc = "A buckled sling that can support the weight of weapons too weighty for one's belt. Be mindful, as it takes a couple seconds to properly unfasten-and-refasten the latches."
-
-	icon_state = "gws0"
-	item_state = "gwstrap"
-	icon = 'icons/obj/items/gwstrap.dmi'
-	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
-	pixel_y = -16
-	pixel_x = -16
-	inhand_x_dimension = 64
-	inhand_y_dimension = 64
-
-	w_class = WEIGHT_CLASS_BULKY
-	slot_flags = ITEM_SLOT_BACK
-	resistance_flags = NONE
-	experimental_onback = FALSE
-	bigboy = TRUE
-	sewrepair = TRUE
-
-	equip_delay_self = 5 SECONDS
-	unequip_delay_self = 5 SECONDS
-	strip_delay = 2 SECONDS
-	sheathe_time = 2 SECONDS
-
-	max_integrity = 0
-	sellprice = 15
-
-/obj/item/rogueweapon/scabbard/gwstrap/ComponentInitialize()
-	AddComponent(/datum/component/holster/gwstrap, FALSE, FALSE, FALSE, sheathe_time)
-
-/obj/item/rogueweapon/scabbard/gwstrap/getonmobprop(tag)
-	..()
-	if(!hol_comp.sheathed)
-		return
-	if(istype(hol_comp.sheathed, /obj/item/rogueweapon/estoc) || istype(hol_comp.sheathed, /obj/item/rogueweapon/greatsword))
-		switch(tag)
-			if("onback")
-				return list(
-					"shrink" = 0.6,
-					"sx" = -1,
-					"sy" = 2,
-					"nx" = 0,
-					"ny" = 2,
-					"wx" = 2,
-					"wy" = 1,
-					"ex" = 0,
-					"ey" = 1,
-					"nturn" = 0,
-					"sturn" = 0,
-					"wturn" = 70,
-					"eturn" = 15,
-					"nflip" = 1,
-					"sflip" = 1,
-					"wflip" = 1,
-					"eflip" = 1,
-					"northabove" = 1,
-					"southabove" = 0,
-					"eastabove" = 0,
-					"westabove" = 0
-				)
-	else
-		switch(tag)
-			if("onback")
-				return list(
-					"shrink" = 0.7,
-					"sx" = 1,
-					"sy" = -1,
-					"nx" = 1,
-					"ny" = -1,
-					"wx" = 4,
-					"wy" = -1,
-					"ex" = -1,
-					"ey" = -1,
-					"nturn" = 0,
-					"sturn" = 0,
-					"wturn" = 0,
-					"eturn" = 0,
-					"nflip" = 8,
-					"sflip" = 0,
-					"wflip" = 0,
-					"eflip" = 0,
-					"northabove" = 1,
-					"southabove" = 0,
-					"eastabove" = 0,
-					"westabove" = 0
-				)
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e

@@ -27,8 +27,6 @@
 #define TRAIT_MAGEARMOR "Magic Barrier"
 #define TRAIT_DECEIVING_MEEKNESS "Deceiving Meekness"
 #define TRAIT_CRITICAL_RESISTANCE "Critical Resistance"
-#define TRAIT_CRIT_THRESHOLD "NPC Respect Crit Threshold"
-#define TRAIT_BLOOD_RESISTANCE "Thick Blooded"
 #define TRAIT_CRITICAL_WEAKNESS "Critical Weakness"
 #define TRAIT_DNR "Bane of Existence"
 #define TRAIT_MANIAC_AWOKEN "Awoken"
@@ -122,7 +120,6 @@
 #define TRAIT_BLACKLEG	"Blackleg" //Rig coin, dice, cards in your favor - UNUSED FOR NOW
 #define TRAIT_BETTER_SLEEP	"Better Sleep" //Recover more energy (blue bar) when sleeping
 #define TRAIT_LEECHIMMUNE "Unleechable" //leeches wont attach in bog squares + dendor boon.
-#define TRAIT_ASTRATAN_AFFINITY "Astratan Affinity" //Telling who's an Astratan on examine
 #define TRAIT_LONGSTRIDER "Longstrider"
 #define TRAIT_UNDIVIDED "The Ten Undivided"
 #define TRAIT_PSYDONIAN_GRIT "Psydonic Willpower" // Willpower-scaling boost to pain resistance. From X to XV, every point of WIL increases the chance of ignoring a paincrit check.
@@ -233,14 +230,6 @@
 #define TRAIT_DUSTABLE "Dustable"
 #define TRAIT_SECONDLIFE "Second Life"
 #define TRAIT_QUICKSILVERRESISTANT "Quicksilver Resistance"
-<<<<<<< HEAD
-=======
-#define TRAIT_GARRISON_ITEM "Garrison Item"
-#define TRAIT_WEATHER_PROTECTED "Weather Protected"
-#define TRAIT_VAMPIRE_SPAWN_PROTECTION "Vampire Spawn Protection"
-
-#define TRAIT_ARTILLERY_EXPERT "Artillery Expert"
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 // Economic Roles Traits
 // Most of these should NOT be given to any true combat roles (I.E. anything with Dexpert or Miracle / Good Magic) with very few exceptions
@@ -266,11 +255,7 @@
 //TA TRAITS
 #define TRAIT_CLERGY "Decem Dii Vult"
 #define TRAIT_FIREARMS_MARKSMAN "Expert Gunslinger" // They keep saying firearms are too easy to level up. Unlocks Master and Legendary Firearms.
-#define TRAIT_VILLAIN "Villain"
-#define TRAIT_ZIZOID_HUNTED "zizoidhunted" // Used to signal character has been marked by death by the Zizoid cult
-#define TRAIT_WOUNDREGEN "Wound Regeneration"
-#define TRAIT_ZIZOEYES "Zizo eyes"
-#define TRAIT_NOC_LIGHT_BLESSING "Noc Blessing"
+
 // If you want description to show up you gotta have the trait name defined BEFORE this lol
 
 GLOBAL_LIST_INIT(roguetraits, list(
@@ -311,19 +296,6 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_EMPATH = span_info("I can notice when people are in pain."),
 	TRAIT_EXPLOSIVE_SUPPLY = span_info("I have very good friends! I get explosives on my HERMES every day."),
 	TRAIT_BREADY = span_info("Defensive stance does not passively fatigue me. I regain energy slowly over time."),
-<<<<<<< HEAD
-=======
-	TRAIT_ARMOUR_LIKED = span_greentext("I'm wearing something more suited to my style."),
-	TRAIT_ARMOUR_DISLIKED = span_warning("I'm wearing something that burdens me."),
-	TRAIT_FENCERDEXTERITY = span_info("I've trained my entire lyfe around the art of unarmoured fencing, affording myself unmatched speed when wearing very light armour. I'm very choosy otherwise."),
-	TRAIT_HONORBOUND = span_info("The Tattoos of this Clan bind me to a lyfestyle of bare-skinned battle and swordsmanship. I refuse to wear armor that do not compliment my traditional garb and tattoos."),
-	TRAIT_NALEDI = span_info("I hail from the lands of Naledi. My blood and knowledge storied in yils of texts and techniques. My birthright is my pride."),
-	TRAIT_BLOOD_RESISTANCE = span_info("My body is taut, and my blood runs slower. I bleed far less than others."),
-	TRAIT_JAILOR = span_info("I am the ducal torturer and executioneer. Society looks down upon me and I will never be graced by loving touch of the Gods."),
-	TRAIT_SKILLBLESSED = span_greentext("I've reunited with an old friend of mine. All is well."),
-	TRAIT_LONGSWORDSMAN = span_info("\"I will crush anyone who opposes me. I am of royal blood. I dispense justice, advance the cause of good and destroy evil. To those who learn my crossings I will grant great fame and renown in the art of armed fighting.\" - I fight like a Master when I wield any longsword, though I can only perform master strikes with a perfectly balanced basket-hilted or reformist longsword."),
-	TRAIT_SABRIST = span_info("I've learned all there is to know about the Southern curve. When using a szöréndnížine sabre, I fight like a Master. My swings are innately more accurate when targetting hands and arms."),
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	TRAIT_MEDIUMARMOR = span_info("I can move freely in medium armor."),
 	TRAIT_HEAVYARMOR = span_info("I can move freely in heavy armor."),
 	TRAIT_DODGEEXPERT = span_info("I am much better at dodging incoming strikes, when dressed in either light armor or nothing at all. Heavier armor, such as maille or plate, is too burdensome for me to quickly maneuver in."),
@@ -462,7 +434,6 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_CURSE_BAOTHA = span_warning("I am forsaken by the Heartbreaker. I am drowning in her promises."),
 	TRAIT_JACKOFALLTRADES = span_notice("Skills cost half as much for me to raise."),
 	TRAIT_BLOODLOSS_IMMUNE = span_notice("While I may bleed, I will feel nothing from it."),
-	TRAIT_ASTRATAN_AFFINITY = span_bone("My bond with Astrata is strong. I can tell who worships her from up close."),
 	TRAIT_ADRENALINE_RUSH = span_notice("I'm invigorated in the midst of battle! I don't feel my wounds!"),
 	TRAIT_MEDICINE_EXPERT = span_greentext("I've deep, intricate knowledge of the medicinal arts. This skill can progress to Master and Legendary levels."),
 	TRAIT_ALCHEMY_EXPERT = span_greentext("I've deep, intricate knowledge of the alchemical arts. This skill can progress to Expert and above levels."),
@@ -491,28 +462,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_QUICKSILVERRESISTANT = span_warning("Quick silver won't work to cure me..."),
 	TRAIT_SHIRTLESS = span_warning("For one reason or another, I can't bear the idea of covering myself from the middle upwards."),
 	TRAIT_NODEF = span_warning("I expose myself in battle completely."),
-<<<<<<< HEAD
 	TRAIT_CLERGY = span_notice("I am a member of local clergy, sworn to defend the House of the Ten. My oath empowers me when within the Temple's walls, or near my spiritual guide, the Bishop."), //TA TRAITS FROM HERE
 	TRAIT_FIREARMS_MARKSMAN = span_greentext("I'm an experienced gunslinger, and have spent many years learning to shoot firearms accurately over great distances. Firearms can progress to Legendary levels."),
-=======
-	TRAIT_GARRISON_ITEM = span_notice("I'm wearing an item that marks me as part of, or in command of, the garrison. I am able to interact with certain garrison-only equipment."),
-	TRAIT_WEATHER_PROTECTED = span_notice("I am holding or wearing an item that will keep me dry when there's rainy weather."),
-	TRAIT_VAMPIRE_SPAWN_PROTECTION = span_notice("The sun's wrath cannot touch me... for now."),
-	TRAIT_FOOD_STIPEND = span_notice("The creachers of the vomitorium know my touch, and will pull costs for their products directly from the treasury for me."),
-	TRAIT_STANDARD_BEARER = span_info("The banner is my lifeline. Just as I am to it. The retinue know to rally around me, so long as I keep it safe."),
-	TRAIT_FOG_WARDED = span_info("I am protected from Necra's deadly fog. The revenants won't find me... for now."),
-
-	TRAIT_CLERGY_TA = span_notice("My oath empowers me when I am within the Temple's walls, or near my spiritual guide, the Bishop."), //TA TRAITS FROM HERE
-	TRAIT_FIREARMS_MARKSMAN = span_greentext("I'm an experienced gunslinger, and have spent many years learning to shoot firearms accurately over great distances. Firearms can progress to Legendary levels."),
-	TRAIT_VILLAIN = span_warning("I am a devious, conniving villain!"),
-	TRAIT_WOUNDREGEN = span_info("My wounds and bones mend on their own, my bleeding clots quickly.."),
-
-	TRAIT_ARTILLERY_EXPERT = span_greentext("Я ранее обращался с артиллерией и разбираюсь в тонкостях её наводки."),
-	TRAIT_VILLAIN = span_warning("I am a devious, conniving villain!"),
-	TRAIT_WOUNDREGEN = span_info("My wounds and bones mend on their own, my bleeding clots quickly.."),
-	TRAIT_ZIZOEYES = span_notice("You no longer fear a veil of the darkness, yet your eyes are glimmering lights in it.."),
-	TRAIT_NOC_LIGHT_BLESSING = span_notice("Нок благославила меня на существование под её светом."),
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 ))
 
 // trait accessor defines
@@ -761,7 +712,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define INNATE_TRAIT "innate"
 #define POULTICE_TRAIT "poultice"
 #define XYLIX_LUCK_TRAIT "xylixluck"
-#define NOCTITE_SPELLBLADE_TRAIT "noctitespellblade"
 
 // unique trait sources, still defines
 #define TRAIT_GUIDANCE "Guidance"

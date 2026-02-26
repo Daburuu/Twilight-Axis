@@ -1166,7 +1166,7 @@ SUBSYSTEM_DEF(gamemode)
         STATS_JUNKIES,
 		STATS_KLEPTOMANIACS,
         STATS_GREEDY_PEOPLE,
-        //STATS_PLEASURES, TA addition - New ERP SYSTEM
+        STATS_PLEASURES,
         STATS_MALE_POPULATION,
         STATS_FEMALE_POPULATION,
         STATS_OTHER_GENDER,
@@ -1178,7 +1178,6 @@ SUBSYSTEM_DEF(gamemode)
         STATS_ALIVE_DARK_ELVES,
         STATS_ALIVE_WOOD_ELVES,
         STATS_ALIVE_HALF_ELVES,
-		STATS_ALIVE_SUN_ELVES,
         STATS_ALIVE_HALF_ORCS,
         STATS_ALIVE_GOBLINS,
         STATS_ALIVE_KOBOLDS,
@@ -1246,7 +1245,11 @@ SUBSYSTEM_DEF(gamemode)
 			switch(human_mob.pronouns)
 				if(HE_HIM)
 					record_round_statistic(STATS_MALE_POPULATION)
+				if(HE_HIM_F)
+					record_round_statistic(STATS_MALE_POPULATION)
 				if(SHE_HER)
+					record_round_statistic(STATS_FEMALE_POPULATION)
+				if(SHE_HER_M)
 					record_round_statistic(STATS_FEMALE_POPULATION)
 				else
 					record_round_statistic(STATS_OTHER_GENDER)
@@ -1285,8 +1288,6 @@ SUBSYSTEM_DEF(gamemode)
 				record_round_statistic(STATS_ALIVE_DARK_ELVES)
 			if(iswoodelf(human_mob))
 				record_round_statistic(STATS_ALIVE_WOOD_ELVES)
-			if(issunelf(human_mob))
-				record_round_statistic(STATS_ALIVE_SUN_ELVES)
 			if(ishalfelf(human_mob))
 				record_round_statistic(STATS_ALIVE_HALF_ELVES)
 			if(ishalforc(human_mob))

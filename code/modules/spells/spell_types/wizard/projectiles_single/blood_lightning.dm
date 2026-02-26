@@ -39,7 +39,6 @@
 	light_color = "#802121"
 	light_outer_range = 7
 
-
 /obj/projectile/magic/bloodlightning/on_hit(target)
 	. = ..()
 	if(ismob(target))

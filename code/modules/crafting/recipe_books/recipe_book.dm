@@ -103,15 +103,7 @@
 			temp_recipe = new path()
 			var/datum/runeritual/r = temp_recipe
 			category = r.category
-		else if(ispath(path, /datum/ritual))
-			if(ispath(path, /datum/ritual/servantry))
-				category = "Служение"
-			else if(ispath(path, /datum/ritual/transmutation))
-				category = "Преобразование"
-			else if(ispath(path, /datum/ritual/fleshcrafting))
-				category = "Плотоплетение"
-			else
-				category = "Ритуалы"
+
 		// Clean up our temporary instance
 		if(temp_recipe)
 			qdel(temp_recipe)
@@ -514,11 +506,7 @@
 		var/datum/runeritual/r = temp_recipe
 		recipe_name = initial(r.name)
 		recipe_html = get_recipe_specific_html(r, user)
-	else if(ispath(path, /datum/ritual))
-		temp_recipe = new path()
-		var/datum/ritual/r = temp_recipe
-		recipe_name = initial(r.name)
-		recipe_html = get_recipe_specific_html(r, user)
+
 	if(temp_recipe)
 		qdel(temp_recipe)
 
@@ -537,10 +525,6 @@
 /obj/item/recipe_book/proc/get_recipe_specific_html(datum/recipe, mob/user)
 	if(!istype(recipe))
 		return ""
-
-	if(istype(recipe, /datum/ritual))
-		return recipe:generate_html(user)
-
 	var/html = ""
 
 	html = recipe:generate_html(user)

@@ -92,19 +92,10 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		display_marquette(usr)
 
-<<<<<<< HEAD
 /obj/structure/roguemachine/mail/examine(mob/user)
 	. = ..()	
 	. += span_info("Load a coin inside, then right click to send a letter.")
 	. += span_info("Left click with a paper to send a prewritten letter for free.")
-=======
-/obj/structure/roguemachine/mail/get_mechanics_examine(mob/user)
-	. = ..()
-	. += span_info("Right click to access the terminal for writing letters or purchasing supplies.")
-	. += span_info("Insert coins to purchase supplies or send a letters.")
-	. += span_info("Left click with a paper or package to send a prewritten letter for free.")
-	. += span_info("You can wrap an item in paper to create a mailable package.")
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	if(HAS_TRAIT(user, TRAIT_INQUISITION))
 		. += span_info("<br>The MARQUETTE can be accessed via a secret compartment fitted within the HERMES. Load a Marque to access it.")
 

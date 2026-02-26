@@ -115,7 +115,6 @@
 			if(alert(src, "Would you like to sire a new spawn?", "THE CURSE OF KAIN", "MAKE IT SO", "I RESCIND") != "MAKE IT SO")
 				to_chat(src, span_warning("I decide [victim] is unworthy."))
 			else
-<<<<<<< HEAD
 				visible_message(span_danger("[src] begins channeling their energies to [victim]!"))
 				if(!do_mob(src, victim, 7 SECONDS, double_progress = TRUE, can_move = FALSE))
 					to_chat(src, span_warning("I was interrupted during my siring!"))
@@ -123,30 +122,6 @@
 				INVOKE_ASYNC(victim, TYPE_PROC_REF(/mob/living/carbon/human, vampire_conversion_prompt), src)
 		else
 			to_chat(src, span_warning("I cannot sire anymore thralls.."))
-=======
-				if(alert(src, "Would you like to sire a new spawn?", "THE CURSE OF KAIN", "MAKE IT SO", "I RESCIND") != "MAKE IT SO")
-					to_chat(src, span_warning("I decide [victim] is unworthy."))
-				else
-					visible_message(span_danger("[src] begins channeling their energies to [victim]!"))
-					if(!do_mob(src, victim, 7 SECONDS, double_progress = TRUE, can_move = FALSE))
-						to_chat(src, span_warning("I was interrupted during my siring!"))
-						return
-					if(HAS_TRAIT_FROM(victim, TRAIT_REFUSED_VAMP_CONVERT, REF(src)))
-						to_chat(src, span_warning("[victim] has already refused your offer to sire them."))
-						return
-
-					if(victim.stat == DEAD) // If you accept the prompt as a corpse, you get turned into a corpse vampire, which RR's you pretty much
-						return FALSE
-
-					if(HAS_TRAIT(victim, TRAIT_UNLYCKERABLE))
-						return FALSE
-
-					var/mob/living/carbon/human/H = victim
-					if(H.vampire_conversion_prompt_active)
-						to_chat(src, span_warning("[victim] still fights the curse."))
-						return
-					INVOKE_ASYNC(victim, TYPE_PROC_REF(/mob/living/carbon/human, vampire_conversion_prompt), src)
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /mob/living/carbon/human/proc/vampire_conversion_prompt(mob/living/carbon/sire)
 	if(!mind)

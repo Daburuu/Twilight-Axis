@@ -21,21 +21,12 @@
 		/datum/language/thievescant,
 		/datum/language/grenzelhoftian,
 		/datum/language/kazengunese,
-		/datum/language/lingyuese,
-		/datum/language/gyedzenese, //TA EDIT
-		/datum/language/valorian, //TA EDIT
+		/datum/language/gyedzenese,
 		/datum/language/otavan,
 		/datum/language/etruscan,
 		/datum/language/gronnic,
 		/datum/language/aavnic,
-<<<<<<< HEAD
 		/datum/language/undead
-=======
-		/datum/language/undead,
-		/datum/language/abyssal,
-		/datum/language/oldazurian,
-		/datum/language/undercommon
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	))
 
 /obj/item/organ/tongue/Initialize(mapload)

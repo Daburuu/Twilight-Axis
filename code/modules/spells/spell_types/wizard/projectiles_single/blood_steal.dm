@@ -39,7 +39,6 @@
 	light_color = "#e74141"
 	light_outer_range = 7
 
-
 /obj/projectile/magic/bloodsteal/on_hit(target)
 	. = ..()
 	if(ismob(target))

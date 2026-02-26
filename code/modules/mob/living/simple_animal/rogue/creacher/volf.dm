@@ -22,15 +22,16 @@
 						/obj/item/alch/bone = 1,
 						/obj/item/alch/viscera = 1,
 						/obj/item/natural/fur/wolf = 1,
-						/obj/item/natural/bone = 3)
+						/obj/item/natural/bone = 3,
+						/obj/item/natural/head/volf = 1)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf = 2,
 						/obj/item/natural/hide = 2,
 						/obj/item/alch/sinew = 2,
 						/obj/item/alch/bone = 1,
 						/obj/item/alch/viscera = 1,
 						/obj/item/natural/fur/wolf = 2,
-						/obj/item/natural/bone = 4)
-	head_butcher = /obj/item/natural/head/volf
+						/obj/item/natural/bone = 4,
+						/obj/item/natural/head/volf = 1)
 	faction = list("wolfs", "zombie")
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	health = WOLF_HEALTH

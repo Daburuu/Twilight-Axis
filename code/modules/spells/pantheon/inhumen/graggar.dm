@@ -68,14 +68,8 @@
 	playsound(src, 'sound/combat/caught.ogg', 50, TRUE)
 
 /obj/effect/proc_holder/spell/invoked/revel_in_slaughter
-<<<<<<< HEAD
 	name = "Revel in Slaughter"
 	desc = "The blood of your enemy shall boil, their skin feeling as if it's being ripped apart! Graggar demands their blood must FLOW!!!"
-=======
-	name = "Revel in Death"
-	desc = "Increases the bleeding and pain of a target. Their blood-loss amount scales with every point of constitution over ten. \
-	Those with ten or less constituion will instead have a flat rate (x1.25)."
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	overlay_state = "bloodsteal"
 	recharge_time = 1 MINUTES
 	invocations = list("YOUR BLOOD WILL BOIL TILL IT'S SPILLED!")
@@ -92,7 +86,6 @@
 		revert_cast()
 		return FALSE
 
-<<<<<<< HEAD
 	var/success = 0
 
 	for(var/obj/effect/decal/cleanable/blood/blood in view(3, user))
@@ -114,14 +107,6 @@
 
 	human.visible_message(span_danger("[human]'s wounds become inflammed as their vitality is sapped away!"))
 	to_chat(human, span_warning("My skins feels like pins and needles, as if something were ripping and tearing at me!"))
-=======
-	if(spell_guard_check(human, TRUE))
-		human.visible_message(span_warning("[human] resists the bloodlust!"))
-		return TRUE
-	
-	human.apply_status_effect(/datum/status_effect/debuff/bloody_mess)
-	human.apply_status_effect(/datum/status_effect/debuff/sensitive_nerves)
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 	return TRUE
 

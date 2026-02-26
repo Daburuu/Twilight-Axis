@@ -71,15 +71,9 @@
 	//heart attack stuff
 	handle_heart()
 	update_stamina()
-<<<<<<< HEAD
 	update_energy()
 	if(charflaw && !charflaw.ephemeral && mind)
 		charflaw.flaw_on_life(src)
-=======
-	for(var/datum/charflaw/cf in charflaws)
-		if(!cf.ephemeral && mind)
-			cf.flaw_on_life(src)
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	if(health <= 0)
 		adjustOxyLoss(0.5)
 	if(mode == NPC_AI_OFF && !client && !HAS_TRAIT(src, TRAIT_NOSLEEP))

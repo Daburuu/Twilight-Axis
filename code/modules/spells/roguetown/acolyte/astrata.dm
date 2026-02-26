@@ -57,24 +57,6 @@
 
 /obj/effect/proc_holder/spell/invoked/ignition/cast(list/targets, mob/user = usr)
 	..()
-<<<<<<< HEAD
-=======
-	. = ..()
-	rechargefast = FALSE
-	if(isliving(targets[1]))
-		var/mob/living/L = targets[1]
-		user.visible_message("<font color='yellow'>[user] points at [L]!</font>")
-		if(L.anti_magic_check(TRUE, TRUE))
-			return FALSE
-		if(spell_guard_check(L, TRUE))
-			L.visible_message(span_warning("[L] shields against the divine flame!"))
-			return TRUE
-		L.adjust_fire_stacks(2)
-		L.ignite_mob()
-
-		return TRUE
-
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	// Spell interaction with ignitable objects (burn wooden things, light torches up)
 	if(isobj(targets[1]))
 		var/obj/O = targets[1]
@@ -183,88 +165,6 @@
 		return FALSE
 	return TRUE
 
-<<<<<<< HEAD
-=======
-/obj/effect/proc_holder/spell/invoked/astrataspark
-	name = "Flame Order"
-	desc = "Casting on a fire-based light source will make a searing explosion in a 3x3 area around the light source. \n\
-	Casting on a burning mob will double their fire stacks.\n\
-	Casting on yourself will ignite any flammable object in a 3x3 area around yourself."
-	clothes_req = FALSE
-	overlay_state = "astraflame"
-	base_icon_state = "regalyscroll"
-	sound = 'sound/magic/whiteflame.ogg'
-	range = 8
-	releasedrain = 30
-	chargedrain = 1
-	chargetime = 15
-	recharge_time = 15 SECONDS
-	warnie = "spellwarning"
-	no_early_release = TRUE
-	movement_interrupt = FALSE
-	charging_slowdown = 3
-	chargedloop = /datum/looping_sound/invokeholy
-	glow_color = GLOW_COLOR_FIRE
-	glow_intensity = GLOW_INTENSITY_MEDIUM
-	invocations = list("Fulmen!")
-	invocation_type = "shout"
-	var/firemodificator = 2
-	devotion_cost = 50
-	miracle = TRUE
-
-/obj/effect/proc_holder/spell/invoked/astrataspark/cast(list/targets, mob/user = usr)
-	var/turf/T = get_turf(targets[1])
-	if(T.z != user.z)
-		to_chat(span_warning("You cannot cast this spell on a different z-level!"))
-		revert_cast()
-		return FALSE
-	for(var/obj/effect/hotspot/H in T.contents)
-		new /obj/effect/temp_visual/firewave/spark(T)
-		sleep(1 SECONDS)
-		explosion(T, -1, 0, 0, 0, 0, flame_range = 2, soundin = 'sound/misc/explode/incendiary (1).ogg')
-	for(var/obj/machinery/light/rogue/O in T.contents)
-		O.fire_act()
-		new /obj/effect/temp_visual/firewave/spark(T)
-		sleep(2 SECONDS)
-		explosion(T, -1, 0, 0, 0, 0, flame_range = 2, soundin = 'sound/misc/explode/incendiary (1).ogg')
-		sleep(12 SECONDS)
-		O.extinguish()
-	for(var/mob/living/L in T.contents) //doubles firestacks
-		if(L == user)
-			var/checkrange = 3 + user.get_skill_level(/datum/skill/magic/holy)
-			for(var/obj/machinery/light/rogue/O in range(checkrange, user))
-				O.fire_act()
-			return TRUE
-		if(L.anti_magic_check())
-			L.visible_message(span_warning("The magic fades away around [L]!"))
-			playsound(L, 'sound/magic/magic_nulled.ogg', 100)
-			return
-		if(spell_guard_check(L, TRUE))
-			L.visible_message(span_warning("[L] resists the flame order!"))
-			return TRUE
-		if(L.fire_stacks != 0)
-			if(L.fire_stacks >= 20) //cap
-				firemodificator = 0 //any*0 = 0
-			if(!L.mind || istype(L, /mob/living/simple_animal)) //PVE stuff. Fire not effective weapon.
-				L.adjustFireLoss(10*L.fire_stacks) //Simple or carbon-AI creatures take 10 damage * 1 firestack.
-				if(iscarbon(L)) //Carbon AI momentaly removes their firestaks.
-					var/mob/living/carbon/C = L
-					C.adjustFireLoss(C.getFireLoss()) //Double burn damage.
-			var/firest = L.fire_stacks*firemodificator
-			new /obj/effect/temp_visual/firewave/spark(T)
-			sleep(1 SECONDS)
-			L.adjust_fire_stacks(round(firest))
-	if(istype(T, /turf/open/lava))
-		new /obj/effect/temp_visual/firewave/spark(T)
-		sleep(2 SECONDS)
-		explosion(T, -1, 0, 0, 0, 0, flame_range = 3, soundin = 'sound/misc/explode/incendiary (1).ogg')
-	return TRUE
-
-/obj/effect/temp_visual/firewave/spark
-	icon_state = "flame"
-	duration = 20
-
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 //T0. Removes cone vision for a dynamic duration.
 /obj/effect/proc_holder/spell/self/astrata_gaze
 	name = "Astratan Gaze"
@@ -277,7 +177,7 @@
 	sound = 'sound/magic/astrata_choir.ogg'
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = FALSE
-	invocations = "Astrata show me true."
+	invocations = list("Astrata show me true.")
 	invocation_type = "shout"
 	recharge_time = 90 SECONDS
 	devotion_cost = 30
@@ -288,8 +188,7 @@
 		revert_cast()
 		return FALSE
 	var/mob/living/carbon/human/H = user
-	var/skill_level = H.get_skill_level(associated_skill)
-	H.apply_status_effect(/datum/status_effect/buff/astrata_gaze, skill_level)
+	H.apply_status_effect(/datum/status_effect/buff/astrata_gaze, user.get_skill_level(associated_skill))
 	return TRUE
 
 /atom/movable/screen/alert/status_effect/buff/astrata_gaze
@@ -301,10 +200,7 @@
 	id = "astratagaze"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/astrata_gaze
 	duration = 20 SECONDS
-	var/skill_level = 0
-	status_type = STATUS_EFFECT_REPLACE
 
-<<<<<<< HEAD
 /datum/status_effect/buff/astrata_gaze/on_creation(mob/living/new_owner, assocskill)
 	var/per_bonus = 0
 	if(assocskill)
@@ -317,41 +213,15 @@
 	if(per_bonus > 0)
 		effectedstats = list(STATKEY_PER = per_bonus)
 	. = ..()
-=======
-/datum/status_effect/buff/astrata_gaze/on_creation(mob/living/new_owner, slevel)
-    // Only store skill level here
-    skill_level = slevel
-    .=..()
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
-/datum/status_effect/buff/astrata_gaze/on_apply()
-	// Reset base values because the miracle can 
-	// now actually be recast at high enough skill and during day time
-	// This is a safeguard because buff code makes my head hurt
-    var/per_bonus = 0
-    duration = 20 SECONDS
-
-    if(skill_level > SKILL_LEVEL_NOVICE)
-        per_bonus++
-
-    if(GLOB.tod == "dawn" || GLOB.tod == "day" || GLOB.tod == "dusk")
-        per_bonus++
-        duration *= 2
-
-    duration *= skill_level
-
-    if(per_bonus)
-        effectedstats = list(STATKEY_PER = per_bonus)
-
-    if(ishuman(owner))
-        var/mob/living/carbon/human/H = owner
-        H.viewcone_override = TRUE
-        H.hide_cone()
-        H.update_cone_show()
-
-    to_chat(owner, span_info("She shines through me! I can perceive all clear as dae!"))
-
-    return ..()
+/datum/status_effect/buff/astrata_gaze/on_apply(assocskill)
+	if(ishuman(owner))
+		var/mob/living/carbon/human/H = owner
+		H.viewcone_override = TRUE
+		H.hide_cone()
+		H.update_cone_show()
+	to_chat(owner, span_info("She shines through me! I can perceive all clear as dae!"))
+	. = ..()
 
 /datum/status_effect/buff/astrata_gaze/on_remove()
 	. = ..()
@@ -551,10 +421,6 @@
 	if(!istype(target, /mob/living/carbon) || target == user)
 		revert_cast()
 		return FALSE
-
-	if(spell_guard_check(target, TRUE))
-		target.visible_message(span_warning("[target] resists the immolation!"))
-		return TRUE
 
 	// Channeling requirement
 	user.visible_message(span_danger("[user] begins lighting [target] ablaze with strange, divine fire!"))

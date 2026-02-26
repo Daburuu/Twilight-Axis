@@ -26,7 +26,7 @@
 /obj/item/clothing/suit/roguetown/armor/gambeson/lord
 	name = "arming jacket"
 	icon_state = "dgamb"
-	body_parts_covered = COVERAGE_ALL_BUT_HANDLEGS
+	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	prevent_crits = PREVENT_CRITS_MOST
 	allowed_sex = list(MALE, FEMALE)
 
@@ -46,25 +46,6 @@
 	prevent_crits = PREVENT_CRITS_NONE
 	sellprice = 10
 
-<<<<<<< HEAD
-=======
-/obj/item/clothing/suit/roguetown/armor/gambeson/lord/heavy
-	name = "padded arming jacket"
-	desc = "A collared jacket, intended to be worn underneath plate armor. The thicker padding ensures that any gaps left within its alloyed shell are thoroughly protected - lest an unforseen bowstrike, landing true, ruptures the vulnerable flesh beneath."
-	icon_state = "dgamb"
-	body_parts_covered = COVERAGE_ALL_BUT_HANDLEGS
-	armor = ARMOR_PADDED_GOOD
-	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
-	prevent_crits = PREVENT_CRITS_MOST
-
-/obj/item/clothing/suit/roguetown/armor/gambeson/lord/heavy/silkjacket
-	name = "besilked jacket"
-	desc = "A lightweight jacket, who's besilked stitchwork allows it to catch thrusts-and-arrows alike without compromise. For reasons that needn't be spoken, such traits make it coveted among lesser nobility."
-	icon = 'icons/roguetown/clothing/shirts.dmi'
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/shirts.dmi'
-	icon_state = "puritan_shirt"
-
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
 	name = "padded gambeson"
 	desc = "A gambeson with additional padding layers, hardened to make it more durable. It still does not compare to leather or metal, but it will probably stop a crossbow bolt, so it's typically worn to complement proper armor."
@@ -147,41 +128,11 @@
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/freifechter
 	name = "padded fencing shirt"
-<<<<<<< HEAD
 	desc = "A strong loosely worn quilted shirt that places little weight on the arms, usually worn underneath a strong leather vest. It won't cover your legs."
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	icon_state = "fencingshirt"
 	color = "#FFFFFF"
 	shiftable = FALSE
-=======
-	desc = "A strong loosely worn quilted shirt that places little weight on the arms, usually worn underneath a flexible leather vest. It won't cover your legs."
-	icon = 'icons/roguetown/clothing/armor.dmi'
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/armor.dmi'
-	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
-	body_parts_covered = COVERAGE_ALL_BUT_HANDLEGS
-	icon_state = "fencingshirt"
-	color = "#FFFFFF"
-	var/shiftable = FALSE
-	armor = ARMOR_PADDED_GOOD
-	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER + 35
-	prevent_crits = PREVENT_CRITS_MOST
-	sellprice = 25
-	blocksound = SOFTUNDERHIT
-	blade_dulling = DULLING_BASHCHOP
-	break_sound = 'sound/foley/cloth_rip.ogg'
-	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
-	sewrepair = TRUE
-	cold_protection = 10
-
-/obj/item/clothing/suit/roguetown/shirt/freifechter/ComponentInitialize()
-	AddComponent(/datum/component/armour_filtering/positive, TRAIT_FENCERDEXTERITY)
-	AddComponent(/datum/component/armour_filtering/negative, TRAIT_HONORBOUND)
-
-/obj/item/clothing/suit/roguetown/shirt/freifechter/shepherd
-	name = "shepherd's shirt"
-	desc = "A strong loosely worn quilted shirt that places little weight on the arms."
-	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER - 35
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/chargah
 	name = "padded caftan"
@@ -195,7 +146,7 @@
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	name = "grenzelhoftian hip-shirt"
 	desc = "Padded shirt for extra comfort and protection, adorned in vibrant colors."
-	body_parts_covered = COVERAGE_ALL_BUT_HANDLEGS
+	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	icon_state = "grenzelshirt"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 	boobed = FALSE // Temporary fix, set to FALSE because for some reason boobed and details don't want to work together, removing the ability to dye it or it's details for the onmob

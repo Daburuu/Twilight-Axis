@@ -27,10 +27,6 @@
 	///bandit stuff
 	var/bandit_goal = 1
 	var/bandit_contribute = 0
-//TA 
-	var/list/cultists = list()
-	var/cult_ascended = FALSE
-	var/cultist_number = 0
 
 /proc/vampire_werewolf()
 	var/vampyr = 0
@@ -60,8 +56,19 @@
 	if(!forced && (world.time < SSticker.next_lord_check))
 		return
 	SSticker.next_lord_check = world.time + 1 MINUTES
-	var/mob/living/ruler = SSticker.rulermob
-	if(!ruler || ruler.stat == DEAD)
+	var/lord_found = FALSE
+	var/lord_dead = FALSE
+	for(var/mob/living/carbon/human/H in GLOB.human_list)
+		if(H.mind)
+			if(H.job == "Grand Duke")
+				lord_found = TRUE
+				if(H.stat == DEAD)
+					lord_dead = TRUE
+				else
+					if(lord_dead)
+						lord_dead = FALSE
+					break
+	if(lord_dead || !lord_found)
 		if(!SSticker.missing_lord_time)
 			SSticker.missing_lord_time = world.time
 		if(world.time > SSticker.missing_lord_time + 10 MINUTES)

@@ -80,17 +80,6 @@
 		"ЗИЗО СПАСЕТ НАС ОТ СТРАДАНИЙ!",
 	)
 
-<<<<<<< HEAD
-=======
-/datum/patron/inhumen/zizo/post_equip(mob/living/pious)
-	. = ..()
-	if(ishuman(pious))
-		var/mob/living/carbon/human/human = pious
-		if(human.mind)
-			human.mind.special_items["Lexicon of Her Truth"] = /obj/item/book/rogue/bibble/zizo
-			human.mind.special_items["Ritual's guide book"] = /obj/item/recipe_book/zizo
-
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 /datum/patron/inhumen/graggar
 	name = "Graggar"
 	translated_name = "Граггар"

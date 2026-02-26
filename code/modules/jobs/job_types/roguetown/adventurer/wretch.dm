@@ -32,7 +32,7 @@
 	job_subclasses = list(
 		/datum/advclass/wretch/licker,
 		/datum/advclass/wretch/deserter,
-		/datum/advclass/wretch/deserter/generic,
+		/datum/advclass/wretch/deserter/maa,
 		/datum/advclass/wretch/berserker,
 		/datum/advclass/wretch/hedgemage,
 		/datum/advclass/wretch/necromancer,
@@ -46,13 +46,7 @@
 		/datum/advclass/wretch/vigilante,
 		/datum/advclass/wretch/blackoakwyrm,
 		/datum/advclass/wretch/twilight_corsair,
-<<<<<<< HEAD
 		/datum/advclass/wretch/lunacyembracer
-=======
-		/datum/advclass/wretch/lunacyembracer,
-		/datum/advclass/wretch/rogueshaman
-
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	)
 
 /datum/job/roguetown/wretch/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
@@ -99,16 +93,15 @@
 		return
 
 	var/player_count = length(GLOB.joined_player_list)
-	var/ready_player_count = length(GLOB.ready_player_list)
 	var/slots = 5
 	
 	//Add 1 slot for every 10 players over 30. Less than 40 players, 5 slots. 40 or more players, 6 slots. 50 or more players, 7 slots - etc.
-	var/current_players = (SSticker.current_state == GAME_STATE_PREGAME) ? ready_player_count : player_count
-	if(current_players > 40)
-		var/extra = floor((current_players - 40) / 10)
+	if(player_count > 40)
+		var/extra = floor((player_count - 40) / 10)
 		slots += extra
-	//5 slots minimum, 8 maximum.
-	slots = min(slots, 8)
+
+	//5 slots minimum, 10 maximum.
+	slots = min(slots, 10)
 
 	wretch_job.total_positions = slots
 	wretch_job.spawn_positions = slots

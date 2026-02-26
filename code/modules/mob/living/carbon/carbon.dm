@@ -259,10 +259,6 @@
 				to_chat(src, "<span class='notice'>I set [I] down gently on the ground.</span>")
 				return
 
-			if(I.throwforce && rogue_sneaking)
-				mob_timers[MT_FOUNDSNEAK] = world.time
-				update_sneak_invis(reset = TRUE)
-
 
 	if(thrown_thing)
 		if(!thrown_speed)
@@ -858,10 +854,7 @@
 
 	if(HAS_TRAIT(src, TRAIT_ZIZOSIGHT))
 		lighting_alpha = min(lighting_alpha, LIGHTING_PLANE_ALPHA_ZIZOVISION)
-		see_in_dark = max(see_in_dark, 14)
-	if(HAS_TRAIT(src, TRAIT_ZIZOEYES))
-		lighting_alpha = min(lighting_alpha, LIGHTING_PLANE_ALPHA_ZIZOVISION)
-		see_in_dark = max(see_in_dark, 15)
+		see_in_dark = max(see_in_dark, 8)
 
 	if(see_override)
 		see_invisible = see_override

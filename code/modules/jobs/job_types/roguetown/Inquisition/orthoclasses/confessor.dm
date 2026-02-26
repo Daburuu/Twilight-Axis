@@ -103,9 +103,3 @@
 		/obj/item/grapplinghook = 1,
 		/obj/item/paper/inqslip/arrival/ortho = 1
 		)
-<<<<<<< HEAD
-=======
-	
-	if(!isdarkelf(H)) //TA EDIT
-		change_origin(H, /datum/virtue/origin/otava, "Holy order")
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e

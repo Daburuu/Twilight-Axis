@@ -481,7 +481,6 @@
 		if(/datum/patron/divine/dendor)
 			neck = /obj/item/clothing/neck/roguetown/psicross/dendor
 			H.cmode_music = 'sound/music/cmode/garrison/combat_warden.ogg' // see: druid.dm
-			ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
 		if(/datum/patron/divine/necra)
 			neck = /obj/item/clothing/neck/roguetown/psicross/necra
 			H.cmode_music = 'sound/music/cmode/church/combat_necra.ogg'
@@ -495,8 +494,6 @@
 		if(/datum/patron/divine/eora)
 			neck = /obj/item/clothing/neck/roguetown/psicross/eora
 			H.cmode_music = 'sound/music/cmode/church/combat_eora.ogg'
-			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
-			ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
 		if(/datum/patron/inhumen/zizo)
 			H.cmode_music = 'sound/music/combat_heretic.ogg'
 			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)
@@ -540,7 +537,7 @@
 		"The Verses and Acts of the Ten" = /obj/item/book/rogue/bibble,
 		"Tome of Psydon" = /obj/item/book/rogue/bibble/psy
 	)
-	extra_context = "This subclass regenerates Devotion slower, but has access to higher tier miracles."
+	extra_context = "This subclass regenerates Devotion far quicker, but only has access to lesser miracles."
 
 /datum/outfit/job/roguetown/adventurer/missionary/pre_equip(mob/living/carbon/human/H)
 	to_chat(H, span_warning("You are a devout worshipper of the divine with a strong connection to your patron god. You've spent years studying scriptures and serving your deity - now you wander into foreign lands, spreading the word of your faith."))
@@ -570,7 +567,6 @@
 		if(/datum/patron/divine/abyssor)
 			head = /obj/item/clothing/head/roguetown/roguehood/abyssor
 			cloak = /obj/item/clothing/suit/roguetown/shirt/robe/abyssor
-			H.adjust_skillrank(/datum/skill/misc/swimming, SKILL_LEVEL_APPRENTICE, TRUE) //I mean, god of seas has not forgotten his devotee followers
 		if(/datum/patron/divine/dendor)
 			head = /obj/item/clothing/head/roguetown/dendormask
 			cloak = /obj/item/clothing/suit/roguetown/shirt/robe/dendor
@@ -584,12 +580,6 @@
 			cloak = /obj/item/clothing/suit/roguetown/shirt/robe/eora
 			head = /obj/item/clothing/head/roguetown/eoramask
 			backpack_contents[/obj/item/reagent_containers/eoran_seed] = 1
-<<<<<<< HEAD
-=======
-			r_hand = /obj/item/rogueweapon/huntingknife/scissors
-			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
-			ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 		if (/datum/patron/divine/xylix)
 			cloak = /obj/item/clothing/cloak/templar/xylix
 		if(/datum/patron/inhumen/zizo)
@@ -603,15 +593,12 @@
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T3, passive_gain = CLERIC_REGEN_MINOR, devotion_limit = CLERIC_REQ_3)	//Minor regen, capped to T3, parity with other Holy and/or Arcyne caster - no others spend 15 minutes idling only to unlock their entire potencial.
 	if(H.mind)
-		var/weapons = list("Iron Spear", "Iron Quarterstaff")
+		var/weapons = list("Woodstaff", "Quarterstaff")
 		var/weapon_choice = input(H, "Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 		switch(weapon_choice)
-			if("Iron Spear")
-				H.adjust_skillrank_up_to(/datum/skill/combat/polearms, SKILL_LEVEL_JOURNEYMAN, TRUE) //TA edit
-				r_hand = /obj/item/rogueweapon/spear
-				l_hand = /obj/item/rogueweapon/scabbard/gwstrap
-			if("Iron Quarterstaff")
-				H.adjust_skillrank_up_to(/datum/skill/combat/staves, SKILL_LEVEL_JOURNEYMAN, TRUE) //TA edit
+			if("Woodstaff")
+				backr = /obj/item/rogueweapon/woodstaff
+			if("Quarterstaff")
 				r_hand = /obj/item/rogueweapon/woodstaff/quarterstaff/iron
 				l_hand = /obj/item/rogueweapon/scabbard/gwstrap
 	if(istype(H.patron, /datum/patron/divine))

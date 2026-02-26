@@ -265,10 +265,7 @@ SUBSYSTEM_DEF(vote)
 						break
 					choices.Add(option)
 			if("endround")
-				if(SSmapping.retainer.cult_ascended == TRUE)
-					initiator_key = "AHAHAHAHAHAHAHAHAHHA"
-				else
-					initiator_key = pick("Psydon", "Zizo")
+				initiator_key = pick("Psydon", "Zizo")
 				choices.Add("Continue Playing","End Round")
 				vote_alert.file = 'sound/roundend/roundend-vote-sound.ogg'
 			if("storyteller")

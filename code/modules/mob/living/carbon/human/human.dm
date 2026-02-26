@@ -646,6 +646,7 @@
 	. = ..()
 	VV_DROPDOWN_OPTION("", "---------")
 	VV_DROPDOWN_OPTION(VV_HK_REAPPLY_PREFS, "Reapply Preferences")
+	VV_DROPDOWN_OPTION(VV_HK_COPY_OUTFIT, "Copy Outfit")
 	VV_DROPDOWN_OPTION(VV_HK_SET_SPECIES, "Set Species")
 	VV_DROPDOWN_OPTION(VV_HK_PURGE_PARTOF_SLOT, "Purge Part of Slot")
 	VV_DROPDOWN_OPTION(VV_HK_PURGE_SLOT, "Purge Slot")
@@ -719,6 +720,10 @@
 		if(!client || !client.prefs)
 			return
 		client.prefs.copy_to(src, TRUE, FALSE)
+	if(href_list[VV_HK_COPY_OUTFIT])
+		if(!check_rights(R_SPAWN))
+			return
+		copy_outfit()
 	if(href_list[VV_HK_SET_SPECIES])
 		if(!check_rights(R_SPAWN))
 			return

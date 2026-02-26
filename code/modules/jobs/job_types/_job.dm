@@ -183,9 +183,9 @@
 	return TRUE
 
 /datum/job/proc/get_used_title(mob/player)
-	var/titles = player.titles_pref
+	var/pronouns = player.pronouns
 	var/used_name = display_title || title
-	if((titles == TITLES_F) && f_title)
+	if((pronouns == SHE_HER || pronouns == THEY_THEM_F) && f_title)
 		used_name = f_title
 	return used_name
 
@@ -257,7 +257,7 @@
 
 	if(H.islatejoin && announce_latejoin)
 		var/used_title = display_title || title
-		if((H.titles_pref == TITLES_F) && f_title)
+		if((H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F) && f_title)
 			used_title = f_title
 		scom_announce("[H.real_name] the [used_title] arrives to Twilight Axis.")
 
@@ -489,16 +489,10 @@
 
 // LETHALSTONE EDIT: Helper functions for pronoun-based clothing selection
 /proc/should_wear_masc_clothes(mob/living/carbon/human/H)
-	if(!H.mind)
-		return (H.pronouns == HE_HIM || H.pronouns == THEY_THEM || H.pronouns == IT_ITS)
-	else 
-		return (H.clothes_pref == CLOTHES_M)
+	return (H.pronouns == HE_HIM || H.pronouns == THEY_THEM || H.pronouns == SHE_HER_M || (H.pronouns == IT_ITS && H.gender == MALE))
 
 /proc/should_wear_femme_clothes(mob/living/carbon/human/H)
-	if(!H.mind)
-		return (H.pronouns == SHE_HER)
-	else
-		return (H.clothes_pref == CLOTHES_F)
+	return (H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F || H.pronouns == HE_HIM_F || (H.pronouns == IT_ITS && H.gender == FEMALE))
 // LETHALSTONE EDIT END
 
 /datum/job/proc/get_informed_title(mob/mob)

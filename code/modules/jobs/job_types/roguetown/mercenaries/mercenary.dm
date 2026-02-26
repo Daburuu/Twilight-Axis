@@ -64,12 +64,10 @@
 		return
 
 	var/player_count = length(GLOB.joined_player_list)
-	var/ready_player_count = length(GLOB.ready_player_list)
 	var/slots = 4
 	
-	var/current_players = (SSticker.current_state == GAME_STATE_PREGAME) ? ready_player_count : player_count
-	if(current_players > 50)
-		var/extra = floor((current_players - 50) / 10)
+	if(player_count > 50)
+		var/extra = floor((player_count - 50) / 10)
 		slots += extra
 
 	//4 slots minimum, 8 maximum.

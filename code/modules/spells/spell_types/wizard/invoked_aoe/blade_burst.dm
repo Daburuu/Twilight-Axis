@@ -69,11 +69,8 @@
 		new /obj/effect/temp_visual/blade_burst(affected_turf)
 		for(var/mob/living/L in affected_turf.contents)
 			if(L.anti_magic_check())
-				L.visible_message(span_warning("The blades dispel when they near [L]!"))
+				visible_message(span_warning("The blades dispel when they near [L]!"))
 				playsound(get_turf(L), 'sound/magic/magic_nulled.ogg', 100)
-				continue
-			if(spell_guard_check(L, TRUE))
-				L.visible_message(span_warning("[L] steps out of the way of the blades!"))
 				continue
 			play_cleave = TRUE
 			L.adjustBruteLoss(damage)

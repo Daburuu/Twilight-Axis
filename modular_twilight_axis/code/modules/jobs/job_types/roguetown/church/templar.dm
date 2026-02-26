@@ -1,33 +1,7 @@
-<<<<<<< HEAD
-=======
-/datum/job/roguetown/templar/after_spawn(mob/living/H, mob/M, latejoin = TRUE)
-	..()
-	if(ishuman(H))
-		var/prev_real_name = H.real_name
-		var/prev_name = H.name
-		var/churchiny = "Brother"
-		if(should_wear_femme_clothes(H))
-			churchiny = "Sister"
-		H.real_name = "[churchiny] [prev_real_name]"
-		H.name = "[churchiny] [prev_name]"
-
-		for(var/X in peopleknowme)
-			for(var/datum/mind/MF in get_minds(X))
-				if(MF.known_people)
-					MF.known_people -= prev_real_name
-					H.mind.person_knows_me(MF)
-
-/datum/advclass/templar/monk
-	subclass_languages = list(/datum/language/valorian)
-
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 /datum/outfit/job/roguetown/templar/monk/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	ADD_TRAIT(H, TRAIT_CLERGY, TRAIT_GENERIC)
 	H.change_stat(STATKEY_STR, -1)
-
-/datum/advclass/templar/crusader
-	subclass_languages = list(/datum/language/valorian)
 
 /datum/outfit/job/roguetown/templar/crusader/pre_equip(mob/living/carbon/human/H)
 	. = ..()
@@ -41,7 +15,7 @@
 	name = "Vigilant"
 	tutorial = "You are a vigilant of the Church, the secretive counterspies of the Holy See. Your underhanded methods earn you the scorn of some of your brothers, but they know not of the wars you fight away from their gaze."
 	outfit = /datum/outfit/job/roguetown/templar/vigilant
-	subclass_languages = list(/datum/language/valorian)
+	subclass_languages = list(/datum/language/grenzelhoftian)
 	traits_applied = list(TRAIT_DODGEEXPERT)
 	subclass_stats = list(
 		STATKEY_WIL = 2,
@@ -350,12 +324,6 @@
 		ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 		H.cmode_music = 'sound/music/cmode/church/combat_eora.ogg'
-<<<<<<< HEAD
-=======
-		H.mind.special_items["Alt Tabard"] = /obj/item/clothing/cloak/templar/eoran/alt
-		H.mind.special_items["Pink Robe"] = /obj/item/clothing/suit/roguetown/shirt/robe/eora/resprite/pink
-		H.mind.special_items["Blue Robe"] = /obj/item/clothing/suit/roguetown/shirt/robe/eora/resprite
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	if(H.patron?.type == /datum/patron/divine/malum)
 		H.adjust_skillrank(/datum/skill/craft/blacksmithing, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)

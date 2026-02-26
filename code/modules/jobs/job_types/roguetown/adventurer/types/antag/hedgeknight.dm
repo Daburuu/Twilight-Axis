@@ -55,49 +55,8 @@
 					/obj/item/rogueweapon/scabbard/sheath = 1
 					)
 
-<<<<<<< HEAD
 	if(!istype(H.patron, /datum/patron/inhumen/matthios))
 		var/inputty = input(H, "Would you like to change your patron to Matthios?", "The Transactor calls", "No") as anything in list("Yes", "No")
 		if(inputty == "Yes")
 			to_chat(H, span_warning("My former deity has abandoned me.. Matthios is my new master."))
 			H.set_patron(/datum/patron/inhumen/matthios)
-=======
-	H.adjust_blindness(-3)
-	var/weapons = list("Flameberge", "Polemace", "Poleaxe", "Polehammer")
-	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
-	H.set_blindness(0)
-	switch(weapon_choice)//Knight Captain equivalent pmuch
-		if("Flameberge")
-			r_hand = /obj/item/rogueweapon/greatsword/grenz/flamberge
-			backl = /obj/item/rogueweapon/scabbard/gwstrap
-			H.adjust_skillrank_up_to(/datum/skill/combat/swords, 5, TRUE)
-		if("Polemace")
-			beltr = /obj/item/rogueweapon/mace/goden/steel
-			H.adjust_skillrank_up_to(/datum/skill/combat/maces, 5, TRUE)
-		if("Poleaxe")
-			beltr = /obj/item/rogueweapon/greataxe/steel/knight
-			backl = /obj/item/rogueweapon/scabbard/gwstrap
-			H.adjust_skillrank_up_to(/datum/skill/combat/axes, 5, TRUE)
-		if("Polehammer")
-			r_hand = /obj/item/rogueweapon/eaglebeak
-			backl = /obj/item/rogueweapon/scabbard/gwstrap
-			H.adjust_skillrank_up_to(/datum/skill/combat/polearms, 5, TRUE) //This will NOT have any far reaching consequences
-	var/onhelm = list(
-		"horns" = /obj/item/clothing/head/roguetown/tw_d_horns,
-		"towers" = /obj/item/clothing/head/roguetown/tw_d_castle_red,
-		"afreet" = /obj/item/clothing/head/roguetown/tw_d_efreet,
-		"sun" = /obj/item/clothing/head/roguetown/tw_d_sun,
-		"Graggar!!" = /obj/item/clothing/head/roguetown/tw_d_graggar,
-		"astrata" = /obj/item/clothing/head/roguetown/tw_d_peace,
-		"feathers" = /obj/item/clothing/head/roguetown/tw_d_feathers,
-		"lion" = /obj/item/clothing/head/roguetown/tw_d_lion,
-		"dragon" = /obj/item/clothing/head/roguetown/tw_d_dragon_red,
-		"swan" = /obj/item/clothing/head/roguetown/tw_d_swan,
-		"Le Fishe" = /obj/item/clothing/head/roguetown/tw_d_fish,
-		"mighty windmill" = /obj/item/clothing/head/roguetown/tw_d_windmill,
-		"oath" = /obj/item/clothing/head/roguetown/tw_d_oathtaker,
-		"skull" = /obj/item/clothing/head/roguetown/tw_d_skull
-		)
-	var/onhelmchoice = input("Choose your decor.", "RAISE UP THE SYMBOL") as anything in onhelm
-	l_hand = onhelm[onhelmchoice]
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e

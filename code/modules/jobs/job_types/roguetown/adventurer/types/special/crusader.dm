@@ -74,7 +74,7 @@
 				beltr = /obj/item/rogueweapon/scabbard/sword
 				belt = /obj/item/storage/belt/rogue/leather/plaquesilver
 
-	if(should_wear_femme_clothes(H))
+	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
 		backr = /obj/item/storage/backpack/rogue/satchel
 		gloves = null
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather

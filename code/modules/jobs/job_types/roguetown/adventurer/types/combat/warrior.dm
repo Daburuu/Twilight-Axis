@@ -255,14 +255,8 @@
 		H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
 		backl = /obj/item/storage/backpack/rogue/satchel
 	if(should_wear_femme_clothes(H))
-<<<<<<< HEAD
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/bikini
 		backl = /obj/item/storage/backpack/rogue/satchel
-=======
-		if(weapon_choice != "Discipline - Unarmed" && weapon_choice != "Discipline - Bodybuilder (-III INT)")
-			armor = /obj/item/clothing/suit/roguetown/armor/leather/bikini
-	backl = /obj/item/storage/backpack/rogue/satchel
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	backpack_contents = list(
 		/obj/item/flashlight/flare/torch = 1,
 		/obj/item/recipe_book/survival = 1,

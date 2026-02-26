@@ -14,7 +14,7 @@
 	people cannot decide between regarding you with either mere distrust or outright disgust. Yet \
 	somehow your wandering feet came to Twilight Axis, where half-orcs ply muscle and their hardiness \
 	in the rough underbelly or outer reaches of society.<br>\
-	<span style='color: #6a8cb7;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;'><b>+1 STR</b></span><br>"
+	(+1 Strength)"
 
 	skin_tone_wording = "Clan"
 

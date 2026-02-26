@@ -68,12 +68,9 @@
 			continue
 		for(var/mob/living/L in affected_turf.contents)
 			if(L.anti_magic_check())
-				L.visible_message(span_warning("The ice fades away around [L]!"))
+				visible_message(span_warning("The ice fades away around you. [L] "))  //antimagic needs some testing
 				playsound(get_turf(L), 'sound/magic/magic_nulled.ogg', 100)
-				continue
-			if(spell_guard_check(L, TRUE))
-				L.visible_message(span_warning("[L] endures the freezing blast!"))
-				continue
+				return
 			play_cleave = TRUE
 			if(ishuman(L))
 				L.adjustFireLoss(damage)

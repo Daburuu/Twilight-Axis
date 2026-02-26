@@ -20,11 +20,7 @@
 	return
 
 /mob/dead/observer/rogue/DblClickOn(atom/A, params)
-	var/mob/target
-	if(ismob(A))
-		target = A
-	if(target && (target.client.prefs.ghost_toggles & TOGGLE_ANTIGHOST))
-		return
+	return
 
 /mob/dead/observer/ClickOn(atom/A, params)
 	if(check_click_intercept(params,A))

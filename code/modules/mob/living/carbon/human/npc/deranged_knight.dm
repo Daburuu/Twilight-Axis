@@ -81,7 +81,6 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 	ADD_TRAIT(src, TRAIT_LEECHIMMUNE, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_BREADY, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(src, TRAIT_CRIT_THRESHOLD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_STUCKITEMS, TRAIT_GENERIC)
 	if(forced_preset)
 		preset = forced_preset
@@ -289,10 +288,10 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/full/blacksteel/modern
 	pants = /obj/item/clothing/under/roguetown/platelegs/blacksteel/modern
-	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/blacksteel/modern
-	gloves = /obj/item/clothing/gloves/roguetown/plate/blacksteel/modern
+	shoes = /obj/item/clothing/shoes/roguetown/boots/blacksteel/modern/plateboots
+	gloves = /obj/item/clothing/gloves/roguetown/blacksteel/modern/plategloves
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
-	head = /obj/item/clothing/head/roguetown/helmet/blacksteel/modern
+	head = /obj/item/clothing/head/roguetown/helmet/blacksteel/modern/armet
 	neck = /obj/item/clothing/neck/roguetown/gorget/steel
 	r_hand = /obj/item/rogueweapon/greatsword/grenz/flamberge/blacksteel
 	mask = /obj/item/clothing/mask/rogue/facemask/steel

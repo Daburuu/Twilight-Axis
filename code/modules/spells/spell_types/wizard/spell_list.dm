@@ -58,10 +58,5 @@ GLOBAL_LIST_INIT(learnable_spells, (list(/obj/effect/proc_holder/spell/invoked/p
 		/obj/effect/proc_holder/spell/invoked/raise_deadite,
 		/obj/effect/proc_holder/spell/invoked/bonechill,
 		/obj/effect/proc_holder/spell/invoked/silence,
-<<<<<<< HEAD
-=======
-		/obj/effect/proc_holder/spell/self/findfamiliar,
-		/obj/effect/proc_holder/spell/invoked/projectile/stygian
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 		)
 ))

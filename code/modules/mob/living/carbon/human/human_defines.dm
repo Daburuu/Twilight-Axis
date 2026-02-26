@@ -176,17 +176,7 @@
 	/// Assoc list of culinary preferences of the mob
 	var/list/culinary_preferences = list()
 
-<<<<<<< HEAD
 	var/datum/charflaw/charflaw
-=======
-	/// List of mobs that have attacked us. Only relevant to someone with TRAIT_TEMPO.
-	var/list/tempo_attackers = list()
-
-	var/next_tempo_cull
-
-
-	var/list/charflaws = list()
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 	// curse list and cooldown
 	var/list/curses = list()

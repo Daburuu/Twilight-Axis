@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /datum/crafting_recipe/roguetown/survival/twilight_arquebus_bayonet
 	name = "bayonet"
 	category = "Ranged"
@@ -49,12 +48,6 @@
 	category = "Ranged"
 	reqs = list(/obj/item/rogueweapon/huntingknife/idagger = 1, /obj/item/gun/ballistic/twilight_firearm/arquebus/jagerrifle = 1)
 	result = /obj/item/gun/ballistic/twilight_firearm/arquebus/bayonet/jagerrifle
-=======
-/datum/crafting_recipe/roguetown/survival/twilight_barker_light
-	name = "barker with lamptern"
-	reqs = list(/obj/item/gun/ballistic/twilight_firearm/barker = 1, /obj/item/flashlight/flare/torch/lantern = 1)
-	result = /obj/item/gun/ballistic/twilight_firearm/barker/barker_light
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	verbage_simple = "fix"
 	verbage = "fixes"
 	craftdiff = 0

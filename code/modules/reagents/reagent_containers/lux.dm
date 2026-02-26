@@ -24,7 +24,8 @@
 	. = 1
 
 /datum/reagent/vitae/on_mob_life(mob/living/carbon/M)
-	M.sate_addiction(/datum/charflaw/addiction/junkie)
+	if(M.has_flaw(/datum/charflaw/addiction/junkie))
+		M.sate_addiction()
 	M.apply_status_effect(/datum/status_effect/buff/vitae)
 	..()
 

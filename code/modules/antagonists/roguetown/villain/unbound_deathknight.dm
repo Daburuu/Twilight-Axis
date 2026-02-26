@@ -22,9 +22,7 @@
 		owner.current.set_species(/datum/species/human/northern)
 
 	var/mob/living/carbon/human/L = owner.current
-	for(var/datum/charflaw/cf in L.charflaws)
-		L.charflaws.Remove(cf)
-		QDEL_NULL(cf)
+	QDEL_NULL(L.charflaw)
 	L.hairstyle = "Bald"
 	L.facial_hairstyle = "Shaved"
 	L.mob_biotypes = MOB_UNDEAD
@@ -153,11 +151,11 @@
 
 	beltl = /obj/item/rogueweapon/scabbard/sword
 	belt = /obj/item/storage/belt/rogue/leather
-	pants = /obj/item/clothing/under/roguetown/platelegs/blkknight/death
+	pants = /obj/item/clothing/under/roguetown/platelegs/blk/death
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/blkknight
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/blkknight/death
-	gloves = /obj/item/clothing/gloves/roguetown/plate/blkknight/death
+	gloves = /obj/item/clothing/gloves/roguetown/plate/blk/death
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 
 	H.change_stat(STATKEY_INT, 3)
@@ -244,8 +242,8 @@
 /obj/item/clothing/shoes/roguetown/boots/armor/blkknight/death
 	color = CLOTHING_BLACK
 
-/obj/item/clothing/gloves/roguetown/plate/blkknight/death
+/obj/item/clothing/gloves/roguetown/plate/blk/death
 	color = CLOTHING_BLACK
 
-/obj/item/clothing/under/roguetown/platelegs/blkknight/death
+/obj/item/clothing/under/roguetown/platelegs/blk/death
 	color = CLOTHING_BLACK

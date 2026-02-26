@@ -21,10 +21,11 @@
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 1,
 						/obj/item/natural/hide = 1, /obj/item/natural/bundle/bone/full = 2)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 2,
-						/obj/item/natural/hide = 2, /obj/item/natural/bundle/bone/full = 2)
+						/obj/item/natural/hide = 2, /obj/item/natural/bundle/bone/full = 2,
+						/obj/item/natural/head/minotaur = 1)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 4,
-						/obj/item/natural/hide = 4, /obj/item/natural/bundle/bone/full = 2)
-	head_butcher = /obj/item/natural/head/minotaur
+						/obj/item/natural/hide = 4, /obj/item/natural/bundle/bone/full = 2,
+						/obj/item/natural/head/minotaur = 1)
 	faction = list("caves")
 
 	health = MINOTAUR_HEALTH

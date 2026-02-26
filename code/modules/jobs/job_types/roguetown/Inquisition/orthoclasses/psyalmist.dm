@@ -73,20 +73,5 @@
 			if("Flute")
 				backr = /obj/item/rogue/instrument/flute
 
-<<<<<<< HEAD
-=======
-	var/weapons = list("Psydonic Whip", "Psydonic Shortsword")
-	var/weapon_choice = tgui_input_list(H,"Choose your WEAPON.", "TAKE UP PSYDON'S ARMS.", weapons)
-	switch(weapon_choice)
-		if("Psydonic Whip")
-			H.put_in_hands(new /obj/item/rogueweapon/whip/psywhip_lesser(H))
-			H.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, 4, TRUE)
-		if("Psydonic Shortsword")
-			H.put_in_hands(new /obj/item/rogueweapon/sword/short/psy(H))
-			H.put_in_hands(new /obj/item/rogueweapon/scabbard/sword(H))
-			H.adjust_skillrank_up_to(/datum/skill/combat/swords, 4, TRUE)
-	if(!isdarkelf(H)) //TA EDIT
-		change_origin(H, /datum/virtue/origin/otava, "Holy order")
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 /datum/outfit/job/roguetown/psyaltrist
 	job_bitflag = BITFLAG_HOLY_WARRIOR

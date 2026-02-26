@@ -65,11 +65,7 @@
 			usr.client.prefs.action_buttons_screen_locs["[name]_[id]"] = locked ? moved : null
 		return TRUE
 	if(modifiers["shift"])
-		var/datum/action/spell_action/SA = linked_action
-		if(istype(SA))
-			SA.examine(usr)
-		else
-			examine_ui(usr)
+		examine_ui(usr)
 		return TRUE
 	if(usr.next_click > world.time)
 		return

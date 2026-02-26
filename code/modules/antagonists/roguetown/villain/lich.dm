@@ -93,9 +93,8 @@
 	L.cmode_music = 'sound/music/combat_heretic.ogg'
 	L.faction = list("undead")
 
-	for(var/datum/charflaw/cf in L.charflaws)
-		L.charflaws.Remove(cf)
-		QDEL_NULL(cf)
+	if (L.charflaw)
+		QDEL_NULL(L.charflaw)
 
 	L.mob_biotypes |= MOB_UNDEAD
 	replace_eyes(L)
@@ -148,7 +147,6 @@
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/gravemark)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/suicidebomb)
-		H.mind.AddSpell(new	/obj/effect/proc_holder/spell/invoked/remotebomb)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/lich_announce)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/convert_heretic)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/tame_undead)
@@ -237,9 +235,8 @@
 
 	old_body.mind.transfer_to(new_body)
 
-	for(var/datum/charflaw/cf in new_body.charflaws)
-		new_body.charflaws.Remove(cf)
-		QDEL_NULL(cf)
+	if (new_body.charflaw)
+		QDEL_NULL(new_body.charflaw)
 
 	new_body.real_name = old_body.name
 	new_body.dna.real_name = old_body.real_name
@@ -304,13 +301,6 @@
 	if(!calltext)
 		return FALSE
 
-	for(var/datum/antagonist/A in GLOB.antagonists)
-		if(!A.owner)
-			continue
-		if(!istype(A, /datum/antagonist/skeleton) && !istype(A, /datum/antagonist/lich))
-			continue
-		var/datum/mind/skele = A.owner
-		to_chat(skele.current, span_boldannounce("[span_purple(user.real_name)] shrieks out their commandment: [calltext]"))
-		skele.current.playsound_local(get_turf(A.owner), 'sound/misc/deadbell.ogg', 50, FALSE)
+	priority_announce("[calltext]", title = "Your Lich King Commands", sound = 'sound/misc/deadbell.ogg', sender = user, receiver = /mob/living/carbon/human/species/skeleton)
 
 	..()

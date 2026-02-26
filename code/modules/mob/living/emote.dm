@@ -34,11 +34,12 @@
 
 	//If God can hear your prayer (long enough, no bad words, etc.)
 	if(patron.hear_prayer(follower, prayer))
-		// Stops prayers if you don't meet your patron's requirements to pray.
-		if(!patron?.can_pray(follower))
-			return
-		else
-			follower.sate_addiction(/datum/charflaw/addiction/godfearing)
+		if(follower.has_flaw(/datum/charflaw/addiction/godfearing))
+			// Stops prayers if you don't meet your patron's requirements to pray.
+			if(!patron?.can_pray(follower))
+				return
+			else
+				follower.sate_addiction()
 
 	/* admin stuff - tells you the followers name, key, and what patron they follow */
 	var/follower_ident = "[follower.key]/([follower.real_name]) (follower of [patron])"
@@ -819,15 +820,11 @@
 	if(.)
 		for(var/mob/living/carbon/human/L in viewers(7,user))
 			if(L == user)
-				L.sate_addiction(/datum/charflaw/addiction/masochist)
+				if(L.has_flaw(/datum/charflaw/addiction/masochist))
+					L.sate_addiction()
 				continue
 			if(L.has_flaw(/datum/charflaw/addiction/sadist))
-<<<<<<< HEAD
 				L.sate_addiction()
-=======
-				if(get_dist(L, user) <= 2 && L != user)
-					L.sate_addiction(/datum/charflaw/addiction/sadist)
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /datum/emote/living/scream/strain
 	key = "strain"
@@ -848,18 +845,11 @@
 	if(.)
 		for(var/mob/living/carbon/human/L in viewers(7,user))
 			if(L == user)
-<<<<<<< HEAD
 				if(L.has_flaw(/datum/charflaw/addiction/masochist))
 					L.sate_addiction()
 				continue // i hope this shit works.
 			if(L.has_flaw(/datum/charflaw/addiction/sadist))
 				L.sate_addiction()
-=======
-				L.sate_addiction(/datum/charflaw/addiction/masochist)
-				continue
-			if(get_dist(L, user) <= 2 && L != user)
-				L.sate_addiction(/datum/charflaw/addiction/sadist)
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /datum/emote/living/scream/firescream
 	key = "firescream"
@@ -873,18 +863,11 @@
 	if(.)
 		for(var/mob/living/carbon/human/L in viewers(7,user))
 			if(L == user)
-<<<<<<< HEAD
 				if(L.has_flaw(/datum/charflaw/addiction/masochist))
 					L.sate_addiction()
 				continue // i hope this shit works.
 			if(L.has_flaw(/datum/charflaw/addiction/sadist))
 				L.sate_addiction()
-=======
-				L.sate_addiction(/datum/charflaw/addiction/masochist)
-				continue
-			if(get_dist(L, user) <= 2 && L != user)
-				L.sate_addiction(/datum/charflaw/addiction/sadist)
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /datum/emote/living/aggro
 	key = "aggro"
@@ -1167,11 +1150,6 @@
 	stat_allowed = UNCONSCIOUS
 	snd_range = -4
 	show_runechat = FALSE
-
-/mob/living/carbon/human/verb/emote_snore()
-	set name = "Snore"
-	set category = "Noises"
-	emote("snore", intentional = TRUE)
 
 /datum/emote/living/stare
 	key = "stare"

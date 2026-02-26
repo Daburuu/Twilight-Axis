@@ -157,27 +157,16 @@
 /obj/structure/fluff/walldeco/stone/bronze
 	color = "#ff9c1a"
 
-/obj/structure/fluff/walldeco/stone/stone2
-	icon_state = "walldec2"
-
-/obj/structure/fluff/walldeco/stone/stone3
-	icon_state = "walldec3"
-
-/obj/structure/fluff/walldeco/stone/stone4
-	icon_state = "walldec4"
-
-/obj/structure/fluff/walldeco/stone/stone5
-	icon_state = "walldec5"
-
-/obj/structure/fluff/walldeco/stone/stone6
-	icon_state = "walldec6"
-
 /obj/structure/fluff/walldeco/church/line
 	name = ""
 	desc = ""
 	icon_state = "churchslate"
 	mouse_opacity = 0
 	layer = BELOW_MOB_LAYER+0.1
+
+/obj/structure/fluff/walldeco/stone/Initialize()
+	icon_state = "walldec[rand(1,6)]"
+	..()
 
 /obj/structure/fluff/walldeco/maidensigil
 	name = "stone sigil"
@@ -298,47 +287,37 @@
 	desc = "A medical diagram depicting a humanoid head."
 
 /obj/structure/fluff/walldeco/alarm
-	name = "réveil murmure"
+	name = "le réveil murmure"
 	icon_state = "alarm"
-	desc = "Ceci est une wall-mounted sentinelle."
+	desc = "This est un wall-mounted système d'alarme, designed dans les ."
 	pixel_y = 32
 	var/next_yap = 0
 	var/onoff = 1 //Init on
-	var/last_steak = 0
-#define STEAK_ALARM_DISABLE_TIME 2 MINUTES // How long does the alarm stay silent.
 
-/obj/structure/fluff/walldeco/alarm/attacked_by(obj/item/I, mob/living/user)
-	. = ..()
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/peppersteak))
-		say("... une petite sieste s'impose...")
-		to_chat(user, span_smallnotice("You stuff a piece of steak into the alarm, quietening it for a while..."))
-		last_steak = world.time
-		qdel(I)
-	if(istype(I, /obj/item/roguekey/lord) || istype(I, /obj/item/roguekey/skeleton))
-		playsound(src, 'sound/misc/bug.ogg', 100, FALSE, -1)
-		if(onoff == 0)
-			onoff = 1
-			icon_state = "alarm"
-			say("Bonjour, la sentinelle est active.")
-			next_yap = 0 //They won't believe us unless we yap again
-			return
-		if(onoff == 1)
-			onoff = 0
-			icon_state = "face"
-			say("A moment's rest, merci, au revoir!")
-			return
-		else //failsafe
-			onoff = 1
-			icon_state = "alarm"
-
-/obj/structure/fluff/walldeco/alarm/attack_hand(mob/living/user) //We shock anyone that touches it without appropriate key.
+/obj/structure/fluff/walldeco/alarm/attack_hand(mob/living/user)
 
 	user.changeNext_move(CLICK_CD_MELEE)
 
-	playsound(src, 'sound/misc/machineno.ogg', 100, TRUE, -1)
-	say("RETIRE THINE HAND FROM THE ALARM, CREECHER!")
-	user.electrocute_act(12, src)
-	return
+	if(!(HAS_TRAIT(user, TRAIT_NOBLE)))
+		playsound(src, 'sound/misc/machineno.ogg', 100, TRUE, -1)
+		say("REMOVE THINE HAND FROM THE ALARM, CREATURE!")
+		return
+
+	playsound(src, 'sound/misc/bug.ogg', 100, FALSE, -1)
+	if(onoff == 0)
+		onoff = 1
+		icon_state = "alarm"
+		say("Bonjour, le sentinelle est active.")
+		next_yap = 0 //They won't believe us unless we yap again
+		return
+	if(onoff == 1)
+		onoff = 0
+		icon_state = "face"
+		say("A moment's rest, merci! Bonne nuit.")
+		return
+	else //failsafe
+		onoff = 1
+		icon_state = "alarm"
 
 /obj/structure/fluff/walldeco/alarm/Crossed(mob/living/user)
 
@@ -346,9 +325,6 @@
 		return
 
 	if(next_yap > world.time) //Yap cooldown
-		return
-
-	if(last_steak && (last_steak + STEAK_ALARM_DISABLE_TIME >= world.time))
 		return
 
 	if(ishuman(user)) //are we a person?
@@ -359,54 +335,30 @@
 
 		if(!(HU in SStreasury.bank_accounts)) //first off- do we not have an account? we'll ALWAYS scream if that's the case
 			playsound(loc, 'sound/misc/gold_license.ogg', 100, TRUE, -1)
-			say("INTRUS! ARRESTEZ-VOUS! GARDES! GARDES! MAROUFLE A MORTIR!!")
+			say("UNKNOWN PERSON IN SECURE AREA- ARRETZ-VOUZ!!")
 			next_yap = world.time + 6 SECONDS
 			return
 
-		if(user.job in GLOB.noble_positions) //Ducal Family
-			say( "[user.job] [user.real_name], vostre seigneurie, j'avions pour vous tout temps par tout temps")
+		if(HAS_TRAIT(user, TRAIT_NOBLE))
+			say("Salut, [user.real_name] de Sommet. Thirty-breths silence period active por votre grace.")
 			playsound(loc, 'sound/misc/gold_menu.ogg', 100, TRUE, -1)
 			next_yap = world.time + 30 SECONDS
 			return
 
-		if((user.job in GLOB.courtier_positions) || (user.job in GLOB.retinue_positions)) //Courtiers and Keepites
-			say("Salut au bon [user.real_name], [user.job] du Castel, who is logged entering ceste zone securisee.")
+		if((HU in SStreasury.bank_accounts)) //do we not have an account?
 			playsound(loc, 'sound/misc/gold_menu.ogg', 100, TRUE, -1)
-<<<<<<< HEAD
 			say("Yeoman [user.real_name] logged entering zone securisee.")
-=======
-			next_yap = world.time + 30 SECONDS
-			return
-
-		if((user.job in GLOB.burgher_positions) || (user.job in GLOB.garrison_positions) || (user.job in GLOB.church_positions)) //Cityfolk and Garrison and Church
-			say("Salutations, [user.real_name]. Thirty-breths silence period active por votre grace.")
-			playsound(loc, 'sound/misc/gold_menu.ogg', 100, TRUE, -1)
-			next_yap = world.time + 30 SECONDS
-			return
-
-		if((user.job in GLOB.peasant_positions) || (user.job in GLOB.sidefolk_positions) || (user.job in GLOB.inquisition_positions)) //Peasants and unimportant people to the crown.
-			say("Salutations, [user.real_name]. I can spare some time por votre gueuserie.")
-			playsound(loc, 'sound/misc/gold_menu.ogg', 100, TRUE, -1)
-			next_yap = world.time + 30 SECONDS
-			return
-
-		if((HU in SStreasury.bank_accounts)) //Anyone else
-			playsound(loc, 'sound/misc/gold_menu.ogg', 100, TRUE, -1)
-			say("[user.real_name] logged entering zone securisee.")
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 			return
 
 		else //?????
 			playsound(loc, 'sound/misc/gold_license.ogg', 100, TRUE, -1)
-			say("INTRUS! ARRESTEZ-VOUS! GARDES! GARDES! MAROUFLE A MORTIR!!")
+			say("UNAUTHORIZED PERSON IN SECURE AREA- ARRETZ-VOUZ!!")
 			next_yap = world.time + 6 SECONDS
 
 	else
 		playsound(loc, 'sound/misc/gold_license.ogg', 100, TRUE, -1)
-		say("INTRUS! ARRESTEZ-VOUS! GARDES! GARDES! MAROUFLE A MORTIR!!")
+		say("UNKNOWN CREATURE IN SECURE AREA- ARRETZ-VOUS!!")
 		next_yap = world.time + 6 SECONDS
-
-#undef STEAK_ALARM_DISABLE_TIME
 
 /obj/structure/fluff/walldeco/vinez // overlay vines for more flexibile mapping
 	icon_state = "vinez"

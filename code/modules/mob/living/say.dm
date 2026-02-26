@@ -516,18 +516,6 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 			var/name_to_highlight = H.nickname
 			if(name_to_highlight && name_to_highlight != "" && name_to_highlight != "Please Change Me")	//We don't need to highlight an unset or blank one.
 				highlighted_message = replacetext_char(message, name_to_highlight, "<b><font color = #[H.highlight_color]>[name_to_highlight]</font></b>")
-<<<<<<< HEAD
-=======
-
-			if(H != src && message_mode != MODE_WHISPER && H.has_flaw(/datum/charflaw/addiction/clamorous))
-				var/chance = 5
-				if(Zs_yell)
-					chance += 10
-				if(Zs_all)
-					chance += 20
-				if(prob(chance))
-					H.sate_addiction(/datum/charflaw/addiction/clamorous)
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 		var/atom/movable/tocheck = AM
 		if(isdullahan(AM))
 			var/mob/living/carbon/human/target = AM

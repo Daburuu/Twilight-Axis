@@ -69,54 +69,6 @@
 	chargedloop = /datum/looping_sound/invokegen
 	devotion_cost = 80
 
-<<<<<<< HEAD
-=======
-/obj/effect/proc_holder/spell/invoked/hammerfall/cast(list/targets, mob/user = usr)
-	var/turf/fallzone = null
-	var/skill = user.get_skill_level(/datum/skill/magic/holy)
-	var/damage = 150 + (skill * 100) //So weak damage for this cooldown. Upped
-	var/const/radius = 1 //Radius of the spell
-	var/const/shakeradius = 7 //Radius of the quake
-	var/diceroll = 0
-	var/const/dc = 42 //Code will roll 2d20 and add target's perception and Speed then compare to this to see if they fall down or not. 42 Means they need to roll 2x 20 with Speed and Perception at I
-	var/const/delay = 2 SECONDS // Delay between the ground marking appearing and the effect playing.
-	fallzone = get_turf(targets[1])
-	if(!fallzone)
-		return
-	else
-		show_visible_message(usr, "[usr] raises their arm, conjuring a hammer wreathed in molten fire. As they hurl it toward the ground, the earth trembles under its impact, shaking its very foundations!", "You raise your arm, conjuring a hammer wreathed in molten fire. As you hurl it toward the ground, the earth trembles under its impact, shaking its very foundations!")
-	for (var/turf/open/visual in view(radius, fallzone))
-		var/obj/effect/temp_visual/lavastaff/Lava = new /obj/effect/temp_visual/lavastaff(visual)
-		animate(Lava, alpha = 255, time = 5)
-	sleep(delay)
-	for (var/mob/living/carbon/screenshaken in view(shakeradius, fallzone))
-		shake_camera(screenshaken, 5, 5)
-	for (var/mob/living/carbon/shaken in view(radius, fallzone))
-		if(spell_guard_check(shaken, TRUE))
-			shaken.visible_message(span_warning("[shaken] braces against the quake!"))
-			continue
-		diceroll = roll(2,20) + shaken.STAPER + shaken.STASPD
-		if (diceroll > dc)
-			shaken.apply_effect(1 SECONDS, EFFECT_IMMOBILIZE, 0)
-			show_visible_message(shaken, null, "The ground quakes but I manage to keep my footing.")
-		else
-			shaken.apply_effect(1 SECONDS, EFFECT_KNOCKDOWN, 0)		
-			show_visible_message(shaken, null, "The ground quakes, making me fall over.")
-	for (var/obj/structure/damaged in view(radius, fallzone))
-		if(!istype(damaged, /obj/structure/flora/newbranch))
-			damaged.take_damage(damage,BRUTE,"blunt",1)
-	for (var/turf/closed/wall/damagedwalls in view(radius, fallzone))
-		damagedwalls.take_damage(damage,BRUTE,"blunt",1)
-	for (var/turf/closed/mineral/aoemining in view(radius, fallzone))
-		aoemining.lastminer = usr
-		aoemining.take_damage(damage,BRUTE,"blunt",1)
-	return TRUE
-
-/obj/effect/temp_visual/lavastaff
-	icon_state = "lavastaff_warn"
-	duration = 50
-
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 /obj/effect/proc_holder/spell/invoked/craftercovenant
 	name = "The Crafter’s Covenant"
 	desc = "Melt a pile of valuables and convert them into a single item. Sacrifice is accepted even if its not valuable enough to make anything."
@@ -155,10 +107,6 @@
 	if (istype(target, /obj/item))
 		handle_item_smelting(target, user, sparks, nosmeltore)
 	else if (iscarbon(target))
-		if(spell_guard_check(target, TRUE))
-			var/mob/living/carbon/C = target
-			C.visible_message(span_warning("[target] resists the searing heat!"))
-			return
 		handle_living_entity(target, user, nosmeltore)
 
 /proc/show_visible_message(mob/user, text, selftext)
@@ -177,7 +125,7 @@
 
 /proc/handle_living_entity(mob/target, mob/user, list/nosmeltore)
 	var/obj/item/targeteditem = get_targeted_item(user, target)
-	if (!targeteditem || targeteditem.smeltresult == /obj/item/ash || target.anti_magic_check(TRUE,TRUE))
+	if (!targeteditem || targeteditem.smeltresult == /obj/item/ash || target.anti_magic_check(TRUE,TRUE)) 
 		show_visible_message(user, "After their incantation, [user] points at [target] but it seems to have no effect.", "After your incantation, you point at [target] but it seems to have no effect.")
 		return
 	if (istype(targeteditem, /obj/item/rogueweapon/tongs))

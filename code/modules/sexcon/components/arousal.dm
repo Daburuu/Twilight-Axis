@@ -193,7 +193,6 @@
 /datum/component/arousal/proc/after_intimate_climax(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return
-<<<<<<< HEAD
 	if(HAS_TRAIT(target, TRAIT_GOODLOVER))
 		if(!user.mob_timers["cumtri"])
 			user.mob_timers["cumtri"] = world.time
@@ -208,36 +207,6 @@
 			to_chat(user, span_love("Наша любовь - истинный ТРИУМФ!"))
 			target.add_stress(/datum/stressevent/cumgood)
 			target.apply_status_effect(/datum/status_effect/buff/goodloving)
-=======
-
-	climaxer.sate_addiction(/datum/charflaw/addiction/lovefiend)
-	partner.sate_addiction(/datum/charflaw/addiction/lovefiend)
-
-	switch(intensity)
-		if(1) //Should only be achievable with masturbation
-			climaxer.add_stress(/datum/stressevent/cumself)
-		if(2)
-			climaxer.add_stress(/datum/stressevent/cumok)
-		if(3)
-			climaxer.add_stress(/datum/stressevent/cummid)
-		if(4)
-			climaxer.add_stress(/datum/stressevent/cumgood)
-		if(5) //Should only be achievable with a good lover and a normally intimate action
-			climaxer.add_stress(/datum/stressevent/cummax)
-		else //This should not trigger but just in case
-			climaxer.add_stress(/datum/stressevent/cumok)
-
-	if(HAS_TRAIT(partner, TRAIT_GOODLOVER) && intensity >= 4)
-		if(!climaxer.mob_timers["cumtri"])
-			climaxer.mob_timers["cumtri"] = world.time
-			climaxer.adjust_triumphs(1)
-			to_chat(climaxer, span_love("Our loving is a true TRIUMPH!"))
-		if(!partner.mob_timers["cumtri"])
-			partner.mob_timers["cumtri"] = world.time
-			partner.adjust_triumphs(1)
-			to_chat(partner, span_love("Our loving is a true TRIUMPH!"))
-
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 
 /datum/component/arousal/proc/set_charge(amount)
 	var/empty = (charge < CHARGE_FOR_CLIMAX)
@@ -366,19 +335,19 @@
 				return 0.8
 		if(SEX_FORCE_MID)
 			if(giving)
-				return 1.0
+				return 1.2
 			else
-				return 1.0
+				return 1.2
 		if(SEX_FORCE_HIGH)
 			if(giving)
-				return 1.25
+				return 1.6
 			else
 				return 1.2
 		if(SEX_FORCE_EXTREME)
 			if(giving)
-				return 1.55
+				return 2.0
 			else
-				return 1.5
+				return 0.8
 
 /datum/component/arousal/proc/get_force_pain_multiplier(passed_force)
 	switch(passed_force)

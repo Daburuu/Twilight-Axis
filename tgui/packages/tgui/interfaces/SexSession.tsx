@@ -221,16 +221,14 @@ export const SexSession = () => {
             </Box>
           </Stack.Item>
           <Stack.Item>
-            <Stack>
-              <Input
-                fluid
-                placeholder="Search for an interaction..."
-                value={searchText}
-                onChange={setSearchText}
-              />
-            <Button icon="sync" tooltip="Refresh" onClick={() => act('refresh')} />
-            </Stack>
+            <Input
+              fluid
+              placeholder="Поиск взаимодействия..."
+              value={searchText}
+              onChange={setSearchText}
+            />
           </Stack.Item>
+
           {/* Two-Column Action Grid */}
           <Stack.Item grow>
             <Section fill scrollable>

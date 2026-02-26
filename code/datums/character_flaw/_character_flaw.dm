@@ -1,6 +1,5 @@
 
 GLOBAL_LIST_INIT(character_flaws, list(
-<<<<<<< HEAD
 	"Alcoholic"=/datum/charflaw/addiction/alcoholic,
 	"Devout Follower"=/datum/charflaw/addiction/godfearing,
 	"Colorblind"=/datum/charflaw/colorblind,
@@ -25,43 +24,10 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Mute"=/datum/charflaw/mute,
 	"Critical Weakness"=/datum/charflaw/critweakness,
 	"Hunted"=/datum/charflaw/hunted,
-=======
-	/datum/charflaw/addiction/alcoholic::name = /datum/charflaw/addiction/alcoholic,
-	/datum/charflaw/averse::name = /datum/charflaw/averse,
-	/datum/charflaw/addiction/godfearing::name = /datum/charflaw/addiction/godfearing,
-	/datum/charflaw/addiction/caffiend::name = /datum/charflaw/addiction/caffiend,
-	/datum/charflaw/colorblind::name = /datum/charflaw/colorblind,
-	/datum/charflaw/addiction/smoker::name = /datum/charflaw/addiction/smoker,
-	/datum/charflaw/addiction/junkie::name = /datum/charflaw/addiction/junkie,
-	/datum/charflaw/unintelligible::name = /datum/charflaw/unintelligible,
-	/datum/charflaw/greedy::name = /datum/charflaw/greedy,
-	/datum/charflaw/narcoleptic::name = /datum/charflaw/narcoleptic,
-	/datum/charflaw/addiction/lovefiend::name = /datum/charflaw/addiction/lovefiend,
-	/datum/charflaw/addiction/sadist::name = /datum/charflaw/addiction/sadist,
-	/datum/charflaw/addiction/masochist::name = /datum/charflaw/addiction/masochist,
-	/datum/charflaw/clingy::name = /datum/charflaw/clingy,
-	/datum/charflaw/finicky::name = /datum/charflaw/finicky,
-	/datum/charflaw/lonely::name = /datum/charflaw/lonely,
-	/datum/charflaw/addiction/paranoid::name = /datum/charflaw/addiction/paranoid,
-	/datum/charflaw/addiction/clamorous::name = /datum/charflaw/addiction/clamorous,
-	/datum/charflaw/addiction/thrillseeker::name = /datum/charflaw/addiction/thrillseeker,
-	/datum/charflaw/indebted::name = /datum/charflaw/indebted,
-	/datum/charflaw/addiction/voyeur::name = /datum/charflaw/addiction/voyeur,
-	/datum/charflaw/badsight::name = /datum/charflaw/badsight,
-	/datum/charflaw/noeyer::name = /datum/charflaw/noeyer,
-	/datum/charflaw/noeyel::name = /datum/charflaw/noeyel,
-	/datum/charflaw/noeyeall::name = /datum/charflaw/noeyeall,
-	/datum/charflaw/limbloss/arm_r::name = /datum/charflaw/limbloss/arm_r,
-	/datum/charflaw/limbloss/arm_l::name = /datum/charflaw/limbloss/arm_l,
-	/datum/charflaw/sleepless::name = /datum/charflaw/sleepless,
-	/datum/charflaw/mute::name = /datum/charflaw/mute,
-	/datum/charflaw/critweakness::name = /datum/charflaw/critweakness,
-	/datum/charflaw/hunted::name = /datum/charflaw/hunted,
->>>>>>> f4d0d84b53bec306759b04aa5adae96fe0f9dd0e
 	/datum/charflaw/mind_broken::name = /datum/charflaw/mind_broken,
-	/datum/charflaw/noflaw::name = /datum/charflaw/noflaw,
-	/datum/charflaw/leprosy::name = /datum/charflaw/leprosy,
-	/datum/charflaw/randflaw::name = /datum/charflaw/randflaw,
+	"Random or No Flaw"=/datum/charflaw/randflaw,
+	"No Flaw (-3 TRIUMPHS)"=/datum/charflaw/noflaw,
+	"Leper (+1 TRIUMPHS)"=/datum/charflaw/leprosy,
 	/datum/charflaw/lawless::name + " (min pq: [/datum/charflaw/lawless::required_pq], exclusive for adventuring jobs)" = /datum/charflaw/lawless // TA EDIT
 	))
 
@@ -84,30 +50,38 @@ GLOBAL_LIST_INIT(character_flaws, list(
 
 /mob/living/carbon/human/has_flaw(flaw)
 	if(!flaw)
-		return FALSE
-
-	if(charflaws && charflaws.len)
-		for(var/datum/charflaw/cf in charflaws)
-			if(istype(cf, flaw))
-				return TRUE
-
-	if(client?.prefs?.charflaws && client.prefs.charflaws.len)
-		for(var/datum/charflaw/cf in client.prefs.charflaws)
-			if(istype(cf, flaw))
-				return TRUE
-
-	return FALSE
+		return
+	if(istype(charflaw, flaw))
+		return TRUE
 
 /mob/proc/get_flaw()
 	return
 
-/mob/living/carbon/human/get_flaw(flaw_type)
-	if(!flaw_type)
-		return charflaws.len > 0 ? charflaws[1] : null
-	for(var/datum/charflaw/cf in charflaws)
-		if(istype(cf, flaw_type))
-			return cf
-	return null
+/mob/living/carbon/human/get_flaw()
+	return charflaw
+
+/datum/charflaw/randflaw
+	name = "Random or None"
+	desc = "A 50% chance to be given a random flaw, or a 50% chance to have NO flaw."
+
+/datum/charflaw/randflaw/apply_post_equipment(mob/user)
+	var/mob/living/carbon/human/H = user
+	if(prob(50))
+		var/flawz = GLOB.character_flaws.Copy()
+		var/charflaw = pick_n_take(flawz)
+		charflaw = GLOB.character_flaws[charflaw]
+		if((charflaw == type) || (charflaw == /datum/charflaw/noflaw))
+			charflaw = pick_n_take(flawz)
+			charflaw = GLOB.character_flaws[charflaw]
+		if((charflaw == type) || (charflaw == /datum/charflaw/noflaw))
+			charflaw = pick_n_take(flawz)
+			charflaw = GLOB.character_flaws[charflaw]
+		H.charflaw = new charflaw()
+		H.charflaw.on_mob_creation(H)
+	else
+		H.charflaw = new /datum/charflaw/eznoflaw()
+		H.charflaw.on_mob_creation(H)
+
 
 /datum/charflaw/eznoflaw
 	name = "No Flaw"
@@ -123,47 +97,16 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		var/flawz = GLOB.character_flaws.Copy()
 		var/charflaw = pick_n_take(flawz)
 		charflaw = GLOB.character_flaws[charflaw]
-		var/datum/charflaw/new_flaw = new charflaw()
-		H.charflaws.Add(new_flaw)
-		new_flaw.on_mob_creation(H)
+		if((charflaw == type) || (charflaw == /datum/charflaw/randflaw))
+			charflaw = pick_n_take(flawz)
+			charflaw = GLOB.character_flaws[charflaw]
+		if((charflaw == type) || (charflaw == /datum/charflaw/randflaw))
+			charflaw = pick_n_take(flawz)
+			charflaw = GLOB.character_flaws[charflaw]
+		H.charflaw = new charflaw()
+		H.charflaw.on_mob_creation(H)
 	else
 		H.adjust_triumphs(-3)
-
-/datum/charflaw/randflaw
-	name = "Random"
-	desc = "A chance for a random flaw."
-
-/datum/charflaw/randflaw/apply_post_equipment(mob/user)
-	var/mob/living/carbon/human/target = user
-
-	var/list/cf_list = GLOB.character_flaws.Copy()
-	for(var/key in cf_list)
-		if(cf_list[key] == type || cf_list[key] == /datum/charflaw/noflaw)
-			cf_list -= key
-
-	var/datum/job/mob_job = null
-	if(target.mind?.assigned_role)
-		mob_job = SSjob.GetJob(target.mind.assigned_role)
-	else if(target.client?.prefs?.lastclass)
-		mob_job = SSjob.GetJob(target.client.prefs.lastclass)
-
-	if(mob_job && mob_job.vice_restrictions)
-		for(var/key in cf_list)
-			if(cf_list[key] in mob_job.vice_restrictions)
-				cf_list -= key
-
-	var/datum/charflaw/chosen_type = null
-	if(length(cf_list))
-		var/chosen_key = pick_n_take(cf_list)
-		chosen_type = GLOB.character_flaws[chosen_key]
-
-	if(chosen_type)
-		var/datum/charflaw/added_flaw = new chosen_type()
-		target.charflaws.Add(added_flaw)
-		added_flaw.on_mob_creation(target)
-
-	target.charflaws.Remove(src)
-	QDEL_NULL(src)
 
 /datum/charflaw/badsight
 	name = "Bad Eyesight"
