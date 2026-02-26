@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import { Window } from 'tgui/layouts';
-import { Button, Box, Stack, Input, Icon } from 'tgui-core/components';
+import { useBackend } from 'tgui/backend';
+import { Button, Box, Stack, Input, Dropdown, Icon } from 'tgui-core/components';
 
-export const FamilySettingsPanel = (props) => {
-  // Состояние выбора типа семьи
+export const FamilySettingsPanel = () => {
+  
   const [familyType, setFamilyType] = useState<'none' | 'member' | 'parent' | 'couple'>('none');
 
-  // Состояния дополнительных полей (появляются, если выбрано не "Нет")
   const [racePreference, setRacePreference] = useState<'own' | 'any'>('any');
   const [genderPreference, setGenderPreference] = useState<'any' | 'same' | 'opposite'>('any');
   const [checkGenderStrict, setCheckGenderStrict] = useState(false);
   const [favoriteName, setFavoriteName] = useState('');
+  const [familyName, setFamilyName] = useState(''); 
+  const { act } = useBackend();
 
-  // Подсказки для каждого типа
   const tooltips = {
     none: 'Ваш персонаж не будет частью чьей-либо семьи',
     member: 'Ваш персонаж возможно станет частью чьей-то семьи',
@@ -20,40 +21,47 @@ export const FamilySettingsPanel = (props) => {
     couple: 'Ваш персонаж не будет частью чьей-то семьи, но у него будет возможность стать чьей-то парой',
   };
 
-  // Обработчик выбора типа
-  const handleTypeSelect = (type: typeof familyType) => {
-    setFamilyType(type);
+  const familyTypeOptions = [
+    { value: 'none', displayText: 'Нет' },
+    { value: 'member', displayText: 'Член семьи' },
+    { value: 'parent', displayText: 'Родитель' },
+    { value: 'couple', displayText: 'Пара' },
+  ];
+
+  const raceOptions = [
+    { value: 'own', displayText: 'Только своя раса' },
+    { value: 'any', displayText: 'Любая' },
+  ];
+
+  const genderOptions = [
+    { value: 'any', displayText: 'Любой' },
+    { value: 'same', displayText: 'Тот же пол' },
+    { value: 'opposite', displayText: 'Противоположный' },
+  ];
+
+  const getDisplayText = (options: { value: string; displayText: string }[], value: string) => {
+    return options.find(opt => opt.value === value)?.displayText || '';
   };
 
   return (
-    <Window title="Настройка семьи" width={600} height={500}>
+    <Window title="Настройка семьи" width={600} height={550}>
       <Window.Content>
         <Stack vertical fill>
-          {/* Заголовок */}
           <Stack.Item>
             <h2 style={{ textAlign: 'center' }}>Настройка семейных отношений</h2>
           </Stack.Item>
 
-          {/* Выбор типа семьи */}
           <Stack.Item>
-            <Box style={{ marginBottom: '8px', fontWeight: 'bold' }}>Тип семьи:</Box>
-            <Stack>
-              {(['none', 'member', 'parent', 'couple'] as const).map((type) => (
-                <Stack.Item key={type} grow>
-                  <Button
-                    fluid
-                    selected={familyType === type}
-                    onClick={() => handleTypeSelect(type)}
-                    style={{ textTransform: 'capitalize' }}
-                  >
-                    {type === 'none' ? 'Нет' :
-                     type === 'member' ? 'Член семьи' :
-                     type === 'parent' ? 'Родитель' : 'Пара'}
-                  </Button>
-                </Stack.Item>
-              ))}
-            </Stack>
-            {/* Подсказка под выбранным типом */}
+            <Box style={{ marginBottom: '4px', fontWeight: 'bold' }}>Тип семьи:</Box>
+            <Dropdown
+              options={familyTypeOptions.map(opt => opt.displayText)}
+              selected={getDisplayText(familyTypeOptions, familyType)}
+              onSelected={(selectedText) => {
+                const selectedOption = familyTypeOptions.find(opt => opt.displayText === selectedText);
+                if (selectedOption) setFamilyType(selectedOption.value as any);
+              }}
+              width="100%"
+            />
             <Box
               style={{
                 marginTop: '4px',
@@ -67,7 +75,6 @@ export const FamilySettingsPanel = (props) => {
             </Box>
           </Stack.Item>
 
-          {/* Дополнительные поля (если выбрано не "Нет") */}
           {familyType !== 'none' && (
             <>
               <Stack.Divider />
@@ -75,66 +82,32 @@ export const FamilySettingsPanel = (props) => {
                 <Box style={{ marginBottom: '8px', fontWeight: 'bold' }}>Дополнительные настройки</Box>
               </Stack.Item>
 
-              {/* Предпочтение по расе */}
               <Stack.Item>
                 <Box style={{ marginBottom: '4px' }}>Предпочтение по расе:</Box>
-                <Stack>
-                  <Stack.Item grow>
-                    <Button
-                      fluid
-                      selected={racePreference === 'own'}
-                      onClick={() => setRacePreference('own')}
-                    >
-                      Только своя раса
-                    </Button>
-                  </Stack.Item>
-                  <Stack.Item grow>
-                    <Button
-                      fluid
-                      selected={racePreference === 'any'}
-                      onClick={() => setRacePreference('any')}
-                    >
-                      Любая
-                    </Button>
-                  </Stack.Item>
-                </Stack>
+                <Dropdown
+                  options={raceOptions.map(opt => opt.displayText)}
+                  selected={getDisplayText(raceOptions, racePreference)}
+                  onSelected={(selectedText) => {
+                    const selectedOption = raceOptions.find(opt => opt.displayText === selectedText);
+                    if (selectedOption) setRacePreference(selectedOption.value as any);
+                  }}
+                  width="100%"
+                />
               </Stack.Item>
 
-              {/* Предпочтение по полу */}
               <Stack.Item>
                 <Box style={{ marginBottom: '4px' }}>Предпочтение по полу:</Box>
-                <Stack>
-                  <Stack.Item grow>
-                    <Button
-                      fluid
-                      selected={genderPreference === 'any'}
-                      onClick={() => setGenderPreference('any')}
-                    >
-                      Любой
-                    </Button>
-                  </Stack.Item>
-                  <Stack.Item grow>
-                    <Button
-                      fluid
-                      selected={genderPreference === 'same'}
-                      onClick={() => setGenderPreference('same')}
-                    >
-                      Тот же пол
-                    </Button>
-                  </Stack.Item>
-                  <Stack.Item grow>
-                    <Button
-                      fluid
-                      selected={genderPreference === 'opposite'}
-                      onClick={() => setGenderPreference('opposite')}
-                    >
-                      Противоположный
-                    </Button>
-                  </Stack.Item>
-                </Stack>
+                <Dropdown
+                  options={genderOptions.map(opt => opt.displayText)}
+                  selected={getDisplayText(genderOptions, genderPreference)}
+                  onSelected={(selectedText) => {
+                    const selectedOption = genderOptions.find(opt => opt.displayText === selectedText);
+                    if (selectedOption) setGenderPreference(selectedOption.value as any);
+                  }}
+                  width="100%"
+                />
               </Stack.Item>
 
-              {/* Чекбокс "Проверять соответствие пола и половых признаков" */}
               <Stack.Item>
                 <Button
                   fluid
@@ -150,7 +123,6 @@ export const FamilySettingsPanel = (props) => {
                 </Button>
               </Stack.Item>
 
-              {/* Имя фаворита */}
               <Stack.Item>
                 <Box style={{ marginBottom: '4px' }}>Имя фаворита:</Box>
                 <Input
@@ -160,36 +132,31 @@ export const FamilySettingsPanel = (props) => {
                   fluid
                 />
               </Stack.Item>
+
+              {familyType === 'parent' && (
+                <Stack.Item>
+                  <Box style={{ marginBottom: '4px' }}>Название семьи:</Box>
+                  <Input
+                    placeholder="Введите название вашей семьи"
+                    value={familyName}
+                    onChange={setFamilyName}
+                    fluid
+                  />
+                </Stack.Item>
+              )}
             </>
           )}
 
-          {/* Кнопка сохранения (пример) */}
           <Stack.Item mt={2}>
             <Button
               fluid
               color="good"
               onClick={() => {
-                // Здесь будет act() или другой обработчик
-                alert('Настройки сохранены (демо)');
+                act('save', { familyType, racePreference, genderPreference, familyName, favoriteName, checkGenderStrict });
               }}
             >
               Сохранить настройки
             </Button>
-          </Stack.Item>
-
-          {/* Небольшая пасхалка в стиле референса (опционально) */}
-          <Stack.Item mt={1}>
-            <Box
-              style={{
-                fontSize: '10px',
-                color: '#666',
-                textAlign: 'center',
-                userSelect: 'none',
-              }}
-              onClick={() => alert('🐱 Семья — это важно!')}
-            >
-              Сделано с любовью
-            </Box>
           </Stack.Item>
         </Stack>
       </Window.Content>
