@@ -3,46 +3,46 @@
 
 /datum/family_options/New(mob/holder_mob)
 	if(holder_mob)
-		holder = holder_mob
+		var/holder = holder_mob
 
 /datum/family_options/ui_state(mob/user)
 	return GLOB.always_state
 
 /datum/family_options/ui_interact(mob/user, datum/tgui/ui)
-    prefs = user?.client?.prefs?.family_prefs
+	var/prefs = user?.client?.prefs?.family_prefs
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "FamilySettingsPanel")
 		ui.open()
 
-/datum/family_panel/ui_data(mob/user)
-  . = ..()
-  var/datum/family_options/prefs = ui.user.prefs
-  if(prefs)
+/datum/family_options/ui_data(mob/user)
+    . = ..()
+
+    var/mob/living/carbon/human/H = user
+    if(!ishuman(H))
+        return
+
     .["familySettings"] = list(
-      "familyType" = prefs.family_type,
-      "racePreference" = prefs.race_pref,
-      "genderPreference" = prefs.gender_pref,
-      "checkGenderStrict" = prefs.check_gender_strict,
-      "favoriteName" = prefs.fav_name,
-      "familyName" = prefs.family_name
+        "familyType" = H.familytree_pref,
+        "racePreference" = H.xenophobe,
+        "genderPreference" = H.gender_choice_pref,
+        "favoriteName" = H.setspouse
     )
 
 /datum/family_options/ui_act(action, params)
-  . = ..()
-  if(. != TRUE)
-    return
-  switch(action)
-    if("save")
-      var/familyType = params["familyType"]
-      var/racePreference = params["racePreference"]
-	  var/genderPreference = params["genderPreference"]
-	  var/familyName = params["familyName"]
-	  var/favoriteName = paramns["favoriteName"]
-	  var/checkGenderStrict = params["checkGenderStrict"]
-      var/datum/family_prefs/prefs = ui.user.client.prefs.family_prefs
-      if(prefs)
-        prefs.family_type = familyType
-        prefs.race_pref = racePreference
-        //доделать
-      return TRUE
+    . = ..()
+    if(. != TRUE)
+        return
+
+    var/mob/living/carbon/human/H = usr
+    if(!ishuman(H))
+        return
+
+    switch(action)
+        if("save")
+            H.familytree_pref = text2num(params["familyType"])
+            H.xenophobe = text2num(params["racePreference"])
+            H.gender_choice_pref = text2num(params["genderPreference"])
+            H.setspouse = params["favoriteName"]
+
+            return TRUE

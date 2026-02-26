@@ -172,6 +172,12 @@
 	/// How many quests this job can take at once
 	var/max_active_quests = 3
 
+/datum/preferences
+    var/family_type = FAMILY_NONE
+    var/gender_choice_pref = ANY_GENDER
+    var/setspouse = null
+    var/xenophobe = FALSE
+
 
 /datum/job/proc/special_job_check(mob/dead/new_player/player)
 	return TRUE
@@ -273,6 +279,12 @@
 
 	if(istype(H, /mob/living/carbon/human))
 		var/mob/living/carbon/human/Hu = H
+		var/datum/preferences/P = Hu.client?.prefs
+		if(prefs)
+			Hu.familytree_pref = P.family_type
+			Hu.gender_choice_pref = P.gender_choice_pref
+			Hu.setspouse = P.setspouse
+			Hu.xenophobe = P.xenophobe
 		if(Hu.familytree_pref != FAMILY_NONE && !Hu.family_datum)
 			var/timer = (rand(1,30) + 10)
 			addtimer(CALLBACK(SSfamilytree, TYPE_PROC_REF(/datum/controller/subsystem/familytree, AddLocal), H, Hu.familytree_pref), timer SECONDS)
