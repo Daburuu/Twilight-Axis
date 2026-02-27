@@ -1,18 +1,70 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Window } from 'tgui/layouts';
 import { useBackend } from 'tgui/backend';
 import { Button, Box, Stack, Input, Dropdown, Icon } from 'tgui-core/components';
 
-export const FamilySettingsPanel = () => {
-  
-  const [familyType, setFamilyType] = useState<'none' | 'member' | 'parent' | 'couple'>('none');
+type FamilyType = 'none' | 'member' | 'parent' | 'couple';
+type RacePref = 'own' | 'any';
+type GenderPref = 'any' | 'same' | 'opposite';
 
-  const [racePreference, setRacePreference] = useState<'own' | 'any'>('any');
-  const [genderPreference, setGenderPreference] = useState<'any' | 'same' | 'opposite'>('any');
+export const FamilySettingsPanel = () => {
+
+  const { act, data } = useBackend();
+  const settings = data?.familySettings;
+
+  // === Mapping из DM чисел в строки ===
+const mapFamily = (value: any): FamilyType => {
+  switch (value) {
+    case "None":
+    case 0:
+      return 'none';
+
+    case "Partial":
+    case 1:
+      return 'member';
+
+    case "Newlywed":
+    case 2:
+      return 'couple';
+
+    case "Full":
+    case 3:
+      return 'parent';
+
+    default:
+      return 'none';
+  }
+};
+
+  const mapGender = (value: any): GenderPref => {
+    switch (value) {
+      case 0: return 'any';       // ANY_GENDER
+      case 1: return 'same';      // SAME_GENDER
+      case 2: return 'opposite';  // DIFFERENT_GENDER
+      default: return 'any';
+    }
+  };
+
+  const mapRace = (value: any): RacePref => {
+    return value === 1 ? 'own' : 'any';
+  };
+
+  const [familyType, setFamilyType] = useState<FamilyType>(mapFamily(settings.familyType));
+  const [racePreference, setRacePreference] = useState<RacePref>(mapRace(settings.racePreference));
+  const [genderPreference, setGenderPreference] = useState<GenderPref>(mapGender(settings.genderPreference));
   const [checkGenderStrict, setCheckGenderStrict] = useState(false);
-  const [favoriteName, setFavoriteName] = useState('');
-  const [familyName, setFamilyName] = useState(''); 
-  const { act } = useBackend();
+  const [favoriteName, setFavoriteName] = useState(settings.favoriteName ?? '');
+  const [familyName, setFamilyName] = useState('');
+
+  // === Синхронизация при обновлении backend ===
+  useEffect(() => {
+  if (!settings) return;
+
+  setFamilyType(mapFamily(settings.familyType));
+  setRacePreference(mapRace(settings.racePreference));
+  setGenderPreference(mapGender(settings.genderPreference));
+  setFavoriteName(settings.favoriteName ?? '');
+}, [settings]);
 
   const tooltips = {
     none: 'Ваш персонаж не будет частью чьей-либо семьи',
@@ -47,6 +99,7 @@ export const FamilySettingsPanel = () => {
     <Window title="Настройка семьи" width={600} height={550}>
       <Window.Content>
         <Stack vertical fill>
+
           <Stack.Item>
             <h2 style={{ textAlign: 'center' }}>Настройка семейных отношений</h2>
           </Stack.Item>
@@ -58,19 +111,17 @@ export const FamilySettingsPanel = () => {
               selected={getDisplayText(familyTypeOptions, familyType)}
               onSelected={(selectedText) => {
                 const selectedOption = familyTypeOptions.find(opt => opt.displayText === selectedText);
-                if (selectedOption) setFamilyType(selectedOption.value as any);
+                if (selectedOption) setFamilyType(selectedOption.value as FamilyType);
               }}
               width="100%"
             />
-            <Box
-              style={{
-                marginTop: '4px',
-                fontSize: '12px',
-                color: '#aaa',
-                fontStyle: 'italic',
-                paddingLeft: '4px',
-              }}
-            >
+            <Box style={{
+              marginTop: '4px',
+              fontSize: '12px',
+              color: '#aaa',
+              fontStyle: 'italic',
+              paddingLeft: '4px',
+            }}>
               {tooltips[familyType]}
             </Box>
           </Stack.Item>
@@ -78,9 +129,6 @@ export const FamilySettingsPanel = () => {
           {familyType !== 'none' && (
             <>
               <Stack.Divider />
-              <Stack.Item>
-                <Box style={{ marginBottom: '8px', fontWeight: 'bold' }}>Дополнительные настройки</Box>
-              </Stack.Item>
 
               <Stack.Item>
                 <Box style={{ marginBottom: '4px' }}>Предпочтение по расе:</Box>
@@ -89,7 +137,7 @@ export const FamilySettingsPanel = () => {
                   selected={getDisplayText(raceOptions, racePreference)}
                   onSelected={(selectedText) => {
                     const selectedOption = raceOptions.find(opt => opt.displayText === selectedText);
-                    if (selectedOption) setRacePreference(selectedOption.value as any);
+                    if (selectedOption) setRacePreference(selectedOption.value as RacePref);
                   }}
                   width="100%"
                 />
@@ -102,48 +150,20 @@ export const FamilySettingsPanel = () => {
                   selected={getDisplayText(genderOptions, genderPreference)}
                   onSelected={(selectedText) => {
                     const selectedOption = genderOptions.find(opt => opt.displayText === selectedText);
-                    if (selectedOption) setGenderPreference(selectedOption.value as any);
+                    if (selectedOption) setGenderPreference(selectedOption.value as GenderPref);
                   }}
                   width="100%"
                 />
               </Stack.Item>
 
               <Stack.Item>
-                <Button
-                  fluid
-                  color={checkGenderStrict ? 'good' : 'default'}
-                  onClick={() => setCheckGenderStrict(!checkGenderStrict)}
-                  style={{ justifyContent: 'flex-start' }}
-                >
-                  <Icon
-                    name={checkGenderStrict ? 'check-square-o' : 'square-o'}
-                    style={{ marginRight: '8px' }}
-                  />
-                  Проверять соответствие пола и половых признаков
-                </Button>
-              </Stack.Item>
-
-              <Stack.Item>
-                <Box style={{ marginBottom: '4px' }}>Имя фаворита:</Box>
                 <Input
-                  placeholder="Укажите кого бы вы хотели видеть как свою пару. Оставьте пустым, если предпочтений нет"
+                  placeholder="Имя фаворита"
                   value={favoriteName}
                   onChange={setFavoriteName}
                   fluid
                 />
               </Stack.Item>
-
-              {familyType === 'parent' && (
-                <Stack.Item>
-                  <Box style={{ marginBottom: '4px' }}>Название семьи:</Box>
-                  <Input
-                    placeholder="Введите название вашей семьи"
-                    value={familyName}
-                    onChange={setFamilyName}
-                    fluid
-                  />
-                </Stack.Item>
-              )}
             </>
           )}
 
@@ -152,12 +172,20 @@ export const FamilySettingsPanel = () => {
               fluid
               color="good"
               onClick={() => {
-                act('save', { familyType, racePreference, genderPreference, familyName, favoriteName, checkGenderStrict });
+                act('save', {
+                  familyType,
+                  racePreference,
+                  genderPreference,
+                  familyName,
+                  favoriteName,
+                  checkGenderStrict,
+                });
               }}
             >
               Сохранить настройки
             </Button>
           </Stack.Item>
+
         </Stack>
       </Window.Content>
     </Window>

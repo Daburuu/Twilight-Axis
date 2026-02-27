@@ -1,4 +1,5 @@
 /datum/family_options
+	parent_type = /datum/tgui
 
 /datum/family_options/ui_state(mob/user)
     return GLOB.always_state
@@ -24,9 +25,6 @@
     )
 
 /datum/family_options/ui_act(action, params)
-    . = ..()
-    if(. != TRUE)
-        return
 
     var/datum/preferences/P = usr?.client?.prefs
     if(!P)
@@ -34,7 +32,42 @@
 
     switch(action)
         if("save")
-            P.family = text2num(params["familyType"])
-            P.gender_choice = text2num(params["genderPreference"])
+
+            log_runtime("=== FAMILY SAVE PRESSED ===")
+            log_runtime("Params: [json_encode(params)]")
+
+            // ===== FAMILY =====
+            switch(params["familyType"])
+                if("none")
+                    P.family = FAMILY_NONE
+                if("member")
+                    P.family = FAMILY_PARTIAL
+                if("couple")
+                    P.family = FAMILY_NEWLYWED
+                if("parent")
+                    P.family = FAMILY_FULL
+
+            // ===== GENDER =====
+            switch(params["genderPreference"])
+                if("any")
+                    P.gender_choice = ANY_GENDER
+                if("same")
+                    P.gender_choice = SAME_GENDER
+                if("opposite")
+                    P.gender_choice = DIFFERENT_GENDER
+
+            // ===== RACE =====
+            if(params["racePreference"] == "own")
+                P.xenophobe_pref = 1
+            else
+                P.xenophobe_pref = 0
+
+            // ===== SPOUSE =====
             P.setspouse = params["favoriteName"]
+
+            log_runtime("Saved family value: [P.family]")
+            log_runtime("Saved gender choice: [P.gender_choice]")
+            log_runtime("Saved xenophobe: [P.xenophobe_pref]")
+            log_runtime("Saved spouse: [P.setspouse]")
+
             return TRUE
