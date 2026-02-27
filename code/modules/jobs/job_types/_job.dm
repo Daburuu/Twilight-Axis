@@ -274,10 +274,10 @@
 		var/mob/living/carbon/human/Hu = H
 		var/datum/preferences/P = Hu.client?.prefs
 		if(P)
-			Hu.familytree_pref = P.family_type
+			Hu.familytree_pref = P.family
 			Hu.gender_choice_pref = P.gender_choice_pref
 			Hu.setspouse = P.setspouse
-			Hu.xenophobe = P.xenophobe
+			Hu.xenophobe = P.xenophobe_pref
 		if(Hu.familytree_pref != FAMILY_NONE && !Hu.family_datum)
 			var/timer = (rand(1,30) + 10)
 			addtimer(CALLBACK(SSfamilytree, TYPE_PROC_REF(/datum/controller/subsystem/familytree, AddLocal), H, Hu.familytree_pref), timer SECONDS)

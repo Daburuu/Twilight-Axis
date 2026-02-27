@@ -234,7 +234,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/datum/family_options/family_options
 
 	//FAMILY SS
-	var/family_type = FAMILY_NONE
 	var/gender_choice_pref = ANY_GENDER
 	var/xenophobe = FALSE
 

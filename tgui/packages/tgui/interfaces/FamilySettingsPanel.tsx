@@ -1,70 +1,33 @@
 import { useState, useEffect } from 'react';
 import { Window } from 'tgui/layouts';
 import { useBackend } from 'tgui/backend';
-import { Button, Box, Stack, Input, Dropdown, Icon } from 'tgui-core/components';
+import { Button, Box, Stack, Input, Dropdown } from 'tgui-core/components';
 
 type FamilyType = 'none' | 'member' | 'parent' | 'couple';
 type RacePref = 'own' | 'any';
 type GenderPref = 'any' | 'same' | 'opposite';
 
 export const FamilySettingsPanel = () => {
-
   const { act, data } = useBackend();
   const settings = data?.familySettings;
 
-  // === Mapping из DM чисел в строки ===
-const mapFamily = (value: any): FamilyType => {
-  switch (value) {
-    case "None":
-    case 0:
-      return 'none';
+  const [familyType, setFamilyType] = useState<FamilyType>('none');
+  const [racePreference, setRacePreference] = useState<RacePref>('any');
+  const [genderPreference, setGenderPreference] = useState<GenderPref>('any');
+  const [favoriteName, setFavoriteName] = useState('');
+  const [initialized, setInitialized] = useState(false);
 
-    case "Partial":
-    case 1:
-      return 'member';
-
-    case "Newlywed":
-    case 2:
-      return 'couple';
-
-    case "Full":
-    case 3:
-      return 'parent';
-
-    default:
-      return 'none';
-  }
-};
-
-  const mapGender = (value: any): GenderPref => {
-    switch (value) {
-      case 0: return 'any';       // ANY_GENDER
-      case 1: return 'same';      // SAME_GENDER
-      case 2: return 'opposite';  // DIFFERENT_GENDER
-      default: return 'any';
-    }
-  };
-
-  const mapRace = (value: any): RacePref => {
-    return value === 1 ? 'own' : 'any';
-  };
-
-  const [familyType, setFamilyType] = useState<FamilyType>(mapFamily(settings.familyType));
-  const [racePreference, setRacePreference] = useState<RacePref>(mapRace(settings.racePreference));
-  const [genderPreference, setGenderPreference] = useState<GenderPref>(mapGender(settings.genderPreference));
-  const [checkGenderStrict, setCheckGenderStrict] = useState(false);
-  const [favoriteName, setFavoriteName] = useState(settings.favoriteName ?? '');
-  const [familyName, setFamilyName] = useState('');
-
-  // === Синхронизация при обновлении backend ===
+  // Инициализация только один раз
   useEffect(() => {
-  if (!settings) return;
+    if (!settings || initialized) return;
 
-  setFamilyType(mapFamily(settings.familyType));
-  setRacePreference(mapRace(settings.racePreference));
-  setGenderPreference(mapGender(settings.genderPreference));
-  setFavoriteName(settings.favoriteName ?? '');
-}, [settings]);
+    setFamilyType(settings.familyType ?? 'none');
+    setRacePreference(settings.racePreference ?? 'any');
+    setGenderPreference(settings.genderPreference ?? 'any');
+    setFavoriteName(settings.favoriteName ?? '');
+
+    setInitialized(true);
+  }, [settings, initialized]);
 
   const tooltips = {
     none: 'Ваш персонаж не будет частью чьей-либо семьи',
@@ -91,9 +54,10 @@ const mapFamily = (value: any): FamilyType => {
     { value: 'opposite', displayText: 'Противоположный' },
   ];
 
-  const getDisplayText = (options: { value: string; displayText: string }[], value: string) => {
-    return options.find(opt => opt.value === value)?.displayText || '';
-  };
+  const getDisplayText = (
+    options: { value: string; displayText: string }[],
+    value: string
+  ) => options.find(opt => opt.value === value)?.displayText || '';
 
   return (
     <Window title="Настройка семьи" width={600} height={550}>
@@ -101,20 +65,29 @@ const mapFamily = (value: any): FamilyType => {
         <Stack vertical fill>
 
           <Stack.Item>
-            <h2 style={{ textAlign: 'center' }}>Настройка семейных отношений</h2>
+            <h2 style={{ textAlign: 'center' }}>
+              Настройка семейных отношений
+            </h2>
           </Stack.Item>
 
           <Stack.Item>
-            <Box style={{ marginBottom: '4px', fontWeight: 'bold' }}>Тип семьи:</Box>
+            <Box style={{ marginBottom: '4px', fontWeight: 'bold' }}>
+              Тип семьи:
+            </Box>
+
             <Dropdown
               options={familyTypeOptions.map(opt => opt.displayText)}
               selected={getDisplayText(familyTypeOptions, familyType)}
               onSelected={(selectedText) => {
-                const selectedOption = familyTypeOptions.find(opt => opt.displayText === selectedText);
-                if (selectedOption) setFamilyType(selectedOption.value as FamilyType);
+                const selectedOption = familyTypeOptions.find(
+                  opt => opt.displayText === selectedText
+                );
+                if (selectedOption)
+                  setFamilyType(selectedOption.value as FamilyType);
               }}
               width="100%"
             />
+
             <Box style={{
               marginTop: '4px',
               fontSize: '12px',
@@ -131,26 +104,38 @@ const mapFamily = (value: any): FamilyType => {
               <Stack.Divider />
 
               <Stack.Item>
-                <Box style={{ marginBottom: '4px' }}>Предпочтение по расе:</Box>
+                <Box style={{ marginBottom: '4px' }}>
+                  Предпочтение по расе:
+                </Box>
+
                 <Dropdown
                   options={raceOptions.map(opt => opt.displayText)}
                   selected={getDisplayText(raceOptions, racePreference)}
                   onSelected={(selectedText) => {
-                    const selectedOption = raceOptions.find(opt => opt.displayText === selectedText);
-                    if (selectedOption) setRacePreference(selectedOption.value as RacePref);
+                    const selectedOption = raceOptions.find(
+                      opt => opt.displayText === selectedText
+                    );
+                    if (selectedOption)
+                      setRacePreference(selectedOption.value as RacePref);
                   }}
                   width="100%"
                 />
               </Stack.Item>
 
               <Stack.Item>
-                <Box style={{ marginBottom: '4px' }}>Предпочтение по полу:</Box>
+                <Box style={{ marginBottom: '4px' }}>
+                  Предпочтение по полу:
+                </Box>
+
                 <Dropdown
                   options={genderOptions.map(opt => opt.displayText)}
                   selected={getDisplayText(genderOptions, genderPreference)}
                   onSelected={(selectedText) => {
-                    const selectedOption = genderOptions.find(opt => opt.displayText === selectedText);
-                    if (selectedOption) setGenderPreference(selectedOption.value as GenderPref);
+                    const selectedOption = genderOptions.find(
+                      opt => opt.displayText === selectedText
+                    );
+                    if (selectedOption)
+                      setGenderPreference(selectedOption.value as GenderPref);
                   }}
                   width="100%"
                 />
@@ -176,9 +161,7 @@ const mapFamily = (value: any): FamilyType => {
                   familyType,
                   racePreference,
                   genderPreference,
-                  familyName,
                   favoriteName,
-                  checkGenderStrict,
                 });
               }}
             >
