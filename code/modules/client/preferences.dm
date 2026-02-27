@@ -234,7 +234,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/datum/family_options/family_options
 
 	//FAMILY SS
-	var/family_type = FAMILY_NONE
 	var/gender_choice_pref = ANY_GENDER
 	var/xenophobe = FALSE
 
@@ -448,7 +447,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 					else
 						species_text = "<font color='#1cb308'>Unrestricted</font>"
 					dat += "<b>Restrict Species:</b> <a href='?_src_=prefs;preference=species_choice'>[species_text]</a><BR>"
-		
 			// LETHALSTONE EDIT BEGIN: add statpack selection
 			dat += "<b>Statpack:</b> <a href='?_src_=prefs;preference=statpack;task=input'>[statpack.name]</a><BR>"
 //			dat += "<a href='?_src_=prefs;preference=species;task=random'>Random Species</A> "

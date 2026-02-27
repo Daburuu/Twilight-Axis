@@ -1,4 +1,5 @@
 /datum/family_options
+    parent_type = /datum/tgui
 
 /datum/family_options/ui_state(mob/user)
     return GLOB.always_state
@@ -18,23 +19,59 @@
         return
 
     .["familySettings"] = list(
-        "familyType" = P.family,
-        "genderPreference" = P.gender_choice,
-        "favoriteName" = P.setspouse
+        "familyType" = _family_to_ui(P.family),
+        "genderPreference" = _gender_to_ui(P.gender_choice),
+        "racePreference" = (P.xenophobe_pref ? "own" : "any"),
+        "favoriteName" = (istext(P.setspouse) ? P.setspouse : "")
     )
 
 /datum/family_options/ui_act(action, params)
     . = ..()
-    if(. != TRUE)
+    if(.)
         return
 
     var/datum/preferences/P = usr?.client?.prefs
     if(!P)
-        return
+        return FALSE
 
     switch(action)
         if("save")
-            P.family = text2num(params["familyType"])
-            P.gender_choice = text2num(params["genderPreference"])
-            P.setspouse = params["favoriteName"]
+            P.family = _ui_to_family(params["familyType"])
+            P.gender_choice = _ui_to_gender(params["genderPreference"])
+            P.xenophobe_pref = (params["racePreference"] == "own")
+            P.setspouse = istext(params["favoriteName"]) ? copytext(params["favoriteName"], 1, 65) : ""
+
+            P.save_preferences()
+            P.save_character()
+
+            SStgui.update_uis(src)
             return TRUE
+
+    return FALSE
+
+
+/datum/family_options/proc/_family_to_ui(val)
+    switch(val)
+        if(FAMILY_PARTIAL) return "member"
+        if(FAMILY_NEWLYWED) return "couple"
+        if(FAMILY_FULL) return "parent"
+    return "none"
+
+/datum/family_options/proc/_gender_to_ui(val)
+    switch(val)
+        if(SAME_GENDER) return "same"
+        if(DIFFERENT_GENDER) return "opposite"
+    return "any"
+
+/datum/family_options/proc/_ui_to_family(val)
+    switch(val)
+        if("member") return FAMILY_PARTIAL
+        if("couple") return FAMILY_NEWLYWED
+        if("parent") return FAMILY_FULL
+    return FAMILY_NONE
+
+/datum/family_options/proc/_ui_to_gender(val)
+    switch(val)
+        if("same") return SAME_GENDER
+        if("opposite") return DIFFERENT_GENDER
+    return ANY_GENDER
