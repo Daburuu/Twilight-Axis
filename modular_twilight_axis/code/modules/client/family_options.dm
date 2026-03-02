@@ -22,7 +22,8 @@
         "familyType" = _family_to_ui(P.family),
         "genderPreference" = _gender_to_ui(P.gender_choice),
         "racePreference" = (P.xenophobe_pref ? "own" : "any"),
-        "favoriteName" = (istext(P.setspouse) ? P.setspouse : "")
+        "favoriteName" = (istext(P.setspouse) ? P.setspouse : ""),
+        "age" = P.age
     )
 
 /datum/family_options/ui_act(action, params)
@@ -36,7 +37,14 @@
 
     switch(action)
         if("save")
-            P.family = _ui_to_family(params["familyType"])
+
+            var/new_family = _ui_to_family(params["familyType"])
+
+            if(new_family == FAMILY_FULL && P.age == AGE_ADULT)
+                to_chat(usr, span_warning("You are too young to be a parent."))
+                return TRUE
+
+            P.family = new_family
             P.gender_choice = _ui_to_gender(params["genderPreference"])
             P.xenophobe_pref = (params["racePreference"] == "own")
             P.setspouse = istext(params["favoriteName"]) ? copytext(params["favoriteName"], 1, 65) : ""
