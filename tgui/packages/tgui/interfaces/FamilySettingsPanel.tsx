@@ -10,14 +10,14 @@ type GenderPref = 'any' | 'same' | 'opposite';
 export const FamilySettingsPanel = () => {
   const { act, data } = useBackend();
   const settings = data?.familySettings;
-
+  
+  const isAdult = settings?.age === 'Adult';
   const [familyType, setFamilyType] = useState<FamilyType>('none');
   const [racePreference, setRacePreference] = useState<RacePref>('any');
   const [genderPreference, setGenderPreference] = useState<GenderPref>('any');
   const [favoriteName, setFavoriteName] = useState('');
   const [initialized, setInitialized] = useState(false);
 
-  // Инициализация только один раз
   useEffect(() => {
     if (!settings || initialized) return;
 
@@ -29,6 +29,12 @@ export const FamilySettingsPanel = () => {
     setInitialized(true);
   }, [settings, initialized]);
 
+  useEffect(() => {
+  if (isAdult && familyType === 'parent') {
+    setFamilyType('member');
+  }
+}, [isAdult, familyType]);
+
   const tooltips = {
     none: 'Ваш персонаж не будет частью чьей-либо семьи',
     member: 'Ваш персонаж возможно станет частью чьей-то семьи',
@@ -37,11 +43,11 @@ export const FamilySettingsPanel = () => {
   };
 
   const familyTypeOptions = [
-    { value: 'none', displayText: 'Нет' },
-    { value: 'member', displayText: 'Член семьи' },
-    { value: 'parent', displayText: 'Родитель' },
-    { value: 'couple', displayText: 'Пара' },
-  ];
+  { value: 'none', displayText: 'Нет' },
+  { value: 'member', displayText: 'Член семьи' },
+  { value: 'parent', displayText: 'Родитель' },
+  { value: 'couple', displayText: 'Пара' },
+  ].filter(opt => !(opt.value === 'parent' && isAdult));
 
   const raceOptions = [
     { value: 'own', displayText: 'Только своя раса' },
