@@ -20,7 +20,6 @@
     if(!P)
         .["familySettings"] = list()
         return
-
     .["familySettings"] = list(
         "familyType" = _family_to_ui(P.family),
         "genderPreference" = _gender_to_ui(P.gender_choice),
@@ -31,13 +30,8 @@
         "age" = P.age
     )
 
-    // Передаём список доступных рас во фронтенд
-    var/list/species_names = list()
-    for(var/name in GLOB.species_list)
-        species_names += name
-
+    var/list/species_names = get_selectable_species().Copy()
     .["availableSpecies"] = species_names
-
 
 /datum/family_options/ui_act(action, params)
     . = ..()
