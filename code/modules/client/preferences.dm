@@ -245,7 +245,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	familiar_prefs = new /datum/familiar_prefs(src)
 
 	loadoutpanel = new(C.mob)
-	family_options = new(C.mob)
 
 	for(var/custom_name_id in GLOB.preferences_custom_names)
 		custom_names[custom_name_id] = get_default_name(custom_name_id)
@@ -2077,6 +2076,8 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					loadoutpanel.ui_interact(user)
 
 				if("family_options")
+					if(!family_options)
+						family_options = new(user)
 					family_options.ui_interact(user)
 
 				if("vampire_hair")
