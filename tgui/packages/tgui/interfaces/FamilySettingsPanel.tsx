@@ -4,16 +4,28 @@ import { useBackend } from 'tgui/backend';
 import { Button, Box, Stack, Input, Dropdown } from 'tgui-core/components';
 
 type FamilyType = 'none' | 'member' | 'parent' | 'couple';
-type RacePref = 'own' | 'any';
+
+type SpeciesMode =
+  | 'ANY'
+  | 'SAME_TYPE'
+  | 'SAME_SUBTYPE'
+  | 'SPECIFIC_TYPE'
+  | 'SPECIFIC_SUBTYPE';
+
 type GenderPref = 'any' | 'same' | 'opposite';
 
 export const FamilySettingsPanel = () => {
   const { act, data } = useBackend();
+
   const settings = data?.familySettings;
-  
+  const speciesList: string[] = data?.availableSpecies || [];
+
   const isAdult = settings?.age === 'Adult';
+
   const [familyType, setFamilyType] = useState<FamilyType>('none');
-  const [racePreference, setRacePreference] = useState<RacePref>('any');
+  const [speciesMode, setSpeciesMode] = useState<SpeciesMode>('ANY');
+  const [preferredSpeciesType, setPreferredSpeciesType] = useState<string | null>(null);
+  const [preferredSpeciesSubtype, setPreferredSpeciesSubtype] = useState<string | null>(null);
   const [genderPreference, setGenderPreference] = useState<GenderPref>('any');
   const [favoriteName, setFavoriteName] = useState('');
   const [initialized, setInitialized] = useState(false);
@@ -22,7 +34,9 @@ export const FamilySettingsPanel = () => {
     if (!settings || initialized) return;
 
     setFamilyType(settings.familyType ?? 'none');
-    setRacePreference(settings.racePreference ?? 'any');
+    setSpeciesMode(settings.speciesPreferenceMode ?? 'ANY');
+    setPreferredSpeciesType(settings.preferredSpeciesType ?? null);
+    setPreferredSpeciesSubtype(settings.preferredSpeciesSubtype ?? null);
     setGenderPreference(settings.genderPreference ?? 'any');
     setFavoriteName(settings.favoriteName ?? '');
 
@@ -30,10 +44,10 @@ export const FamilySettingsPanel = () => {
   }, [settings, initialized]);
 
   useEffect(() => {
-  if (isAdult && familyType === 'parent') {
-    setFamilyType('member');
-  }
-}, [isAdult, familyType]);
+    if (isAdult && familyType === 'parent') {
+      setFamilyType('member');
+    }
+  }, [isAdult, familyType]);
 
   const tooltips = {
     none: 'Ваш персонаж не будет частью чьей-либо семьи',
@@ -43,15 +57,18 @@ export const FamilySettingsPanel = () => {
   };
 
   const familyTypeOptions = [
-  { value: 'none', displayText: 'Нет' },
-  { value: 'member', displayText: 'Член семьи' },
-  { value: 'parent', displayText: 'Родитель' },
-  { value: 'couple', displayText: 'Пара' },
+    { value: 'none', displayText: 'Нет' },
+    { value: 'member', displayText: 'Член семьи' },
+    { value: 'parent', displayText: 'Родитель' },
+    { value: 'couple', displayText: 'Пара' },
   ].filter(opt => !(opt.value === 'parent' && isAdult));
 
-  const raceOptions = [
-    { value: 'own', displayText: 'Только своя раса' },
-    { value: 'any', displayText: 'Любая' },
+  const speciesOptions = [
+    { value: 'ANY', displayText: 'Любая' },
+    { value: 'SAME_TYPE', displayText: 'Тот же тип' },
+    { value: 'SAME_SUBTYPE', displayText: 'Тот же подтип' },
+    { value: 'SPECIFIC_TYPE', displayText: 'Конкретная раса' },
+    { value: 'SPECIFIC_SUBTYPE', displayText: 'Конкретная подраса' },
   ];
 
   const genderOptions = [
@@ -66,7 +83,7 @@ export const FamilySettingsPanel = () => {
   ) => options.find(opt => opt.value === value)?.displayText || '';
 
   return (
-    <Window title="Настройка семьи" width={600} height={550}>
+    <Window title="Настройка семьи" width={600} height={600}>
       <Window.Content>
         <Stack vertical fill>
 
@@ -76,6 +93,7 @@ export const FamilySettingsPanel = () => {
             </h2>
           </Stack.Item>
 
+          {/* Тип семьи */}
           <Stack.Item>
             <Box style={{ marginBottom: '4px', fontWeight: 'bold' }}>
               Тип семьи:
@@ -109,25 +127,64 @@ export const FamilySettingsPanel = () => {
             <>
               <Stack.Divider />
 
+              {/* Предпочтение по расе */}
               <Stack.Item>
                 <Box style={{ marginBottom: '4px' }}>
                   Предпочтение по расе:
                 </Box>
 
                 <Dropdown
-                  options={raceOptions.map(opt => opt.displayText)}
-                  selected={getDisplayText(raceOptions, racePreference)}
+                  options={speciesOptions.map(opt => opt.displayText)}
+                  selected={getDisplayText(speciesOptions, speciesMode)}
                   onSelected={(selectedText) => {
-                    const selectedOption = raceOptions.find(
+                    const selectedOption = speciesOptions.find(
                       opt => opt.displayText === selectedText
                     );
                     if (selectedOption)
-                      setRacePreference(selectedOption.value as RacePref);
+                      setSpeciesMode(selectedOption.value as SpeciesMode);
                   }}
                   width="100%"
                 />
               </Stack.Item>
 
+              {/* SPECIFIC_TYPE */}
+              {speciesMode === 'SPECIFIC_TYPE' && (
+                <Stack.Item>
+                  <Box>Выберите расу:</Box>
+                  <Dropdown
+                    options={speciesList}
+                    selected={preferredSpeciesType || ''}
+                    onSelected={(value) => setPreferredSpeciesType(value)}
+                    width="100%"
+                  />
+                </Stack.Item>
+              )}
+
+              {/* SPECIFIC_SUBTYPE */}
+              {speciesMode === 'SPECIFIC_SUBTYPE' && (
+                <>
+                  <Stack.Item>
+                    <Box>Выберите расу:</Box>
+                    <Dropdown
+                      options={speciesList}
+                      selected={preferredSpeciesType || ''}
+                      onSelected={(value) => setPreferredSpeciesType(value)}
+                      width="100%"
+                    />
+                  </Stack.Item>
+
+                  <Stack.Item>
+                    <Box>Подраса:</Box>
+                    <Input
+                      value={preferredSpeciesSubtype || ''}
+                      onChange={setPreferredSpeciesSubtype}
+                      fluid
+                    />
+                  </Stack.Item>
+                </>
+              )}
+
+              {/* Пол */}
               <Stack.Item>
                 <Box style={{ marginBottom: '4px' }}>
                   Предпочтение по полу:
@@ -147,6 +204,7 @@ export const FamilySettingsPanel = () => {
                 />
               </Stack.Item>
 
+              {/* Имя фаворита */}
               <Stack.Item>
                 <Input
                   placeholder="Имя фаворита"
@@ -165,7 +223,9 @@ export const FamilySettingsPanel = () => {
               onClick={() => {
                 act('save', {
                   familyType,
-                  racePreference,
+                  speciesPreferenceMode: speciesMode,
+                  preferredSpeciesType,
+                  preferredSpeciesSubtype,
                   genderPreference,
                   favoriteName,
                 });

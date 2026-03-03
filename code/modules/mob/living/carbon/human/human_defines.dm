@@ -46,7 +46,7 @@
 	var/accessory = "None"
 	var/detail = "None"
 	var/marking = "None"
-	
+
 	var/shavelevel = 0
 	var/breathe_tick = 0 // Used for gas mask delays.
 	var/socks = "Nude" //Which socks the player wants
@@ -108,7 +108,6 @@
 	var/familytree_pref = FAMILY_NONE
 	var/datum/heritage/family_datum
 	var/list/temp_ui_list = list()
-	var/xenophobe = FALSE
 
 	var/marriedto
 
@@ -135,7 +134,7 @@
 	var/erpprefs = null
 
 	var/list/img_gallery = list()
-	
+
 
 	var/nsfw_headshot_link = null //TA edit
 

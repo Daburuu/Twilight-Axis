@@ -1,14 +1,17 @@
 /datum/family_options
     parent_type = /datum/tgui
 
+
 /datum/family_options/ui_state(mob/user)
     return GLOB.always_state
+
 
 /datum/family_options/ui_interact(mob/user, datum/tgui/ui)
     ui = SStgui.try_update_ui(user, src, ui)
     if(!ui)
         ui = new(user, src, "FamilySettingsPanel")
         ui.open()
+
 
 /datum/family_options/ui_data(mob/user)
     . = ..()
@@ -21,10 +24,20 @@
     .["familySettings"] = list(
         "familyType" = _family_to_ui(P.family),
         "genderPreference" = _gender_to_ui(P.gender_choice),
-        "racePreference" = (P.xenophobe_pref ? "own" : "any"),
+        "speciesPreferenceMode" = P.species_preference_mode,
+        "preferredSpeciesType" = P.preferred_species_type,
+        "preferredSpeciesSubtype" = P.preferred_species_subtype,
         "favoriteName" = (istext(P.setspouse) ? P.setspouse : ""),
         "age" = P.age
     )
+
+    // Передаём список доступных рас во фронтенд
+    var/list/species_names = list()
+    for(var/name in GLOB.species_list)
+        species_names += name
+
+    .["availableSpecies"] = species_names
+
 
 /datum/family_options/ui_act(action, params)
     . = ..()
@@ -46,8 +59,17 @@
 
             P.family = new_family
             P.gender_choice = _ui_to_gender(params["genderPreference"])
-            P.xenophobe_pref = (params["racePreference"] == "own")
+            P.species_preference_mode = params["speciesPreferenceMode"]
+            P.preferred_species_type = params["preferredSpeciesType"]
+            P.preferred_species_subtype = params["preferredSpeciesSubtype"]
             P.setspouse = istext(params["favoriteName"]) ? copytext(params["favoriteName"], 1, 65) : ""
+
+            // Очистка если режим не SPECIFIC
+            if(P.species_preference_mode != "SPECIFIC_TYPE" && P.species_preference_mode != "SPECIFIC_SUBTYPE")
+                P.preferred_species_type = null
+
+            if(P.species_preference_mode != "SPECIFIC_SUBTYPE")
+                P.preferred_species_subtype = null
 
             P.save_preferences()
             P.save_character()
@@ -65,11 +87,13 @@
         if(FAMILY_FULL) return "parent"
     return "none"
 
+
 /datum/family_options/proc/_gender_to_ui(val)
     switch(val)
         if(SAME_GENDER) return "same"
         if(DIFFERENT_GENDER) return "opposite"
     return "any"
+
 
 /datum/family_options/proc/_ui_to_family(val)
     switch(val)
@@ -77,6 +101,7 @@
         if("couple") return FAMILY_NEWLYWED
         if("parent") return FAMILY_FULL
     return FAMILY_NONE
+
 
 /datum/family_options/proc/_ui_to_gender(val)
     switch(val)

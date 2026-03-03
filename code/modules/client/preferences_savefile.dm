@@ -471,7 +471,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["family"]				>> family
 	S["gender_choice"] 		>> gender_choice
 	S["setspouse"] 			>> setspouse
-	S["xenophobe_pref"]		>> xenophobe_pref
+	S["species_preference_mode"]     >> species_preference_mode
+	S["preferred_species_type"]      >> preferred_species_type
+	S["preferred_species_subtype"]   >> preferred_species_subtype
 	S["vampire_skin"]		>> vampire_skin
 	S["vampire_hair"]		>> vampire_hair
 	S["vampire_eyes"]		>> vampire_eyes
@@ -664,7 +666,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	family 			= family
 	gender_choice 	= gender_choice
 	setspouse 		= setspouse
-	xenophobe_pref 	= xenophobe_pref
 	extra_language  = extra_language
 	voice_color		= voice_color
 	voice_pitch		= voice_pitch
@@ -710,6 +711,12 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	S["customizer_entries"] >> customizer_entries
 	validate_customizer_entries()
+	species_preference_mode = sanitize_text(species_preference_mode, "ANY")
+
+	if(!preferred_species_type)
+		preferred_species_type = null
+	if(!preferred_species_subtype)
+		preferred_species_subtype = null
 
 	return TRUE
 
@@ -724,6 +731,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["version"]			, SAVEFILE_VERSION_MAX)	//load_character will sanitize any bad data, so assume up-to-date.)
 
 	//Character
+
 	WRITE_FILE(S["real_name"]			, real_name)
 	WRITE_FILE(S["gender"]				, gender)
 	WRITE_FILE(S["domhand"]				, domhand)
@@ -758,6 +766,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["taur_type"]			, taur_type)
 	WRITE_FILE(S["taur_color"]			, taur_color)
 	WRITE_FILE(S["culinary_preferences"], culinary_preferences)
+	WRITE_FILE(S["species_preference_mode"], species_preference_mode)
+	WRITE_FILE(S["preferred_species_type"], preferred_species_type)
+	WRITE_FILE(S["preferred_species_subtype"], preferred_species_subtype)
 
 	//Custom names
 	for(var/custom_name_id in GLOB.preferences_custom_names)
@@ -809,13 +820,12 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["family"], family)
 	WRITE_FILE(S["gender_choice"], gender_choice)
 	WRITE_FILE(S["setspouse"], setspouse)
-	WRITE_FILE(S["xenophobe_pref"], xenophobe_pref)
 	WRITE_FILE(S["body_size"] , features["body_size"])
 	WRITE_FILE(S["nsfwflavortext"] , html_decode(nsfwflavortext))
 	WRITE_FILE(S["nsfw_headshot_link"] , nsfw_headshot_link) //TA edit
 	WRITE_FILE(S["erpprefs"] , html_decode(erpprefs))
 	WRITE_FILE(S["img_gallery"] , img_gallery)
-	
+
 	WRITE_FILE(S["selected_loadout_items"], selected_loadout_items)
 
 	//Familiar Files

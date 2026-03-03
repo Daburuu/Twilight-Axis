@@ -103,7 +103,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/shake = TRUE
 	var/sexable = FALSE
 	var/compliance_notifs = TRUE
-	var/xenophobe_pref = 1
 
 	var/list/custom_names = list()
 	var/preferred_ai_core_display = "Blue"
@@ -235,7 +234,10 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 	//FAMILY SS
 	var/gender_choice_pref = ANY_GENDER
-	var/xenophobe = FALSE
+
+	var/species_preference_mode
+	var/preferred_species_type
+	var/preferred_species_subtype
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -441,12 +443,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				dat += "<b>[spousename]:</b> <a href='?_src_=prefs;preference=setspouse'>[setspouse ? setspouse : "None"]</a><BR>"
 				if(family == FAMILY_NEWLYWED || family == FAMILY_FULL)
 					dat += "<b>Preferred Gender:</b> <a href='?_src_=prefs;preference=gender_choice'>[gender_choice ? gender_choice : "Any Gender"]</a><BR>"
-					var/species_text
-					if(xenophobe_pref == 1)
-						species_text = "<font color='#FFA500'>Race only</font>"
-					else
-						species_text = "<font color='#1cb308'>Unrestricted</font>"
-					dat += "<b>Restrict Species:</b> <a href='?_src_=prefs;preference=species_choice'>[species_text]</a><BR>"
 			// LETHALSTONE EDIT BEGIN: add statpack selection
 			dat += "<b>Statpack:</b> <a href='?_src_=prefs;preference=statpack;task=input'>[statpack.name]</a><BR>"
 //			dat += "<a href='?_src_=prefs;preference=species;task=random'>Random Species</A> "
@@ -2356,6 +2352,45 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					else
 						domhand = 1
 				if("family")
+					if("species_preference")
+						var/list/options = list(
+        				"Any",
+        				"Same Type",
+        				"Same Subtype",
+        				"Exact Species",
+        				"Custom Subtype"
+						)
+
+						var/choice = tgui_input_list(user, "Choose Species Preference", "SPECIES PREFERENCE", options)
+
+						if(!choice)
+							return
+
+						switch(choice)
+							if("Any")
+								species_preference_mode = "ANY"
+								preferred_species_type = null
+								preferred_species_subtype = null
+
+							if("Same Type")
+								species_preference_mode = "TYPE"
+							if("Same Subtype")
+								species_preference_mode = "SUBTYPE"
+
+							if("Exact Species")
+								species_preference_mode = "EXACT"
+								preferred_species_type = pref_species.type
+							if("Custom Subtype")
+								var/list/species_list = list()
+								for(var/A in GLOB.roundstart_races)
+									var/datum/species/race = GLOB.species_list[A]
+									race = new race()
+									species_list[race.name] = race.type
+
+								var/picked = tgui_input_list(user, "Select Subtype", "SUBTYPE", species_list)
+								if(picked)
+									species_preference_mode = "CUSTOM_SUBTYPE"
+									preferred_species_subtype = species_list[picked]
 					var/list/famtree_options_list = list(FAMILY_NONE, FAMILY_PARTIAL, FAMILY_NEWLYWED, "EXPLAIN THIS TO ME")
 					if(age != AGE_ADULT)
 						famtree_options_list = list(FAMILY_NONE, FAMILY_PARTIAL, FAMILY_NEWLYWED, FAMILY_FULL, "EXPLAIN THIS TO ME")
@@ -2372,7 +2407,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						family = new_family
 						setspouse = null
 						gender_choice = ANY_GENDER
-						xenophobe_pref = 1
+
 				//Setspouse is part of the family subsystem. It will check existing families for this character and attempt to place you in this family.
 				if("setspouse")
 					var/newspouse = tgui_input_text(user, "INPUT THE IDENTITY OF ANOTHER HERO", "TIL DEATH DO US PART")
@@ -2391,17 +2426,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						var/new_gender_choice  = tgui_input_list(user, "SELECT YOUR HERO'S PREFERENCE", "TO LOVE AND TO CHERISH", gender_choice_option_list, gender_choice)
 						if(new_gender_choice)
 							gender_choice = new_gender_choice
-				if("species_choice")
-					xenophobe_pref += 1
-					if(xenophobe_pref > 2)
-						if(family == FAMILY_FULL)
-							xenophobe_pref = 1
-						else
-							xenophobe_pref = 0
-					if(xenophobe_pref == 1)
-						to_chat(user, "Spouse species will be restricted to your race.")
-					else
-						to_chat(user, "Spouse species is unrestricted.")
 				if("hotkeys")
 					hotkeys = !hotkeys
 					if(hotkeys)
@@ -2756,7 +2780,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	character.familytree_pref = family
 	character.gender_choice_pref = gender_choice
 	character.setspouse = setspouse
-	character.xenophobe = xenophobe_pref
 
 	character.jumpsuit_style = jumpsuit_style
 
