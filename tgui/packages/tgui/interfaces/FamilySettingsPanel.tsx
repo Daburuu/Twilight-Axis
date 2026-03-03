@@ -8,11 +8,11 @@ type FamilyType = 'none' | 'member' | 'parent' | 'couple';
 type SpeciesMode =
   | 'ANY'
   | 'SAME_TYPE'
-  | 'SAME_SUBTYPE'
-  | 'SPECIFIC_TYPE'
-  | 'SPECIFIC_SUBTYPE';
+  | 'SPECIFIC_TYPE';
 
 type GenderPref = 'any' | 'same' | 'opposite';
+
+type AnatomyPref = 0 | 1 | 2;
 
 export const FamilySettingsPanel = () => {
   const { act, data } = useBackend();
@@ -25,7 +25,7 @@ export const FamilySettingsPanel = () => {
   const [familyType, setFamilyType] = useState<FamilyType>('none');
   const [speciesMode, setSpeciesMode] = useState<SpeciesMode>('ANY');
   const [preferredSpeciesType, setPreferredSpeciesType] = useState<string | null>(null);
-  const [preferredSpeciesSubtype, setPreferredSpeciesSubtype] = useState<string | null>(null);
+  const [preferredSpeciesAnatomy, setPreferredSpeciesAnatomy] = useState<AnatomyPref>(0);
   const [genderPreference, setGenderPreference] = useState<GenderPref>('any');
   const [favoriteName, setFavoriteName] = useState('');
   const [initialized, setInitialized] = useState(false);
@@ -36,7 +36,7 @@ export const FamilySettingsPanel = () => {
     setFamilyType(settings.familyType ?? 'none');
     setSpeciesMode(settings.speciesPreferenceMode ?? 'ANY');
     setPreferredSpeciesType(settings.preferredSpeciesType ?? null);
-    setPreferredSpeciesSubtype(settings.preferredSpeciesSubtype ?? null);
+    setPreferredSpeciesAnatomy(settings.preferredSpeciesAnatomy ?? 0);
     setGenderPreference(settings.genderPreference ?? 'any');
     setFavoriteName(settings.favoriteName ?? '');
 
@@ -66,9 +66,7 @@ export const FamilySettingsPanel = () => {
   const speciesOptions = [
     { value: 'ANY', displayText: 'Любая' },
     { value: 'SAME_TYPE', displayText: 'Тот же тип' },
-    { value: 'SAME_SUBTYPE', displayText: 'Тот же подтип' },
     { value: 'SPECIFIC_TYPE', displayText: 'Конкретная раса' },
-    { value: 'SPECIFIC_SUBTYPE', displayText: 'Конкретная подраса' },
   ];
 
   const genderOptions = [
@@ -77,9 +75,15 @@ export const FamilySettingsPanel = () => {
     { value: 'opposite', displayText: 'Противоположный' },
   ];
 
+  const anatomyOptions = [
+    { value: 0, displayText: 'Без разницы' },
+    { value: 1, displayText: 'Пенис' },
+    { value: 2, displayText: 'Вульва' },
+  ];
+
   const getDisplayText = (
-    options: { value: string; displayText: string }[],
-    value: string
+    options: { value: any; displayText: string }[],
+    value: any
   ) => options.find(opt => opt.value === value)?.displayText || '';
 
   return (
@@ -93,7 +97,6 @@ export const FamilySettingsPanel = () => {
             </h2>
           </Stack.Item>
 
-          {/* Тип семьи */}
           <Stack.Item>
             <Box style={{ marginBottom: '4px', fontWeight: 'bold' }}>
               Тип семьи:
@@ -127,7 +130,6 @@ export const FamilySettingsPanel = () => {
             <>
               <Stack.Divider />
 
-              {/* Предпочтение по расе */}
               <Stack.Item>
                 <Box style={{ marginBottom: '4px' }}>
                   Предпочтение по расе:
@@ -147,7 +149,6 @@ export const FamilySettingsPanel = () => {
                 />
               </Stack.Item>
 
-              {/* SPECIFIC_TYPE */}
               {speciesMode === 'SPECIFIC_TYPE' && (
                 <Stack.Item>
                   <Box>Выберите расу:</Box>
@@ -160,31 +161,25 @@ export const FamilySettingsPanel = () => {
                 </Stack.Item>
               )}
 
-              {/* SPECIFIC_SUBTYPE */}
-              {speciesMode === 'SPECIFIC_SUBTYPE' && (
-                <>
-                  <Stack.Item>
-                    <Box>Выберите расу:</Box>
-                    <Dropdown
-                      options={speciesList}
-                      selected={preferredSpeciesType || ''}
-                      onSelected={(value) => setPreferredSpeciesType(value)}
-                      width="100%"
-                    />
-                  </Stack.Item>
+              <Stack.Item>
+                <Box style={{ marginBottom: '4px' }}>
+                  Предпочтительная анатомия:
+                </Box>
 
-                  <Stack.Item>
-                    <Box>Подраса:</Box>
-                    <Input
-                      value={preferredSpeciesSubtype || ''}
-                      onChange={setPreferredSpeciesSubtype}
-                      fluid
-                    />
-                  </Stack.Item>
-                </>
-              )}
+                <Dropdown
+                  options={anatomyOptions.map(opt => opt.displayText)}
+                  selected={getDisplayText(anatomyOptions, preferredSpeciesAnatomy)}
+                  onSelected={(selectedText) => {
+                    const selectedOption = anatomyOptions.find(
+                      opt => opt.displayText === selectedText
+                    );
+                    if (selectedOption)
+                      setPreferredSpeciesAnatomy(selectedOption.value as AnatomyPref);
+                  }}
+                  width="100%"
+                />
+              </Stack.Item>
 
-              {/* Пол */}
               <Stack.Item>
                 <Box style={{ marginBottom: '4px' }}>
                   Предпочтение по полу:
@@ -204,7 +199,6 @@ export const FamilySettingsPanel = () => {
                 />
               </Stack.Item>
 
-              {/* Имя фаворита */}
               <Stack.Item>
                 <Input
                   placeholder="Имя фаворита"
@@ -225,7 +219,7 @@ export const FamilySettingsPanel = () => {
                   familyType,
                   speciesPreferenceMode: speciesMode,
                   preferredSpeciesType,
-                  preferredSpeciesSubtype,
+                  preferredSpeciesAnatomy,
                   genderPreference,
                   favoriteName,
                 });

@@ -237,7 +237,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 	var/species_preference_mode
 	var/preferred_species_type
-	var/preferred_species_subtype
+	var/preferred_species_anatomy = 0
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -2353,13 +2353,16 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					else
 						domhand = 1
 				if("family")
-					if("species_preference")
+
+					if(href_list["species_preference"])
+
 						var/list/options = list(
-        				"Any",
-        				"Same Type",
-        				"Same Subtype",
-        				"Exact Species",
-        				"Custom Subtype"
+							"Any",
+							"Same Type",
+							"Exact Species",
+							"Anatomy: Any",
+							"Anatomy: Penis",
+							"Anatomy: Vulva"
 						)
 
 						var/choice = tgui_input_list(user, "Choose Species Preference", "SPECIES PREFERENCE", options)
@@ -2368,30 +2371,28 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							return
 
 						switch(choice)
+
 							if("Any")
 								species_preference_mode = "ANY"
 								preferred_species_type = null
-								preferred_species_subtype = null
+								preferred_species_anatomy = 0
 
 							if("Same Type")
 								species_preference_mode = "TYPE"
-							if("Same Subtype")
-								species_preference_mode = "SUBTYPE"
 
 							if("Exact Species")
 								species_preference_mode = "EXACT"
 								preferred_species_type = pref_species.type
-							if("Custom Subtype")
-								var/list/species_list = list()
-								for(var/A in GLOB.roundstart_races)
-									var/datum/species/race = GLOB.species_list[A]
-									race = new race()
-									species_list[race.name] = race.type
 
-								var/picked = tgui_input_list(user, "Select Subtype", "SUBTYPE", species_list)
-								if(picked)
-									species_preference_mode = "CUSTOM_SUBTYPE"
-									preferred_species_subtype = species_list[picked]
+							if("Anatomy: Any")
+								preferred_species_anatomy = 0
+
+							if("Anatomy: Penis")
+								preferred_species_anatomy = 1
+
+							if("Anatomy: Vulva")
+								preferred_species_anatomy = 2
+
 					var/list/famtree_options_list = list(FAMILY_NONE, FAMILY_PARTIAL, FAMILY_NEWLYWED, "EXPLAIN THIS TO ME")
 					if(age != AGE_ADULT)
 						famtree_options_list = list(FAMILY_NONE, FAMILY_PARTIAL, FAMILY_NEWLYWED, FAMILY_FULL, "EXPLAIN THIS TO ME")

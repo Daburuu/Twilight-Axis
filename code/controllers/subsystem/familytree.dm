@@ -639,39 +639,44 @@ SUBSYSTEM_DEF(familytree)
 
 	var/typeA = A.dna.species.type
 	var/typeB = B.dna.species.type
-	var/nameA = A.dna.species.name
-	var/nameB = B.dna.species.name
+
 
 	if(PA)
 		switch(PA.species_preference_mode)
 			if("ANY")
-				// always ok
 			if("SAME_TYPE")
 				if(typeA != typeB)
-					return FALSE
-			if("SAME_SUBTYPE")
-				if(nameA != nameB)
 					return FALSE
 			if("SPECIFIC_TYPE")
 				if(typeB != PA.preferred_species_type)
 					return FALSE
-			if("SPECIFIC_SUBTYPE")
-				if(nameB != PA.preferred_species_subtype)
-					return FALSE
+
 	if(PB)
 		switch(PB.species_preference_mode)
 			if("ANY")
 			if("SAME_TYPE")
 				if(typeA != typeB)
 					return FALSE
-			if("SAME_SUBTYPE")
-				if(nameA != nameB)
-					return FALSE
 			if("SPECIFIC_TYPE")
 				if(typeA != PB.preferred_species_type)
 					return FALSE
-			if("SPECIFIC_SUBTYPE")
-				if(nameA != PB.preferred_species_subtype)
-					return FALSE
 
+	if(PA)
+		if(!AnatomyCompatible(PA.preferred_species_anatomy, B))
+			return FALSE
+
+	if(PB)
+		if(!AnatomyCompatible(PB.preferred_species_anatomy, A))
+			return FALSE
+
+	return TRUE
+
+/datum/controller/subsystem/familytree/proc/AnatomyCompatible(pref, mob/living/carbon/human/target)
+	switch(pref)
+		if(0)
+			return TRUE
+		if(1) // man
+			return target.getorganslot(ORGAN_SLOT_PENIS) != null
+		if(2) // wo-man
+			return target.getorganslot(ORGAN_SLOT_VAGINA) != null
 	return TRUE

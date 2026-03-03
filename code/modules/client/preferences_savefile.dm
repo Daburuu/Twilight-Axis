@@ -473,7 +473,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["setspouse"] 			>> setspouse
 	S["species_preference_mode"]     >> species_preference_mode
 	S["preferred_species_type"]      >> preferred_species_type
-	S["preferred_species_subtype"]   >> preferred_species_subtype
+	S["preferred_species_anatomy"] >> preferred_species_anatomy
 	S["vampire_skin"]		>> vampire_skin
 	S["vampire_hair"]		>> vampire_hair
 	S["vampire_eyes"]		>> vampire_eyes
@@ -715,8 +715,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	if(!preferred_species_type)
 		preferred_species_type = null
-	if(!preferred_species_subtype)
-		preferred_species_subtype = null
+	if(isnull(preferred_species_anatomy))
+		preferred_species_anatomy = 0
 
 	return TRUE
 
@@ -768,7 +768,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["culinary_preferences"], culinary_preferences)
 	WRITE_FILE(S["species_preference_mode"], species_preference_mode)
 	WRITE_FILE(S["preferred_species_type"], preferred_species_type)
-	WRITE_FILE(S["preferred_species_subtype"], preferred_species_subtype)
+	WRITE_FILE(S["preferred_species_anatomy"], preferred_species_anatomy)
 
 	//Custom names
 	for(var/custom_name_id in GLOB.preferences_custom_names)
