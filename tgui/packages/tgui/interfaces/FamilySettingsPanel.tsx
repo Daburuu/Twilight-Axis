@@ -4,16 +4,28 @@ import { useBackend } from 'tgui/backend';
 import { Button, Box, Stack, Input, Dropdown } from 'tgui-core/components';
 
 type FamilyType = 'none' | 'member' | 'parent' | 'couple';
-type RacePref = 'own' | 'any';
+
+type SpeciesMode =
+  | 'ANY'
+  | 'SAME_TYPE'
+  | 'SPECIFIC_TYPE';
+
 type GenderPref = 'any' | 'same' | 'opposite';
+
+type AnatomyPref = 0 | 1 | 2;
 
 export const FamilySettingsPanel = () => {
   const { act, data } = useBackend();
+
   const settings = data?.familySettings;
-  
+  const speciesList: string[] = data?.availableSpecies || [];
+
   const isAdult = settings?.age === 'Adult';
+
   const [familyType, setFamilyType] = useState<FamilyType>('none');
-  const [racePreference, setRacePreference] = useState<RacePref>('any');
+  const [speciesMode, setSpeciesMode] = useState<SpeciesMode>('ANY');
+  const [preferredSpeciesType, setPreferredSpeciesType] = useState<string | null>(null);
+  const [preferredSpeciesAnatomy, setPreferredSpeciesAnatomy] = useState<AnatomyPref>(0);
   const [genderPreference, setGenderPreference] = useState<GenderPref>('any');
   const [favoriteName, setFavoriteName] = useState('');
   const [initialized, setInitialized] = useState(false);
@@ -22,7 +34,9 @@ export const FamilySettingsPanel = () => {
     if (!settings || initialized) return;
 
     setFamilyType(settings.familyType ?? 'none');
-    setRacePreference(settings.racePreference ?? 'any');
+    setSpeciesMode(settings.speciesPreferenceMode ?? 'ANY');
+    setPreferredSpeciesType(settings.preferredSpeciesType ?? null);
+    setPreferredSpeciesAnatomy(settings.preferredSpeciesAnatomy ?? 0);
     setGenderPreference(settings.genderPreference ?? 'any');
     setFavoriteName(settings.favoriteName ?? '');
 
@@ -30,10 +44,10 @@ export const FamilySettingsPanel = () => {
   }, [settings, initialized]);
 
   useEffect(() => {
-  if (isAdult && familyType === 'parent') {
-    setFamilyType('member');
-  }
-}, [isAdult, familyType]);
+    if (isAdult && familyType === 'parent') {
+      setFamilyType('member');
+    }
+  }, [isAdult, familyType]);
 
   const tooltips = {
     none: 'Ваш персонаж не будет частью чьей-либо семьи',
@@ -43,15 +57,16 @@ export const FamilySettingsPanel = () => {
   };
 
   const familyTypeOptions = [
-  { value: 'none', displayText: 'Нет' },
-  { value: 'member', displayText: 'Член семьи' },
-  { value: 'parent', displayText: 'Родитель' },
-  { value: 'couple', displayText: 'Пара' },
+    { value: 'none', displayText: 'Нет' },
+    { value: 'member', displayText: 'Член семьи' },
+    { value: 'parent', displayText: 'Родитель' },
+    { value: 'couple', displayText: 'Пара' },
   ].filter(opt => !(opt.value === 'parent' && isAdult));
 
-  const raceOptions = [
-    { value: 'own', displayText: 'Только своя раса' },
-    { value: 'any', displayText: 'Любая' },
+  const speciesOptions = [
+    { value: 'ANY', displayText: 'Любая' },
+    { value: 'SAME_TYPE', displayText: 'Тот же тип' },
+    { value: 'SPECIFIC_TYPE', displayText: 'Конкретная раса' },
   ];
 
   const genderOptions = [
@@ -60,13 +75,19 @@ export const FamilySettingsPanel = () => {
     { value: 'opposite', displayText: 'Противоположный' },
   ];
 
+  const anatomyOptions = [
+    { value: 0, displayText: 'Без разницы' },
+    { value: 1, displayText: 'Пенис' },
+    { value: 2, displayText: 'Вульва' },
+  ];
+
   const getDisplayText = (
-    options: { value: string; displayText: string }[],
-    value: string
+    options: { value: any; displayText: string }[],
+    value: any
   ) => options.find(opt => opt.value === value)?.displayText || '';
 
   return (
-    <Window title="Настройка семьи" width={600} height={550}>
+    <Window title="Настройка семьи" width={600} height={600}>
       <Window.Content>
         <Stack vertical fill>
 
@@ -115,14 +136,45 @@ export const FamilySettingsPanel = () => {
                 </Box>
 
                 <Dropdown
-                  options={raceOptions.map(opt => opt.displayText)}
-                  selected={getDisplayText(raceOptions, racePreference)}
+                  options={speciesOptions.map(opt => opt.displayText)}
+                  selected={getDisplayText(speciesOptions, speciesMode)}
                   onSelected={(selectedText) => {
-                    const selectedOption = raceOptions.find(
+                    const selectedOption = speciesOptions.find(
                       opt => opt.displayText === selectedText
                     );
                     if (selectedOption)
-                      setRacePreference(selectedOption.value as RacePref);
+                      setSpeciesMode(selectedOption.value as SpeciesMode);
+                  }}
+                  width="100%"
+                />
+              </Stack.Item>
+
+              {speciesMode === 'SPECIFIC_TYPE' && (
+                <Stack.Item>
+                  <Box>Выберите расу:</Box>
+                  <Dropdown
+                    options={speciesList}
+                    selected={preferredSpeciesType || ''}
+                    onSelected={(value) => setPreferredSpeciesType(value)}
+                    width="100%"
+                  />
+                </Stack.Item>
+              )}
+
+              <Stack.Item>
+                <Box style={{ marginBottom: '4px' }}>
+                  Предпочтительная анатомия:
+                </Box>
+
+                <Dropdown
+                  options={anatomyOptions.map(opt => opt.displayText)}
+                  selected={getDisplayText(anatomyOptions, preferredSpeciesAnatomy)}
+                  onSelected={(selectedText) => {
+                    const selectedOption = anatomyOptions.find(
+                      opt => opt.displayText === selectedText
+                    );
+                    if (selectedOption)
+                      setPreferredSpeciesAnatomy(selectedOption.value as AnatomyPref);
                   }}
                   width="100%"
                 />
@@ -165,7 +217,9 @@ export const FamilySettingsPanel = () => {
               onClick={() => {
                 act('save', {
                   familyType,
-                  racePreference,
+                  speciesPreferenceMode: speciesMode,
+                  preferredSpeciesType,
+                  preferredSpeciesAnatomy,
                   genderPreference,
                   favoriteName,
                 });

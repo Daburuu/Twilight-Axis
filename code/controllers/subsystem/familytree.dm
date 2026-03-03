@@ -340,8 +340,8 @@ SUBSYSTEM_DEF(familytree)
 		for(var/datum/heritage/house in families)
 			for(var/datum/family_member/M in house.members)
 				if(M.person && M.person.real_name == H.setspouse)
-					if(M.person.xenophobe == 1 && M.person.dna.species != our_race)
-						break
+					if(!SpeciesCompatible(H, M.person))
+						continue
 					chosen_house = house
 
 	// Prioritize houses with existing members but not too many
@@ -468,7 +468,7 @@ SUBSYSTEM_DEF(familytree)
 						var/ok_gender_M = member.person.pronouns_match(member.person, H)
 						if(!ok_gender_H || !ok_gender_M)
 							continue
-						if((member.person.xenophobe == 1 || H.xenophobe == 1) && member.person.dna.species.name != our_race)
+						if(!SpeciesCompatible(H, member.person))
 							continue
 						if(member.person.familytree_pref == FAMILY_PARTIAL)
 							continue
@@ -525,10 +525,8 @@ SUBSYSTEM_DEF(familytree)
 		if(!mutual_setspouse)
 			if(!H.pronouns_match(H, potential_spouse) || !potential_spouse.pronouns_match(potential_spouse, H))
 				continue // skip if gender preferences incompatible
-		if((potential_spouse.xenophobe == 1 || H.xenophobe == 1) && potential_spouse.dna.species.name != H.dna.species.name)
-			continue
-		if((potential_spouse.xenophobe == 2 || H.xenophobe == 2) && potential_spouse.dna.species.type != H.dna.species.type)
-			continue
+			if(!SpeciesCompatible(H, potential_spouse))
+				continue
 		// Check setspouse compatibility
 		var/priority = 0
 		if(mutual_setspouse)
@@ -631,3 +629,54 @@ SUBSYSTEM_DEF(familytree)
 				member.children -= child
 				if(child.person)
 					child.parents -= member
+
+/datum/controller/subsystem/familytree/proc/SpeciesCompatible(mob/living/carbon/human/A, mob/living/carbon/human/B)
+	if(!A || !B)
+		return FALSE
+
+	var/datum/preferences/PA = A.client?.prefs
+	var/datum/preferences/PB = B.client?.prefs
+
+	var/typeA = A.dna.species.type
+	var/typeB = B.dna.species.type
+
+
+	if(PA)
+		switch(PA.species_preference_mode)
+			if("ANY")
+			if("SAME_TYPE")
+				if(typeA != typeB)
+					return FALSE
+			if("SPECIFIC_TYPE")
+				if(typeB != PA.preferred_species_type)
+					return FALSE
+
+	if(PB)
+		switch(PB.species_preference_mode)
+			if("ANY")
+			if("SAME_TYPE")
+				if(typeA != typeB)
+					return FALSE
+			if("SPECIFIC_TYPE")
+				if(typeA != PB.preferred_species_type)
+					return FALSE
+
+	if(PA)
+		if(!AnatomyCompatible(PA.preferred_species_anatomy, B))
+			return FALSE
+
+	if(PB)
+		if(!AnatomyCompatible(PB.preferred_species_anatomy, A))
+			return FALSE
+
+	return TRUE
+
+/datum/controller/subsystem/familytree/proc/AnatomyCompatible(pref, mob/living/carbon/human/target)
+	switch(pref)
+		if(0)
+			return TRUE
+		if(1) // man
+			return target.getorganslot(ORGAN_SLOT_PENIS) != null
+		if(2) // wo-man
+			return target.getorganslot(ORGAN_SLOT_VAGINA) != null
+	return TRUE
