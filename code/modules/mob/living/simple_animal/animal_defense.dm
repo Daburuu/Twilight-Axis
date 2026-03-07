@@ -1,3 +1,49 @@
+<<<<<<< HEAD
+=======
+/mob/living/simple_animal/attacked_by(obj/item/I, mob/living/user)
+	if(I.force_dynamic < force_threshold || I.damtype == STAMINA)
+		playsound(loc, 'sound/blank.ogg', I.get_clamped_volume(), TRUE, -1)
+	else
+		var/hitlim = simple_limb_hit(user.zone_selected)
+		I.funny_attack_effects(src, user)
+		if(I.force_dynamic)
+			var/newforce = get_complex_damage(I, user)
+			var/haha = user.used_intent.item_d_type
+			var/armor = run_armor_check(null, haha, armor_penetration = I.armor_penetration, damage = newforce, used_weapon = I)
+			var/nodmg = FALSE
+			next_attack_msg.Cut()
+			if(armor > 0)
+				nodmg = TRUE
+				next_attack_msg += VISMSG_ARMOR_BLOCKED
+			apply_damage(newforce, I.damtype, hitlim, armor)
+			I.remove_bintegrity(1)
+			if(I.damtype == BRUTE && !nodmg)
+				if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
+					if(I.is_silver && HAS_TRAIT(src, TRAIT_SILVER_WEAK))
+						newforce *= SILVER_SIMPLEMOB_DAM_MULT
+					simple_woundcritroll(user.used_intent.blade_class, newforce, user, hitlim)
+				if(newforce > 5)
+					if(haha != BCLASS_BLUNT)
+						I.add_mob_blood(src)
+						var/turf/location = get_turf(src)
+						add_splatter_floor(location)
+						add_splatter_wall(location, force = newforce)
+						if(get_dist(user, src) <= 1)	//people with TK won't get smeared with blood
+							user.add_mob_blood(src)
+				if(newforce > 15)
+					if(haha == BCLASS_BLUNT)
+						I.add_mob_blood(src)
+						var/turf/location = get_turf(src)
+						add_splatter_floor(location)
+						add_splatter_wall(location, force = newforce)
+						if(get_dist(user, src) <= 1)	//people with TK won't get smeared with blood
+							user.add_mob_blood(src)
+		send_item_attack_message(I, user, hitlim)
+		next_attack_msg.Cut()
+		if(I.force_dynamic)
+			return TRUE
+		I.do_special_attack_effect(user, null, null, src, null)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 
 
 /mob/living/simple_animal/attack_hand(mob/living/carbon/human/M)

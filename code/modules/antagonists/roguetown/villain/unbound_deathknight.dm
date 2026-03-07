@@ -16,12 +16,10 @@
 	equip_knight()
 	forge_objectives()
 
-/// Skeletonizes the owner, making it a skeleton. Separate proc in hopes that someone will remove duplicate skelecode from AP.
+/// Skeletonizes the owner using shared become_skeleton() proc.
 /datum/antagonist/unbound_death_knight/proc/skeletonize()
-	if(isdwarf(owner.current)) // I am terribly sorry, fellow dwarfs. Remove this after death knight's armor works with dwarves.
-		owner.current.set_species(/datum/species/human/northern)
-
 	var/mob/living/carbon/human/L = owner.current
+<<<<<<< HEAD
 	QDEL_NULL(L.charflaw)
 	L.hairstyle = "Bald"
 	L.facial_hairstyle = "Shaved"
@@ -50,9 +48,11 @@
 	ADD_TRAIT(L, TRAIT_TOXIMMUNE, TRAIT_GENERIC)
 	ADD_TRAIT(L, TRAIT_NOSLEEP, TRAIT_GENERIC)
 	ADD_TRAIT(L, TRAIT_SHOCKIMMUNE, TRAIT_GENERIC)
+=======
+	L.become_skeleton()
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 	ADD_TRAIT(L, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(L, TRAIT_ARCYNE_T2, TRAIT_GENERIC)
-	ADD_TRAIT(L, TRAIT_SELF_SUSTENANCE, TRAIT_GENERIC)
 
 /datum/antagonist/unbound_death_knight/proc/equip_knight()
 	owner.unknow_all_people()

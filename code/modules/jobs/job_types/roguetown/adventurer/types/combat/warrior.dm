@@ -534,6 +534,7 @@
 		/obj/item/recipe_book/survival = 1,
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1,
+<<<<<<< HEAD
 		/obj/item/rogueweapon/huntingknife = 1, //Ensures that Exorcists who take the Shovel can still butcher wildlife. Minor oversight on my part.
 		)
 	if(H.age == AGE_OLD)
@@ -544,6 +545,26 @@
 		H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE) 	
 		H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/staves, 1, TRUE)
+=======
+		/obj/item/book/rogue/trophy_rules = 1 //TA edit - added trophy_hunter component
+		)
+
+	H.set_blindness(0)
+	switch(H.patron?.type)
+		if(/datum/patron/old_god)
+			wrists = /obj/item/clothing/neck/roguetown/psicross/silver
+		if(/datum/patron/divine/astrata)
+			wrists = /obj/item/clothing/neck/roguetown/psicross/silver/astrata
+		if(/datum/patron/divine/necra)
+			wrists = /obj/item/clothing/neck/roguetown/psicross/silver/necra
+		if(/datum/patron/divine/noc)
+			wrists = /obj/item/clothing/neck/roguetown/psicross/silver/noc 
+		else
+			wrists = /obj/item/clothing/neck/roguetown/psicross/silver/undivided
+	
+	H.AddComponent(/datum/component/trophy_hunter) //TA edit - added trophy_hunter component
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 	//Old people get the option to become glass cannons. Expert Knives + Expert in their chosen weapon, but a permenant -I STR, -I PER, -2 SPD and -2 CON debuff.
 
 /datum/advclass/sfighter/deprived

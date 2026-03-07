@@ -74,3 +74,166 @@
 			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)
 	if(H.mind)
 		SStreasury.give_money_account(ECONOMIC_LOWER_MIDDLE_CLASS, H, "Savings.")
+<<<<<<< HEAD
+=======
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/witch
+	die_with_shapeshifted_form = FALSE
+	gesture_required = TRUE
+	chargetime = 5 SECONDS
+	recharge_time = 50
+	cooldown_min = 50
+	convert_damage = FALSE
+	do_gib = FALSE
+	knockout_on_death = 10 SECONDS
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/witch/cast(list/targets, mob/user = usr)
+	user.visible_message(span_warning("[user] begins to twist and contort!"), span_notice("I begin to transform..."))
+	return ..()
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/witch/Shapeshift(mob/living/caster)
+	// Do-after before transforming
+	if(!do_after(caster, 3 SECONDS, target = caster))
+		to_chat(caster, span_warning("Transformation interrupted!"))
+		revert_cast(caster)  // Refund the cooldown
+		return
+
+	// Call parent to actually transform
+	return ..()
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/witch/Restore(mob/living/shape)
+	// Check if restrained before allowing revert
+	if(shape.restrained(ignore_grab = FALSE))
+		to_chat(shape, span_warn("I am restrained, I can't transform back!"))
+		revert_cast(shape)  // Refund the cooldown
+		return
+
+	// Add do-after for witches when reverting
+	shape.visible_message(span_warning("[shape] begins to shift back!"), span_notice("I begin to transform..."))
+	if(!do_after(shape, 3 SECONDS, target = shape))
+		to_chat(shape, span_warning("Transformation revert interrupted!"))
+		revert_cast(shape)  // Refund the cooldown
+		return
+
+	return ..()
+
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/witch/cat
+	name = "Cat Form"
+	desc = ""
+	overlay_state = "cat_transform"
+	shapeshift_type = /mob/living/simple_animal/pet/cat/witch_shifted
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/witch/cat/black
+	shapeshift_type = /mob/living/simple_animal/pet/cat/rogue/black/witch_shifted
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/witch/lesser_wolf
+	name = "Lesser Volf Form"
+	desc = ""
+	overlay_state = "volf_transform"
+	shapeshift_type = /mob/living/simple_animal/hostile/retaliate/rogue/wolf/witch_shifted
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/witch/bat
+	name = "Bat Form"
+	desc = ""
+	overlay_state = "bat_transform"
+	shapeshift_type = /mob/living/simple_animal/hostile/retaliate/bat
+	knockout_on_death = 30 SECONDS
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/witch/crow
+	name = "Zad Form"
+	overlay_state = "zad"
+	desc = ""
+	knockout_on_death = 15 SECONDS
+	shapeshift_type = /mob/living/simple_animal/hostile/retaliate/bat/crow
+	sound = 'sound/vo/mobs/bird/birdfly.ogg'
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/witch/lesser_vernard
+	name = "Lesser Vernard Form"
+	desc = ""
+	overlay_state = "vernard_transform"
+	shapeshift_type = /mob/living/simple_animal/hostile/retaliate/rogue/fox/witch_shifted
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/witch/rous
+	name = "Small Rous Form"
+	desc = ""
+	overlay_state = "rous_transform"
+	shapeshift_type = /mob/living/simple_animal/hostile/retaliate/smallrat/witch_shifted
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/witch/cabbit
+	name = "Cabbit Form"
+	desc = ""
+	overlay_state = "cabbit_transform"
+	shapeshift_type = /mob/living/simple_animal/hostile/retaliate/rogue/mudcrab/cabbit/witch_shifted
+
+/datum/intent/simple/claw/witch_cat
+	name = "scratch"
+	attack_verb = list("scratches", "claws")
+
+/mob/living/simple_animal/hostile/retaliate/rogue/wolf/witch_shifted
+	name = "lesser volf"
+	desc = "A smaller, runtier variant of the classic volf that hounds the woods nearby. Rarely seen around these parts, and doesn't look nearly as dangerous as its larger counterparts. This one has a peculiar intelligence in its yellow eyes..."
+	STASPD = 15
+	STASTR = 3
+	STACON = 5
+	melee_damage_lower = 9
+	melee_damage_upper = 14
+	del_on_deaggro = null
+	defprob = 70
+
+/mob/living/simple_animal/pet/cat/witch_shifted
+	name = "aloof cat"
+	desc = "A bored-seeming feline. This one has a peculiar intelligence in its green eyes..."
+	defprob = 90
+	STASPD = 18
+	STASTR = 1
+	STACON = 3
+	base_intents = list(/datum/intent/simple/claw/witch_cat)
+	melee_damage_lower = 2
+	melee_damage_upper = 5
+
+/mob/living/simple_animal/pet/cat/rogue/black/witch_shifted
+	name = "voidblack cat"
+	desc = "Supposedly sacred to Necra, and just as interested in rats as their lesser counterparts. This one has a strange intelligence behind its dark, wide eyes..."
+	defprob = 90
+	STASPD = 18
+	STASTR = 1
+	STACON = 3
+	base_intents = list(/datum/intent/simple/claw/witch_cat)
+	melee_damage_lower = 2
+	melee_damage_upper = 5
+
+/mob/living/simple_animal/hostile/retaliate/rogue/fox/witch_shifted
+	name = "lesser vernard"
+	desc = "A smaller, runtier variant of the sneaky vernards that skulk the woods nearby. Rarely seen around these parts, and doesn't look nearly as dangerous as its larger counterparts. This one has a peculiar intelligence in its yellow eyes..."
+	defprob = 90
+	STASPD = 18
+	STASTR = 2
+	STACON = 4
+	melee_damage_lower = 8
+	melee_damage_upper = 12
+	del_on_deaggro = null
+	defprob = 70
+
+/mob/living/simple_animal/hostile/retaliate/smallrat/witch_shifted
+	name = "small rous"
+	desc = "Supposedly sacred to Pestra, these small and occasionally pestilent creachurs are commonly found in pantries and ships. This one seems to be a bit more smarter than the others..."
+	defprob = 90
+	STASPD = 18
+	STASTR = 1
+	STACON = 1
+	base_intents = list(/datum/intent/simple/claw/witch_cat)
+	melee_damage_lower = 1
+	melee_damage_upper = 2
+
+/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab/cabbit/witch_shifted
+	name = "lesser cabbit"
+	desc = "Seeing one of these quick beasts is said to bring Xylix's fortune, along with their feet. It looks weak and innocent, and incredibly adorable."
+	defprob = 90
+	STASPD = 20
+	STASTR = 1
+	STACON = 2
+	base_intents = list(/datum/intent/simple/claw/witch_cat)
+	melee_damage_lower = 1
+	melee_damage_upper = 2
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997

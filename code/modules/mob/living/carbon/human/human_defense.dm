@@ -53,6 +53,11 @@
 		used.take_damage(intdamage, damage_flag = d_type, sound_effect = FALSE, armor_penetration = 100)
 	if(physiology)
 		protection += physiology.armor.getRating(d_type)
+<<<<<<< HEAD
+=======
+	
+	protection += get_trophy_armor_bonus_for_zone(def_zone, d_type)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 	return protection
 
 /mob/living/carbon/human/proc/checkcritarmor(def_zone, bclass)

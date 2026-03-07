@@ -11,7 +11,12 @@
 	action_icon_state = "shapeshift"
 
 	var/revert_on_death = TRUE
+<<<<<<< HEAD
 	var/die_with_shapeshifted_form = TRUE
+=======
+	var/die_with_shapeshifted_form = FALSE
+	var/knockout_on_death = 50 // we will apply this value (as deciseconds) to our host mob as a knockout effect when punted out of the form
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 	var/convert_damage = TRUE //If you want to convert the caster's health to the shift, and vice versa.
 	var/convert_damage_type = BRUTE //Since simplemobs don't have advanced damagetypes, what to convert damage back into.
 	var/do_gib = TRUE

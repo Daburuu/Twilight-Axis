@@ -436,7 +436,11 @@ Inquisitorial armory down here
 	throwforce = 15
 	force = 4
 	tool_behaviour = null
+<<<<<<< HEAD
 	possible_item_intents = list(/datum/intent/use)
+=======
+	possible_item_intents = list(/datum/intent/use, /datum/intent/dagger/thrust) //Extremely low damage, blocked by anything sturdier than a cloth shirt. Quite funny to imagine it as a shiv, however.
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 	slot_flags = ITEM_SLOT_HIP
 	sharpness = IS_SHARP
 	experimental_inhand = TRUE

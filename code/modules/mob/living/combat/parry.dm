@@ -234,6 +234,23 @@
 				var/intdam = used_weapon.max_blade_int ? INTEG_PARRY_DECAY : INTEG_PARRY_DECAY_NOSHARP
 				if(used_weapon == offhand)
 					intdam = INTEG_PARRY_DECAY_NOSHARP
+<<<<<<< HEAD
+=======
+
+				if(istype(user.rmb_intent, /datum/rmb_intent/strong))
+					sharp_loss += STRONG_SHP_BONUS
+					intdam += STRONG_INTG_BONUS
+
+				// Heavy weapons chew through shields — use higher of demolition_mod or intent intdamage_factor
+				if(istype(used_weapon, /obj/item/rogueweapon/shield) && intenty)
+					var/shield_mult = max(intenty.demolition_mod, intenty.intent_intdamage_factor)
+					intdam *= shield_mult
+
+				var/tempobonus = H.get_tempo_bonus(TEMPO_TAG_DEF_INTEGFACTOR)
+				if(tempobonus)	//It is either null or 0.1 to 1, multiplication by null results in 0, so we check.
+					intdam *= tempobonus
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 				used_weapon.take_damage(intdam, BRUTE, used_weapon.d_type)
 				used_weapon.remove_bintegrity(SHARPNESS_ONHIT_DECAY, user)
 

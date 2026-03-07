@@ -9,8 +9,11 @@
 
 	var/damtype = BRUTE
 	var/force = 0
+<<<<<<< HEAD
 	//a modifier to an item's damage against structures
 	var/demolition_mod = 1
+=======
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 
 	var/datum/armor/armor
 	var/last_peeled_limb

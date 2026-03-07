@@ -160,7 +160,20 @@ GLOBAL_LIST_INIT(wanderer_positions, list(
 	"Assassin",
 	"Court Agent",
 	"Wretch",
+<<<<<<< HEAD
 ))
+=======
+	"Gnoll",
+))
+
+GLOBAL_LIST_INIT(inquisition_positions, list( //Self explanatory
+	"Inquisitor",
+	"Absolver",
+	"Orthodoxist",
+))
+
+GLOBAL_LIST_INIT(aspirant_eligible_positions, list(ASPIRANT_ELIGIBLE_POSITIONS))
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 
 GLOBAL_LIST_INIT(roguewar_positions, list(
 	"Adventurer",

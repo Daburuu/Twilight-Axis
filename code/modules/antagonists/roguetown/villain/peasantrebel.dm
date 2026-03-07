@@ -43,9 +43,13 @@
 /datum/antagonist/prebel/can_be_owned(datum/mind/new_owner)
 	. = ..()
 	if(.)
+<<<<<<< HEAD
 		if(new_owner.assigned_role in GLOB.noble_positions)
 			return FALSE
 		if(new_owner.assigned_role in GLOB.garrison_positions)
+=======
+		if(new_owner.assigned_role in GLOB.aspirant_eligible_positions)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 			return FALSE
 		if(new_owner.unconvertable)
 			return FALSE
@@ -103,9 +107,13 @@
 		return FALSE
 	if(!can_be_owned(candidate.mind))
 		return FALSE
+<<<<<<< HEAD
 	if(candidate.mind.assigned_role in GLOB.noble_positions)
 		return FALSE
 	if(candidate.mind.assigned_role in GLOB.garrison_positions)
+=======
+	if(candidate.mind.assigned_role in GLOB.aspirant_eligible_positions)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 		return FALSE
 	var/mob/living/carbon/C = candidate //Check to see if the potential rev is implanted
 	if(!istype(C)) //Can't convert simple animals

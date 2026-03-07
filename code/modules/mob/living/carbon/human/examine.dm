@@ -222,6 +222,26 @@
 				. += span_secradio("[m1] marked by scars inflicted for pleasure. A delectable target for my urges.")
 			if(has_flaw(/datum/charflaw/addiction/sadist) && user.has_flaw(/datum/charflaw/addiction/masochist))
 				. += span_secradio("[m1] looking with eyes filled with a desire to inflict pain. So exciting.")
+<<<<<<< HEAD
+=======
+
+			if(has_flaw(/datum/charflaw/addiction/thrillseeker) && user.has_flaw(/datum/charflaw/addiction/thrillseeker))
+				. += span_rose("[m1] twitching for a thrilling fight. So am I.")
+			
+			if(user.has_flaw(/datum/charflaw/averse))
+				var/datum/charflaw/averse/averseflaw = user.get_flaw(/datum/charflaw/averse)
+				if(averseflaw?.check_aversion(user, src))
+					user.add_stress(/datum/stressevent/averse)
+					. += span_secradio("One of <b>them...</b>")
+
+			if(user.has_flaw(/datum/charflaw/addiction/voyeur) && get_dist(src, user) <= 3)
+				if(charflaws.len)
+					var/list/vice_desc = list()
+					for(var/datum/charflaw/cf in charflaws)
+						vice_desc.Add(cf.voyeur_descriptor)
+					. += span_voyeurvice("[m1][english_list(vice_desc)]...")
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 			if(HAS_TRAIT(user, TRAIT_EMPATH) && HAS_TRAIT(src, TRAIT_PERMAMUTE))
 				. += span_notice("[m1] lacks a voice. [m1] is a mute!")
 

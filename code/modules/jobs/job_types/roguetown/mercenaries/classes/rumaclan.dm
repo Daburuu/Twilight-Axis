@@ -7,14 +7,18 @@
 	subclass_languages = list(/datum/language/kazengunese)
 	class_select_category = CLASS_CAT_KAZENGUN
 	category_tags = list(CTAG_MERCENARY)
+<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/mercenaries/classes/rumaclan.dm
 	traits_applied = list(TRAIT_CRITICAL_RESISTANCE, TRAIT_HARDDISMEMBER, TRAIT_NOPAINSTUN)
+=======
+	traits_applied = list(TRAIT_CRITICAL_RESISTANCE, TRAIT_HARDDISMEMBER, TRAIT_NOPAINSTUN, TRAIT_HONORBOUND)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/modules/jobs/job_types/roguetown/sidefolk/mercenary/rumaclan.dm
 	cmode_music = 'sound/music/combat_kazengite.ogg'
 	subclass_stats = list(
-		STATKEY_CON = 3,
+		STATKEY_CON = 2,
 		STATKEY_WIL = 3,
-		STATKEY_STR = 2,
+		STATKEY_STR = 1,
 		STATKEY_PER = 1,
-		STATKEY_SPD = -1
+		STATKEY_SPD = 1
 	)
 	subclass_skills = list(
 		/datum/skill/misc/swimming = SKILL_LEVEL_APPRENTICE,

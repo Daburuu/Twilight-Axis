@@ -62,8 +62,12 @@
 
 /obj/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum, damage_flag = "blunt")
 	..()
+<<<<<<< HEAD
 	if(AM.throwforce > 5)
 		take_damage(AM.throwforce*0.1, BRUTE, damage_flag, 1, get_dir(src, AM))
+=======
+	take_damage(AM.throwforce*0.1, BRUTE, damage_flag, 1, get_dir(src, AM))
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 
 /obj/ex_act(severity, target, epicenter, devastation_range, heavy_impact_range, light_impact_range, flame_range)
 	if(resistance_flags & INDESTRUCTIBLE)

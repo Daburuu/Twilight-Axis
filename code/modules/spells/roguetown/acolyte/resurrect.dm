@@ -165,11 +165,10 @@
 	name = "Abyssal Revival"
 	desc = "Revive the target at a cost, cast on yourself to check.<br>a dreamfiend will stalk the target and sap their stats until confronted by them."
 	sound = 'sound/magic/whale.ogg'
-	//A medley of common ocean fish, totalling 10
+	//A medley of common ocean fish, totalling 6
 	required_items = list(
-		/obj/item/reagent_containers/food/snacks/fish/sole = 3,
-		/obj/item/reagent_containers/food/snacks/fish/cod = 3,
-		/obj/item/reagent_containers/food/snacks/fish/bass = 2,
+		/obj/item/reagent_containers/food/snacks/fish/sole = 2,
+		/obj/item/reagent_containers/food/snacks/fish/cod = 2,
 		/obj/item/reagent_containers/food/snacks/fish/plaice = 1,
 		/obj/item/reagent_containers/food/snacks/fish/lobster = 1,
 	)

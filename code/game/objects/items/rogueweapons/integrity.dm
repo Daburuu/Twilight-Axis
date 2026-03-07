@@ -15,6 +15,8 @@
 /obj/item/proc/remove_bintegrity(amt as num, mob/user)
 	if(sharpness_mod != 1)
 		amt *= sharpness_mod
+	if(cleave_sharpness_mult != 1)
+		amt *= cleave_sharpness_mult
 	if(user && HAS_TRAIT(user, TRAIT_SHARPER_BLADES))
 		amt = amt * 0.7
 

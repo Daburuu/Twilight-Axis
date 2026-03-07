@@ -94,6 +94,29 @@
 	list_reagents = list(/datum/reagent/consumable/ethanol/beer = 50)
 	desc = "A bottle that contains a generic housebrewed small-beer. It has an improvised corkseal made of hardened clay."
 
+<<<<<<< HEAD
+=======
+/obj/item/reagent_containers/glass/bottle/rogue/triumphbeer
+	name = "bottle of beer"
+	list_reagents = list(/datum/reagent/consumable/ethanol/beer = 50)
+	desc = "A glass bottle with a laced cork-seal. It swishes with fizzled goodness; a cure to the parched throat, a remedy to the sleepless nites, and a toast for the journey ahead."
+
+/obj/item/reagent_containers/glass/bottle/rogue/spicedwine
+	name = "bottle of spiced wine"
+	list_reagents = list(/datum/reagent/consumable/ethanol/spicedwine = 50)
+	desc = "A glass bottle with a waxed cork-seal. Keen eyes can spot the dizzying amount of bubbles constantly frothing to the top of its tangerine-hued treasures."
+
+/obj/item/reagent_containers/glass/bottle/rogue/spicedwineaged
+	name = "bottle of aged spiced wine"
+	list_reagents = list(/datum/reagent/consumable/ethanol/spicedwine/aged = 50)
+	desc = "A glass bottle with a waxed cork-seal, and secured with cloth lacing. Errant light turns its tangerine hues into a golden-amber surprise."
+
+/obj/item/reagent_containers/glass/bottle/rogue/spicedwinedelectable
+	name = "bottle of delectable spiced wine"
+	list_reagents = list(/datum/reagent/consumable/ethanol/spicedwine/delectable = 50)
+	desc = "A glass bottle with a waxed cork-seal, further laced with silk cordage. Not even its seals can save your nostrils from imbuing a sliver of its impossibly aromatic supply."
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 /obj/item/reagent_containers/glass/bottle/rogue/beer/zagul
 	list_reagents = list(/datum/reagent/consumable/ethanol/zagul = 50)
 	desc = "A bottle with the coastal zagul cork-seal. An extremely cheap lager hailing from a local brewery."

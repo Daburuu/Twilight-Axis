@@ -104,13 +104,20 @@
 	icon_state = "woodsh"
 	dropshrink = 0.8
 	anvilrepair = /datum/skill/craft/carpentry
+<<<<<<< HEAD
 	coverage = 30
+=======
+	coverage = 60
+	max_integrity = 120
+	heraldry_x_offset = 1
+	heraldry_y_offset = -1 // 1px right and down to make it look centered
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 
 /obj/item/rogueweapon/shield/wood/deprived
 	name = "ghastly shield"
 	desc = "A frail looking amalgamation of planks. Yet somehow, the very wood itself seem to be filling you with resolve."
 	icon_state = "deprived"
-	coverage = 40
+	coverage = 60
 	max_integrity = 200
 
 /obj/item/rogueweapon/shield/attack_right(mob/user)
@@ -163,9 +170,9 @@
 	resistance_flags = FLAMMABLE
 	var/swapped = FALSE
 	wdefense = 10
-	coverage = 40
+	coverage = 70
 	parrysound = list('sound/combat/parry/shield/towershield (1).ogg','sound/combat/parry/shield/towershield (2).ogg','sound/combat/parry/shield/towershield (3).ogg')
-	max_integrity = 300
+	max_integrity = 280
 	anvilrepair = /datum/skill/craft/weaponsmithing
 
 /obj/item/rogueweapon/shield/tower/holysee
@@ -222,10 +229,15 @@
 	resistance_flags = null
 	flags_1 = CONDUCT_1
 	wdefense = 12
+<<<<<<< HEAD
 	coverage = 60
+=======
+	coverage = 70
+	heraldry_x_offset = 1
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 	attacked_sound = list('sound/combat/parry/shield/metalshield (1).ogg','sound/combat/parry/shield/metalshield (2).ogg','sound/combat/parry/shield/metalshield (3).ogg')
 	parrysound = list('sound/combat/parry/shield/metalshield (1).ogg','sound/combat/parry/shield/metalshield (2).ogg','sound/combat/parry/shield/metalshield (3).ogg')
-	max_integrity = 300
+	max_integrity = 280
 	sellprice = 30
 	anvilrepair = /datum/skill/craft/weaponsmithing
 
@@ -387,7 +399,7 @@
 	force = 15
 	throwforce = 10
 	dropshrink = 0.8
-	coverage = 30
+	coverage = 50
 	attacked_sound = list('sound/combat/parry/shield/towershield (1).ogg','sound/combat/parry/shield/towershield (2).ogg','sound/combat/parry/shield/towershield (3).ogg')
 	parrysound = list('sound/combat/parry/shield/towershield (1).ogg','sound/combat/parry/shield/towershield (2).ogg','sound/combat/parry/shield/towershield (3).ogg')
 	max_integrity = 220
@@ -409,7 +421,13 @@
 	force = 20
 	throwforce = 25 // "I can do this all day."
 	dropshrink = 0.8
+<<<<<<< HEAD
 	coverage = 30
+=======
+	coverage = 50
+	resistance_flags = null
+	flags_1 = CONDUCT_1
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 	attacked_sound = list('sound/combat/parry/shield/metalshield (1).ogg','sound/combat/parry/shield/metalshield (2).ogg','sound/combat/parry/shield/metalshield (3).ogg')
 	parrysound = list('sound/combat/parry/shield/metalshield (1).ogg','sound/combat/parry/shield/metalshield (2).ogg','sound/combat/parry/shield/metalshield (3).ogg')
 	possible_item_intents = list(SHIELD_SMASH_METAL, SHIELD_BLOCK) // No SHIELD_BASH. Too heavy to swing quickly, or something.
@@ -427,6 +445,35 @@
 
 #undef SHIELD_BANG_COOLDOWN
 
+<<<<<<< HEAD
+=======
+/obj/item/rogueweapon/shield/bronze
+	name = "hoplon shield"
+	desc = "The finest companion to a javelin, gladius, and warclub; a thick-yet-sturdy shield of bronze."
+	icon_state = "bronzeshield"
+	force = 25
+	throwforce = 30 // DO NOT GIVE ANYTHING; BUT TAKE FROM THEM.. EVERYTHING!
+	dropshrink = 0.8 // Free free to add actual designs to this shield, too, if-or-whenever.
+	coverage = 60
+	resistance_flags = null
+	flags_1 = CONDUCT_1
+	minstr = 11 //Particularly heavy to use as a melee weapon.
+	attacked_sound = list('sound/combat/parry/shield/metalshield (1).ogg','sound/combat/parry/shield/metalshield (2).ogg','sound/combat/parry/shield/metalshield (3).ogg')
+	parrysound = list('sound/combat/parry/shield/metalshield (1).ogg','sound/combat/parry/shield/metalshield (2).ogg','sound/combat/parry/shield/metalshield (3).ogg')
+	possible_item_intents = list(/datum/intent/shield/block, /datum/intent/mace/smash/shield/metal, /datum/intent/effect/daze) // No SHIELD_BASH. Able to inflict Daze due to its weight. 
+	max_integrity = 260
+	anvilrepair = /datum/skill/craft/weaponsmithing
+
+/obj/item/rogueweapon/shield/bronze/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.6,"sx" = -5,"sy" = -1,"nx" = 6,"ny" = -1,"wx" = 0,"wy" = -2,"ex" = 0,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
+			if("onback")
+				return list("shrink" = 0.6,"sx" = 1,"sy" = 4,"nx" = 1,"ny" = 2,"wx" = 3,"wy" = 3,"ex" = 0,"ey" = 2,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 8,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 1,"southabove" = 0,"eastabove" = 0,"westabove" = 0)
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 /obj/item/rogueweapon/shield/iron/steppesman
 	name = "steppesman shield"
 	desc = "A banded iron shield decorated with traditional Aavnic colours, often seen in the hands of the Steppesmen."

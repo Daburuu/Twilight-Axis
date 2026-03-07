@@ -760,7 +760,7 @@
 
 /obj/item/gun/ballistic/twilight_firearm/arquebus_pistol/umbra
 	name = "Umbra"
-	desc = "Компактное огнестрельное оружие отавианского производства. Ствол изготовлен из вороненой стали, на которую нанесены несколько простых рун. Благодаря необычной конструкции и рунической магии, Умбра стреляет практически бесшумно, что делает её идеальным выбором для агентов Инквизиции."
+	desc = "Компактное огнестрельное оружие отаванского производства. Ствол изготовлен из вороненой стали, на которую нанесены несколько простых рун. Благодаря необычной конструкции и рунической магии, Умбра стреляет практически бесшумно, что делает её идеальным выбором для агентов Инквизиции."
 	silenced = TRUE
 	critfactor = 1
 	icon = 'modular_twilight_axis/firearms/icons/umbra/pistol.dmi'
@@ -813,7 +813,7 @@
 	item_state = "axegun"
 	damfactor = 0.9
 	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop)
-	gripped_intents = list(/datum/intent/shoot/twilight_firearm, /datum/intent/arc/twilight_firearm, /datum/intent/axe/cut/battle/greataxe, /datum/intent/axe/chop/battle/greataxe)
+	gripped_intents = list(/datum/intent/shoot/twilight_firearm, /datum/intent/arc/twilight_firearm, /datum/intent/axe/cut/long, /datum/intent/axe/chop/long)
 	associated_skill = /datum/skill/combat/axes
 
 /obj/item/gun/ballistic/twilight_firearm/axtgonne/getonmobprop(tag)
@@ -855,7 +855,7 @@
 
 /obj/item/gun/ballistic/twilight_firearm/barker
 	name = "barker"
-	desc = "Один из первых образцов огнестрельного оружия, созданный отавийскими мастерами в начале позапрошлого века. Ввиду низкой мощности и точности, ныне используется преимущественно охотниками."
+	desc = "Один из первых образцов огнестрельного оружия, созданный отаванскими мастерами в начале позапрошлого века. Ввиду низкой мощности и точности, ныне используется преимущественно охотниками."
 	icon = 'modular_twilight_axis/firearms/icons/barker.dmi'
 	icon_state = "barker"
 	item_state = "barker"
@@ -870,7 +870,7 @@
 
 /obj/item/gun/ballistic/twilight_firearm/handgonne/purgatory
 	name = "Purgatory"
-	desc = "Передовое огнестрельное оружие отавианского ордена Чёрного Пороха, завоевашее зловещую славу на поле боя из-за своей разрушительной мощи. Эта ручная пушка вступает в игру, когда одиночного довода против ереси просто недостаточно."
+	desc = "Передовое огнестрельное оружие отаванского ордена Чёрного Пороха, завоевашее зловещую славу на поле боя из-за своей разрушительной мощи. Эта ручная пушка вступает в игру, когда одиночного довода против ереси просто недостаточно."
 	icon = 'modular_twilight_axis/firearms/icons/purgatory/purgatory.dmi'
 	icon_state = "purgatory"
 	item_state = "purgatory"
@@ -885,3 +885,80 @@
 	force_wielded = 20
 	wdefense = 5
 	match_delay = 8
+<<<<<<< HEAD
+=======
+
+/obj/item/gun/ballistic/twilight_firearm/arquebus_pistol/mortar
+	name = "hand mortar"
+	desc = "Ручная мортирка со стволом из бронзы, дополнительно прижатым к лафету крепким ремнём из кожи. Стреляет картечью и ядрами на малые расстояния и с меньшей силой. Такие часто использовали каперы под флагами Грензельхофта"
+	damfactor = 0.8
+	npcdamfactor = 1.5
+	mag_type = /obj/item/ammo_box/magazine/internal/twilight_firearm/mortar
+	cartridge_wording = "cannonball"
+	smeltresult = /obj/item/ingot/bronze
+	icon_state = "mortar"
+	item_state = "mortar"
+	icon = 'modular_twilight_axis/firearms/icons/mortar/mortar.dmi'
+	advanced_icon = 'modular_twilight_axis/firearms/icons/mortar/mortar.dmi'
+	advanced_icon_r = 'modular_twilight_axis/firearms/icons/mortar/mortar_r.dmi'
+	advanced_icon_norod	= 'modular_twilight_axis/firearms/icons/mortar/mortar_norod.dmi'
+	advanced_icon_r_norod = 'modular_twilight_axis/firearms/icons/mortar/mortar_r_norod.dmi'
+	pixel_y = 0
+	pixel_x = 0
+
+/obj/item/ammo_box/magazine/internal/twilight_firearm/mortar
+	name = "mortar internal magazine"
+	ammo_type = /obj/item/ammo_casing/caseless/twilight_cannonball/grapeshot
+	caliber = "cannonball"
+	max_ammo = 1
+	start_empty = TRUE
+
+/obj/item/gun/ballistic/twilight_firearm/arquebus_pistol/mortar/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.5,"sx" = -10,"sy" = -8,"nx" = 13,"ny" = -8,"wx" = -8,"wy" = -7,"ex" = 7,"ey" = -8,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 30,"sturn" = -30,"wturn" = -30,"eturn" = 30,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.4,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+/obj/item/gun/ballistic/twilight_firearm/barker/barker_light
+	name = "barker with lamptern"
+	desc = "Один из первых образцов огнестрельного оружия, созданный отаванскими мастерами в начале позапрошлого века. Ввиду низкой мощности и точности, ныне используется преимущественно охотниками. Этот теперь с фонарём!"
+	icon = 'modular_twilight_axis/firearms/icons/barker_light.dmi'
+	icon_state = "barker_light"
+	item_state = "barker_light"
+	light_system = MOVABLE_LIGHT
+	light_outer_range = 7
+	light_power = 1
+	light_color = "#f5a885"
+
+/obj/item/gun/ballistic/twilight_firearm/barker/barker_light/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.6,"sx" = -7,"sy" = 6,"nx" = 7,"ny" = 6,"wx" = -2,"wy" = 3,"ex" = 1,"ey" = 3,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -43,"sturn" = 43,"wturn" = 30,"eturn" = -30, "nflip" = 0, "sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("wielded")
+				return list("shrink" = 0.6,"sx" = 5,"sy" = -2,"nx" = -5,"ny" = -1,"wx" = -8,"wy" = 2,"ex" = 8,"ey" = 2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 1,"nturn" = -45,"sturn" = 45,"wturn" = 0,"eturn" = 0,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
+			if("onback")
+				return list("shrink" = 0.5,"sx" = -1,"sy" = 2,"nx" = 0,"ny" = 2,"wx" = 2,"wy" = 1,"ex" = 0,"ey" = 1,"nturn" = 0,"sturn" = 0,"wturn" = -15,"eturn" = -70,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 6,"northabove" = 1,"southabove" = 0,"eastabove" = 0,"westabove" = 0)
+
+/obj/item/gun/ballistic/twilight_firearm/hunt_arquebus
+	name = "hunter's arquebus"
+	desc = "Довольно удобный вариант колесцовой аркебузы со штыком, довольно тонким и длинным дабы использовать его как копьё. Удлинённый ствол позволяет стрелять на большие расстояния, но забирает добротную часть убойной силы у пули. Частый выбор у знати."
+	damfactor = 0.7
+	critfactor = 0.4
+	npcdamfactor = 2.7
+	effective_range = 4
+	wdefense = 5
+	walking_stick = FALSE
+	gripped_intents = list(/datum/intent/shoot/twilight_firearm/flintgonne, /datum/intent/arc/twilight_firearm/flintgonne, /datum/intent/spear/thrust, INTENT_GENERIC)
+	icon_state = "harquebus"
+	item_state = "harquebus"
+	icon = 'modular_twilight_axis/firearms/icons/harquebus/harquebus.dmi'
+	advanced_icon = 'modular_twilight_axis/firearms/icons/harquebus/harquebus.dmi'
+	advanced_icon_r = 'modular_twilight_axis/firearms/icons/harquebus/harquebus_r.dmi'
+	advanced_icon_norod	= 'modular_twilight_axis/firearms/icons/harquebus/harquebus_norod.dmi'
+	advanced_icon_r_norod = 'modular_twilight_axis/firearms/icons/harquebus/harquebus_r_norod.dmi'
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997

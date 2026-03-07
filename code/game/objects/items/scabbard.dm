@@ -786,6 +786,10 @@
 
 	valid_blade = /obj/item/rogueweapon/sword/long/kriegmesser/ssangsudo
 	can_parry = FALSE
+<<<<<<< HEAD
+=======
+	special = null
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 
 
 /obj/item/rogueweapon/scabbard/sword/kazengun/steel
@@ -824,3 +828,179 @@
 	wdefense = 3
 
 	max_integrity = 0
+<<<<<<< HEAD
+=======
+
+/obj/item/rogueweapon/scabbard/sheath/courtphysician
+	name = "fancy cane"
+	desc = "A decorated cane bearing the visage of a vulture."
+	icon_state = "doccanesheath"
+	item_state = "doccanesheath"
+	valid_blade = /obj/item/rogueweapon/sword/rapier/courtphysician
+	sellprice = 45
+
+/obj/item/rogueweapon/scabbard/sheath/courtphysician/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list(
+					"shrink" = 0.5,
+					"sx" = -6,
+					"sy" = -6,
+					"nx" = 6,
+					"ny" = -5,
+					"wx" = -1,
+					"wy" = -5,
+					"ex" = -1,
+					"ey" = -5,
+					"nturn" = -45,
+					"sturn" = -45,
+					"wturn" = -45,
+					"eturn" = -45,
+					"nflip" = 0,
+					"sflip" = 0,
+					"wflip" = 0,
+					"eflip" = 0,
+					"northabove" = FALSE,
+					"southabove" = TRUE,
+					"eastabove" = TRUE,
+					"westabove" = FALSE
+				)
+			if("wielded")
+				return list(
+					"shrink" = 0.5,
+					"sx" = 0,
+					"sy" = 0,
+					"nx" = 0,
+					"ny" = 0,
+					"wx" = -3,
+					"wy" = 0,
+					"ex" = 3,
+					"ey" = 0,
+					"nturn" = -90,
+					"sturn" = 0,
+					"wturn" = -90,
+					"eturn" = 0,
+					"nflip" = 0,
+					"sflip" = 0,
+					"wflip" = 0,
+					"eflip" = 0,
+					"northabove" = FALSE,
+					"southabove" = TRUE,
+					"eastabove" = TRUE,
+					"westabove" = TRUE
+				)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+/obj/item/rogueweapon/scabbard/sheath/courtphysician/hand
+	name = "velvet sister"
+	desc = "Sleek, fashionable and deadly. Traits shared by both staff and the one holding it. Never let yourself be outdone, never rely on merely one trick.\
+	The rontz embedded in the handle serves as focus for arcyne arts."
+	icon = 'icons/roguetown/weapons/special/hand32.dmi'
+	icon_state = "staffsheath"
+	item_state = "staffsheath"
+	valid_blade = /obj/item/rogueweapon/sword/rapier/hand
+	sellprice = 100
+	cast_time_reduction = null //The component alters this. 
+
+/obj/item/rogueweapon/scabbard/sheath/courtphysician/hand/ComponentInitialize()
+	AddComponent(/datum/component/holster/handstaff, valid_blade, null, null, sheathe_time)
+
+
+///////////////////////
+//	GREATWEP. STRAPS //
+///////////////////////
+
+/obj/item/rogueweapon/scabbard/gwstrap
+	name = "greatweapon strap"
+	desc = "A buckled sling that can support the weight of weapons too weighty for one's belt. Be mindful, as it takes a couple seconds to properly unfasten-and-refasten the latches."
+
+	icon_state = "gws0"
+	item_state = "gwstrap"
+	icon = 'icons/obj/items/gwstrap.dmi'
+	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
+	pixel_y = -16
+	pixel_x = -16
+	inhand_x_dimension = 64
+	inhand_y_dimension = 64
+
+	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = ITEM_SLOT_BACK
+	resistance_flags = NONE
+	experimental_onback = FALSE
+	bigboy = TRUE
+	sewrepair = TRUE
+
+	equip_delay_self = 5 SECONDS
+	unequip_delay_self = 5 SECONDS
+	strip_delay = 2 SECONDS
+	sheathe_time = 2 SECONDS
+
+	max_integrity = 0
+	sellprice = 15
+
+/obj/item/rogueweapon/scabbard/gwstrap/ComponentInitialize()
+	AddComponent(/datum/component/holster/gwstrap, FALSE, FALSE, FALSE, sheathe_time)
+
+/obj/item/rogueweapon/scabbard/gwstrap/getonmobprop(tag)
+	..()
+	if(!hol_comp)
+		return
+	if(!hol_comp.sheathed)
+		return
+	if(istype(hol_comp.sheathed, /obj/item/rogueweapon/estoc) || istype(hol_comp.sheathed, /obj/item/rogueweapon/greatsword))
+		switch(tag)
+			if("onback")
+				return list(
+					"shrink" = 0.6,
+					"sx" = -1,
+					"sy" = 2,
+					"nx" = 0,
+					"ny" = 2,
+					"wx" = 2,
+					"wy" = 1,
+					"ex" = 0,
+					"ey" = 1,
+					"nturn" = 0,
+					"sturn" = 0,
+					"wturn" = 70,
+					"eturn" = 15,
+					"nflip" = 1,
+					"sflip" = 1,
+					"wflip" = 1,
+					"eflip" = 1,
+					"northabove" = 1,
+					"southabove" = 0,
+					"eastabove" = 0,
+					"westabove" = 0
+				)
+	else
+		switch(tag)
+			if("onback")
+				return list(
+					"shrink" = 0.7,
+					"sx" = 1,
+					"sy" = -1,
+					"nx" = 1,
+					"ny" = -1,
+					"wx" = 4,
+					"wy" = -1,
+					"ex" = -1,
+					"ey" = -1,
+					"nturn" = 0,
+					"sturn" = 0,
+					"wturn" = 0,
+					"eturn" = 0,
+					"nflip" = 8,
+					"sflip" = 0,
+					"wflip" = 0,
+					"eflip" = 0,
+					"northabove" = 1,
+					"southabove" = 0,
+					"eastabove" = 0,
+					"westabove" = 0
+				)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997

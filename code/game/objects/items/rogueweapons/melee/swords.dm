@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //intent datums ฅ^•ﻌ•^ฅ
 
 /datum/intent/sword/cut
@@ -142,6 +143,8 @@
 /datum/intent/rend/krieg
 	intent_intdamage_factor = 0.2
 
+=======
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 //sword objs ฅ^•ﻌ•^ฅ
 
 /obj/item/rogueweapon/sword
@@ -587,9 +590,16 @@
 //Slightly more expensive than a longsword by 1 iron, so gets to be slightly better.
 /obj/item/rogueweapon/sword/long/exe
 	name = "executioners sword"
+<<<<<<< HEAD
 	desc = "A longsword with extra heft to its blade, reinforced."
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/peel)
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust/exe, /datum/intent/rend, /datum/intent/axe/chop)
+=======
+	desc = "A heavy broadsword with a terrifyingly sharp edge, purpose-made to part heads from shoulders. Owing to its nature as a weapon of justice, it lacks the piercing tips that befit most battle-ready broadswords. If you're strong enough to wield such a weapon, however, then that probably won't stop you from finding a way."
+	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/chop/broadsword, /datum/intent/sword/thrust/exe, /datum/intent/sword/strike)
+	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/cut/exe/cleave, /datum/intent/sword/cut/exe/sweep,  /datum/intent/rend/broadsword)
+	alt_intents = null
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 	icon_state = "exe"
 	minstr = 12
 	slot_flags = ITEM_SLOT_BACK //Too big for hip
@@ -602,6 +612,27 @@
 	penfactor = BLUNT_DEFAULT_PENFACTOR //Flat tip? I don't know, man. This intent is won't penetrate anything but it damages armor more.
 	intent_intdamage_factor = 1.3 //This is basically like getting hit by a mace.
 
+<<<<<<< HEAD
+=======
+/datum/intent/sword/cut/exe/cleave
+	name = "cleaving cut"
+	icon_state = "incleave"
+	attack_verb = list("cleaves", "carves through")
+	clickcd = CLICK_CD_MASSIVE // Distinguished from GSword by being sluggish
+	damfactor = 1.2
+	cleave = /datum/cleave_pattern/forward_cleave
+	desc = "A heavy cleave that cuts through a second target behind the first."
+
+/datum/intent/sword/cut/exe/sweep
+	name = "sweeping cut"
+	icon_state = "insweep"
+	attack_verb = list("sweeps through", "cuts across")
+	clickcd = CLICK_CD_GLACIAL
+	damfactor = 1.2 // Hits harder but clunkier
+	cleave = /datum/cleave_pattern/horizontal_sweep
+	desc = "A heavy sweep that cuts through targets to the front."
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 /obj/item/rogueweapon/sword/long/exe/astrata
 	name = "\"Solar Judge\""
 	desc = "An incredibly unusual executioner's sword clad in gold and brass. Two separate blades protude outwards and join near its intricately decorated crossguard. This weapon calls for order."
@@ -1193,7 +1224,7 @@
 				)
 
 /datum/intent/sword/cut/rapier
-	clickcd = 10
+	clickcd = CLICK_CD_QUICK
 	damfactor = 0.75
 
 /datum/intent/sword/thrust/rapier

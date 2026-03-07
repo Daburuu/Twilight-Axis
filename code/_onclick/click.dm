@@ -238,7 +238,14 @@
 			if(CanReach(A,W))
 				if(get_dist(get_turf(src), get_turf(A)) <= used_intent.reach)
 					if(!used_intent.noaa)
+<<<<<<< HEAD
 						do_attack_animation(get_turf(A), used_intent.animname, W, used_intent = src.used_intent)
+=======
+						if(used_intent.cleave)
+							used_intent.cleave.show_cleave_visuals(src, target_turf)
+						else
+							do_attack_animation(target_turf, used_intent.animname, W, used_intent = src.used_intent)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 				resolveAdjacentClick(A,W,params)
 				return
 
@@ -293,6 +300,7 @@
 					for(var/mob/M in T)
 						if(M.invisibility || M == src)
 							continue
+<<<<<<< HEAD
 						mobs_here += M
 					if(mobs_here.len)
 						var/mob/target = pick(mobs_here)
@@ -303,12 +311,34 @@
 								atkswinging = null
 								//update_warning()
 								return
+=======
+						target = M
+						break
+					if(target)
+						if(target.Adjacent(src) || (CanReach(target, W) && used_intent.effective_range_type))
+							if(used_intent.cleave)
+								used_intent.cleave.show_cleave_visuals(src, T)
+							else
+								do_attack_animation(T, used_intent.animname, used_intent.masteritem, used_intent = src.used_intent)
+							resolveAdjacentClick(target,W,params,used_hand)
+							atkswinging = null
+							//update_warning()
+							return
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 					if(cmode)
 						resolveAdjacentClick(T,W,params,used_hand) //hit the turf
 					if(!used_intent.noaa)
 						changeNext_move(CLICK_CD_RAPID)
+<<<<<<< HEAD
 						if(get_dist(get_turf(src), T) <= used_intent.reach)
 							do_attack_animation(T, used_intent.animname, used_intent.masteritem, used_intent = src.used_intent)
+=======
+						if(get_dist(my_turf, T) <= used_intent.reach)
+							if(used_intent.cleave)
+								used_intent.cleave.show_cleave_visuals(src, T)
+							else
+								do_attack_animation(T, used_intent.animname, used_intent.masteritem, used_intent = src.used_intent)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 						var/adf = used_intent.clickcd
 						if(istype(rmb_intent, /datum/rmb_intent/aimed))
 							adf = round(adf * CLICK_CD_MOD_AIMED)

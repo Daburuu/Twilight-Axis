@@ -4,7 +4,11 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/wretch/deserter
+<<<<<<< HEAD
 	horse = /mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame/saddled
+=======
+	class_select_category = CLASS_CAT_WARRIOR
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 	category_tags = list(CTAG_WRETCH)
 	traits_applied = list(TRAIT_HEAVYARMOR, TRAIT_NOBLE)
 	maximum_possible_slots = 2 //Ideal role for fraggers. Better to limit it. 

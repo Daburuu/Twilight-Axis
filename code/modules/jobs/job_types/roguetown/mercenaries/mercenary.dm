@@ -54,7 +54,12 @@
 		/datum/advclass/mercenary/grudgebearer/soldier,
 		/datum/advclass/mercenary/trollslayer,
     /datum/advclass/mercenary/twilight_gunslinger,
+<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/mercenaries/mercenary.dm
     /datum/advclass/mercenary/twilight_grenzelhoft_jager
+=======
+	/datum/advclass/mercenary/twilight_heishi,
+	/datum/advclass/mercenary/twilight_yohei
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/modules/jobs/job_types/roguetown/sidefolk/mercenary.dm
 	)
 	same_job_respawn_delay = 30 MINUTES
 

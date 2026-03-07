@@ -7,15 +7,19 @@
 	subclass_languages = list(/datum/language/kazengunese)
 	class_select_category = CLASS_CAT_KAZENGUN
 	category_tags = list(CTAG_MERCENARY)
+<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/mercenaries/classes/seonjang.dm
 	traits_applied = list(TRAIT_CRITICAL_RESISTANCE, TRAIT_HARDDISMEMBER, TRAIT_NOPAINSTUN)
+=======
+	traits_applied = list(TRAIT_CRITICAL_RESISTANCE, TRAIT_HARDDISMEMBER, TRAIT_NOPAINSTUN, TRAIT_HONORBOUND)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/modules/jobs/job_types/roguetown/sidefolk/mercenary/seonjang.dm
 	cmode_music = 'sound/music/combat_kazengite.ogg'
 	maximum_possible_slots = 1
 	subclass_stats = list(
-		STATKEY_CON = 3,
+		STATKEY_CON = 2,
 		STATKEY_WIL = 3,
-		STATKEY_STR = 2,
+		STATKEY_STR = 1,
 		STATKEY_PER = 1,
-		STATKEY_SPD = -1
+		STATKEY_SPD = 1
 	)
 	subclass_skills = list(
 		/datum/skill/misc/swimming = SKILL_LEVEL_APPRENTICE,
@@ -60,4 +64,8 @@
 		shirt = /obj/item/clothing/suit/roguetown/armor/regenerating/easttats
 		gloves = /obj/item/clothing/gloves/roguetown/eastgloves2
 		cloak = /obj/item/clothing/cloak/eastcloak1
+<<<<<<< HEAD:code/modules/jobs/job_types/roguetown/mercenaries/classes/seonjang.dm
 		shoes = /obj/item/clothing/shoes/roguetown/armor/rumaclan
+=======
+	H.merctype = 9
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/modules/jobs/job_types/roguetown/sidefolk/mercenary/seonjang.dm

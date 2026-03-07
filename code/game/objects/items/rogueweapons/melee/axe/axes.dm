@@ -1,5 +1,5 @@
-//intent datums ฅ^•ﻌ•^ฅ
 
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
 /datum/intent/axe/cut
 	name = "cut"
 	icon_state = "incut"
@@ -51,6 +51,8 @@
 	intent_intdamage_factor = BLUNT_DEFAULT_INT_DAMAGEFACTOR
 
 //axe objs ฅ^•ﻌ•^ฅ
+=======
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 
 /obj/item/rogueweapon/stoneaxe
 	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BACK
@@ -71,7 +73,6 @@
 	max_blade_int = 100
 	minstr = 8
 	wdefense = 1
-	demolition_mod = 2
 	w_class = WEIGHT_CLASS_BULKY
 	wlength = WLENGTH_SHORT
 	pickup_sound = 'sound/foley/equip/rummaging-03.ogg'
@@ -143,7 +144,12 @@
 	max_blade_int = 300
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
 	gripped_intents = list(/datum/intent/axe/cut/battle ,/datum/intent/axe/chop/battle, /datum/intent/axe/bash, /datum/intent/sword/peel)
+=======
+	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/axe/thrust, /datum/intent/axe/bash/battle)
+	gripped_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/axe/bash/battle, /datum/intent/sword/peel)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 	minstr = 9
 	wdefense = 4
 
@@ -161,7 +167,13 @@
 /obj/item/rogueweapon/stoneaxe/oath
 	force = 30
 	force_wielded = 40
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
 	possible_item_intents = list(/datum/intent/axe/cut/battle, /datum/intent/axe/chop/battle, /datum/intent/axe/bash)
+=======
+	wbalance = WBALANCE_HEAVY
+	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/axe/thrust, /datum/intent/axe/bash/battle)
+	gripped_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/axe/bash/battle, /datum/intent/sword/peel)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 	name = "oath"
 	desc = "A hefty, steel-forged axe marred by the touch of countless Wardens. Despite it's weathered etchings and worn grip, the blade has been honed to a razor's edge and you can see your reflection in the finely polished metal."
 	icon_state = "oath"
@@ -203,6 +215,15 @@
 	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop, /datum/intent/sword/peel)
 	wdefense = 2
 
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
+=======
+/obj/item/rogueweapon/stoneaxe/woodcut/woodcutter
+	name = "woodcutter's handaxe"
+	icon_state = "axeclassic"
+	desc = "A short-handled axe with a carved grip, made of high quality wood. Perfect for the discerning carpenter."
+	max_integrity = 275
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 /obj/item/rogueweapon/stoneaxe/woodcut/aaxe
 	name = "decrepit axe"
 	desc = "A hatchet of frayed bronze. It reigns from a tyme before the Comet Syon's impact; when Man wrought metal not to spill blood, but to better shape the world in His image."
@@ -316,12 +337,37 @@
 	throw_speed = 6
 	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 33, "embedded_fall_chance" = 2)
 
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
+=======
+/obj/item/rogueweapon/stoneaxe/woodcut/bronzebattleaxe
+	name = "bronze war axe"
+	icon_state = "bronzebattleaxe"
+	desc = "An antiquital handstaff, fitted with a thrice-wedged bronze axhead. The unique design of its edge, similar to the khopesh, ensures that each swing properly ferries all of its wielder's strength into its destination."
+	force = 23 // Similar presentation to a battle axe, albeit without the durability or full damage.
+	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/axe/bash, /datum/intent/sword/peel)
+	gripped_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/axe/bash/battle, /datum/intent/sword/peel)
+	force_wielded = 27
+	max_blade_int = 500
+	smeltresult = /obj/item/ingot/bronze
+	minstr = 8
+	wdefense = 4
+	armor_penetration = 22 //In-between a hurblat and hatchet. Far harder to reproduce.
+	throwforce = 32
+	throw_speed = 6
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 33, "embedded_fall_chance" = 2)
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 /obj/item/rogueweapon/stoneaxe/woodcut/steel
 	name = "steel axe"
 	icon_state = "saxe"
 	desc = "A steel woodcutting axe. Performs much better than its iron counterpart."
 	force = 26
 	force_wielded = 28
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
+=======
+	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/axe/bash, /datum/intent/sword/peel)
+	gripped_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/axe/bash, /datum/intent/sword/peel) //Slight upgrade - you can deliver harder strikes when wielding the Steel Axe in both hands.
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 	max_blade_int = 500
 	smeltresult = /obj/item/ingot/steel
 	wdefense = 3
@@ -348,7 +394,6 @@
 	gripped_intents = list(/datum/intent/axe/cut/long, /datum/intent/axe/chop/long, /datum/intent/axe/bash, /datum/intent/sword/peel)
 	wlength = WLENGTH_LONG
 	w_class = WEIGHT_CLASS_BULKY
-	demolition_mod = 2.5			//Base is 1.25, so 25% extra. Helps w/ caprentry and building kinda.
 	slot_flags = ITEM_SLOT_BACK		//Needs to go on back.
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
@@ -403,9 +448,15 @@
 	name = "silver war axe"
 	desc = "A hefty battle axe, fashioned from pure silver. Even with a one-handed grasp, an efforted swing carries enough momentum to cleave through maille-and-flesh alike."
 	icon_state = "silveraxe"
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
 	force = 20
 	force_wielded = 25
 	possible_item_intents = list(/datum/intent/axe/cut/battle, /datum/intent/axe/chop/battle, /datum/intent/axe/bash, /datum/intent/sword/peel)
+=======
+	force = 25 //Forgot this is forced to only be one-handed. My bad.
+	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/axe/bash/battle, /datum/intent/sword/peel)
+	gripped_intents = null
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 	minstr = 11
 	max_blade_int = 400
 	smeltresult = /obj/item/ingot/silver
@@ -431,6 +482,10 @@
 	icon_state = "psyaxe"
 	force = 20
 	force_wielded = 25
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
+=======
+	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/axe/bash/battle, /datum/intent/sword/peel)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 	minstr = 11
 	wdefense = 6
 	blade_dulling = DULLING_SHAFT_METAL
@@ -451,24 +506,75 @@
 /obj/item/rogueweapon/stoneaxe/battle/steppesman
 	name = "aavnic valaška"
 	desc = "A steel axe of Aavnic make that combines a deadly weapon with a walking stick - hence its pointed end. It has a flat head that fits the hand comfortably, and it's usable for chopping and smashing. You could probably stab someone if you tried really hard."
-	possible_item_intents = list(/datum/intent/axe/cut/battle, /datum/intent/axe/chop/battle, /datum/intent/mace/smash, /datum/intent/sword/peel)
-	gripped_intents = list(/datum/intent/axe/cut/battle ,/datum/intent/axe/chop/battle, /datum/intent/stab, /datum/intent/sword/peel)
+	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/mace/smash, /datum/intent/sword/peel)
+	gripped_intents = list(/datum/intent/axe/cut ,/datum/intent/axe/chop, /datum/intent/stab, /datum/intent/sword/peel)
 	force_wielded = 25	//No damage changes for wielded/unwielded
 	icon_state = "valaska"
-	demolition_mod = 2.5
 	walking_stick = TRUE
 
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
 /datum/intent/axe/cut/battle/greataxe
 	reach = 2
+=======
+/obj/item/rogueweapon/stoneaxe/battle/steppesman/chupa
+	name = "aavnic ćiupaga"
+	desc = "A steel axe of Aavnic make that combines a deadly weapon with a walking stick - hence its pointed end. It has a flat head that fits the hand comfortably, and it's usable for chopping and smashing. It can hook an opponent's weapon in a pinch. It carries the colours of Szöréndnížina."
+	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/cut/lunge, /datum/intent/sword/disarm)
+	gripped_intents = list(/datum/intent/axe/cut ,/datum/intent/axe/chop, /datum/intent/mace/smash)
+	force = 22
+	force_wielded = 25
+	icon = 'icons/roguetown/weapons/special/freifechter.dmi'
+	icon_state = "ciupaga"
+	pixel_y = -10
+	pixel_x = 0
+	inhand_x_dimension = 64
+	inhand_y_dimension = 64
 
-/datum/intent/axe/chop/battle/greataxe
+/datum/intent/axe/cut/lunge
+	name = "ćiupaga lunge"
+	desc = "Grip your ćiupaga by the tail-end of the handle and swing in a circular motion to reach further ahead. It will deal extra damage if perfectly positioned, otherwise you'll just hit them with the handle."
+	damfactor = 1.75
+	penfactor = 42
+	effective_range = 2
+	effective_range_type = EFF_RANGE_EXACT
+	sharpness_penalty = 2
+	blade_class = BCLASS_CHOP
 	reach = 2
+	swingdelay = 2
+	icon_state = "inchop"
+	attack_verb = list("lunges and chops", "lunges and hacks")
+	animname = "chop"
+	hitsound = list('sound/combat/hits/bladed/genchop (1).ogg', 'sound/combat/hits/bladed/genchop (2).ogg', 'sound/combat/hits/bladed/genchop (3).ogg')
+	clickcd = 14
+	item_d_type = "slash"
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
+
+/datum/intent/axe/sweep
+	name = "sweeping cut"
+	icon_state = "insweep"
+	blade_class = BCLASS_CUT
+	attack_verb = list("sweeps through", "cuts across")
+	animname = "cut"
+	hitsound = list('sound/combat/hits/bladed/smallslash (1).ogg', 'sound/combat/hits/bladed/smallslash (2).ogg', 'sound/combat/hits/bladed/smallslash (3).ogg')
+	penfactor = 0
+	damfactor = 1.1
+	demolition_mod = 2
+	clickcd = CLICK_CD_MASSIVE
+	chargetime = 0
+	item_d_type = "slash"
+	cleave = /datum/cleave_pattern/frontal_arc
+	desc = "A heavy sweep that cuts through targets to the sides and front."
 
 /obj/item/rogueweapon/greataxe
 	force = 15
 	force_wielded = 30
 	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
 	gripped_intents = list(/datum/intent/axe/cut/battle/greataxe, /datum/intent/axe/chop/battle/greataxe, SPEAR_BASH)
+=======
+	gripped_intents = list(/datum/intent/axe/cut/long, /datum/intent/axe/chop/long, /datum/intent/axe/sweep)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 	name = "greataxe"
 	desc = "A iron great axe, a long-handled axe with a single blade made for ruining someone's day beyond any measure.."
 	icon_state = "igreataxe"
@@ -487,7 +593,6 @@
 	smeltresult = /obj/item/ingot/iron
 	associated_skill = /datum/skill/combat/axes
 	wdefense = 6
-	demolition_mod = 2
 
 /obj/item/rogueweapon/greataxe/getonmobprop(tag)
 	. = ..()
@@ -504,7 +609,11 @@
 	force = 15
 	force_wielded = 30
 	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
 	gripped_intents = list(/datum/intent/axe/cut/battle/greataxe, /datum/intent/axe/chop/battle/greataxe, SPEAR_BASH)
+=======
+	gripped_intents = list(/datum/intent/axe/cut/long, /datum/intent/axe/chop/long, /datum/intent/axe/sweep)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 	name = "steel greataxe"
 	desc = "A steel great axe, a long-handled axe with a single blade made for ruining someone's day beyond any measure.."
 	icon_state = "sgreataxe"
@@ -513,11 +622,43 @@
 	max_blade_int = 250
 	smeltresult = /obj/item/ingot/steel
 
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
+=======
+/obj/item/rogueweapon/greataxe/bronze
+	force = 15
+	force_wielded = 30
+	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
+	gripped_intents = list(/datum/intent/axe/cut/long, /datum/intent/axe/chop/long, /datum/intent/axe/sweep)
+	name = "bronze greataxe"
+	desc = "A massive staff with a bronze axhead mantled onto the wood. It splits and carves from afar with lethal force; be it lumber or limbs."
+	icon_state = "bronzegreataxe"
+	minstr = 11
+	wdefense = 7
+	max_blade_int = 400
+	smeltresult = /obj/item/ingot/bronze
+	armor_penetration = 16
+	throwforce = 32
+	throw_speed = 3
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 33, "embedded_fall_chance" = 2)
+
+/obj/item/rogueweapon/greataxe/steel/knight
+	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/mace/strike)
+	gripped_intents = list(/datum/intent/axe/cut/long, /datum/intent/axe/chop/long, /datum/intent/mace/strike, /datum/intent/mace/rangedthrust)
+	name = "poleaxe"
+	desc = "A poleaxe, fitted with a reinforced shaft and a beaked axhead of steel. It is the ultimate weapon for a well-seasoned knight, capable of humbling any foe that may assail their presence. </br>'Away with you, vile beggar!'"
+	icon_state = "steelpoleaxe"
+	max_blade_int = 300
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 /obj/item/rogueweapon/greataxe/silver
 	force = 15
 	force_wielded = 25
 	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/mace/strike) //When possible, add the longsword's 'alternate grip' mechanic to let people flip this around into a Mace-scaling weapon with swapped damage.
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
 	gripped_intents = list(/datum/intent/axe/cut/battle/greataxe, /datum/intent/axe/chop/battle/greataxe, /datum/intent/mace/rangedthrust, /datum/intent/mace/strike) //Axe-equivalent to the Godendag or Grand Mace.
+=======
+	gripped_intents = list(/datum/intent/axe/cut/long, /datum/intent/axe/chop/long, /datum/intent/mace/strike, /datum/intent/mace/rangedthrust) //Axe-equivalent to the Godendag or Grand Mace.
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 	name = "silver poleaxe"
 	desc = "A poleaxe, fitted with a reinforced shaft and a beaked axhead of pure silver. It may not stop the darkness; but it will halt its march, long enough, to shepherd away the defenseless. </br>'O'er the Horizon, the stars and spirals I see; and below it, the horrors that've been felled by me. Through the darkness, I see my home and its beautiful light; and it will continue to shimmer, as long as I fight. Forever I stand, forever I'll hold - 'til the Horizon grows still, and my spirit trails home..'"
 	icon_state = "silverpolearm"
@@ -542,7 +683,7 @@
 	force = 15
 	force_wielded = 25
 	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/mace/strike) //When possible, add the longsword's 'alternate grip' mechanic to let people flip this around into a Mace-scaling weapon with swapped damage.
-	gripped_intents = list(/datum/intent/axe/cut/battle/greataxe, /datum/intent/axe/chop/battle/greataxe, /datum/intent/mace/rangedthrust, /datum/intent/mace/strike) //Axe-equivalent to the Godendag or Grand Mace.
+	gripped_intents = list(/datum/intent/axe/cut/long, /datum/intent/axe/chop/long, /datum/intent/mace/rangedthrust, /datum/intent/mace/strike) //Axe-equivalent to the Godendag or Grand Mace.
 	name = "psydonic poleaxe"
 	desc = "A poleaxe, fitted with a reinforced shaft and a beaked axhead of alloyed silver. As the fragility of swords've become more apparent, the Psydonic Orders - following the disastrous Massacre of Blastenghyll - have shifted their focus towards arming their paladins with longer-lasting greatweapons."
 	icon_state = "silverpolearm"
@@ -578,7 +719,7 @@
 	force = 15
 	force_wielded = 35
 	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
-	gripped_intents = list(/datum/intent/axe/cut/battle/greataxe, /datum/intent/axe/chop/battle/greataxe, SPEAR_BASH)
+	gripped_intents = list(/datum/intent/axe/cut/long, /datum/intent/axe/chop/long, /datum/intent/axe/sweep)
 	name = "double-headed steel greataxe"
 	desc = "A steel great axe with a wicked double-bladed head. Perfect for cutting either men or trees into stumps.."
 	icon_state = "doublegreataxe"
@@ -593,7 +734,11 @@
 	force = 20
 	force_wielded = 40
 	max_blade_int = 250
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
 	icon = 'icons/roguetown/weapons/64.dmi'
+=======
+	gripped_intents = list(/datum/intent/axe/cut/long, /datum/intent/axe/chop/long/graggar, /datum/intent/axe/sweep)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 
 /obj/item/rogueweapon/greataxe/steel/doublehead/graggar/Initialize()
 	. = ..()
@@ -614,9 +759,87 @@
 	name = "crude heavy axe"
 	desc = "An axe clearly made for some large crecher. Though crude in design, it appears to have a fair amount of weight to it.."
 	icon_state = "trollaxe"
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
+=======
+	wbalance = WBALANCE_HEAVY
+	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/axe/bash)
+	gripped_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, /datum/intent/axe/bash/battle)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm
 	force = 25
 	force_wielded = 30					//Basically a slight better steel cutting axe.
 	max_integrity = 150					//50% less than normal axe
 	max_blade_int = 300
 	minstr = 13							//Heavy, but still good.
 	wdefense = 3						//Slightly better than norm, has 6 defense 2 handing it.
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/axes.dm
+=======
+	minstr_req = TRUE
+
+/datum/intent/axe/cut/frost
+	intent_effect = /datum/status_effect/buff/frostbite
+
+/datum/intent/axe/chop/frost
+	intent_effect = /datum/status_effect/buff/frostbite
+
+/obj/item/rogueweapon/stoneaxe/battle/ice
+	name = "deathfrost axe"
+	desc = "This axe's blade is as sharp as it is cold."
+	icon = 'icons/roguetown/weapons/axes64.dmi'
+	icon_state = "iceaxe"
+	smeltresult = null
+	special = /datum/special_intent/permafrost
+	var/active_intents =  list(/datum/intent/axe/cut/frost, /datum/intent/axe/chop/frost, /datum/intent/axe/bash, /datum/intent/sword/peel)
+	var/active_gripped_intents = list(/datum/intent/axe/cut/frost, /datum/intent/axe/chop/frost, /datum/intent/axe/bash, /datum/intent/sword/peel)
+	var/inactive_intents = list()
+	var/inactive_gripped_intents = list()
+
+////////////////////////
+// TRIUMPH-EXCLUSIVE! //
+////////////////////////
+
+/obj/item/rogueweapon/stoneaxe/woodcut/triumph
+	name = "valorian axe"
+	icon_state = "axelegacy"
+	desc = "'Through thick-and-thin, I have never failed you. May we trounce through the Terrorbog, one last time, before Astrata's glare vanishes 'neath the horizon?'"
+
+/obj/item/rogueweapon/stoneaxe/handaxe/triumph
+	name = "valorian hatchet"
+	icon_state = "hatchetlegacy"
+	desc = "'What is that rag for, anyways?'"
+
+/obj/item/rogueweapon/stoneaxe/woodcut/triumphalt
+	name = "double-headed axe"
+	desc = "'For Karl!'"
+	icon_state = "axedouble"
+	swingsound = BLADEWOOSH_HUGE
+
+/obj/item/rogueweapon/stoneaxe/woodcut/bronze/triumph
+	name = "double-headed bronze axe"
+	desc = "'Give them nothing.. but take from them, EVERYTHING!'"
+	icon_state = "bronzeaxedouble"
+	swingsound = BLADEWOOSH_HUGE
+
+/obj/item/rogueweapon/stoneaxe/woodcut/steel/triumph
+	name = "double-headed steel axe"
+	desc = "'Last man alive, lock the doors!'"
+	icon_state = "saxedouble"
+	swingsound = BLADEWOOSH_HUGE
+
+/obj/item/rogueweapon/stoneaxe/battle/triumph
+	name = "double-headed battle axe"
+	desc = "'Never thought I'd die side-by-side wi' an elve.' </br>'How about with a friend?' </br>'Aye, I coul' do that.'"
+	icon_state = "battleaxedouble"
+	swingsound = BLADEWOOSH_HUGE
+
+/obj/item/rogueweapon/stoneaxe/woodcut/silver/triumph
+	name = "double-headed silver axe"
+	desc = "'I'll swallow your soul, I'll swallow your soul!' </br>'Swallow this.'"
+	icon_state = "silveraxedouble"
+	swingsound = BLADEWOOSH_HUGE
+
+/obj/item/rogueweapon/stoneaxe/battle/psyaxe/triumph
+	name = "double-headed psydonic axe"
+	desc = "'Hail to the king, baby.'"
+	icon_state = "psyaxedouble"
+	swingsound = BLADEWOOSH_HUGE
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/axe/axes.dm

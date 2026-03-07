@@ -10,6 +10,33 @@
 	clickcd = CLICK_CD_CHARGED
 	warnie = "mobwarning"
 	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/polearms.dm
+=======
+	penfactor = 55
+	item_d_type = "stab"
+	effective_range = 2
+	effective_range_type = EFF_RANGE_EXACT
+
+/datum/intent/spear/thrust/bad
+	name = "weak thrust"
+	penfactor = 20
+	damfactor = 1
+	desc = "A weak thrust from a polearm not designed for stabbing. Doesn't care about effective range,\ but also incapable of piercing all but the weakest cloth armor."
+	effective_range = null
+	effective_range_type = EFF_RANGE_NONE
+
+/datum/intent/spear/thrust/training
+	name = "blunted thrust"
+	penfactor = 0
+	intent_intdamage_factor = BLUNT_DEFAULT_INT_DAMAGEFACTOR
+	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
+
+/datum/intent/spear/thrust/oneh
+	name = "one-handed thrust"
+	reach = 1
+	swingdelay = 14
+	damfactor = 1.6
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/polearms/polearms.dm
 	penfactor = 50
 	item_d_type = "stab"
 
@@ -52,14 +79,33 @@
 	reach = 3
 	damfactor = 1
 
-/datum/intent/spear/cut/bardiche
-    damfactor = 1.2
-    chargetime = 0
+/datum/intent/spear/cut/bardiche/cleave
+	name = "cleaving cut"
+	icon_state = "incleave"
+	attack_verb = list("cleaves", "carves through")
+	clickcd = CLICK_CD_MASSIVE
+	damfactor = 1.0
+	cleave = /datum/cleave_pattern/forward_cleave
+	desc = "A cleave that cuts through a second target behind the first."
 
 /datum/intent/spear/cut/glaive
 	damfactor = 1.2
 	chargetime = 0
 
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/polearms.dm
+=======
+/datum/intent/spear/cut/glaive/sweep
+	name = "sweeping cut"
+	icon_state = "insweep"
+	attack_verb = list("sweeps through", "cuts across")
+	clickcd = CLICK_CD_GLACIAL
+	cleave = /datum/cleave_pattern/horizontal_sweep
+	desc = "A sweep that cuts through targets to the front."
+
+/datum/intent/spear/cut/short
+	reach = 1
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/polearms/polearms.dm
 /datum/intent/spear/cast
 	name = "cast"
 	chargetime = 0
@@ -72,38 +118,13 @@
 	damfactor = 1.2
 	chargetime = 0
 
-/datum/intent/sword/cut/zwei
-	reach = 2
-
-/datum/intent/sword/thrust/zwei
-	reach = 2
-
-/datum/intent/sword/thrust/estoc
-	name = "thrust"
-	penfactor = 57	//At 57 pen + 25 base (82 total), you will always pen 80 stab armor, but you can't do it at range unlike a spear.
-	swingdelay = 8
-
-/datum/intent/sword/lunge
-	name = "lunge"
-	icon_state = "inimpale"
-	attack_verb = list("lunges")
-	animname = "stab"
-	blade_class = BCLASS_STAB
-	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
-	reach = 2
-	damfactor = 1.3	//Zwei will still deal ~7-10 more damage at the same range, depending on user's STR.
-	swingdelay = 8
-
-/datum/intent/sword/bash
-	name = "pommel bash"
-	blade_class = BCLASS_BLUNT
-	icon_state = "inbash"
-	attack_verb = list("bashes", "strikes")
-	penfactor = BLUNT_DEFAULT_PENFACTOR
-	damfactor = NONBLUNT_BLUNT_DAMFACTOR
-	item_d_type = "blunt"
-	intent_intdamage_factor = BLUNT_DEFAULT_INT_DAMAGEFACTOR
-
+/datum/intent/spear/cut/naginata/sweep
+	name = "sweeping cut"
+	icon_state = "insweep"
+	attack_verb = list("sweeps through", "cuts across")
+	clickcd = CLICK_CD_GLACIAL
+	cleave = /datum/cleave_pattern/horizontal_sweep
+	desc = "A sweep that cuts through targets to the front."
 
 /datum/intent/rend
 	name = "rend"
@@ -121,6 +142,7 @@
 	item_d_type = "slash"
 	misscost = 10
 	intent_intdamage_factor = 0.05
+	demolition_mod = 0.05
 
 /datum/intent/rend/reach
 	name = "long rend"
@@ -170,6 +192,7 @@
 	damfactor = 1.3 // Adds up to be slightly stronger than an unenhanced ebeak strike.
 	clickcd = CLICK_CD_CHARGED
 
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/polearms.dm
 /datum/intent/spear/thrust/lance
 	damfactor = 1.5 // Turns its base damage into 30 on the 2hand thrust. It keeps the spear thrust one handed.
 
@@ -187,6 +210,8 @@
 /datum/intent/lance/onehand
 	chargetime = 5 SECONDS
 
+=======
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/polearms/polearms.dm
 //polearm objs ฅ^•ﻌ•^ฅ
 
 /obj/item/rogueweapon/woodstaff
@@ -287,6 +312,104 @@
 	thrown_bclass = BCLASS_STAB
 	throwforce = 25
 	resistance_flags = FLAMMABLE
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/polearms.dm
+=======
+	special = /datum/special_intent/polearm_backstep
+
+/obj/item/rogueweapon/spear/short
+	force = 25
+	force_wielded = 25
+	possible_item_intents = list(SHORT_SPEAR_THRUST, SHORT_SPEAR_CUT)
+	gripped_intents = list(SHORT_SPEAR_THRUST, SHORT_SPEAR_CUT, SPEAR_BASH) 
+	name = "short spear"
+	icon_state = "short_spear"
+	wlength = WLENGTH_LONG
+
+// ---- Azurean Shortspear intents ----
+/datum/intent/spear/thrust/azurean
+	name = "thrust"
+	desc = "A quick, nimble two-handed thrust. Keeps reach but lacks the power to pierce armor."
+	reach = 2
+	clickcd = CLICK_CD_QUICK // Long range, quick poke, NO AP
+	penfactor = 5
+	damfactor = 1
+	effective_range = null
+	effective_range_type = EFF_RANGE_NONE
+
+/datum/intent/spear/thrust/azurean/oneh
+	name = "one-handed thrust"
+	desc = "A rapid jab from one hand. Fast with long range, but unable to penetrate armor."
+	reach = 2
+	clickcd = CLICK_CD_QUICK // capture that nimble feel
+	penfactor = 15
+	damfactor = 1
+	effective_range = null
+	effective_range_type = EFF_RANGE_NONE
+
+/datum/intent/spear/thrust/azurean/pick
+	name = "pick"
+	icon_state = "inpick"
+	desc = "A shortspear is nimble enough to handle when two-handed and gripped toward the blade. Grasps it near the end and drive it into the weak point of your opponent's armor - hard to pull off but can be devastating if successful."
+	blade_class = BCLASS_PICK
+	attack_verb = list("impales", "drives into")
+	hitsound = list('sound/combat/hits/pick/genpick (1).ogg', 'sound/combat/hits/pick/genpick (2).ogg')
+	reach = 1
+	clickcd = 18
+	swingdelay = 14
+	penfactor = 50
+	damfactor = 0.8
+	item_d_type = "stab"
+	effective_range = null
+	effective_range_type = EFF_RANGE_NONE
+
+// 
+/obj/item/rogueweapon/spear/spellblade
+	name = "dory"
+	icon_state = "short_spear"
+	desc = "A shortened spear, six feet long and balanced. Favored by Azurean Spellblades \
+		who found the traditional long spear ill-suited for their flashy, individualistic fighting style. \
+		Designed to thrust quickly from one hand but maneuver nimbly in two.<BR><BR> \
+		'From this dae on, we shall name ourselves naught spearman, but phalangite, and our spear, the dory, not a shortspear. \
+		And with this measure we shall gain great respect henceforth.' - Unknown Grandmaster of the Azurean Spellblade Order, 900 AP."
+	force = 20
+	force_wielded = 25
+	possible_item_intents = list(/datum/intent/spear/thrust/azurean/oneh)
+	gripped_intents = list(/datum/intent/spear/thrust/azurean, /datum/intent/spear/thrust/azurean/pick, SPEAR_BASH)
+	wlength = WLENGTH_LONG
+	w_class = WEIGHT_CLASS_BULKY
+	minstr = 7
+	max_blade_int = 180
+	anvilrepair = /datum/skill/craft/weaponsmithing
+	smeltresult = /obj/item/ingot/iron
+	associated_skill = /datum/skill/combat/polearms
+	wdefense = 5
+	thrown_bclass = BCLASS_STAB
+	throwforce = 22
+	resistance_flags = FLAMMABLE
+	armor_penetration = 0
+
+/obj/item/rogueweapon/spear/trainer
+	name = "sparring spear"
+	desc = "An old dulled spear with a shaft worn by the hands of countless trainees before you. The fabric and watting wrap is meant to protect combatants, \
+	but getting hit with this still leaves welts and breaks fingers."
+	icon_state = "spear_trainer"
+	possible_item_intents = list(SPEAR_TRAINER_THRUST1H, SPEAR_BASH)
+	gripped_intents = list(SPEAR_TRAINER_THRUST, SPEAR_BASH, MACE_SMASH_WOOD)
+	force = 7
+	force_wielded = 15
+	sharpness = IS_BLUNT
+	thrown_bclass = BCLASS_BLUNT
+
+/obj/item/rogueweapon/spear/trainer/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.6,"sx" = -6,"sy" = 2,"nx" = 8,"ny" = 2,"wx" = -4,"wy" = 2,"ex" = 1,"ey" = 2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -38,"sturn" = 300,"wturn" = 32,"eturn" = -23,"nflip" = 0,"sflip" = 100,"wflip" = 8,"eflip" = 0)
+			if("wielded")
+				return list("shrink" = 0.6,"sx" = 4,"sy" = -2,"nx" = -3,"ny" = -2,"wx" = -5,"wy" = -1,"ex" = 3,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/polearms/polearms.dm
 
 /obj/item/rogueweapon/spear/trident
 	// Better one handed & throwing weapon, flimsier.
@@ -709,8 +832,13 @@
 /obj/item/rogueweapon/halberd
 	force = 15
 	force_wielded = 30
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/polearms.dm
 	possible_item_intents = list(SPEAR_THRUST, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
 	gripped_intents = list(SPEAR_THRUST, /datum/intent/spear/cut/halberd, /datum/intent/sword/chop, SPEAR_BASH)
+=======
+	possible_item_intents = list(SPEAR_THRUST_1H, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
+	gripped_intents = list(SPEAR_THRUST, SPEAR_CUT, /datum/intent/axe/chop/halberd, SPEAR_BASH)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/polearms/polearms.dm
 	name = "halberd"
 	desc = "A steel halberd, the pinnacle of all cumulative melee weapon knowledge. The only downside is the cost, so it's rarely seen outside of the guardsmans' hands. The reinforcements along the shaft provide greater durability."
 	icon_state = "halberd"
@@ -751,8 +879,13 @@
 	smeltresult = /obj/item/ingot/steel
 
 /obj/item/rogueweapon/halberd/bardiche
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/polearms.dm
 	possible_item_intents = list(/datum/intent/spear/thrust/eaglebeak, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
 	gripped_intents = list(/datum/intent/spear/thrust/eaglebeak, /datum/intent/spear/cut/bardiche, /datum/intent/axe/chop, SPEAR_BASH)
+=======
+	possible_item_intents = list(/datum/intent/spear/thrust/bad, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
+	gripped_intents = list(/datum/intent/spear/cut, /datum/intent/spear/cut/bardiche/cleave, /datum/intent/spear/cut/glaive/sweep, SPEAR_BASH)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/polearms/polearms.dm
 	name = "bardiche"
 	desc = "A beautiful variant of the halberd. Its reinforced shaft provides it with greater durability against attacks."
 	icon_state = "bardiche"
@@ -784,7 +917,7 @@
 	name = "summer scythe"
 	desc = "Summer's verdancy runs through the head of this scythe. All the more to sow."
 	icon_state = "dendorscythe"
-	gripped_intents = list(/datum/intent/spear/thrust/eaglebeak, /datum/intent/spear/cut/bardiche, /datum/intent/axe/chop/scythe, SPEAR_BASH)
+	gripped_intents = list(/datum/intent/spear/cut/bardiche, /datum/intent/spear/cut/bardiche/cleave, /datum/intent/spear/cut/glaive/sweep, /datum/intent/axe/chop/scythe)
 	force_wielded = 33 // +3
 	max_integrity = 300 // +50
 
@@ -827,8 +960,8 @@
 	)
 
 /obj/item/rogueweapon/halberd/glaive
-	possible_item_intents = list(/datum/intent/spear/thrust/eaglebeak, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
-	gripped_intents = list(/datum/intent/spear/thrust/glaive, /datum/intent/spear/cut/glaive, /datum/intent/axe/chop/scythe, SPEAR_BASH)
+	possible_item_intents = list(/datum/intent/spear/thrust/bad, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
+	gripped_intents = list(/datum/intent/spear/cut/glaive, /datum/intent/spear/cut/glaive/sweep, /datum/intent/spear/thrust/bad, SPEAR_BASH)
 	name = "glaive"
 	desc = "A curved blade on a pole, specialised in defence, but expensive to manufacture."
 	icon_state = "glaive"
@@ -862,8 +995,13 @@
 /obj/item/rogueweapon/eaglebeak
 	force = 15
 	force_wielded = 30
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/polearms.dm
 	possible_item_intents = list(/datum/intent/spear/bash/eaglebeak, /datum/intent/mace/smash/eaglebeak)
 	gripped_intents = list(/datum/intent/spear/bash/eaglebeak, /datum/intent/mace/smash/eaglebeak, /datum/intent/spear/thrust/eaglebeak)
+=======
+	possible_item_intents = list(/datum/intent/spear/bash/polehammer, /datum/intent/mace/smash/eaglebeak)
+	gripped_intents = list(/datum/intent/spear/bash/polehammer, /datum/intent/mace/smash/eaglebeak, /datum/intent/spear/thrust/bad)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/polearms/polearms.dm
 	name = "eagle's beak"
 	desc = "A reinforced pole affixed with an ornate steel eagle's head, of which its beak is intended to pierce with great harm."
 	icon_state = "eaglebeak"
@@ -906,15 +1044,6 @@
 	smeltresult = /obj/item/ingot/iron
 	sellprice = 40
 
-// A worse thrust for weapons specialized in other damage type like cut or blunt
-/datum/intent/spear/thrust/eaglebeak
-	penfactor = 20
-	damfactor = 0.9
-
-/datum/intent/spear/thrust/glaive
-	penfactor = 50
-	damfactor = 1.1
-
 /datum/intent/mace/smash/eaglebeak
 	reach = 2
 	clickcd = CLICK_CD_HEAVY // Slightly longer since it has RANGE. Don't want to increase charge time more since it is unreliable.
@@ -932,6 +1061,7 @@
 	max_blade_int = 225
 	max_integrity = 155
 
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/polearms.dm
 /obj/item/rogueweapon/greatsword
 	force = 12
 	force_wielded = 30
@@ -1281,6 +1411,8 @@
 					)
 			if("onback")
 				return list("shrink" = 0.6,"sx" = -1,"sy" = 2,"nx" = 0,"ny" = 2,"wx" = 2,"wy" = 1,"ex" = 0,"ey" = 1,"nturn" = 0,"sturn" = 0,"wturn" = 70,"eturn" = 15,"nflip" = 1,"sflip" = 1,"wflip" = 1,"eflip" = 1,"northabove" = 1,"southabove" = 0,"eastabove" = 0,"westabove" = 0)
+=======
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/polearms/polearms.dm
 
 
 /obj/item/rogueweapon/woodstaff/naledi
@@ -1418,6 +1550,7 @@
 	desc = "A regional earspoon lance with a carved handle, adorned with the colours of the Freifechters. These are smithed by the legendary armourers of Vyšvou and given to distinguished lancers upon their graduation."
 	icon_state = "praguespear"
 
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/polearms.dm
 /obj/item/rogueweapon/spear/lance
 	name = "lance"
 	desc = "A long polearm designed to be used from horseback, couched under the arm. It has a vambrace to prevent the arm sliding up \
@@ -1434,13 +1567,15 @@
 	resistance_flags = null
 	smeltresult = /obj/item/ingot/steel
 
+=======
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/polearms/polearms.dm
 /obj/item/rogueweapon/spear/naginata
 	name = "naginata"
 	desc = "A traditional Kazengunese polearm, combining the reach of a spear with the cutting power of a curved blade. Due to the brittle quality of Kazengunese bladesmithing, weaponsmiths have adapted its blade to be easily replaceable when broken by a peg upon the end of the shaft."
 	force = 16
 	force_wielded = 30
 	possible_item_intents = list(/datum/intent/spear/cut/naginata, SPEAR_BASH) // no stab for you little chuddy, it's a slashing weapon
-	gripped_intents = list(/datum/intent/spear/cut/naginata,SPEAR_BASH, /datum/intent/rend/reach, PARTIZAN_PEEL)
+	gripped_intents = list(/datum/intent/spear/cut/naginata, /datum/intent/spear/cut/naginata/sweep, /datum/intent/rend/reach, SPEAR_BASH)
 	icon_state = "naginata"
 	icon = 'icons/roguetown/weapons/64.dmi'
 	minstr = 7
@@ -1479,6 +1614,7 @@
 	gripsprite = FALSE
 	smeltresult = /obj/item/ingot/steel
 
+<<<<<<< HEAD:code/game/objects/items/rogueweapons/melee/polearms.dm
 /////////////////////
 // Special Weapon! //
 /////////////////////
@@ -1493,6 +1629,14 @@
 	damfactor = 1.25
 	clickcd = 55
 	swingdelay = 15
+=======
+/obj/item/rogueweapon/halberd/glaive/elvish
+	name = "elvish glaive"
+	desc = "An elven weapon that combines the elegant sweeping blade typical of Elven design with a lengthy handle. The true guardian of the forest realm."
+	icon_state = "elfglaive"
+	max_blade_int = 180 //Elven design makes it sharper
+	sellprice = 60
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997:code/game/objects/items/rogueweapons/melee/polearms/polearms.dm
 
 /datum/intent/sword/chop/dragonslayer
 	name = "eviscerate"

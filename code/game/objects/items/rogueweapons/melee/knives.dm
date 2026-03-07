@@ -13,9 +13,26 @@
 	penfactor = 0
 	chargetime = 0
 	swingdelay = 0
-	clickcd = 10
+	clickcd = CLICK_CD_QUICK
 	item_d_type = "slash"
 
+<<<<<<< HEAD
+=======
+// Training dagger-exclusive(?) slash. Could potentially be reused for other blunt-edged handweapons.
+/datum/intent/dagger/cut/blunt
+	blade_class = BCLASS_BLUNT
+	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
+	penfactor = BLUNT_DEFAULT_PENFACTOR
+	intent_intdamage_factor = BLUNT_DEFAULT_INT_DAMAGEFACTOR
+
+/// For unusually heavy daggers with a strong cutting edge.
+/datum/intent/dagger/cut/heavy
+	name = "heavy cut"
+	damfactor = 1.2
+	penfactor = 25
+	clickcd = 11
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 /datum/intent/dagger/thrust
 	name = "thrust"
 	icon_state = "instab"
@@ -28,6 +45,17 @@
 	clickcd = 8
 	item_d_type = "stab"
 
+<<<<<<< HEAD
+=======
+// A slightly weaker thrust for daggers with a curved blade, or which otherwise aren't very good at stabbing.
+/datum/intent/dagger/thrust/weak
+	name = "lopsided thrust"
+	damfactor = 0.8
+	penfactor = 45 // Slightly more pen, to compensate in penetration for the lower damage.
+	// You're still doing less damage than with a stabbier dagger, but your AP isn't penalised.
+	clickcd = CLICK_CD_QUICK
+
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 /datum/intent/dagger/thrust/pick
 	name = "icepick stab"
 	icon_state = "inpick"
@@ -65,7 +93,7 @@
 	penfactor = 10
 	damfactor = 1.5
 	swingdelay = 5
-	clickcd = 10
+	clickcd = CLICK_CD_QUICK
 	item_d_type = "slash"
 
 /datum/intent/dagger/chop/cleaver
@@ -205,7 +233,7 @@
 	penfactor = 15
 	damfactor = 1.3
 	swingdelay = 5
-	clickcd = 10
+	clickcd = CLICK_CD_QUICK
 	item_d_type = "slash"
 
 /obj/item/rogueweapon/huntingknife/wood
@@ -229,7 +257,7 @@
 	penfactor = 0
 	chargetime = 0
 	swingdelay = 0
-	clickcd = 10
+	clickcd = CLICK_CD_QUICK
 	item_d_type = "slash"
 
 /datum/intent/dagger/thrust/wood
@@ -253,7 +281,7 @@
 	penfactor = 15
 	damfactor = 1.3
 	swingdelay = 5
-	clickcd = 10
+	clickcd = CLICK_CD_QUICK
 	item_d_type = "slash"
 
 /obj/item/rogueweapon/huntingknife/cleaver
@@ -466,6 +494,20 @@
 	sheathe_icon = "stiletto"
 	force = 25
 	max_integrity = 200
+<<<<<<< HEAD
+=======
+	sellprice = 200
+	smeltresult = /obj/item/ingot/steel
+
+/obj/item/rogueweapon/huntingknife/idagger/steel/rondel
+	name = "rondel dagger"
+	desc = "This is the traditional sidearm of a knight: a lightweight dagger of solid steel, well-balanced for delivering rapid thrusts that can shuck grapplers like oysters."
+	icon_state = "rondel"
+	sheathe_icon = "dagger_trainer"
+	possible_item_intents = list(/datum/intent/dagger/thrust, /datum/intent/dagger/thrust/pick, /datum/intent/dagger/cut, /datum/intent/dagger/sucker_punch)
+	wdefense = 4
+	force = 22 // I will give you 10% force instead of 4 clickCD stab holy shit
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 	smeltresult = /obj/item/ingot/steel
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/parrying
@@ -520,11 +562,45 @@
 		added_def = 2,\
 	)
 
+<<<<<<< HEAD
 /obj/item/rogueweapon/huntingknife/idagger/silver/stake
 	name = "silver-tipped stake"
 	desc = "A branch that has been broken off of a boswellia tree, sharpened to a fine point and tipped with blessed silver. It can lay most unholy creechers to rest, but only by piercing their hearts."
 	icon_state = "stake" //Should hopefully autogenerate an inhand. Need to politely ask a coder to import a custom sprite for this stake, later.
 	icon = 'icons/roguetown/items/natural.dmi'
+=======
+/obj/item/rogueweapon/huntingknife/idagger/stake
+	name = "sharpened stake"
+	desc = "A branch that has been broken off of an azurielve tree, sharpened to a fine point. It can lay some unholy creechers to rest, but only by piercing their hearts."
+	icon_state = "heavystake"
+	possible_item_intents = list(/datum/intent/dagger/thrust/pick, /datum/intent/dagger/thrust, /datum/intent/dagger/cut, /datum/intent/dagger/sucker_punch)
+	force = 12
+	throwforce = 12
+	wdefense = 0
+	max_integrity = 25
+	sellprice = 5
+	slot_flags = ITEM_SLOT_HIP
+	smeltresult = /obj/item/rogueore/coal
+	last_used = 0
+	equip_delay_self = 0 //No delay when stowing away, without a scabbard.
+	unequip_delay_self = 0 //No delay when drawing.
+	inv_storage_delay = 0 //No delay when retrieving from a storage slot.
+
+/obj/item/rogueweapon/huntingknife/idagger/stake/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.5,"sx" = -10,"sy" = -6,"nx" = 11,"ny" = -6,"wx" = -4,"wy" = -6,"ex" = 2,"ey" = -6,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -6,"nx" = 4,"ny" = -6,"wx" = 0,"wy" = -6,"ex" = 2,"ey" = -6,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+/obj/item/rogueweapon/huntingknife/idagger/silver/stake
+	name = "silver-tipped stake"
+	desc = "A branch that has been broken off of a boswellia tree, sharpened to a fine point and tipped with blessed silver. It can lay most unholy creechers to rest, but only by piercing their hearts."
+	icon_state = "heavystake_silver"
+	possible_item_intents = list(/datum/intent/dagger/thrust/pick, /datum/intent/dagger/thrust, /datum/intent/dagger/cut, /datum/intent/dagger/sucker_punch)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 	force = 20
 	throwforce = 20
 	wdefense = 0
@@ -841,10 +917,15 @@
 	max_integrity = 250
 	force = 10
 	throwforce = 10
+<<<<<<< HEAD
 	throw_speed = 2
 	armor_penetration = 20
 	embedding = list("embedded_pain_multiplier" = 5, "embed_chance" = 75, "embedded_fall_chance" = 10)
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/chop/cleaver, /datum/intent/snip, /datum/intent/dagger/sucker_punch)
+=======
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 50, "embedded_fall_chance" = 15)
+	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/chop/cleaver, /datum/intent/snip, /datum/intent/dagger/thrust)
+>>>>>>> 425dcc2224a6f9a37810627242d676fb7a4c8997
 
 /obj/item/rogueweapon/huntingknife/scissors
 	possible_item_intents = list(/datum/intent/snip, /datum/intent/dagger/thrust, /datum/intent/dagger/cut)
