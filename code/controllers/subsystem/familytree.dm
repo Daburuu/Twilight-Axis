@@ -60,7 +60,20 @@ SUBSYSTEM_DEF(familytree)
 		/datum/species/dwarf/mountain,
 		/datum/species/tieberian,
 		/datum/species/aasimar,
-		/datum/species/halforc
+		/datum/species/halforc,
+		/datum/species/dullahan,
+		/datum/species/aura,
+		/datum/species/demihuman,
+		/datum/species/anthromorph,
+		/datum/species/akula,
+		/datum/species/anthromorphsmall,
+		/datum/species/dracon,
+		/datum/species/kobold,
+		/datum/species/lizardfolk,
+		/datum/species/lupian,
+		/datum/species/moth,
+		/datum/species/tabaxi,
+		/datum/species/vulpkanin
 		)
 
 /datum/controller/subsystem/familytree/Initialize()
