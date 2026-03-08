@@ -47095,7 +47095,7 @@
 /area/rogue/indoors/shelter/mountains/decap)
 "kqV" = (
 /obj/structure/table/wood/crafted,
-/obj/item/quiver/bolt,
+/obj/item/quiver/bolt/standard,
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/outdoors/mountains/decap/gunduzirak/bossarena)
@@ -81233,8 +81233,8 @@
 /area/rogue/indoors/shelter)
 "rQC" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/bolt,
-/obj/item/quiver/bolt,
+/obj/item/quiver/bolt/standard,
+/obj/item/quiver/bolt/standard,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/garrison)
 "rQD" = (
