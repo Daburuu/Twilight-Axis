@@ -137,7 +137,7 @@
 		mob_ignite(M)
 		if(isfinal)
 			if(ishuman(M))
-				var/mob/living/carbon/human/H
+				var/mob/living/carbon/human/H = M
 				var/type = H.patron?.type
 				if(istype(type, /datum/patron/inhumen))
 					H.electrocution_animation(20)
@@ -562,7 +562,14 @@
 				head = /obj/item/clothing/head/roguetown/helmet/heavy/holysee/alt
 	if(H.mind)
 		SStreasury.give_money_account(ECONOMIC_UPPER_CLASS, H, "Church Funding.")
+		var/obj/effect/proc_holder/spell/targeted/martyr_select_weapon/sel = new
+		var/obj/effect/proc_holder/spell/invoked/martyr_summon_weapon/sum = new
 
+		sel.summon_weapon = sum
+		sum.weapon_select = sel
+
+		H.AddSpell(sel)
+		H.AddSpell(sum)
 
 /obj/item/rogueweapon/sword/long/martyr
 	force = 30
@@ -595,7 +602,7 @@
 	is_silver = TRUE
 	toggle_state = null
 	is_important = TRUE
-	special = /datum/special_intent/martyr_blazing_sweep_sword
+	special = /datum/special_intent/martyr_astrata_verdict
 
 /obj/item/rogueweapon/sword/long/martyr/ComponentInitialize()
 	AddComponent(\
@@ -695,6 +702,7 @@
 	item_state = "martyraxe"
 	name = "divine axe"
 	desc = "A relic from the Holy See's own vaults; a blessed silver axe, marked with the ten-pointed sigil of Astrata's undivided might. </br>It simmers with godly energies, and will only yield to the hands of those who have taken the Oath."
+	minstr = 12
 	max_blade_int = 250
 	max_integrity = 9999
 	bigboy = 1
@@ -704,7 +712,7 @@
 	is_silver = TRUE
 	toggle_state = null
 	is_important = TRUE
-	special = /datum/special_intent/martyr_blazing_sweep
+	special = /datum/special_intent/martyr_ravox_charge
 
 /obj/item/rogueweapon/greataxe/steel/doublehead/martyr/ComponentInitialize()
 	AddComponent(\
@@ -810,7 +818,7 @@
 	is_silver = TRUE
 	toggle_state = null
 	is_important = TRUE
-	special = /datum/special_intent/martyr_volcano_slam
+	special = /datum/special_intent/martyr_malum_hammerfall
 
 /obj/item/rogueweapon/mace/goden/martyr/ComponentInitialize()
 	AddComponent(\
@@ -913,7 +921,8 @@
 	toggle_state = null
 	is_important = TRUE
 	throwforce = 40
-	special = /datum/special_intent/martyr_blazing_trident
+	var/is_being_thrown_by_special = FALSE
+	special = /datum/special_intent/martyr_abyssor_harpoon
 
 /obj/item/rogueweapon/spear/partizan/martyr/ComponentInitialize()
 	AddComponent(\
@@ -1197,7 +1206,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/holysee
 	name = "holy silver bascinet"
-	desc = "Branded by the Holy See, these helms are worn by it's chosen warriors. A bastion of hope in the dark nite."
+	desc = "Branded by the Holy See, these helms are worn by its chosen warriors. A bastion of hope in the dark nite."
 	icon = 'icons/roguetown/clothing/special/martyr.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/martyrhelmets.dmi'
 	bloody_icon = 'icons/effects/blood64.dmi'
@@ -1251,7 +1260,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/holysee/alt
 	name = "holy silver armet"
-	desc = "Branded by the Holy See, these helms are worn by it's chosen warriors. A bastion of hope in the dark nite."
+	desc = "Branded by the Holy See, these helms are worn by its chosen warriors. A bastion of hope in the dark nite."
 	icon = 'icons/roguetown/clothing/special/martyr.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/martyrhelmets.dmi'
 	bloody_icon = 'icons/effects/blood64.dmi'
@@ -1282,6 +1291,117 @@
 	storage = TRUE
 	sellprice = 300
 
+// Helpers
+
+/proc/get_martyr_component_for(mob/living/carbon/human/H)
+	if(!H)
+		return null
+
+	var/obj/item/I = SSroguemachine.martyrweapon
+	if(!I)
+		return null
+
+	var/datum/component/martyrweapon/C = I.GetComponent(/datum/component/martyrweapon)
+	if(!C)
+		return null
+
+	if(C.current_holder != H)
+		return null
+
+	return C
+
+/proc/martyr_ult_active(mob/living/carbon/human/H)
+	var/datum/component/martyrweapon/C = get_martyr_component_for(H)
+	if(!C)
+		return FALSE
+	return (C.is_active && C.current_state == STATE_MARTYRULT)
+
 #undef STATE_SAFE
 #undef STATE_MARTYR
 #undef STATE_MARTYRULT
+
+
+///////////////////////////////////
+// Versions for UNDIVIDED ritual //
+///////////////////////////////////
+
+///////////
+// PLATE //
+///////////
+
+/obj/item/clothing/suit/roguetown/armor/plate/full/holysee/ritual
+	name = "crusader silver plate"
+
+/obj/item/clothing/suit/roguetown/armor/plate/full/holysee/ritual/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+	return TRUE
+
+/obj/item/clothing/suit/roguetown/armor/plate/full/holysee/ritual/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+
+/obj/item/clothing/suit/roguetown/armor/plate/full/holysee/ritual/dropped(mob/living/carbon/human/user)
+	. = ..()
+	if(QDELETED(src))
+		return
+	qdel(src)
+
+////////////
+// GLOVES //
+////////////
+
+/obj/item/clothing/gloves/roguetown/plate/holysee/ritual
+	name = "crusader silver plate gauntlets"
+
+/obj/item/clothing/gloves/roguetown/plate/holysee/ritual/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+	return TRUE
+
+/obj/item/clothing/gloves/roguetown/plate/holysee/ritual/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+
+/obj/item/clothing/gloves/roguetown/plate/holysee/ritual/dropped(mob/living/carbon/human/user)
+	. = ..()
+	if(QDELETED(src))
+		return
+	qdel(src)
+
+///////////
+// PANTS //
+///////////
+
+/obj/item/clothing/under/roguetown/platelegs/holysee/ritual
+	name = "crusader silver chausses"
+
+/obj/item/clothing/under/roguetown/platelegs/holysee/ritual/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+	return TRUE
+
+/obj/item/clothing/under/roguetown/platelegs/holysee/ritual/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+
+/obj/item/clothing/under/roguetown/platelegs/holysee/ritual/dropped(mob/living/carbon/human/user)
+	. = ..()
+	if(QDELETED(src))
+		return
+	qdel(src)
+
+///////////
+// BOOTS //
+///////////
+
+/obj/item/clothing/shoes/roguetown/boots/armor/holysee/ritual
+	name = "crusader silver plated boots"
+
+/obj/item/clothing/shoes/roguetown/boots/armor/holysee/ritual/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+	return TRUE
+
+/obj/item/clothing/shoes/roguetown/boots/armor/holysee/ritual/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+
+/obj/item/clothing/shoes/roguetown/boots/armor/holysee/ritual/dropped(mob/living/carbon/human/user)
+	. = ..()
+	if(QDELETED(src))
+		return
+	qdel(src)
+

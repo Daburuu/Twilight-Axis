@@ -278,7 +278,7 @@
 
 /obj/item/clothing/head/roguetown/roguehood/burgerhood
 	name = "noble hood"
-	desc = "Почувствуй себя молчаливым психопатом, что подливает отраву в еду соседа."
+	desc = "Шёлковый капюшон, показывающий высокий статус владельца. По крайней мере выглядит сносно."
 	color = null
 	icon_state = "burgerhood"
 	item_state = "burgerhood"
@@ -290,6 +290,8 @@
 	dynamic_hair_suffix = ""
 	edelay_type = 1
 	adjustable = CAN_CADJUST
+	color = "#de5013"
+	detail_color = "#e3ab12"
 	toggle_icon_state = TRUE
 	max_integrity = 180
 	salvage_result = /obj/item/natural/cloth
@@ -300,10 +302,10 @@
 	category = "Hoods"
 	result = list(/obj/item/clothing/head/roguetown/roguehood/burgerhood)
 	reqs = list(/obj/item/natural/cloth = 2,
-	            /obj/item/natural/fibers = 1)
+				/obj/item/natural/silk = 2)
 	tools = list(/obj/item/needle)
-	craftdiff = 2
-	sellprice = 15
+	craftdiff = 3
+	sellprice = 20
 
 /obj/item/clothing/head/roguetown/duelhat/etrusca
 	name = "etruscian duelist hat"

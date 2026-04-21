@@ -1,9 +1,9 @@
-/mob/living/carbon/human/getarmor(def_zone, type, damage, armor_penetration = PEN_NONE, blade_dulling, intdamfactor, used_weapon)
+/mob/living/carbon/human/getarmor(def_zone, type, damage, armor_penetration = PEN_NONE, blade_dulling, intdamfactor, used_weapon, pen_info)
 	var/armorval = 0
 	var/organnum = 0
 
 	if(def_zone)
-		return checkarmor(def_zone, type, damage, armor_penetration, blade_dulling, intdamfactor, used_weapon)
+		return checkarmor(def_zone, type, damage, armor_penetration, blade_dulling, intdamfactor, used_weapon, pen_info)
 		//If a specific bodypart is targetted, check how that bodypart is protected and return the value.
 
 	//If you don't specify a bodypart, it checks ALL my bodyparts for protection, and averages out the values
@@ -14,7 +14,7 @@
 	return (armorval/max(organnum, 1))
 
 
-/mob/living/carbon/human/proc/checkarmor(def_zone, d_type, damage, armor_penetration = PEN_NONE, blade_dulling, intdamfactor = 1, obj/item/used_weapon)
+/mob/living/carbon/human/proc/checkarmor(def_zone, d_type, damage, armor_penetration = PEN_NONE, blade_dulling, intdamfactor = 1, obj/item/used_weapon, pen_info)
 	if(!d_type)
 		return 0
 	if(isbodypart(def_zone))
@@ -29,24 +29,31 @@
 		used = get_best_worn_armor(def_zone, d_type)
 		if(used)
 			protection = used.armor.getRating(d_type)
+			protection += get_trophy_armor_bonus_for_zone(def_zone, d_type)
 			if(!blade_dulling)
 				blade_dulling = BCLASS_BLUNT
 			if(used.blocksound)
 				playsound(loc, get_armor_sound(used.blocksound, blade_dulling), 100)
 
 			// Tier-based penetration:
-			//   pen > armor  = 100% through (full penetration)
-			//   pen == armor = 20% through (partial penetration)
-			//   pen < armor  = fully blocked
-			if(armor_penetration > protection)
-				consume_debuff = FALSE
-				intdamage = damage * PEN_PASSTHROUGH_OVER
-			else if(armor_penetration == protection)
-				consume_debuff = FALSE
-				intdamage = damage * PEN_PASSTHROUGH_SAME
+			// + 10% damage per "dot" of pen and per relevant stat point.
+			if(d_type != "piercing")
+				if(armor_penetration >= protection)
+					consume_debuff = FALSE
+					intdamage = damage * (1 - (pen_info * PEN_PASSTHROUGH_RATIO))
+			else
+				if(armor_penetration == protection)
+					consume_debuff = FALSE
+					intdamage = damage * PEN_PASSTHROUGH_PROJ_EQUAL
+				if(armor_penetration > protection)
+					consume_debuff = FALSE
+					intdamage = damage * PEN_PASSTHROUGH_PROJ_MORE
 
 			if(intdamfactor != 1)
 				intdamage *= intdamfactor
+
+			if(has_status_effect(/datum/status_effect/buff/iron_skin))
+				intdamage *= 0.75
 
 			if(istype(used_weapon) && used_weapon.is_silver && ((used.smeltresult in list(/obj/item/ingot/aaslag, /obj/item/ingot/aalloy, /obj/item/ingot/purifiedaalloy)) || used.GetComponent(/datum/component/cursed_item)))
 				var/datum/component/silverbless/bless = used_weapon.GetComponent(/datum/component/silverbless)
@@ -74,14 +81,12 @@
 			used.take_damage(intdamage, damage_flag = d_type, sound_effect = FALSE, armor_penetration = 100)
 	else
 		// DR types: blunt, fire, acid
-		if(def_zone == BODY_ZONE_PRECISE_R_EYE || def_zone == BODY_ZONE_PRECISE_L_EYE)
-			def_zone = BODY_ZONE_HEAD
-		// TA EDIT, basically lore-wise eyes are just too hard to precisely hit with blunt weapon, OOC-sided we got no armour for eyes
 		var/list/layers = get_best_worn_armor_layered(def_zone, d_type)
 		if(length(layers))
 			for(var/C in layers)
 				if(layers[C] > protection)
 					protection = layers[C]
+			protection += get_trophy_armor_bonus_for_zone(def_zone, d_type)
 			// DR tier formula: damage * 1 / (1 + 0.2 * tier)
 			if(protection > 0)
 				var/dr_mult = 1 / (1 + 0.2 * protection)
@@ -93,6 +98,9 @@
 					intdamage *= dr_mult
 			if(intdamfactor != 1)
 				intdamage *= intdamfactor
+
+			if(has_status_effect(/datum/status_effect/buff/iron_skin))
+				intdamage *= 0.75
 
 			var/tempo_bonus = get_tempo_bonus(TEMPO_TAG_ARMOR_INTEGFACTOR)
 			if(tempo_bonus)
@@ -127,7 +135,6 @@
 	if(physiology)
 		protection += physiology.armor.getRating(d_type)
 
-	protection += get_trophy_armor_bonus_for_zone(def_zone, d_type)
 	return protection
 
 /*
@@ -189,9 +196,6 @@
 			P.on_hit(src, 100, def_zone)
 			return BULLET_ACT_HIT
 
-	var/mob/living/attacker = P?.firer
-	if(attacker)
-		retaliate(attacker)
 	return ..(P, def_zone)
 
 /mob/living/carbon/human/proc/check_reflect(def_zone) //Reflection checks for anything in my l_hand, r_hand, or wear_armor based on the reflection chance of the object
@@ -247,9 +251,6 @@
 		throwpower = I.throwforce
 		if(I.thrownby == src) //No throwing stuff at myself to trigger hit reactions
 			return ..()
-		else
-			if(ismob(I.thrownby))
-				retaliate(I.thrownby)
 	if(check_shields(AM, throwpower, "\the [AM.name]", THROWN_PROJECTILE_ATTACK))
 		hitpush = FALSE
 		skipcatch = TRUE
@@ -291,7 +292,6 @@
 /mob/living/carbon/human/grippedby(mob/living/user, instant = FALSE)
 	if(wear_pants)
 		wear_pants.add_fingerprint(user)
-	retaliate(user)
 	..()
 
 
@@ -323,9 +323,6 @@
 	SSblackbox.record_feedback("nested tally", "item_used_for_combat", 1, list("[I.force]", "[I.type]"))
 	SSblackbox.record_feedback("tally", "zone_targeted", 1, useder)
 
-	if(I.force)
-		retaliate(user)
-
 	// the attacked_by code varies among species
 	return dna.species.spec_attacked_by(I, user, affecting, used_intent, src, useder)
 
@@ -336,7 +333,6 @@
 
 	if(..())	//to allow surgery to return properly.
 		return
-	retaliate(user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		dna.species.spec_attack_hand(H, src)
@@ -349,8 +345,6 @@
 	if(M.used_intent.type == INTENT_HELP)
 		..() //shaking
 		return 0
-
-	retaliate(M)
 
 	if(M.used_intent.type == INTENT_DISARM) //Always drop item in hand, if no item, get stunned instead.
 		var/obj/item/I = get_active_held_item()
@@ -418,8 +412,6 @@
 		next_attack_msg.Cut()
 		if(nodmg)
 			return FALSE
-		else
-			retaliate(M)
 
 /mob/living/carbon/human/ex_act(severity, target, epicenter, devastation_range, heavy_impact_range, light_impact_range, flame_range)
 	..()
@@ -908,7 +900,7 @@
 
 /mob/living/carbon/human/on_fire_stack(seconds_per_tick, datum/status_effect/fire_handler/fire_stacks/fire_handler)
 	//SEND_SIGNAL(src, COMSIG_HUMAN_BURNING)
-	if(fire_handler.stacks >= 5)
+	if(fire_handler.stacks >= 10)
 		burn_clothing(seconds_per_tick, fire_handler.stacks)
 	var/no_protection = FALSE
 	fire_handler.harm_human(seconds_per_tick, no_protection)
