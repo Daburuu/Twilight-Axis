@@ -762,21 +762,21 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	S.set_up(1, 1, center)
 	S.start()
 
-	new /obj/item/clothing/suit/roguetown/armor/plate/full/avantyne(center)
+	new /obj/item/clothing/suit/roguetown/armor/plate/full/zizo(center)
 
-	new /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/avantyne/heavy(center)
+	new /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/zizo/heavy(center)
 
-	new /obj/item/clothing/under/roguetown/platelegs/avantyne/heavy(center)
+	new /obj/item/clothing/under/roguetown/platelegs/zizo/heavy(center)
 
-	new /obj/item/clothing/shoes/roguetown/boots/armor/avantyne/heavy(center)
+	new /obj/item/clothing/shoes/roguetown/boots/armor/zizo(center)
 
-	new /obj/item/clothing/wrists/roguetown/bracers/avantyne/heavy(center)
+	new /obj/item/clothing/wrists/roguetown/bracers/zizo/heavy(center)
 
-	new /obj/item/clothing/gloves/roguetown/plate/avantyne/heavy(center)
+	new /obj/item/clothing/gloves/roguetown/plate/zizo/heavy(center)
 
 	new /obj/item/clothing/head/roguetown/helmet/heavy/zizo(center)
 
-	new /obj/item/clothing/neck/roguetown/bevor/avantyne/heavy(center)
+	new /obj/item/clothing/neck/roguetown/bevor/zizo/heavy(center)
 
 	playsound(get_turf(center), pick('sound/items/bsmith1.ogg','sound/items/bsmith2.ogg','sound/items/bsmith3.ogg','sound/items/bsmith4.ogg'), 100, FALSE)
 	ADD_TRAIT(target,TRAIT_HEAVYARMOR, TRAIT_GENERIC)
@@ -851,14 +851,14 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 		return
 	target.playsound_local(target, 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
 	if((!HAS_TRAIT(target, TRAIT_DNR) && !HAS_TRAIT(target, TRAIT_NECRAS_VOW)) || target.stat != DEAD)
+		target.fully_heal()
+		target.regenerate_limbs()
+		target.heal_wounds(500)
 		if(target.stat == DEAD)
 			target.revive()
 			#ifdef REVIVE_GRACE
 			target.apply_status_effect(/datum/status_effect/debuff/revive_grace)
 			#endif
-		target.fully_heal()
-		target.regenerate_limbs()
-		target.heal_wounds(500)
 		target.apply_status_effect(/datum/status_effect/debuff/fleshmend_exhaustion)
 		to_chat(target, span_notice("ZIZO EMPOWERS ME!"))
 

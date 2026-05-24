@@ -72,7 +72,7 @@
 
 	//allowed sex/race for picking
 	var/list/allowed_sexes = list(MALE, FEMALE)
-	var/list/allowed_races = RACES_ALL_KINDS
+	var/list/forbidden_races
 	var/list/allowed_patrons
 	var/list/allowed_ages = ALL_AGES_LIST
 
@@ -173,15 +173,19 @@
 	var/is_quest_giver = FALSE
 
 	/// How many quests this job can take at once
-	// TEMP: bumped from 2 to 12 for writ-system testing - revert before merge.
-	var/max_active_quests = 12
+	var/max_active_quests = 2
 
 	var/townie_contract_gate_exempt = FALSE
 
-/// Either flag exempts. Job-level is "this whole job has no town rotation" (Adventurer,
-/// Mercenary, Vagabond, Court Agent). Advclass-level is "this specific subclass deserves
-/// the exemption within an otherwise non-exempt job" (Hunter / Witch / Levy / Thug under
-/// Pilgrim). Pilgrim/Blacksmith etc. land at FALSE on both sides.
+	///
+	var/quest_claim_barred = FALSE
+
+/proc/is_quest_claim_barred(mob/user)
+	if(!user?.mind)
+		return FALSE
+	var/datum/job/J = user.job ? SSjob.GetJob(user.job) : null
+	return J?.quest_claim_barred ? TRUE : FALSE
+
 /proc/is_townie_contract_gate_exempt(mob/user)
 	if(!user?.mind)
 		return FALSE
@@ -202,7 +206,7 @@
 
 /datum/job/proc/validate_prefs_for_job(datum/preferences/P) //TA EDIT START
 	if(!P) return FALSE
-	if(length(allowed_races) && !(P.pref_species.type in allowed_races)) return FALSE
+	if(length(forbidden_races) && (P.pref_species.type in forbidden_races)) return FALSE
 	if(length(allowed_patrons) && !(P.selected_patron.type in allowed_patrons)) return FALSE
 	if(length(allowed_ages) && !(P.age in allowed_ages)) return FALSE
 	if(length(allowed_sexes) && !(P.gender in allowed_sexes)) return FALSE
