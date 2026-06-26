@@ -72,6 +72,8 @@
 
 	var/class_tempo_faction = null
 
+	var/tempo_capable = TRUE
+
 /datum/advclass/New()
 	if(ispath(age_mod) && !istype(age_mod))
 		var/datum/class_age_mod/newmod = new age_mod()
@@ -107,8 +109,9 @@
 		ADD_TRAIT(H, trait, ADVENTURER_TRAIT)
 
 	if(noble_income)
+		var/already_has_income = !isnull(SStreasury.noble_incomes[H])
 		SStreasury.noble_incomes[H] = noble_income
-		SStreasury.grant_estate_income(H, noble_income, TRUE)
+		SStreasury.grant_estate_income(H, noble_income, !already_has_income)
 
 	if(adaptive_name)
 		H.adaptive_name = TRUE

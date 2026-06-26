@@ -99,6 +99,14 @@
 #define JP_LOW 1
 #define JP_MEDIUM 2
 #define JP_HIGH 3
+#define JP_BOOST 4 // TA EDIT
+
+// TA EDIT START
+#define JOB_PREF_UI_HIGH 1
+#define JOB_PREF_UI_MEDIUM 2
+#define JOB_PREF_UI_LOW 3
+#define JOB_PREF_UI_NEVER 4
+#define JOB_PREF_UI_BOOST 5 // TA EDIT END
 
 //randomised elements
 #define RANDOM_NAME "random_name"
@@ -179,6 +187,14 @@ GLOBAL_LIST_INIT(voice_packs_list, list(
 	VOICE_PACK_FEM_DAINTY = /datum/voicepack/female/dainty,
 	VOICE_PACK_FEM_HAUGHTY = /datum/voicepack/female/haughty,
 ))
+
+GLOBAL_LIST_INIT(voice_packs, build_voice_packs())
+
+/proc/build_voice_packs()
+	. = list()
+
+	for(var/path in typesof(/datum/voicepack))
+		.[path] = new path()
 
 #define ATTACK_BLIP_PREF_DEFAULT 50
 #define ATTACK_BLIP_PREF_RARELY 25

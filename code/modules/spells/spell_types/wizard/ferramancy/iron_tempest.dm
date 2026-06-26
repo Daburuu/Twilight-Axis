@@ -32,6 +32,7 @@
 	charge_slowdown = CHARGING_SLOWDOWN_MEDIUM
 	charge_sound = 'sound/magic/charging.ogg'
 	cooldown_time = 20 SECONDS
+	self_cast_possible = TRUE
 
 	associated_skill = /datum/skill/magic/arcane
 	spell_tier = 2
@@ -68,6 +69,8 @@
 
 /obj/projectile/magic/iron_tempest_seed/on_hit(atom/target)
 	. = ..()
+	if(out_of_effective_range())
+		return
 	var/turf/impact = get_turf(target)
 	if(impact)
 		new /obj/effect/iron_tempest(impact, firer, spell_ref)

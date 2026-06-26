@@ -198,15 +198,18 @@
 		return FALSE
 	if(GLOB.tod == "night")
 		to_chat(user, span_warning("Let there be light."))
+		revert_cast()
 		return FALSE
 	for(var/obj/structure/fluff/psycross/S in oview(5, user))
 		S.AOE_flash(user, range = 8)
 	if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
-		target.visible_message(
-			span_danger("[target] is unmade by holy light!"),
-			span_userdanger("I'm unmade by holy light!")
-		)
-		target.gib()
+		if(alert(user, "[target]'s body rattles and seizes under the divine force. This will likely unmake them permanently. Continue?", "Divine Revival", "PURGE THE UNCLEAN!", "Stop") != "PURGE THE UNCLEAN!")
+			to_chat(user, span_notice("You halt the rite before the divine force can fully take hold."))
+			revert_cast()
+			return FALSE
+		target.visible_message(span_danger("[target] is unmade by divine magic!"), span_userdanger("Holy power tears my undead form apart!"))
+		playsound(target.loc, 'sound/magic/churn.ogg', 100, TRUE)
+		target.dust()
 		return TRUE
 	if(alert(target, "They are calling for you. Are you ready?", "Revival", "I need to wake up", "Don't let me go") != "I need to wake up")
 		target.visible_message(span_notice("Nothing happens. They are not being let go."))
@@ -241,9 +244,6 @@
 		target.ignite_mob()
 	target.mind.remove_antag_datum(/datum/antagonist/zombie)
 	target.remove_status_effect(/datum/status_effect/debuff/rotted_zombie)	//Removes the rotted-zombie debuff if they have it - Failsafe for it.
-	#ifdef REVIVE_GRACE
-	target.apply_status_effect(/datum/status_effect/debuff/revive_grace)
-	#endif
 	target.apply_status_effect(/datum/status_effect/debuff/revived)	//Temp debuff on revive, your stats get hit temporarily. Doubly so if having rotted.
 	return TRUE
 
@@ -260,7 +260,7 @@
 /datum/stressevent/bad_revive
 	timer = 20 MINUTES
 	stressadd = 5
-	desc = span_boldred("I revive ugly peasant!")
+	desc = span_boldred("I revived a peasant!")
 
 /datum/status_effect/debuff/bad_revive/on_apply()
 	. = ..()
@@ -271,7 +271,7 @@
 	owner.update_stress()
 	return ..()
 
-/obj/effect/proc_holder/spell/invoked/revive/cast_check(skipcharge, mob/user = usr)
+/obj/effect/proc_holder/spell/invoked/TArevive/cast_check(skipcharge, mob/user = usr)
 	if(!..())
 		return FALSE
 	var/found = null
@@ -547,6 +547,13 @@
 /datum/status_effect/buff/dragonhide/TAfireresist/buff/on_remove()
 	. = ..()
 	owner.weather_immunities -= "lava"
+
+/datum/status_effect/buff/dragonhide/TAfireresistinferrum
+	id = "fireresist"
+	examine_text = "<font color='red'>SUBJECTPRONOUN is shielded by a veil of sacred flame!</font>"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/dragonhide/TAfireresist
+	effectedstats = list(STATKEY_CON = -1) //Target body loosing CON, but getting fireresist.
+	duration = 11 SECONDS
 
 /obj/effect/proc_holder/spell/targeted/touch/summonrogueweapon/TAastratagrasp
 	name = "Astrata's Grasp"

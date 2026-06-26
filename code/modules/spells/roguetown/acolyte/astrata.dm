@@ -240,6 +240,8 @@
 			return BULLET_ACT_BLOCK
 		if(isliving(target))
 			var/mob/living/L = target
+			if(out_of_effective_range())
+				return
 			L.electrocute_act(1, src, 1, SHOCK_NOSTUN)
 			if(HAS_TRAIT(L, TRAIT_SILVER_WEAK))
 				L.adjust_fire_stacks(4, /datum/status_effect/fire_handler/fire_stacks/sunder)
@@ -675,7 +677,7 @@
 		var/list/hearers_in_range = get_hearers_in_LOS(healing_range, src, RECURSIVE_CONTENTS_CLIENT_MOBS)
 		for(var/mob/living/carbon/human/human in hearers_in_range)
 			var/distance = get_dist(src, human)
-			if(distance > healing_range || human.construct)
+			if(distance > healing_range || HAS_TRAIT(human, TRAIT_IRONMAN))
 				continue
 			if(istype(human.patron, /datum/patron/divine))
 				if(!human.has_status_effect(/datum/status_effect/buff/pyre))
@@ -710,7 +712,7 @@
 	if(!owner.cmode)
 		healing_on_tick_pyre *= 2
 		return
-	if(owner.construct)
+	if(HAS_TRAIT(owner, TRAIT_IRONMAN))
 		return
 	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal_rogue/campfire(get_turf(owner))
 	H.color = GLOW_COLOR_ASTRATA
@@ -866,9 +868,6 @@
 	target.mind.remove_antag_datum(/datum/antagonist/zombie)
 	target.remove_status_effect(/datum/status_effect/debuff/rotted_zombie)	//Removes the rotted-zombie debuff if they have it - Failsafe for it.
 	target.apply_status_effect(/datum/status_effect/debuff/revived)	//Temp debuff on revive, your stats get hit temporarily. Doubly so if having rotted.
-	#ifdef REVIVE_GRACE
-	target.apply_status_effect(/datum/status_effect/debuff/revive_grace) // TA EDIT
-	#endif
 	return TRUE
 
 /obj/effect/proc_holder/spell/invoked/revive/cast_check(skipcharge, mob/user = usr)

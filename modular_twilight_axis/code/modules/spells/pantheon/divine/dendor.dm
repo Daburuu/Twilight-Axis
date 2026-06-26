@@ -41,7 +41,7 @@
 	hitsound = "genslash"
 	miss_sound = "bluntwoosh"
 	item_d_type = "slash"
-	penfactor = 25
+	penfactor = PEN_LIGHT
 	item_d_type = "cut"
 	icon_state = "inchop"
 // - - -
@@ -146,7 +146,6 @@
 /datum/status_effect/buff/beast_rage/on_remove()
 	. = ..()
 	owner.apply_status_effect(/datum/status_effect/debuff/beast_rage_weakness)
-	owner.apply_status_effect(/datum/status_effect/debuff/sleepytime)
 	owner.clear_fullscreen("beast_mode")
 
 // -- Spell
@@ -166,7 +165,6 @@
 
 /obj/effect/proc_holder/spell/self/beast_rage/cast(mob/living/user = usr)
 	. = ..()
-	user.remove_status_effect(/datum/status_effect/debuff/sleepytime)
 	user.apply_status_effect(/datum/status_effect/buff/beast_rage)
 	user.overlay_fullscreen("beast_mode", /atom/movable/screen/fullscreen/color_vision/red)
 	user.Dizzy(10)

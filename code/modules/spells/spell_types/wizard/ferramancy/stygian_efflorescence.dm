@@ -70,7 +70,7 @@
 	npc_simple_damage_mult = 1.5
 	speed = MAGE_PROJ_SLOW
 	accuracy = 65
-	flag = "piercing"
+	flag = "stab"
 	hitsound = 'sound/combat/hits/bladed/genstab (1).ogg'
 	var/reduced_damage = 18
 
@@ -78,6 +78,15 @@
 	name = "arced stygian harpe"
 	damage = 26
 	arcshot = TRUE
+
+/obj/projectile/energy/stygian/prehit(atom/target)
+	if(ismob(target))
+		var/mob/living/M = target
+		if(M.mob_timers[MT_STYGIAN] && world.time < M.mob_timers[MT_STYGIAN] + STYGIAN_DR_DURATION)
+			damage = reduced_damage
+		else
+			M.mob_timers[MT_STYGIAN] = world.time
+	return ..()
 
 /obj/projectile/energy/stygian/on_hit(target)
 	if(ismob(target))
@@ -87,10 +96,6 @@
 			playsound(get_turf(target), 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK
-		if(M.mob_timers[MT_STYGIAN] && world.time < M.mob_timers[MT_STYGIAN] + STYGIAN_DR_DURATION)
-			damage = reduced_damage
-		else
-			M.mob_timers[MT_STYGIAN] = world.time
 	. = ..()
 
 #undef MT_STYGIAN

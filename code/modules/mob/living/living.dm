@@ -2,6 +2,8 @@
 	//used by the basic ai controller /datum/ai_behavior/basic_melee_attack to determine how fast a mob can attack
 	var/melee_cooldown = CLICK_CD_MELEE
 	var/pain_threshold = 0
+	var/no_head_bounty = FALSE
+
 
 /mob/living/Initialize()
 	. = ..()
@@ -699,7 +701,6 @@
 
 /mob/living/verb/stop_pulling1()
 	set name = "Stop Pulling"
-	set category = "IC"
 	set hidden = 1
 	stop_pulling()
 
@@ -751,7 +752,6 @@
 
 /mob/living/proc/mob_sleep()
 	set name = "Sleep"
-	set category = "IC"
 	set hidden = 1
 	if(IsSleeping())
 		to_chat(src, span_warning("I am already sleeping!"))
@@ -767,7 +767,6 @@
 
 /mob/living/proc/lay_down()
 	set name = "Lay down"
-	set category = "IC"
 	set hidden = 1
 	if(stat)
 		return
@@ -779,7 +778,6 @@
 
 /mob/living/proc/stand_up()
 	set name = "Stand up"
-	set category = "IC"
 	set hidden = 1
 	if(stat)
 		return
@@ -798,7 +796,6 @@
 
 /mob/living/proc/toggle_rest()
 	set name = "Rest/Stand"
-	set category = "IC"
 	set hidden = 1
 	if(stat)
 		return
@@ -919,6 +916,7 @@
 		clear_alert("not_enough_oxy")
 		reload_fullscreen()
 		remove_client_colour(/datum/client_colour/monochrome)
+		set_sunder(0) //Just in case we didn't
 		// Add message about struggling to recall death circumstances
 		to_chat(src, "<span class='notice'><b>As you return to life, you struggle to recall the circumstances of your death...</b></span>")
 		to_chat(src, "<span class='italic'>Your memories of your final moments are hazy and fragmented.</span>")
@@ -945,6 +943,7 @@
 	SetParalyzed(0, FALSE)
 	SetSleeping(0, FALSE)
 	setStaminaLoss(0)
+	set_sunder(0)
 	SetUnconscious(0, FALSE)
 	if(should_update_mobility)
 		update_mobility()
@@ -963,6 +962,7 @@
 	setCloneLoss(0, 0)
 	remove_CC(FALSE)
 	set_disgust(0)
+	set_sunder(0)
 	set_nutrition(NUTRITION_LEVEL_FED + 50)
 	bodytemperature = BODYTEMP_NORMAL
 	set_blindness(0)
@@ -1142,7 +1142,6 @@
 
 /mob/living/verb/resist()
 	set name = "Resist"
-	set category = "IC"
 	set hidden = 1
 	if(!can_resist() || surrendering)
 		return
@@ -1204,7 +1203,6 @@
 
 /mob/living/proc/submit(instant = FALSE)
 	set name = "Yield"
-	set category = "IC"
 	set hidden = 1
 	if(surrendering || stat)
 		return
@@ -1236,7 +1234,6 @@
 
 /mob/living/proc/toggle_compliance()
 	set name = "Toggle Compliance"
-	set category = "IC"
 	set hidden = 1
 
 	var/notifyme = TRUE
@@ -1461,7 +1458,7 @@
 		if(L.cmode && L.mobility_flags & MOBILITY_STAND && !L.restrained())
 			to_chat(src, span_warning("I can't take \the [what] off, they are too tense!"))
 			return
-		if(L.compliance || L.surrendering)
+		if(L.compliance || L.surrendering || HAS_TRAIT(L, TRAIT_ARMOR_BREAK))
 			surrender_mod = 0.5
 
 	if(!who.Adjacent(src))
@@ -1473,6 +1470,7 @@
 
 	to_chat(src, span_danger("I try to remove [who]'s [what.name]..."))
 	what.add_fingerprint(src)
+
 	var/strip_delayed = what.strip_delay
 	if(enhanced_strip)
 		strip_delayed = 0.1 SECONDS
@@ -1958,10 +1956,6 @@
 	if(A.action)
 		A.action.Remove(src)
 
-/mob/living/proc/add_abilities_to_panel()
-	for(var/obj/effect/proc_holder/A in abilities)
-		statpanel("[A.panel]",A.get_panel_text(),A)
-
 /mob/living/lingcheck()
 	return LINGHIVE_NONE
 
@@ -2355,24 +2349,17 @@
 	if(!can_look_up())
 		return
 
-	var/turf/T = get_turf(src)
-	var/turf/ceiling = get_step_multiz(src, UP)
-	var/water_view = (istype(T, /turf/open/water) && istype(ceiling, /turf/open/water))
-
 	changeNext_move(CLICK_CD_MELEE)
 
-	if(water_view)
-		if(m_intent != MOVE_INTENT_SNEAK)
-			visible_message(span_info("[src] peers into the thickness of the water above [src.p_their()] head."))
-		else
-			to_chat(src, span_info("[src] peers into the thickness of the water above [src.p_their()] head."))
+	if(m_intent != MOVE_INTENT_SNEAK)
+		visible_message(span_info("[src] looks up."))
 	else
-		if(m_intent != MOVE_INTENT_SNEAK)
-			visible_message(span_info("[src] looks up."))
-		else
-			to_chat(src, span_info("[src] looks up."))
+		to_chat(src, span_info("[src] looks up."))
 
-	if(!ceiling)
+	var/turf/ceiling = get_step_multiz(src, UP)
+	var/turf/T = get_turf(src)
+
+	if(!ceiling)  //We are at the highest z-level.
 		if(T.can_see_sky())
 			switch(GLOB.forecast)
 				if("prerain")
@@ -2391,7 +2378,7 @@
 			do_time_change()
 		return
 		
-	else if(!istransparentturf(ceiling) && !water_view) 
+	else if(!istransparentturf(ceiling)) 
 		to_chat(src, span_warning("There is a ceiling above my head."))
 		return
 
@@ -2650,6 +2637,15 @@
 		)
 	SEND_SIGNAL(offered_item, COMSIG_OBJ_HANDED_OVER, src, offerer)
 	offerer.stop_offering_item()
+
+/mob/living/proc/strip_head_bounty()
+	no_head_bounty = TRUE
+
+/mob/living/carbon/strip_head_bounty()
+	. = ..()
+	var/obj/item/bodypart/head/head = get_bodypart(BODY_ZONE_HEAD)
+	if(istype(head))
+		head.no_head_bounty = TRUE
 
 /mob/living/proc/resist_leash()
 	return
