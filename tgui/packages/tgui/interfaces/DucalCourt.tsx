@@ -1,4 +1,10 @@
-import { type CSSProperties, type ReactNode, useState } from 'react';
+import {
+  type CSSProperties,
+  type ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import {
   Box,
   Button,
@@ -104,6 +110,8 @@ export type CourtTexts = {
     collapse_tooltip: string;
     restore_tooltip: string;
     restore_button: string;
+    fullscreen_tooltip: string;
+    windowed_tooltip: string;
   };
   viewer_statuses: Record<string, string>;
   views: Record<ViewId, ActionText>;
@@ -302,6 +310,8 @@ const makeCourtTexts = (flavor: {
     collapse_tooltip: 'Свернуть в компактную сводку двора.',
     restore_tooltip: 'Развернуть полный вид двора с панелями команд.',
     restore_button: 'Развернуть двор',
+    fullscreen_tooltip: 'Развернуть двор на весь экран.',
+    windowed_tooltip: 'Вернуть оконный режим.',
   },
   viewer_statuses: {
     'Ducal Authority': flavor.authority,
@@ -534,6 +544,24 @@ const DEFAULT_WINDOW_WIDTH = 1180;
 const DEFAULT_WINDOW_HEIGHT = 760;
 const COMPACT_WINDOW_WIDTH = 620;
 const COMPACT_WINDOW_HEIGHT = 390;
+
+const setCourtWindowSize = (fullscreen: boolean, compact: boolean) => {
+  const pixelScale = window.devicePixelRatio || 1;
+  const screenWidth = Math.floor(window.screen.availWidth * pixelScale);
+  const screenHeight = Math.floor(window.screen.availHeight * pixelScale);
+  const baseWidth = compact ? COMPACT_WINDOW_WIDTH : DEFAULT_WINDOW_WIDTH;
+  const baseHeight = compact ? COMPACT_WINDOW_HEIGHT : DEFAULT_WINDOW_HEIGHT;
+  const width = fullscreen ? screenWidth : Math.min(baseWidth, screenWidth);
+  const height = fullscreen ? screenHeight : Math.min(baseHeight, screenHeight);
+  const x = fullscreen ? 0 : Math.max(Math.floor((screenWidth - width) / 2), 0);
+  const y = fullscreen
+    ? 0
+    : Math.max(Math.floor((screenHeight - height) / 2), 0);
+  Byond.winset(Byond.windowId, {
+    pos: `${x},${y}`,
+    size: `${width}x${height}`,
+  });
+};
 
 const GOVERNANCE_ACTIONS = ['revise_charter', 'set_taxes', 'declare_outlaw'];
 
@@ -1311,7 +1339,26 @@ export const DucalCourtView = (props: DucalCourtViewProps) => {
   const { texts } = props;
   const { act, data } = useBackend<Data>();
   const [compact, setCompact] = useState(false);
+  const [fullscreen, setFullscreen] = useState(false);
   const [activeView, setActiveView] = useState<ViewId>('overview');
+  const windowModeApplied = useRef(false);
+
+  useEffect(() => {
+    if (!windowModeApplied.current) {
+      windowModeApplied.current = true;
+      return;
+    }
+    setCourtWindowSize(fullscreen, compact);
+  }, [fullscreen, compact]);
+
+  const toggleCompact = () => {
+    setCompact(!compact);
+    setFullscreen(false);
+  };
+  const toggleFullscreen = () => {
+    setFullscreen(!fullscreen);
+    setCompact(false);
+  };
   const {
     realm_type,
     realm_name,
@@ -1380,15 +1427,30 @@ export const DucalCourtView = (props: DucalCourtViewProps) => {
     }
   })();
   const windowToggle = (
-    <Button
-      color="transparent"
-      icon={compact ? 'expand' : 'window-minimize-o'}
-      tooltip={
-        compact ? texts.compact.restore_tooltip : texts.compact.collapse_tooltip
-      }
-      tooltipPosition="bottom"
-      onClick={() => setCompact(!compact)}
-    />
+    <>
+      <Button
+        color="transparent"
+        icon={fullscreen ? 'compress-arrows-alt' : 'expand-arrows-alt'}
+        tooltip={
+          fullscreen
+            ? texts.compact.windowed_tooltip
+            : texts.compact.fullscreen_tooltip
+        }
+        tooltipPosition="bottom"
+        onClick={toggleFullscreen}
+      />
+      <Button
+        color="transparent"
+        icon={compact ? 'expand' : 'window-minimize-o'}
+        tooltip={
+          compact
+            ? texts.compact.restore_tooltip
+            : texts.compact.collapse_tooltip
+        }
+        tooltipPosition="bottom"
+        onClick={toggleCompact}
+      />
+    </>
   );
 
   return (
@@ -1396,12 +1458,16 @@ export const DucalCourtView = (props: DucalCourtViewProps) => {
       width={windowWidth}
       height={windowHeight}
       title={texts.window_title}
-      theme="parchment"
+      theme="ducal_court"
       buttons={windowToggle}
     >
       <Window.Content
         fitted
-        className={'DucalCourt' + (compact ? ' DucalCourt--compact' : '')}
+        className={
+          'DucalCourt' +
+          (compact ? ' DucalCourt--compact' : '') +
+          (fullscreen ? ' DucalCourt--fullscreen' : '')
+        }
       >
         <div className="DucalCourt__board" style={realmStyle}>
           <div className="DucalCourt__titleRow">

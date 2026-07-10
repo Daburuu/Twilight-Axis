@@ -170,13 +170,14 @@
 	rite_data["time_remaining_seconds"] = time_remaining_seconds
 	return rite_data
 
-/datum/ducal_court/proc/get_court_status_cards(mob/living/carbon/human/user)
+/datum/ducal_court/proc/get_court_status_cards(mob/living/carbon/human/user, list/rite_data)
 	var/obj/structure/roguethrone/throne = GLOB.king_throne
 	var/occupied = length(throne?.buckled_mobs)
 	var/mob/occupant = occupied ? throne.buckled_mobs[1] : null
 	var/mob/ruler = SSticker.rulermob
 	var/mob/regent = SSticker.regentmob
-	var/list/rite_data = get_throne_rite_data()
+	if(!islist(rite_data))
+		rite_data = get_throne_rite_data()
 	var/rebel_progress = throne ? clamp(round((throne.rebel_leader_sit_time / REBEL_THRONE_TIME) * 100), 0, 100) : 0
 	var/stability = "Stable"
 	if(rite_data["stage"] == "gathering")
@@ -303,7 +304,7 @@
 	var/mob/living/carbon/human/H = user
 	var/list/actions = get_court_actions(H)
 	data["viewer_status"] = user_has_ducal_authority(H) ? "Ducal Authority" : (user_has_crown(H) ? "Crown Bearer" : "Subject")
-	data["status_cards"] = get_court_status_cards(H)
+	data["status_cards"] = get_court_status_cards(H, rite_data)
 	data["main_actions"] = actions["main"]
 	data["tool_actions"] = actions["tools"]
 	data["rite_actions"] = actions["rites"]

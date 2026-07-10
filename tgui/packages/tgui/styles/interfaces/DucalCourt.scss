@@ -247,7 +247,11 @@
   padding: 0 8px 8px;
 }
 
-.DucalCourt__navButton {
+.DucalCourt:not(.DucalCourt--fullscreen) .DucalCourt__board {
+  zoom: 0.85;
+}
+
+:root .DucalCourt .DucalCourt__navButton {
   width: 100%;
   min-height: clamp(34px, 5.4vh, 44px);
   padding: 8px 10px;
@@ -265,8 +269,8 @@
   gap: 10px;
 }
 
-.DucalCourt__navButton:hover:not(:disabled),
-.DucalCourt__navButton--active {
+:root .DucalCourt .DucalCourt__navButton:hover:not(:disabled),
+:root .DucalCourt .DucalCourt__navButton--active {
   color: #ffe8a8;
   border-color: rgba(201, 155, 69, 0.72);
   background:
@@ -292,7 +296,7 @@
   padding-right: 2px;
 }
 
-.DucalCourt .Section {
+:root .DucalCourt .Section {
   overflow: visible;
   color: #25180d;
   border: 2px solid rgba(52, 31, 14, 0.76);
@@ -304,7 +308,33 @@
     0 2px 5px rgba(0, 0, 0, 0.35);
 }
 
-.DucalCourt__rightRail .Section {
+:root .DucalCourt .Section .Section__title {
+  color: #58180d;
+  border-bottom: 1px solid rgba(84, 52, 22, 0.5);
+}
+
+:root .DucalCourt .Section .Button {
+  color: #2a1a0d;
+  background: rgba(122, 86, 22, 0.16);
+  border: 1px solid rgba(84, 52, 22, 0.55);
+}
+
+:root .DucalCourt .Section .Button:hover:not(:disabled) {
+  background: rgba(122, 86, 22, 0.28);
+  border-color: rgba(110, 20, 20, 0.65);
+}
+
+:root .DucalCourt .Section .Button:disabled {
+  color: #5f4e33;
+}
+
+:root .DucalCourt .DucalCourt__lawTools .NumberInput {
+  color: #f2dfb4;
+  background: #15120e;
+  border-color: rgba(84, 52, 22, 0.72);
+}
+
+:root .DucalCourt .DucalCourt__rightRail .Section {
   color: #ead49b;
   border-color: rgba(201, 155, 69, 0.42);
   background:
@@ -491,7 +521,12 @@
   text-shadow: 0 1px 2px #000;
 }
 
-.DucalCourt__action {
+:root .DucalCourt .DucalCourt__rightRail .Section .Section__title {
+  color: #efe1b8;
+  border-bottom: 1px solid rgba(201, 155, 69, 0.4);
+}
+
+:root .DucalCourt .DucalCourt__action {
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -510,7 +545,7 @@
   text-shadow: none;
 }
 
-.DucalCourt .Section .DucalCourt__action {
+:root .DucalCourt .Section .DucalCourt__action {
   color: #2a1a0d;
   border-color: rgba(54, 31, 14, 0.72);
   background:
@@ -519,7 +554,7 @@
     #2a2319;
 }
 
-.DucalCourt__rightRail .DucalCourt__action {
+:root .DucalCourt .DucalCourt__rightRail .DucalCourt__action {
   color: #ead49b;
   border-color: rgba(201, 155, 69, 0.34);
   background:
@@ -527,16 +562,16 @@
     #151512;
 }
 
-.DucalCourt__action:hover:not(:disabled) {
+:root .DucalCourt .DucalCourt__action:hover:not(:disabled) {
   border-color: var(--ducal-gold);
   box-shadow:
     inset 0 0 20px rgba(201, 155, 69, 0.18),
     0 1px 5px rgba(0, 0, 0, 0.45);
 }
 
-.DucalCourt__action:disabled {
-  opacity: 0.48;
-  filter: saturate(0.7);
+:root .DucalCourt .DucalCourt__action:disabled {
+  opacity: 0.65;
+  filter: saturate(0.6);
 }
 
 .DucalCourt__action > .Button__content {
@@ -718,7 +753,7 @@
   gap: 8px;
 }
 
-.DucalCourt__desk .TextArea {
+:root .DucalCourt .DucalCourt__desk .TextArea {
   color: #f2dfb4;
   background: #15120e;
   border: 2px solid rgba(54, 31, 14, 0.72);
