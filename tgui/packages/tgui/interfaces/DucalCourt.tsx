@@ -321,7 +321,7 @@ const makeCourtTexts = (flavor: {
   },
   views: {
     overview: {
-      label: 'Обзор',
+      label: 'Обзор двора',
       desc: 'Показать текущее состояние двора без команд.',
     },
     commands: {
@@ -579,12 +579,12 @@ const VIEW_ITEMS: Array<{
   icon: string;
 }> = [
   {
-    id: 'overview',
-    icon: 'chess-rook',
-  },
-  {
     id: 'commands',
     icon: 'crown',
+  },
+  {
+    id: 'overview',
+    icon: 'chess-rook',
   },
   {
     id: 'succession',
@@ -1254,6 +1254,7 @@ const RightRail = (props: {
   onAction: (action: DucalAction) => void;
 }) => {
   const { texts, tools, onAction } = props;
+  const [voiceOpen, setVoiceOpen] = useState(false);
 
   return (
     <aside className="DucalCourt__rightRail">
@@ -1270,17 +1271,28 @@ const RightRail = (props: {
           ))}
         </div>
       </Section>
-      <Section title={texts.sections.voice_commands}>
-        <ul className="DucalCourt__voiceList">
-          {VOICE_COMMANDS.map((command) => (
-            <li key={command}>
-              <span className="DucalCourt__voiceCommand">{command}</span>
-              <span className="DucalCourt__voiceDesc">
-                {texts.voice_command_descriptions[command] || command}
-              </span>
-            </li>
-          ))}
-        </ul>
+      <Section
+        title={texts.sections.voice_commands}
+        buttons={
+          <Button
+            color="transparent"
+            icon={voiceOpen ? 'chevron-up' : 'chevron-down'}
+            onClick={() => setVoiceOpen(!voiceOpen)}
+          />
+        }
+      >
+        {voiceOpen && (
+          <ul className="DucalCourt__voiceList">
+            {VOICE_COMMANDS.map((command) => (
+              <li key={command}>
+                <span className="DucalCourt__voiceCommand">{command}</span>
+                <span className="DucalCourt__voiceDesc">
+                  {texts.voice_command_descriptions[command] || command}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
       </Section>
     </aside>
   );
@@ -1340,7 +1352,7 @@ export const DucalCourtView = (props: DucalCourtViewProps) => {
   const { act, data } = useBackend<Data>();
   const [compact, setCompact] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
-  const [activeView, setActiveView] = useState<ViewId>('overview');
+  const [activeView, setActiveView] = useState<ViewId>('commands');
   const windowModeApplied = useRef(false);
 
   useEffect(() => {
