@@ -940,6 +940,12 @@
 	icon_state = "greenkey"
 	lockid = "veteran"
 
+/obj/item/roguekey/olddorms
+	name = "Old Dormitory key"
+	desc = "A key to the old dormitory building, in the abandoned college section of town west of the church."
+	icon_state = "greenkey"
+	lockid = "oldorms"
+
 ///////////////////////////////////////
 // ABSOLUTELY ZERO CLUE WHAT THIS IS //
 ///////////////////////////////////////
@@ -1096,4 +1102,4 @@
 			if(src.holdname)
 				KE.name = src.holdname
 			to_chat(user, span_notice("You add [src] to [K]."))
-			qdel(src)	
+			qdel(src)
