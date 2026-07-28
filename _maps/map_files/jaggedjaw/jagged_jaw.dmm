@@ -5407,6 +5407,7 @@
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/beach/forest/hamlet)
 "aOp" = (
+/obj/machinery/light/rogue/candle/r,
 /obj/structure/table/wood/poor,
 /obj/structure/fermentation_keg/water{
 	pixel_x = 4;
@@ -5414,14 +5415,13 @@
 	name = "customers only water barrel"
 	},
 /obj/item/reagent_containers/glass/cup/wooden{
-	pixel_x = -7;
-	pixel_y = -1
-	},
-/obj/item/reagent_containers/glass/cup/wooden{
 	pixel_x = 9;
 	pixel_y = -2
 	},
-/obj/machinery/light/rogue/candle/r,
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = -7;
+	pixel_y = -1
+	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/shop)
 "aOt" = (
@@ -20017,8 +20017,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/mountains/decap/minotaurfort)
 "cQp" = (
-/obj/machinery/light/rogue/candle,
-/turf/open/floor/rogue/wood,
+/turf/closed/wall/mineral/rogue/wooddark/window,
 /area/rogue/indoors/town/shop)
 "cQq" = (
 /obj/structure/chair/wood/rogue/fancy{
@@ -66990,6 +66989,17 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
+"jzI" = (
+/obj/effect/decal/edge{
+	color = "#3f3f3f";
+	dir = 6
+	},
+/obj/effect/decal/edge{
+	color = "#3f3f3f";
+	dir = 10
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/outdoors/town)
 "jzJ" = (
 /obj/structure/chair/stool/rogue{
 	pixel_x = 4;
@@ -89465,6 +89475,18 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
+"mLC" = (
+/obj/structure/table/wood/poor,
+/obj/item/toy/cards/deck{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/candle/silver/lit{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/turf/open/floor/carpet/royalblack,
+/area/rogue/indoors/town/shop)
 "mLE" = (
 /obj/structure/chair/wood/rogue{
 	dir = 8
@@ -128540,7 +128562,7 @@
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
 "sou" = (
 /obj/structure/chair/bench/couch/r,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/shop)
 "sov" = (
 /turf/open/floor/rogue/ruinedwood{
@@ -129750,7 +129772,7 @@
 /area/rogue/outdoors/woods/south)
 "swb" = (
 /obj/structure/chair/bench/couch,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/shop)
 "swc" = (
 /obj/structure/hotspring/border/three,
@@ -169929,9 +169951,8 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/orcdungeon)
 "yct" = (
-/obj/structure/chair/stool/rogue,
-/obj/machinery/light/rogue/candle{
-	pixel_y = -32
+/obj/machinery/light/rogue/torchholder{
+	dir = 1
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/shop)
@@ -468494,7 +468515,7 @@ pGD
 dkr
 oQD
 fUI
-nGb
+cQp
 aRt
 mcn
 aXh
@@ -468878,9 +468899,9 @@ eGf
 fUI
 iHh
 swb
-gvr
-gvr
-gvr
+mLC
+sDp
+sDp
 sDp
 vrZ
 ble
@@ -469261,8 +469282,8 @@ fUI
 iHh
 sou
 gvr
-gvr
-gvr
+sDp
+sDp
 sDp
 vrZ
 jEx
@@ -469639,9 +469660,9 @@ jcD
 qem
 qem
 eGf
-epQ
-iHh
-aOp
+jzI
+aXh
+sDp
 sDp
 hJS
 wlp
@@ -470022,10 +470043,10 @@ qem
 sVo
 eGf
 fUI
+iHh
+aOp
+sDp
 nGb
-woF
-mCA
-woF
 woF
 woF
 nZh
@@ -470404,10 +470425,10 @@ gRB
 kes
 oQD
 fUI
-iHh
-sDp
-uZs
 nGb
+woF
+mCA
+woF
 mIm
 mIm
 itu
@@ -470786,8 +470807,8 @@ dCL
 dCL
 tel
 epQ
-nGb
-jbU
+iHh
+sDp
 sDp
 dnL
 mIm
@@ -471551,7 +471572,7 @@ nGb
 iHh
 iHh
 nGb
-cQp
+jbU
 sDp
 btf
 qFc
@@ -472697,7 +472718,7 @@ iHh
 wOL
 qPC
 pmL
-sDp
+aoZ
 rJi
 nGb
 woF
