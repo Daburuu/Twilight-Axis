@@ -1061,19 +1061,25 @@
 	lockid = "veteran"
 
 /obj/item/roguekey/olddorms
-	name = "Old Dormitory key"
+	name = "old dormitory key"
 	desc = "A key to the old dormitory building, in the abandoned college section of town west of the church."
 	icon_state = "greenkey"
 	lockid = "oldorms"
 
+/obj/item/roguekey/oldcollege
+	name = "old college key"
+	desc = "A key to the old college building, west of the church."
+	icon_state = "greenkey"
+	lockid = "oldcollege"
+
 /obj/item/roguekey/sewer
-	name = "Sewer key"
+	name = "sewer key"
 	desc = "An old and rusty key, it smells a little.. sewery."
 	icon_state = "brownkey"
 	lockid = "sewer"
 
 /obj/item/roguekey/pizzard
-	name = "Smelly Key"
+	name = "smelly key"
 	desc = "This key is worryingly yellow."
 	color = "#E3D015"
 	icon_state = "brownkey"
