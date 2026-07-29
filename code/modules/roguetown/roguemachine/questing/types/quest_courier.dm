@@ -43,6 +43,11 @@
 			/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/crab,
 			/obj/item/perfume/random,
 		),
+		/area/rogue/indoors/town/bathtwo = list(
+			/obj/item/reagent_containers/glass/bottle/rogue/beer/aurorian,
+			/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/crab,
+			/obj/item/perfume/random,
+		),
 		/area/rogue/indoors/town/church = list(
 			/obj/item/natural/cloth,
 			/obj/item/reagent_containers/powder/ozium,
