@@ -76,10 +76,11 @@
 	droning_sound = 'sound/music/area/catacombs.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
+//PILGRIM
 
 /area/rogue/under/town/basement/townarena
 	name = "The Fulmen Dome"
-	first_time_text = "THE FULMEN DOME FIGHT PIT"
+	first_time_text = "THE FULMEN DOME ARENA"
 	droning_sound = 'sound/music/area/townarena.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
@@ -87,6 +88,13 @@
 /area/rogue/under/town/basement/townarenaview
 	name = "The Fulmen Dome Observation"
 	first_time_text = "THE FULMEN DOME"
-	droning_sound = 'sound/music/area/arenaview.ogg'
+	droning_sound = list('sound/music/area/genericrevelry.ogg', 'sound/music/area/genericcalm.ogg', 'sound/music/area/genericchill.ogg', 'sound/music/area/genericflutey.ogg')
 	droning_sound_dusk = null
 	droning_sound_night = null
+
+/area/rogue/outdoors/exposed/under/sewer/grim
+	icon_state = "sewer"
+	droning_sound = list('sound/music/area/sewerspooky.ogg', 'sound/music/area/sewerdrone.ogg', 'sound/music/area/sewerominous.ogg')
+	droning_sound_dusk = null
+	droning_sound_night = null
+//PILGRIM END

@@ -295,6 +295,26 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	first_time_text = "THE CITY OF AZURE PEAK"
 	town_area = TRUE
 	fog_protected = TRUE
+//PILGRIM
+
+/area/rogue/outdoors/town/grim
+	name = "outdoors"
+	icon_state = "town"
+	soundenv = 16
+	droning_sound = list('sound/music/area/towngen.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
+	droning_sound_dusk = list('sound/music/area/townalright.ogg', 'sound/music/area/townambient.ogg')
+	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+	converted_type = /area/rogue/indoors/shelter/town
+	first_time_text = "THE CITY OF PILGRIM"
+	town_area = TRUE
+	fog_protected = TRUE
+
+/area/rogue/indoors/shelter/town/grim
+	icon_state = "town"
+	droning_sound = list('sound/music/area/towngen.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
+	droning_sound_dusk = list('sound/music/area/townalright.ogg', 'sound/music/area/townambient.ogg')
+	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+//PILGRIM END
 
 /area/rogue/indoors/shelter/town
 	icon_state = "town"
