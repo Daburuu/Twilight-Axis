@@ -123,6 +123,14 @@
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/exposed/bath
 
+/area/rogue/indoors/town/bathtwo
+	name = "Calmer Baths"
+	icon_state = "bath"
+	droning_sound = 'sound/music/area/tavernambient.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	converted_type = /area/rogue/outdoors/exposed/bath
+
 /area/rogue/outdoors/exposed/bath
 	icon_state = "bath"
 	droning_sound = 'sound/music/area/bath.ogg'
@@ -131,14 +139,6 @@
 	name = "Bathmaster vault"
 	icon_state = "bathvault"
 	ceiling_protected = TRUE
-
-/area/rogue/indoors/town/bathtwo
-	name = "Nicer Baths"
-	icon_state = "bath"
-	droning_sound = 'sound/music/area/tavernambient.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/exposed/bath
 
 /area/rogue/indoors/town/garrison
 	name = "Garrison"
