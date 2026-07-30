@@ -1,6 +1,6 @@
 {
 	"map_name": "Pilgrim",
-	"map_path": "map_files/jaggedjaw",
+	"map_path": "map_files/jagged_jaw",
 	"map_file": ["jagged_jaw.dmm"],
 	"load_dungeon": false,
 	"traits": [
