@@ -83,6 +83,8 @@
 	name = "Keep"
 	icon_state = "manor"
 	droning_sound = 'sound/music/area/grimgarri.ogg'
+	droning_sound_dusk = list('sound/music/area/townalright.ogg', 'sound/music/area/townambient.ogg')
+	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
 	keep_area = TRUE
 	town_area = TRUE
 	detail_text = DETAIL_TEXT_KEEP
