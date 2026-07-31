@@ -114,6 +114,30 @@
 	name = "The Deepest Roots"
 	icon_state = "bog"
 	first_time_text = "THE DEEPROOT"
+//PILGRIM
+
+/area/rogue/indoors/shelter/bog/grim
+	icon_state = "bog"
+	droning_sound = 'sound/music/area/grimbog.ogg'
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = 'sound/music/area/grimswamp.ogg'
+	deathsight_message = "a shadowed shelter, hidden from the thick mist of rotgut swamp's humidity"
+
+/area/rogue/outdoors/bog/north/grim
+	name = "Northern Rotgut"
+	deathsight_message = "a wretched, fetid bog"
+	droning_sound = 'sound/music/area/grimbog.ogg'
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = 'sound/music/area/grimswamp.ogg'
+
+/area/rogue/outdoors/bog/south/grim
+	name = "Southern Rotgut"
+	droning_sound = 'sound/music/area/grimbog.ogg'
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = 'sound/music/area/grimswamp.ogg'
+	loot_budget = LOOT_BUDGET_GRIMBOG_SOUTH
+	deathsight_message = "a mess of roots and reeds, thick with the mist of rotgut swamp's humidity"
+//PILGRIM END
 
 /area/rogue/indoors/shelter/bog_hag/Entered(atom/movable/AM)
 	..()

@@ -65,8 +65,8 @@
 	name = "Manor"
 	icon_state = "manor"
 	droning_sound = list('sound/music/area/manor.ogg', 'sound/music/area/manor2.ogg', 'sound/music/area/grimmanor.ogg', 'sound/music/area/grimcastle.ogg')
-	droning_sound_dusk = null
-	droning_sound_night = null
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = 'sound/music/area/grimnight.ogg'
 	converted_type = /area/rogue/outdoors/exposed/manorgarri
 	first_time_text = "PILGRIM KEEP"
 	keep_area = TRUE
@@ -214,6 +214,19 @@
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/exposed/tavern
 	tavern_area = TRUE
+
+/area/rogue/indoors/town/tavern/grim
+	first_time_text = "THE BLUSHING BOGMAN"
+	name = "Blushing Bogman"
+	icon_state = "tavern"
+	ambientsounds = AMB_INGEN
+	ambientnight = AMB_INGEN
+	droning_sound = list('sound/music/area/genericrevelry.ogg', 'sound/music/area/genericcalm.ogg', 'sound/music/area/genericchill.ogg', 'sound/music/area/genericflutey.ogg')
+	droning_sound_dusk = list('sound/music/area/townalright.ogg', 'sound/music/area/grimpeace.ogg', 'sound/music/area/genericjaunty.ogg')
+	droning_sound_night = 'sound/music/area/grimnight.ogg'
+	converted_type = /area/rogue/outdoors/exposed/tavern
+	tavern_area = TRUE
+	deathsight_message = "the local tavern, shadowed patrons either scattering or standing to watch this unfortunate soul"
 
 /area/rogue/outdoors/exposed/tavern
 	icon_state = "tavern"
