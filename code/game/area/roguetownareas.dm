@@ -402,7 +402,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	first_time_text = "JAGGEDJAW BASIN"
 	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
-	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_night = 'sound/music/area/grimfield.ogg'
 	converted_type = /area/rogue/indoors/shelter/rtfield
 	deathsight_message = "somewhere in the wilds, next to towering walls"
 	warden_area = TRUE
@@ -438,6 +438,6 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	icon_state = "rtfield"
 	droning_sound = 'sound/music/area/grimfield.ogg'
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
-	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_night = 'sound/music/area/grimfield.ogg'
 
 //PILGRIM END
