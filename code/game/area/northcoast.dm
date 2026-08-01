@@ -108,15 +108,24 @@
 /area/rogue/outdoors/beach/forest/hamlet/grim
 	name = "Jaggedjaw Coast - Hamlet"
 	first_time_text = "THE HAMLET"
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = 'sound/music/area/grimforest.ogg'
 	ambush_mobs = null // We don't want actual ambushes in Hamlet but we also don't want to misuse outdoors/beach lol
 	threat_region = THREAT_REGION_AZUREAN_COAST
 	detail_text = DETAIL_TEXT_NORTH_COAST_HAMLET
 
 /area/rogue/outdoors/beach/forest/north/grim
 	name = "Jaggedjaw Coast - North"
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = 'sound/music/area/grimforest.ogg'
 	threat_region = THREAT_REGION_AZUREAN_COAST
 
 /area/rogue/outdoors/beach/forest/south/grim
 	name = "Jaggedjaw Coast - South"
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = 'sound/music/area/grimforest.ogg'
 	threat_region = THREAT_REGION_AZUREAN_COAST
 //PILGRIM END

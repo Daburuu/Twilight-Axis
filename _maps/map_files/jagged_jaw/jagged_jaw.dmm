@@ -34684,6 +34684,10 @@
 	},
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/outdoors/exposed/under/sewer/grim)
+"eNt" = (
+/obj/structure/table/wood/poor,
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/town/garrison)
 "eNu" = (
 /turf/open/floor/rogue/blocks/paving/vert,
 /area/rogue/outdoors/town/roofs)
@@ -56813,7 +56817,7 @@
 	},
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/under/cave)
+/area/rogue/outdoors/woods/grim/southeast)
 "hRH" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -61617,16 +61621,13 @@
 /turf/open/floor/rogue/tile/brownbrick/browner,
 /area/rogue/outdoors/town/roofs)
 "izj" = (
-/obj/structure/mineral_door/bars{
-	locked = 1;
-	lockid = "vault";
-	lock_strength = 500
+/obj/structure/rack/rogue/shelf/big{
+	icon_state = "shelf_biggest";
+	pixel_y = 0
 	},
-/obj/effect/decal/edge{
-	color = "#3f3f3f";
-	dir = 1
-	},
-/turf/open/floor/rogue/concrete,
+/obj/item/rope/chain,
+/obj/item/rope/chain,
+/turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison)
 "izl" = (
 /obj/structure/roguemachine/scomm/r{
@@ -71209,6 +71210,10 @@
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
 	dir = 1
+	},
+/obj/machinery/light/rogue/torchholder/hotspring/standing{
+	pixel_x = 0;
+	pixel_y = 10
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town/grim)
@@ -174440,11 +174445,9 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/steward)
 "xSD" = (
-/obj/structure/bars{
-	max_integrity = 2000;
-	name = "reinforced bars"
-	},
-/turf/open/floor/rogue/concrete,
+/obj/machinery/light/rogue/candle,
+/obj/structure/chair/stool/rogue,
+/turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison)
 "xSF" = (
 /obj/structure/chair/bench/couch,
@@ -250580,7 +250583,7 @@ wvX
 wvX
 wvX
 bBP
-wvX
+izj
 xwR
 bBP
 bBP
@@ -250962,7 +250965,7 @@ wvX
 mLM
 hLC
 bBP
-xCK
+xSD
 xwR
 qdG
 bBP
@@ -251344,7 +251347,7 @@ qUc
 qxF
 hpn
 bBP
-wvX
+eNt
 xwR
 bBP
 bBP
@@ -251726,8 +251729,8 @@ yeg
 sJX
 bBP
 bBP
-xSD
-izj
+bBP
+srF
 bBP
 bBP
 foI
@@ -380872,8 +380875,8 @@ sfo
 uTf
 rES
 rES
-bZq
 vXM
+bZq
 wvm
 wvm
 wvm
@@ -493955,7 +493958,7 @@ aTh
 aTh
 mDI
 mDI
-dfx
+lJz
 gRB
 aTh
 cAt
