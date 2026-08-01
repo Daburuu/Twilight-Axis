@@ -100,4 +100,10 @@
 	droning_sound_dusk = null
 	droning_sound_night = null
 
+/area/rogue/under/cave/peace/grim
+	icon_state = "caves"
+	droning_sound = 'sound/music/area/grimfountain.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+
 //PILGRIM END
