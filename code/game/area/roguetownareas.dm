@@ -295,26 +295,6 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	first_time_text = "THE CITY OF AZURE PEAK"
 	town_area = TRUE
 	fog_protected = TRUE
-//PILGRIM
-
-/area/rogue/outdoors/town/grim
-	name = "outdoors"
-	icon_state = "town"
-	soundenv = 16
-	droning_sound = list('sound/music/area/towngen.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
-	droning_sound_dusk = list('sound/music/area/townalright.ogg', 'sound/music/area/townambient.ogg')
-	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
-	converted_type = /area/rogue/indoors/shelter/town
-	first_time_text = "THE CITY OF PILGRIM"
-	town_area = TRUE
-	fog_protected = TRUE
-
-/area/rogue/indoors/shelter/town/grim
-	icon_state = "town"
-	droning_sound = list('sound/music/area/towngen.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
-	droning_sound_dusk = list('sound/music/area/townalright.ogg', 'sound/music/area/townambient.ogg')
-	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
-//PILGRIM END
 
 /area/rogue/indoors/shelter/town
 	icon_state = "town"
@@ -405,3 +385,59 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	droning_sound_dusk = null
 	droning_sound_night = null
 	first_time_text = "DEATHS PRECIPICE"
+//PILGRIM
+
+/area/rogue/outdoors/rtfield/grim
+	name = "Jaggedjaw Basin"
+	icon_state = "rtfield"
+	soundenv = 19
+	ambush_times = list("night")
+	ambush_mobs = list(
+				/mob/living/simple_animal/hostile/retaliate/rogue/badger = 10,
+				/mob/living/simple_animal/hostile/retaliate/rogue/raccoon = 25,
+				/mob/living/simple_animal/hostile/retaliate/rogue/bobcat = 20,
+				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 30,
+				/mob/living/simple_animal/hostile/retaliate/rogue/fox = 30,
+				/mob/living/carbon/human/species/skeleton/npc/supereasy = 30)
+	first_time_text = "JAGGEDJAW BASIN"
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	converted_type = /area/rogue/indoors/shelter/rtfield
+	deathsight_message = "somewhere in the wilds, next to towering walls"
+	warden_area = TRUE
+	threat_region = THREAT_REGION_AZURE_BASIN
+
+/area/rogue/outdoors/town/grim
+	name = "outdoors"
+	icon_state = "town"
+	soundenv = 16
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = 'sound/music/area/grimnight.ogg'
+	converted_type = /area/rogue/indoors/shelter/town
+	first_time_text = "THE CITY OF PILGRIM"
+	town_area = TRUE
+	fog_protected = TRUE
+
+/area/rogue/indoors/shelter/town/grim
+	icon_state = "town"
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = 'sound/music/area/grimnight.ogg'
+
+/area/rogue/druidsgrove
+	name = "Druids grove"
+	icon_state = "rtfield"
+	first_time_text = "Druids grove"
+	droning_sound = list('sound/ambience/riverday (1).ogg','sound/ambience/riverday (2).ogg','sound/ambience/riverday (3).ogg')
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = list ('sound/ambience/rivernight (1).ogg','sound/ambience/rivernight (2).ogg','sound/ambience/rivernight (3).ogg' )
+
+/area/rogue/indoors/shelter/rtfield
+	icon_state = "rtfield"
+	droning_sound = 'sound/music/area/grimfield.ogg'
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = 'sound/music/area/grimforest.ogg'
+
+//PILGRIM END

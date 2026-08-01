@@ -163,7 +163,7 @@
 	detail_text = DETAIL_TEXT_AZURE_GROVE
 
 /area/rogue/indoors/shelter/woods/grim
-	name = "Jaggedjaw Grove"
+	name = "Jaggedjaw Grove shelter"
 	icon_state = "woods"
 	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
