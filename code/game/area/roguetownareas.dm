@@ -426,7 +426,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
 
-/area/rogue/druidsgrove
+/area/rogue/druidsgrove/grim
 	name = "Druids grove"
 	icon_state = "rtfield"
 	first_time_text = "Druids grove"
@@ -434,7 +434,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = list ('sound/ambience/rivernight (1).ogg','sound/ambience/rivernight (2).ogg','sound/ambience/rivernight (3).ogg' )
 
-/area/rogue/indoors/shelter/rtfield
+/area/rogue/indoors/shelter/rtfield/grim
 	icon_state = "rtfield"
 	droning_sound = 'sound/music/area/grimfield.ogg'
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'

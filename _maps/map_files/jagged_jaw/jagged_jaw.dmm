@@ -262,7 +262,7 @@
 "abO" = (
 /obj/structure/flora/junglebush/large,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "abS" = (
 /obj/effect/decal/wood/herringbone2{
 	dir = 10
@@ -280,7 +280,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "abY" = (
 /mob/living/carbon/human/species/lizardfolk/psy_vault_guard,
 /turf/open/floor/rogue/cobble,
@@ -632,7 +632,7 @@
 "aeX" = (
 /obj/structure/flora/roguegrass/herb/rosa,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "afb" = (
 /obj/machinery/light/rogue/hearth,
 /obj/item/reagent_containers/glass/bucket/pot/bronze,
@@ -916,7 +916,7 @@
 	pixel_x = -5
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "agU" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -1883,7 +1883,7 @@
 	dir = 5
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "aod" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	lockid = "church";
@@ -2910,7 +2910,7 @@
 	pixel_x = 0
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "auQ" = (
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue/under/underdark/north)
@@ -3040,7 +3040,7 @@
 "awm" = (
 /obj/structure/flora/junglebush/large,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "awr" = (
 /obj/structure/table/church,
 /turf/open/floor/rogue/churchmarble,
@@ -3206,7 +3206,7 @@
 "axt" = (
 /obj/machinery/tanningrack,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "axx" = (
 /obj/structure/closet/crate/coffin,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/tools,
@@ -3218,7 +3218,7 @@
 	pixel_y = 0
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "axz" = (
 /obj/structure/spider/stickyweb/solo,
 /turf/open/floor/rogue/naturalstone,
@@ -4424,7 +4424,7 @@
 /area/rogue/outdoors/beach/forest/hamlet/grim)
 "aFg" = (
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "aFh" = (
 /obj/structure/fluff/pillow/magenta{
 	dir = 1;
@@ -4618,7 +4618,7 @@
 "aGH" = (
 /obj/machinery/loom,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "aGJ" = (
 /obj/structure/table/wood/poor/alt,
 /obj/machinery/light/rogue/torchholder/r,
@@ -5208,7 +5208,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/egg,
 /obj/item/reagent_containers/food/snacks/butter,
 /turf/open/floor/rogue/tile/brownbrick/browner,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "aLG" = (
 /obj/structure/chair/stool/rogue{
 	pixel_x = 6;
@@ -5235,7 +5235,7 @@
 	pixel_x = 0
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "aLU" = (
 /obj/structure/fluff/wallclock/l,
 /turf/open/floor/carpet/royalblack,
@@ -5318,7 +5318,7 @@
 "aMx" = (
 /obj/structure/bookcase/random/religion,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "aMC" = (
 /obj/machinery/light/rogue/torchholder/c,
 /turf/open/floor/rogue/herringbone,
@@ -5529,7 +5529,7 @@
 "aNU" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/water/cleanshallow,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "aNV" = (
 /obj/effect/decal/edge_corner{
 	color = "#3f3f3f";
@@ -5744,7 +5744,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "aPH" = (
 /obj/structure/chair/bench{
 	dir = 1;
@@ -6185,7 +6185,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "aSM" = (
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/inq/basement)
@@ -6196,7 +6196,7 @@
 "aST" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "aSU" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -6525,7 +6525,7 @@
 "aVr" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "aVt" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -6561,7 +6561,7 @@
 "aVJ" = (
 /obj/structure/bed/rogue/shit,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "aVM" = (
 /obj/structure/mineral_door/wood{
 	lockid = "pizzard";
@@ -8235,7 +8235,7 @@
 /obj/machinery/light/rogue/candle/blue,
 /obj/item/bedsheet/rogue/cloth,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bhB" = (
 /obj/structure/mineral_door/wood/deadbolt,
 /obj/effect/spawner/trap,
@@ -8878,7 +8878,7 @@
 "blR" = (
 /obj/machinery/light/rogue/torchholder/hotspring/standing,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "blT" = (
 /obj/structure/bed/rogue/inn/double,
 /obj/item/bedsheet/rogue/fabric_double,
@@ -9397,7 +9397,7 @@
 "bpi" = (
 /obj/machinery/light/rogue/torchholder/hotspring/standing,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bpj" = (
 /obj/structure/fluff/railing/border,
 /obj/effect/decal/edge{
@@ -9927,7 +9927,7 @@
 	pixel_y = 10
 	},
 /turf/open/water/swamp/deep,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bss" = (
 /obj/structure/fluff/railing/border/west,
 /obj/effect/decal/edge{
@@ -10209,7 +10209,7 @@
 	layer = 5
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "buy" = (
 /obj/structure/roguewindow/openclose{
 	dir = 8
@@ -10286,7 +10286,7 @@
 "buO" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "buP" = (
 /obj/structure/mineral_door/wood/red{
 	locked = 1
@@ -10324,7 +10324,7 @@
 	},
 /obj/structure/fluff/railing/border/east,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bvb" = (
 /mob/living/carbon/human/species/human/northern/bog_deserters/better_gear,
 /turf/open/floor/rogue/cobble/mossy,
@@ -10520,7 +10520,7 @@
 	pixel_x = -12
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bwz" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor4-old"
@@ -10558,7 +10558,7 @@
 	layer = 5
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bwK" = (
 /obj/structure/table/wood/poor,
 /obj/item/candle/silver/lit{
@@ -10566,7 +10566,7 @@
 	pixel_y = 14
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bwM" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f"
@@ -10748,7 +10748,7 @@
 /area/rogue/outdoors/beach/grim)
 "byh" = (
 /turf/closed/wall/mineral/rogue/wooddark,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "byj" = (
 /obj/effect/landmark/chimeric_calyx_spawner/fifteen,
 /turf/open/floor/rogue/grass,
@@ -11209,7 +11209,7 @@
 	pixel_x = -20
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bCf" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/beach/forest/south/grim)
@@ -11414,7 +11414,7 @@
 	pixel_x = 5
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bDd" = (
 /obj/structure/bed/rogue/inn/wool,
 /obj/item/bedsheet/rogue/fabric,
@@ -11744,7 +11744,7 @@
 	lockid = "druidtree"
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bFH" = (
 /obj/structure/closet/crate/chest/wicker,
 /turf/open/floor/rogue/ruinedwood,
@@ -12257,7 +12257,7 @@
 "bJL" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bJS" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -12467,7 +12467,7 @@
 "bLn" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/river/flow/north,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bLq" = (
 /obj/structure/table/wood/long_table/right,
 /obj/structure/rack/rogue/shelf,
@@ -13499,7 +13499,7 @@
 "bSH" = (
 /obj/item/grown/log/tree/stick,
 /turf/open/floor/rogue/grass,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "bSI" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/wood,
@@ -13554,7 +13554,7 @@
 	pixel_x = 0
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bSZ" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -14127,7 +14127,7 @@
 /obj/structure/bed/rogue/inn,
 /obj/item/bedsheet/rogue/pelt,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bWD" = (
 /obj/structure/fluff/railing/corner,
 /obj/structure/fluff/wallclock,
@@ -14183,7 +14183,7 @@
 "bWU" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /turf/closed/wall/mineral/rogue/wooddark,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bWX" = (
 /obj/structure/fluff/wallclock,
 /turf/open/floor/rogue/ruinedwood/herringbone,
@@ -14288,7 +14288,7 @@
 /area/rogue/under/cave/mazedungeon)
 "bXU" = (
 /turf/closed/wall/mineral/rogue/craftstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bXW" = (
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/dirt,
@@ -14328,7 +14328,7 @@
 /area/rogue/under/cave/scarymaze)
 "bYu" = (
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bYw" = (
 /obj/structure/table/wood/poor,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/food,
@@ -14428,7 +14428,7 @@
 	pixel_y = -32
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bZd" = (
 /obj/effect/decal/wood/herringbone{
 	dir = 4
@@ -14483,7 +14483,7 @@
 	dir = 5
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "bZC" = (
 /turf/closed/wall/mineral/rogue/wooddark/window,
 /area/rogue/indoors/town/magician)
@@ -14581,6 +14581,9 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/garrison)
+"cag" = (
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/shelter/rtfield/grim)
 "cak" = (
 /obj/structure/fluff/railing/border/west{
 	dir = 9
@@ -14864,7 +14867,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cbQ" = (
 /obj/structure/fluff/railing/wood/west{
 	pixel_x = -8
@@ -14936,7 +14939,7 @@
 	layer = 4.2
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ccw" = (
 /obj/structure/flora/roguegrass/herb/random,
 /turf/open/floor/rogue/grassyel,
@@ -15175,7 +15178,7 @@
 /area/rogue/outdoors/town/roofs)
 "cdN" = (
 /turf/open/water/river/flow/west,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cdO" = (
 /obj/structure/roguewindow,
 /turf/open/floor/rogue/ruinedwood/turned,
@@ -15259,7 +15262,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cen" = (
 /obj/structure/fluff/railing/border/east,
 /turf/open/transparent/openspace,
@@ -15751,7 +15754,7 @@
 	layer = 4.2
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cin" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/rogue/snowpatchy,
@@ -15775,7 +15778,7 @@
 "ciu" = (
 /obj/structure/flora/roguegrass/herb/random,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cix" = (
 /obj/structure/fluff/walldeco/psybanner/red{
 	pixel_y = 32
@@ -17246,7 +17249,7 @@
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ctb" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1
@@ -18120,7 +18123,7 @@
 /obj/item/seeds/coffee,
 /obj/item/seeds/coffee,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "czK" = (
 /obj/structure/standingbell{
 	name = "church service bell"
@@ -18171,7 +18174,7 @@
 	pixel_y = 10
 	},
 /turf/open/water/swamp/deep,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cAc" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -18425,7 +18428,7 @@
 /obj/structure/flora/newtree,
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cBI" = (
 /obj/structure/fluff/railing/border/west,
 /obj/structure/fluff/walldeco/wantedposter,
@@ -18666,7 +18669,7 @@
 "cCZ" = (
 /obj/effect/landmark/chimeric_calyx_spawner/fifteen,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cDd" = (
 /obj/structure/rack/rogue/shelf/notdense,
 /obj/item/reagent_containers/glass/bottle/rogue/beer/murkwine{
@@ -18722,7 +18725,7 @@
 	pixel_y = 5
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cDG" = (
 /obj/effect/landmark/start/squire,
 /turf/open/floor/rogue/tile,
@@ -18755,7 +18758,7 @@
 "cDP" = (
 /obj/effect/landmark/chimeric_calyx_spawner/fifteen,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cDQ" = (
 /mob/living/carbon/human/species/goblin/npc/hell,
 /turf/open/floor/rogue/concrete,
@@ -18932,7 +18935,7 @@
 "cEW" = (
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cEX" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -19132,7 +19135,7 @@
 	layer = 4.2
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cGf" = (
 /obj/structure/stairs{
 	dir = 1
@@ -20254,10 +20257,10 @@
 	dir = 6
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cOh" = (
 /turf/closed/wall/mineral/rogue/tent,
-/area/rogue/indoors/shelter)
+/area/rogue/indoors/shelter/rtfield/grim)
 "cOi" = (
 /obj/structure/table/wood/long_table/mid/alt,
 /obj/item/heart_canister{
@@ -20554,7 +20557,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cPP" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f"
@@ -20689,7 +20692,7 @@
 	pixel_y = -12
 	},
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cQC" = (
 /turf/open/water/river/flow/west,
 /area/rogue/outdoors/beach/forest/north/grim)
@@ -21759,7 +21762,7 @@
 	pixel_y = -6
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cYn" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-n"
@@ -21825,7 +21828,7 @@
 "cYI" = (
 /obj/effect/landmark/quest_spawner/generic,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cYK" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -22016,7 +22019,7 @@
 /obj/item/roguegem/random,
 /obj/structure/gravemarker,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "cZK" = (
 /obj/structure/stairs,
 /obj/structure/fluff/railing/border/west,
@@ -22919,7 +22922,7 @@
 	pixel_x = 0
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dgv" = (
 /turf/closed/wall/mineral/rogue/roofwall/middle,
 /area/rogue/indoors/town/dwarfin)
@@ -23037,7 +23040,7 @@
 	pixel_y = -3
 	},
 /turf/open/water/swamp/deep,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dhd" = (
 /obj/structure/fluff/railing/corner/north_east,
 /obj/effect/decal/edge{
@@ -23534,7 +23537,7 @@
 	pixel_y = -8
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dkf" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/blocks/flipped,
@@ -23771,7 +23774,7 @@
 "dlV" = (
 /obj/machinery/light/rogue/campfire/fireplace,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dlW" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f"
@@ -24935,7 +24938,7 @@
 /obj/structure/chair/stool/rogue,
 /obj/effect/landmark/start/druid,
 /turf/open/floor/carpet/red,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dtX" = (
 /obj/structure/flora/roguegrass/bush/westleach,
 /turf/open/floor/rogue/grass,
@@ -25243,7 +25246,7 @@
 	name = "swamp shrubs"
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dww" = (
 /obj/structure/bars/pipe{
 	pixel_x = -11
@@ -25329,7 +25332,7 @@
 	pixel_y = 1
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dxm" = (
 /obj/machinery/light/rogue/oven/east,
 /obj/machinery/light/rogue/hearth,
@@ -25766,7 +25769,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dAD" = (
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/floor/rogue/cobblerock,
@@ -26084,7 +26087,7 @@
 	pixel_y = -32
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dCL" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -26715,7 +26718,7 @@
 	dir = 8
 	},
 /turf/closed/wall/mineral/rogue/wooddark,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dHK" = (
 /obj/effect/decal/mossy{
 	dir = 1
@@ -26806,7 +26809,7 @@
 	pixel_y = -32
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dIi" = (
 /turf/closed/wall/mineral/rogue/wooddark/vertical,
 /area/rogue/outdoors/rtfield/grim)
@@ -27035,7 +27038,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dJV" = (
 /obj/structure/rack/rogue{
 	density = 0
@@ -27260,7 +27263,7 @@
 /obj/structure/flora/roguegrass/bush/wall,
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dLC" = (
 /obj/structure/table/wood/long_table{
 	dir = 1
@@ -27438,7 +27441,7 @@
 /obj/item/clothing/head/roguetown/dendormask,
 /obj/item/clothing/head/roguetown/dendormask,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dMP" = (
 /obj/structure/stairs{
 	dir = 1
@@ -27905,7 +27908,7 @@
 	dir = 9
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dQt" = (
 /obj/structure/table/wood/poor,
 /obj/item/candle/skull/lit{
@@ -28022,7 +28025,7 @@
 	pixel_y = 10
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dRh" = (
 /obj/structure/flora/roguegrass/bush,
 /obj/structure/flora/sakura,
@@ -28075,7 +28078,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dRI" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor6-old"
@@ -28301,7 +28304,7 @@
 	name = "swamp shrubs"
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dTX" = (
 /obj/structure/fluff/walldeco/bigpainting/lake,
 /obj/effect/landmark/start/knight,
@@ -28599,7 +28602,7 @@
 	pixel_y = 17
 	},
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dWj" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
@@ -28931,7 +28934,7 @@
 	layer = 5
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dYj" = (
 /obj/structure/table/wood/poor/alt,
 /obj/item/natural/stone,
@@ -28957,7 +28960,7 @@
 "dYn" = (
 /obj/effect/landmark/quest_spawner/generic,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "dYp" = (
 /obj/structure/fluff/psycross/psycrucifix/stone,
 /obj/effect/decal/edge{
@@ -29272,8 +29275,8 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town/grim)
 "eaH" = (
-/turf/open/floor/rogue/cobblerock,
-/area/rogue/indoors/shelter)
+/turf/closed/wall/mineral/rogue/wooddark,
+/area/rogue/indoors/shelter/rtfield/grim)
 "eaL" = (
 /obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/rogue/cobblerock,
@@ -29583,7 +29586,7 @@
 	layer = 5.1
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "edr" = (
 /obj/effect/decal/edge_corner{
 	color = "#3f3f3f"
@@ -30141,6 +30144,9 @@
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cave)
+"ehx" = (
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/shelter/rtfield/grim)
 "ehD" = (
 /turf/closed/wall/mineral/rogue/pipe,
 /area/rogue/outdoors/mountains/decap/stepbelow)
@@ -30571,7 +30577,7 @@
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ekA" = (
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -30946,7 +30952,7 @@
 "ent" = (
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/naturalstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "env" = (
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/outdoors/beach/north/grim)
@@ -31032,7 +31038,7 @@
 "enX" = (
 /obj/machinery/light/rogue/torchholder/hotspring/standing,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "enY" = (
 /obj/structure/table/wood/poor,
 /obj/item/millstone,
@@ -31505,7 +31511,7 @@
 	name = "swamp shrubs"
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ers" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -31698,7 +31704,7 @@
 "ett" = (
 /obj/machinery/tanningrack,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "etu" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -31949,7 +31955,7 @@
 	pixel_y = 3
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "eup" = (
 /obj/structure/rack/rogue/shelf/notdense,
 /obj/item/reagent_containers/glass/cup/wooden{
@@ -32123,7 +32129,7 @@
 	name = "Druid's Branch II"
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "evl" = (
 /obj/item/storage/keyring,
 /obj/item/storage/keyring,
@@ -32161,7 +32167,7 @@
 /obj/item/broom,
 /obj/item/broom,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "evr" = (
 /obj/machinery/light/rogue/candle,
 /turf/open/floor/rogue/dirt,
@@ -32359,7 +32365,7 @@
 "ewR" = (
 /obj/structure/flora/junglebush/c,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ewT" = (
 /obj/structure/fluff/pillow/magenta{
 	dir = 8
@@ -33692,7 +33698,7 @@
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "eGn" = (
 /obj/structure/mannequin{
 	dir = 8
@@ -33735,7 +33741,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "eGz" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -34986,7 +34992,7 @@
 "ePd" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/fae/glimmerwing,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ePe" = (
 /obj/structure/table/wood/long_table/mid/alt,
 /obj/item/candle/candlestick/silver/lit,
@@ -35044,7 +35050,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ePs" = (
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/town/physician)
@@ -35075,7 +35081,7 @@
 	locked = 1
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ePH" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
@@ -35892,6 +35898,9 @@
 /obj/item/natural/bundle/bone/full,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/dragonden)
+"eVy" = (
+/turf/open/floor/rogue/dirt,
+/area/rogue/indoors/shelter/rtfield/grim)
 "eVB" = (
 /obj/structure/bars/passage{
 	density = 0;
@@ -36245,7 +36254,7 @@
 	lifetime = 14400
 	},
 /turf/open/water/river/flow/north,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "eYx" = (
 /obj/structure/mineral_door/wood/fancywood{
 	locked = 1;
@@ -36524,7 +36533,7 @@
 	dir = 5
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fab" = (
 /obj/structure/flora/roguegrass/herb/random,
 /turf/open/floor/rogue/grassred,
@@ -36983,7 +36992,7 @@
 /area/rogue/under/town/basement/keep)
 "fdl" = (
 /turf/open/floor/rogue/tile/brownbrick/browner,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fdn" = (
 /obj/machinery/light/rogue/hearth,
 /turf/open/floor/rogue/cobble,
@@ -37484,7 +37493,7 @@
 	layer = 5
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fgC" = (
 /obj/structure/fluff/statue/knight/interior/r{
 	pixel_x = -4;
@@ -38322,7 +38331,7 @@
 	color = "#3f3f3f"
 	},
 /turf/open/floor/rogue/hexstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fmo" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 9
@@ -38442,7 +38451,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fnu" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor4-old"
@@ -38485,7 +38494,7 @@
 	pixel_y = 0
 	},
 /turf/open/floor/rogue/tile/brownbrick/browner,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fnI" = (
 /turf/closed/wall/mineral/rogue/decostone/cand,
 /area/rogue/outdoors/mountains/decap/gunduzirak/bossarena)
@@ -38573,7 +38582,7 @@
 "fox" = (
 /obj/structure/fluff/railing/border/north,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "foz" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -39745,7 +39754,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fwZ" = (
 /obj/structure/fluff/railing/wood{
 	pixel_y = -8
@@ -39878,7 +39887,7 @@
 /area/rogue/under/town/basement/keep)
 "fyn" = (
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fyo" = (
 /turf/closed/wall/mineral/rogue/decostone/center,
 /area/rogue/under/cave/dukecourt)
@@ -39984,7 +39993,7 @@
 "fzi" = (
 /obj/structure/roguetent,
 /turf/open/floor/rogue/twig,
-/area/rogue/indoors/shelter)
+/area/rogue/indoors/shelter/rtfield/grim)
 "fzk" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 8
@@ -40187,7 +40196,7 @@
 	status = 3
 	},
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "fAp" = (
 /obj/structure/chair/stool/rogue{
 	pixel_x = 3;
@@ -40998,7 +41007,7 @@
 	pixel_x = 8
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fGB" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -41051,7 +41060,7 @@
 	pixel_y = 15
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fGV" = (
 /obj/item/roguecoin/silver{
 	pixel_x = -5;
@@ -41379,7 +41388,7 @@
 	name = "Druid's Branch I"
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fJo" = (
 /mob/living/carbon/human/species/skeleton/npc/bogguard,
 /turf/open/water/swamp,
@@ -41455,7 +41464,7 @@
 	dir = 6
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fJI" = (
 /obj/effect/decal/cobbleedge{
 	dir = 6
@@ -42720,7 +42729,7 @@
 /obj/machinery/light/rogue/candle/blue,
 /obj/structure/bookcase/random/adult,
 /turf/open/floor/carpet/red,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fUq" = (
 /obj/item/kitchen/fork/bronze{
 	pixel_x = -8;
@@ -42765,7 +42774,7 @@
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "wooden_floort"
 	},
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fUC" = (
 /obj/item/natural/rock,
 /turf/open/floor/rogue/naturalstone,
@@ -42859,7 +42868,7 @@
 	pixel_y = 7
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fVv" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/floor/rogue/grasscold,
@@ -42883,7 +42892,7 @@
 	pixel_y = 0
 	},
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "fVF" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
@@ -43691,7 +43700,7 @@
 "gbX" = (
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "gbZ" = (
 /obj/structure/chair/bench/couchablack/r,
 /turf/open/floor/rogue/tile/bluebrick,
@@ -44046,7 +44055,7 @@
 "geW" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "gfd" = (
 /obj/machinery/light/rogue/candle/blue,
 /turf/open/water/bath,
@@ -44181,7 +44190,7 @@
 "ggc" = (
 /obj/effect/landmark/quest_spawner/generic,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ggh" = (
 /obj/structure/stairs,
 /turf/open/floor/rogue/wood,
@@ -45075,7 +45084,7 @@
 	layer = 4.2
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "glJ" = (
 /obj/structure/table/wood/poor,
 /obj/effect/spawner/lootdrop/roguetown/sewers,
@@ -45163,7 +45172,7 @@
 "gmk" = (
 /obj/structure/flora/junglebush,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "gmn" = (
 /obj/structure/table/wood/poor,
 /obj/item/rogueweapon/huntingknife/cleaver,
@@ -45877,7 +45886,7 @@
 "grS" = (
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "grT" = (
 /obj/structure/flora/roguegrass/bush/westleach,
 /turf/open/floor/rogue/dirt/road,
@@ -46497,7 +46506,7 @@
 "gwI" = (
 /obj/structure/fluff/grindwheel,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "gwJ" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -46564,7 +46573,7 @@
 	name = "FOREST - NORTH"
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "gxj" = (
 /obj/structure/fluff/railing/wood,
 /obj/structure/chair/wood/rogue{
@@ -46892,7 +46901,7 @@
 "gzd" = (
 /obj/machinery/gear_painter,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "gzg" = (
 /obj/machinery/light/rogue/torchholder/hotspring/standing{
 	pixel_x = 0;
@@ -47261,7 +47270,7 @@
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "gBA" = (
 /obj/structure/flora/roguegrass/herb/hypericum,
 /turf/open/floor/rogue/grasscold,
@@ -47439,7 +47448,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "gCJ" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 8
@@ -48596,7 +48605,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "gKM" = (
 /obj/effect/particle_effect/smoke{
 	lifetime = 14400
@@ -49810,7 +49819,7 @@
 	pixel_y = -17
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "gUf" = (
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -49894,7 +49903,7 @@
 	name = "window bars"
 	},
 /turf/closed/wall/mineral/rogue/wooddark/window,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "gUD" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -50535,7 +50544,7 @@
 "gZw" = (
 /obj/structure/fluff/railing/border/east,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "gZy" = (
 /obj/machinery/light/rogue/firebowl/off{
 	pixel_x = 0;
@@ -50909,7 +50918,7 @@
 	},
 /obj/item/candle/yellow/lit,
 /turf/open/floor/carpet/royalblack,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hce" = (
 /obj/effect/decal/edge_corner{
 	color = "#3f3f3f"
@@ -51135,7 +51144,7 @@
 "hep" = (
 /obj/structure/flora/junglebush/large,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "heq" = (
 /obj/structure/fluff/railing/border/west,
 /obj/structure/fluff/railing/border,
@@ -51348,7 +51357,7 @@
 	},
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hfI" = (
 /obj/effect/decal/cobbleedge{
 	pixel_y = 1
@@ -51763,7 +51772,7 @@
 "hiz" = (
 /obj/structure/fluff/walldeco/vinez/red,
 /turf/closed/wall/mineral/rogue/wooddark/window,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hiF" = (
 /obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/rogue/dirt/road,
@@ -51827,7 +51836,7 @@
 	},
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "hjj" = (
 /obj/structure/flora/rock/pile{
 	mouse_opacity = 0
@@ -52660,7 +52669,7 @@
 "hos" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hot" = (
 /obj/structure/fluff/walldeco/alarm{
 	pixel_x = 32;
@@ -53031,7 +53040,7 @@
 	name = "swamp shrubs"
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hqO" = (
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -53241,7 +53250,7 @@
 	},
 /obj/structure/far_travel,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/indoors/shelter)
+/area/rogue/indoors/shelter/rtfield/grim)
 "hsf" = (
 /turf/open/water/swamp,
 /area/rogue/under/cavewet/bogcaves/south)
@@ -54219,7 +54228,7 @@
 "hzH" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hzK" = (
 /obj/item/bedsheet/rogue/double_pelt,
 /obj/structure/bed/rogue/inn/double,
@@ -54904,7 +54913,7 @@
 	pixel_y = -11
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hEz" = (
 /obj/effect/landmark/events/deadite_animal_migration_point{
 	order = 11
@@ -55115,7 +55124,7 @@
 	pixel_y = -5
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hFT" = (
 /obj/structure/bars{
 	color = "#755f48";
@@ -55770,7 +55779,7 @@
 	},
 /obj/structure/roguetent,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hKv" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -55793,7 +55802,7 @@
 /obj/item/paper,
 /obj/item/natural/feather,
 /turf/open/floor/carpet/royalblack,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hKE" = (
 /obj/effect/decal/edge_corner{
 	color = "#3f3f3f";
@@ -56359,7 +56368,7 @@
 "hON" = (
 /obj/structure/ladder,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "hOO" = (
 /obj/machinery/light/rogue/campfire/densefire{
 	fueluse = 99999999
@@ -56370,7 +56379,7 @@
 /obj/structure/flora/newleaf,
 /obj/structure/flora/newleaf,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hOR" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/rogue/blocks/stonered,
@@ -57237,7 +57246,7 @@
 /area/rogue/outdoors/rtfield/grim)
 "hUW" = (
 /turf/closed/mineral/rogue,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hUZ" = (
 /turf/open/floor/rogue/twig,
 /area/rogue/under/underdark)
@@ -57301,7 +57310,7 @@
 	pixel_y = 17
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hVt" = (
 /obj/machinery/light/rogue/firebowl/church{
 	pixel_x = 0;
@@ -57503,7 +57512,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hWC" = (
 /obj/structure/bookcase,
 /turf/open/floor/rogue/blocks,
@@ -57726,7 +57735,7 @@
 	},
 /obj/item/candle/yellow/lit,
 /turf/open/floor/carpet/royalblack,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "hYv" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/church,
@@ -58148,7 +58157,7 @@
 "iaW" = (
 /obj/structure/roguewindow,
 /turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "iaX" = (
 /obj/structure/table/wood/poor,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
@@ -58258,11 +58267,11 @@
 	pixel_y = 11
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ibC" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ibF" = (
 /obj/structure/fluff/walldeco/stone{
 	icon_state = "walldec6"
@@ -59545,7 +59554,7 @@
 "ikV" = (
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ikW" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
@@ -59822,7 +59831,7 @@
 	pixel_y = 7
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "imA" = (
 /obj/structure/closet/crate/roguecloset/inn,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/misc,
@@ -60158,7 +60167,7 @@
 "ipb" = (
 /obj/machinery/light/rogue/candle/blue/l,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ipd" = (
 /obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/water/bloody,
@@ -60841,7 +60850,7 @@
 	pixel_y = 14
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "iuc" = (
 /obj/machinery/light/rogue/torchholder/c,
 /turf/open/floor/rogue/naturalstone,
@@ -61054,7 +61063,7 @@
 "ivz" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ivB" = (
 /obj/machinery/light/rogue/candle/l,
 /obj/effect/decal/wood/herringbone2{
@@ -61870,7 +61879,7 @@
 "iAT" = (
 /obj/machinery/light/rogue/candle/blue,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "iBc" = (
 /obj/structure/fluff/railing/corner/north_east,
 /obj/effect/decal/edge{
@@ -61920,7 +61929,7 @@
 	layer = 5
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "iBq" = (
 /obj/effect/decal/wood/herringbone2,
 /obj/structure/mannequin/male{
@@ -62069,7 +62078,7 @@
 	pixel_y = -32
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "iCG" = (
 /obj/structure/fermentation_keg/beer,
 /obj/structure/spider/stickyweb,
@@ -62229,7 +62238,7 @@
 	},
 /obj/structure/far_travel,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/indoors/shelter)
+/area/rogue/indoors/shelter/rtfield/grim)
 "iDV" = (
 /obj/structure/chair/bench{
 	can_buckle = 0;
@@ -62648,7 +62657,7 @@
 "iGy" = (
 /obj/structure/flora/newleaf,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "iGz" = (
 /obj/structure/flora/rock/pile,
 /turf/open/water/cleanshallow,
@@ -62703,7 +62712,7 @@
 	},
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "iHa" = (
 /obj/machinery/light/rogue/torchholder/hotspring/standing{
 	pixel_x = 0;
@@ -62947,7 +62956,7 @@
 "iIi" = (
 /obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "iIk" = (
 /turf/closed/wall/mineral/rogue/pipe/line{
 	density = 0;
@@ -63003,7 +63012,7 @@
 	dir = 5
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "iIw" = (
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/floor/rogue/blocks,
@@ -63110,7 +63119,7 @@
 	name = "Alchemy Root"
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "iJj" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/rogue/twig,
@@ -63279,7 +63288,7 @@
 "iKd" = (
 /obj/structure/flora/hotspring_rocks/small/three,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "iKi" = (
 /turf/open/floor/rogue/AzureSand,
 /area/rogue/indoors/cave/northern)
@@ -63543,7 +63552,7 @@
 /area/rogue/outdoors/beach/forest/hamlet/grim)
 "iLY" = (
 /turf/open/water/pond,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "iMe" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/bigrat,
 /turf/open/floor/rogue/dirt/road,
@@ -63993,7 +64002,7 @@
 	mouse_opacity = 0
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "iPO" = (
 /obj/effect/decal/mossy{
 	dir = 4;
@@ -64471,7 +64480,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/naturalstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "iTk" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
@@ -65569,7 +65578,7 @@
 "jbb" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jbd" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -65618,7 +65627,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jbq" = (
 /obj/structure/fluff/railing/border/west{
 	dir = 4
@@ -66135,7 +66144,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jeK" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -66285,7 +66294,7 @@
 "jfV" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jfX" = (
 /obj/effect/decal/cleanable/debris/stony,
 /mob/living/carbon/human/species/human/northern/bog_deserters/better_gear,
@@ -67732,7 +67741,7 @@
 /obj/item/reagent_containers/food/snacks/fat,
 /obj/machinery/light/rogue/candle/blue,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jpS" = (
 /obj/item/fishingrod,
 /obj/structure/closet/crate/chest/lootbox,
@@ -68417,7 +68426,7 @@
 	pixel_x = 5
 	},
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "juW" = (
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/dirt/road,
@@ -68476,7 +68485,7 @@
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "wooden_floort"
 	},
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jvk" = (
 /obj/effect/landmark/quest_spawner/generic,
 /turf/open/floor/rogue/grass,
@@ -68683,7 +68692,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/hexstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jwz" = (
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/outdoors/beach/north/grim)
@@ -69024,7 +69033,7 @@
 	pixel_y = -32
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jyV" = (
 /turf/closed/wall/mineral/rogue/tent,
 /area/rogue/outdoors/woods/grim/south)
@@ -69259,7 +69268,7 @@
 	},
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jAh" = (
 /obj/effect/decal/cobbleedge{
 	dir = 10;
@@ -69804,7 +69813,7 @@
 	color = "#3f3f3f"
 	},
 /turf/open/floor/rogue/hexstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jDS" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/floor/rogue/naturalstone,
@@ -70183,7 +70192,7 @@
 	pixel_y = 0
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jGN" = (
 /obj/structure/fermentation_keg/random/water,
 /obj/item/reagent_containers/glass/cup/wooden{
@@ -70334,7 +70343,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jHX" = (
 /obj/effect/spawner/lootdrop/roguetown/dungeon/misc,
 /turf/open/water/bloody,
@@ -70528,7 +70537,7 @@
 	pixel_y = -7
 	},
 /turf/open/water/swamp/deep,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jJq" = (
 /obj/machinery/light/rogue/oven{
 	desc = "...?";
@@ -70606,7 +70615,7 @@
 	pixel_y = -1
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jJH" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -71219,7 +71228,7 @@
 /area/rogue/outdoors/town/grim)
 "jOp" = (
 /turf/open/floor/rogue/naturalstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jOr" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/natural/worms,
@@ -71538,7 +71547,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jQI" = (
 /obj/structure/closet/crate/coffin,
 /turf/open/floor/rogue/cobble/mossy,
@@ -71763,7 +71772,7 @@
 	},
 /obj/effect/landmark/start/druid,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jSs" = (
 /obj/structure/table/wood/long_table,
 /obj/item/book/rogue/bibble,
@@ -72310,7 +72319,7 @@
 "jWs" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jWt" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
@@ -72384,7 +72393,7 @@
 	pixel_y = 1
 	},
 /turf/open/water/cleanshallow,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "jWQ" = (
 /obj/structure/fluff/pillow/green,
 /turf/open/floor/rogue/cobble,
@@ -73273,7 +73282,7 @@
 "kda" = (
 /obj/structure/flora/roguegrass/herb/rosa,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "kdg" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 1;
@@ -73486,7 +73495,7 @@
 	pixel_y = -12
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "key" = (
 /obj/structure/roguerock,
 /obj/structure/spider/stickyweb/mirespider,
@@ -73669,7 +73678,7 @@
 "kfQ" = (
 /obj/structure/flora/junglebush/c,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "kfR" = (
 /obj/structure/chair/wood/rogue/fancy,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -74176,7 +74185,7 @@
 "kje" = (
 /obj/structure/fluff/railing/border/north,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "kjk" = (
 /obj/structure/vine,
 /turf/closed/wall/mineral/rogue/stone/moss,
@@ -74770,7 +74779,7 @@
 "kop" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "kot" = (
 /obj/structure/flora/roguegrass,
 /obj/structure/flora/ausbushes/brflowers,
@@ -74891,7 +74900,7 @@
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "wooden_floort"
 	},
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "kpm" = (
 /obj/item/candle/candlestick/gold/single/lit{
 	pixel_x = -9;
@@ -75251,7 +75260,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ksl" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/machinery/light/rogue/torchholder/r{
@@ -75324,7 +75333,7 @@
 	pixel_y = 11
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ksH" = (
 /obj/effect/decal/cobbleedge,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -76394,7 +76403,7 @@
 /obj/structure/fluff/pillow,
 /obj/effect/landmark/start/druid,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "kAD" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/naturalstone,
@@ -77792,7 +77801,7 @@
 "kJu" = (
 /obj/structure/flora/junglebush,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "kJx" = (
 /obj/machinery/light/rogue/candle/off,
 /obj/effect/decal/cobbleedge{
@@ -79770,7 +79779,7 @@
 "kYD" = (
 /obj/structure/fermentation_keg,
 /turf/open/floor/rogue/tile/brownbrick/browner,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "kYN" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -80370,7 +80379,7 @@
 "lcu" = (
 /obj/structure/far_travel,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lcv" = (
 /obj/structure/rack/rogue/shelf/big{
 	icon_state = "shelf_biggest";
@@ -80747,7 +80756,7 @@
 "lfa" = (
 /obj/structure/flora/ausbushes/reedbush,
 /turf/open/water/pond,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lfb" = (
 /obj/structure/fluff/railing/wood/east{
 	layer = 2.8;
@@ -81153,7 +81162,7 @@
 "lhS" = (
 /obj/structure/flora/roguegrass/bush,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lhT" = (
 /obj/machinery/light/rogue/torchholder/hotspring/standing,
 /obj/effect/decal/cobble/mossy{
@@ -81211,7 +81220,7 @@
 "lii" = (
 /obj/machinery/light/rogue/torchholder/hotspring/standing,
 /turf/open/floor/rogue/naturalstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lin" = (
 /obj/machinery/light/rogue/candle/off,
 /obj/effect/decal/edge{
@@ -81386,7 +81395,7 @@
 /area/rogue/indoors/shelter)
 "ljl" = (
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ljm" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/underdark)
@@ -81656,7 +81665,7 @@
 /obj/item/roguekey/church/druidmaster,
 /obj/item/storage/keyring,
 /turf/open/floor/rogue/hexstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "llK" = (
 /obj/machinery/light/rogue/torchholder{
 	pixel_y = 26
@@ -82262,7 +82271,7 @@
 	pixel_y = 11
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lrh" = (
 /mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/concrete{
@@ -82804,7 +82813,7 @@
 	name = "Guest Branch"
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "luE" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor5-old"
@@ -83028,7 +83037,7 @@
 /turf/closed/wall/mineral/rogue/tent{
 	dir = 8
 	},
-/area/rogue/indoors/shelter)
+/area/rogue/indoors/shelter/rtfield/grim)
 "lwf" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/rogue/naturalstone,
@@ -83570,7 +83579,7 @@
 "lzy" = (
 /obj/structure/fluff/pillow,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lzA" = (
 /obj/structure/fluff/railing/border/west{
 	dir = 1
@@ -83695,7 +83704,7 @@
 	dir = 10
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lAs" = (
 /mob/living/simple_animal/butterfly{
 	name = "Fairy"
@@ -84255,7 +84264,7 @@
 /obj/structure/flora/newleaf,
 /obj/structure/flora/newleaf,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lDO" = (
 /obj/effect/decal/edge_corner{
 	color = "#3f3f3f";
@@ -84490,7 +84499,7 @@
 /area/rogue/indoors/shelter)
 "lFm" = (
 /turf/closed/wall/mineral/rogue/wooddark/horizontal,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "lFn" = (
 /obj/structure/closet/crate/roguecloset/inn,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/misc,
@@ -84578,7 +84587,7 @@
 "lGf" = (
 /obj/structure/rack/rogue/shelf/big,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lGj" = (
 /obj/structure/rack/rogue,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
@@ -84625,7 +84634,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lGP" = (
 /obj/effect/decal/edge_corner{
 	color = "#3f3f3f"
@@ -84714,7 +84723,7 @@
 	},
 /obj/structure/fluff/railing/border/west,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lHr" = (
 /obj/machinery/light/rogue/candle{
 	pixel_y = -32
@@ -84874,7 +84883,7 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /mob/living/simple_animal/hostile/retaliate/rogue/fae/sprite,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lIl" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/carpet/royalblack,
@@ -84918,7 +84927,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lIy" = (
 /obj/effect/decal/mossy{
 	dir = 4
@@ -84979,7 +84988,7 @@
 "lIO" = (
 /obj/structure/fluff/walldeco/vinez/red,
 /turf/closed/wall/mineral/rogue/wooddark/horizontal,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lIS" = (
 /obj/effect/decal/mossy,
 /obj/structure/flora/roguegrass/bush/wall,
@@ -85202,7 +85211,7 @@
 /area/rogue/indoors/town/garrison)
 "lKz" = (
 /turf/open/water/cleanshallow,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lKB" = (
 /obj/structure/fluff/psycross/zizocross,
 /obj/effect/decal/cleanable/blood,
@@ -86194,7 +86203,7 @@
 	pixel_x = 0
 	},
 /turf/open/water/pond,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "lSt" = (
 /obj/structure/chair/stool/rogue,
 /obj/effect/landmark/start/absolver,
@@ -86365,6 +86374,9 @@
 	},
 /turf/open/floor/rogue/churchrough,
 /area/rogue/indoors/town/church/basement)
+"lTK" = (
+/turf/closed/wall/mineral/rogue/wooddark/slitted,
+/area/rogue/indoors/shelter/rtfield/grim)
 "lTM" = (
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/twig,
@@ -87734,7 +87746,7 @@
 "mef" = (
 /obj/structure/fluff/walldeco/vinez/red,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "meg" = (
 /obj/structure/flora/rock/pile/largejungle{
 	mouse_opacity = 0
@@ -88769,7 +88781,7 @@
 	name = "Pilgrim West Gate"
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mlF" = (
 /obj/structure/table/wood,
 /obj/item/roguegear{
@@ -89633,7 +89645,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "msH" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -89691,7 +89703,7 @@
 "mtf" = (
 /obj/structure/bookcase/random/archive,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mtp" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
@@ -89724,7 +89736,7 @@
 /area/rogue/outdoors/mountains)
 "mty" = (
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mtA" = (
 /obj/effect/decal/cobbleedge{
 	dir = 5
@@ -89789,7 +89801,7 @@
 	lifetime = 14400
 	},
 /turf/open/water/river/flow,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mtW" = (
 /obj/effect/decal/edge_corner{
 	color = "#3f3f3f";
@@ -90473,7 +90485,7 @@
 	pixel_y = 10
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "myK" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/cleanshallow,
@@ -90765,7 +90777,7 @@
 	},
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mAV" = (
 /obj/structure/fluff/walldeco/psybanner/red{
 	pixel_x = 32
@@ -90824,7 +90836,7 @@
 "mBe" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mBj" = (
 /obj/structure/spider/stickyweb,
 /turf/open/water/swamp,
@@ -90974,7 +90986,7 @@
 	layer = 5
 	},
 /turf/open/floor/rogue/wood,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mCJ" = (
 /obj/structure/rack/rogue{
 	density = 0
@@ -91058,7 +91070,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mCY" = (
 /obj/structure/fluff/railing/wood{
 	pixel_x = 0;
@@ -91078,7 +91090,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mDb" = (
 /obj/effect/decal/cobbleedge{
 	dir = 6;
@@ -91185,7 +91197,7 @@
 "mDE" = (
 /obj/structure/fluff/railing/border/west,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mDF" = (
 /obj/structure/fluff/railing/corner,
 /obj/structure/fluff/railing/corner/north_east,
@@ -91677,7 +91689,7 @@
 	layer = 5
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mGW" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -91937,7 +91949,7 @@
 	pixel_y = 10
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mII" = (
 /obj/structure/rack/rogue/shelf/big{
 	icon_state = "shelf_biggest";
@@ -92155,7 +92167,7 @@
 	},
 /obj/structure/roguetent,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mKm" = (
 /obj/structure/flora/rock/pile,
 /turf/open/floor/rogue/naturalstone,
@@ -92372,7 +92384,7 @@
 /area/rogue/indoors/shelter/bog/skeletonfort)
 "mLw" = (
 /turf/open/floor/carpet/red,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mLy" = (
 /obj/structure/flora/roguegrass,
 /obj/structure/flora/roguegrass/herb/random,
@@ -92476,7 +92488,7 @@
 	name = "shutters"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "mLU" = (
 /obj/structure/fluff/railing/border{
 	dir = 10;
@@ -93181,14 +93193,14 @@
 /area/rogue/indoors/town/grim)
 "mRt" = (
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "mRv" = (
 /obj/structure/flora/rock/jungle{
 	mouse_opacity = 0;
 	name = "swamp shrubs"
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mRx" = (
 /obj/effect/spawner/lootdrop/cheap_clutter_spawner,
 /obj/structure/table/wood/poor,
@@ -93202,7 +93214,7 @@
 /obj/structure/closet/crate/drawer,
 /obj/item/roguekey/church/druidmaster,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mRF" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1
@@ -93940,7 +93952,7 @@
 "mWT" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mWY" = (
 /obj/structure/gravemarker{
 	pixel_x = -21
@@ -94020,7 +94032,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/tile/brownbrick/browner,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "mXB" = (
 /obj/item/candle/silver/lit{
 	pixel_x = 2;
@@ -94866,7 +94878,7 @@
 	color = "#3f3f3f"
 	},
 /turf/open/floor/rogue/tile/brownbrick/browner,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ndn" = (
 /obj/effect/decal/edge_corner{
 	color = "#3f3f3f";
@@ -95758,7 +95770,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "njy" = (
 /obj/structure/fluff/walldeco/chains{
 	icon_state = "chains5"
@@ -95769,7 +95781,7 @@
 /obj/item/natural/glass_shard,
 /obj/effect/decal/cleanable/debris/glassy,
 /turf/open/floor/rogue/concrete,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "njC" = (
 /obj/effect/decal/edge_corner{
 	color = "#3f3f3f";
@@ -96427,7 +96439,7 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/roguegrass/bush,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "noN" = (
 /obj/structure/flora/roguegrass,
 /obj/effect/decal/cleanable/dirt/cobweb,
@@ -96492,7 +96504,7 @@
 "npl" = (
 /obj/structure/flora/junglebush/b,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "npo" = (
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave)
@@ -96804,7 +96816,7 @@
 /area/rogue/outdoors/mountains)
 "nrJ" = (
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nrK" = (
 /obj/machinery/light/rogue/torchholder{
 	dir = 1
@@ -96888,7 +96900,7 @@
 "nsf" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nsg" = (
 /turf/closed/wall/mineral/rogue/roofwall/outercorner/dir4,
 /area/rogue/indoors/town/dwarfin)
@@ -97603,7 +97615,7 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nxk" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/churchmarble,
@@ -97738,7 +97750,7 @@
 	pixel_y = -32
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nyf" = (
 /turf/closed/wall/mineral/rogue/pipe/joint{
 	name = "wide pipe";
@@ -97765,7 +97777,7 @@
 	},
 /obj/structure/fluff/pillow,
 /turf/open/floor/rogue/hexstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nyl" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -98361,7 +98373,7 @@
 	dir = 1
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nCj" = (
 /obj/effect/landmark/events/haunts,
 /turf/open/floor/rogue/cobblerock,
@@ -98510,7 +98522,7 @@
 "nDw" = (
 /obj/structure/flora/junglebush,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nDy" = (
 /turf/closed/wall/mineral/rogue/decostone/fluffstone,
 /area/rogue/outdoors/town/roofs)
@@ -98596,7 +98608,7 @@
 "nEg" = (
 /obj/machinery/light/rogue/torchholder/hotspring/standing,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nEi" = (
 /obj/structure/stairs,
 /turf/open/floor/rogue/ruinedwood/turned,
@@ -98687,7 +98699,7 @@
 	pixel_y = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nEN" = (
 /obj/structure/fluff/railing/corner,
 /turf/open/transparent/openspace,
@@ -99641,7 +99653,7 @@
 "nLV" = (
 /obj/structure/flora/hotspring_rocks/small/five,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nLX" = (
 /obj/structure/fluff/statue/scare,
 /turf/open/floor/rogue/dirt/road,
@@ -99682,7 +99694,7 @@
 "nMi" = (
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nMl" = (
 /turf/closed/mineral/rogue,
 /area/rogue/outdoors/beach/forest/hamlet/grim)
@@ -99963,7 +99975,7 @@
 "nOf" = (
 /obj/structure/flora/roguegrass/bush/westleach,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nOg" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1;
@@ -100334,7 +100346,7 @@
 "nQY" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nRi" = (
 /obj/machinery/light/rogue/candle/blue,
 /turf/open/floor/rogue/wood,
@@ -100342,7 +100354,7 @@
 "nRj" = (
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nRk" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/structure/chair/stool/rogue,
@@ -101459,7 +101471,7 @@
 	pixel_y = 24
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nYz" = (
 /turf/open/floor/rogue/rooftop/west,
 /area/rogue/outdoors/woods/grim/south)
@@ -101495,7 +101507,7 @@
 /obj/item/seeds/swampweed,
 /obj/item/seeds/swampweed,
 /turf/open/floor/rogue/grassred,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "nYV" = (
 /obj/structure/spider/stickyweb{
 	dir = 4
@@ -102181,7 +102193,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/hexstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "oex" = (
 /obj/machinery/light/rogue/torchholder{
 	dir = 1
@@ -102526,7 +102538,7 @@
 	mouse_opacity = 0
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ohj" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -102648,7 +102660,7 @@
 	pixel_y = 2
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ohR" = (
 /obj/structure/mineral_door/wood/window,
 /turf/open/floor/rogue/wood,
@@ -102674,7 +102686,7 @@
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "oii" = (
 /obj/structure/chair/stool/rogue{
 	pixel_x = 6;
@@ -102740,7 +102752,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "oiB" = (
 /obj/structure/closet/crate/roguecloset/inn,
 /turf/open/floor/rogue/ruinedwood,
@@ -104500,7 +104512,7 @@
 	color = "#3f3f3f"
 	},
 /turf/open/floor/rogue/tile/brownbrick/browner,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ove" = (
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors/town/steward)
@@ -104707,7 +104719,7 @@
 /obj/structure/chair/stool/rogue,
 /obj/effect/landmark/start/druid,
 /turf/open/floor/carpet/royalblack,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ows" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -105824,7 +105836,7 @@
 "oEg" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "oEk" = (
 /obj/structure/fluff/psycross/copper,
 /turf/open/floor/rogue/metal/barograte,
@@ -106082,7 +106094,7 @@
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "wooden_floort"
 	},
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "oGg" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
@@ -106103,7 +106115,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "oGr" = (
 /obj/structure/stairs{
 	dir = 1
@@ -106435,7 +106447,7 @@
 	pixel_y = 0
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "oHO" = (
 /obj/structure/lever/wall{
 	name = "unlabeled lever";
@@ -106461,7 +106473,7 @@
 "oHV" = (
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "oHW" = (
 /obj/effect/decal/edge{
 	color = "#371A14";
@@ -107102,7 +107114,7 @@
 	},
 /obj/machinery/light/rogue/candle/blue,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "oMk" = (
 /obj/effect/decal/cobbleedge{
 	dir = 4;
@@ -108338,7 +108350,7 @@
 "oUT" = (
 /obj/structure/flora/hotspring_rocks,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "oUU" = (
 /obj/structure/stairs{
 	dir = 1
@@ -108587,7 +108599,7 @@
 "oWw" = (
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "oWx" = (
 /obj/structure/stairs/stone{
 	dir = 1
@@ -108735,7 +108747,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "oXy" = (
 /obj/machinery/light/rogue/candle/blue/r,
 /obj/structure/fluff/clodpile,
@@ -108996,7 +109008,7 @@
 	pixel_y = 18
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "oZv" = (
 /obj/structure/table/wood/large_table{
 	dir = 10
@@ -110053,7 +110065,7 @@
 	locked = 1
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "phd" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-n"
@@ -110331,7 +110343,7 @@
 	},
 /obj/structure/ladder,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pje" = (
 /obj/item/broom,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -110610,7 +110622,7 @@
 "pkI" = (
 /obj/structure/flora/roguegrass/bush,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pkJ" = (
 /obj/structure/fluff/railing/border/east{
 	pixel_x = -16
@@ -111147,7 +111159,7 @@
 "poz" = (
 /obj/structure/rack/rogue,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "poA" = (
 /obj/machinery/anvil,
 /turf/open/floor/rogue/hexstone,
@@ -111394,7 +111406,7 @@
 	},
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ppU" = (
 /mob/living/carbon/human/species/skeleton/npc/pirate,
 /turf/open/floor/rogue/ruinedwood/turned,
@@ -111574,7 +111586,7 @@
 /obj/item/needle/thorn,
 /obj/item/natural/bundle/cloth/bandage,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pry" = (
 /obj/effect/decal/cobbleedge{
 	dir = 5;
@@ -112042,7 +112054,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/hexstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "puG" = (
 /obj/structure/fluff/walldeco/stone{
 	pixel_y = 32
@@ -112430,7 +112442,7 @@
 "pxb" = (
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pxh" = (
 /obj/item/book/rogue/law,
 /obj/item/book/rogue/necra,
@@ -112591,7 +112603,7 @@
 "pyk" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pyv" = (
 /turf/closed/wall/mineral/rogue/pipe/corners/eight,
 /area/rogue/under/cave/water_temple/one)
@@ -112633,7 +112645,7 @@
 	},
 /obj/structure/fluff/railing/border/north,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pyE" = (
 /obj/structure/fluff/railing/corner/north_east,
 /obj/effect/decal/cobbleedge{
@@ -113502,7 +113514,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /mob/living/simple_animal/hostile/retaliate/rogue/fae/sprite,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pEf" = (
 /obj/structure/fluff/railing/fence{
 	dir = 1
@@ -113966,7 +113978,7 @@
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
 "pHd" = (
 /turf/open/floor/carpet/royalblack,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pHj" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -113991,7 +114003,7 @@
 "pHo" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pHp" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/item/rogueweapon/stoneaxe/woodcut,
@@ -114014,7 +114026,7 @@
 	layer = 4.2
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pHv" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f"
@@ -114451,7 +114463,7 @@
 	redstone_id = "warsoushut"
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "pKd" = (
 /obj/structure/flora/roguegrass/herb/salvia,
 /turf/open/floor/rogue/grass,
@@ -115292,7 +115304,7 @@
 	pixel_y = 6
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pPA" = (
 /obj/structure/table/wood/poor,
 /obj/item/paper,
@@ -115628,7 +115640,7 @@
 	status = 3
 	},
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "pRD" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
@@ -115671,7 +115683,7 @@
 	},
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pRP" = (
 /obj/structure/closet/crate/roguecloset/inn,
 /obj/effect/spawner/lootdrop/roguetown/sewers,
@@ -116037,7 +116049,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pUC" = (
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/goblinfort)
@@ -116070,7 +116082,7 @@
 "pUS" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/carpet/royalblack,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "pUW" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/pointybush,
@@ -117212,7 +117224,7 @@
 /area/rogue/indoors/town/manor/grim)
 "qds" = (
 /turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "qdt" = (
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -117437,7 +117449,7 @@
 /area/rogue/under/cave/water_temple/two)
 "qeP" = (
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qeW" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f"
@@ -117463,7 +117475,7 @@
 "qfe" = (
 /obj/structure/composter/halffull,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qff" = (
 /obj/item/natural/stoneblock{
 	pixel_x = -5
@@ -117500,7 +117512,7 @@
 	pixel_x = 0
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qfw" = (
 /obj/item/natural/rock,
 /turf/open/floor/rogue/dirt/road,
@@ -117921,7 +117933,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qim" = (
 /turf/open/floor/rogue/churchrough,
 /area/rogue/under/cave/scarymaze)
@@ -118218,7 +118230,7 @@
 	pixel_y = -7
 	},
 /turf/open/water/swamp/deep,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qjX" = (
 /turf/closed/wall/mineral/rogue/decostone/mossy/blue/end{
 	dir = 8
@@ -118315,7 +118327,7 @@
 	},
 /obj/structure/table/wood/poor,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qkH" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/dirt/road,
@@ -118707,7 +118719,7 @@
 "qnB" = (
 /obj/structure/flora/junglebush/b,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qnD" = (
 /obj/structure/rack/rogue{
 	density = 0
@@ -118763,7 +118775,7 @@
 	pixel_y = -1
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qnQ" = (
 /obj/item/roguekey/warden,
 /obj/item/roguekey/warden,
@@ -119178,7 +119190,7 @@
 	pixel_y = 0
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qqs" = (
 /turf/open/floor/rogue/blocks/flipped,
 /area/rogue/indoors/town/church/basement)
@@ -119545,7 +119557,7 @@
 "qsC" = (
 /obj/structure/flora/roguegrass/bush/westleach,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qsD" = (
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
@@ -119651,7 +119663,7 @@
 	mouse_opacity = 0
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qtV" = (
 /obj/structure/fluff/railing/wood/west,
 /turf/open/floor/rogue/cobblerock,
@@ -119682,7 +119694,7 @@
 	pixel_y = -12
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "quj" = (
 /obj/machinery/light/rogue/candle/off/r,
 /turf/open/floor/rogue/dirt/road,
@@ -119971,7 +119983,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qwe" = (
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/rogue/tile/brownbrick/browner,
@@ -119994,7 +120006,7 @@
 	dir = 10
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qwl" = (
 /turf/closed/wall/mineral/rogue/pipe/corners/one,
 /area/rogue/outdoors/exposed/under/sewer/grim)
@@ -120101,7 +120113,7 @@
 "qwT" = (
 /obj/effect/landmark/chimeric_calyx_spawner/fifteen,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qwX" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -120388,7 +120400,7 @@
 "qzq" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /turf/open/floor/rogue/naturalstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qzs" = (
 /obj/machinery/light/rogue/candle/l,
 /turf/open/floor/rogue/wood,
@@ -120773,7 +120785,7 @@
 "qCf" = (
 /obj/item/roguebin,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qCj" = (
 /obj/structure/bookcase/random/archive{
 	density = 0;
@@ -120817,7 +120829,7 @@
 "qCt" = (
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qCv" = (
 /obj/structure/bars/pipe{
 	dir = 6;
@@ -121380,7 +121392,7 @@
 	pixel_y = 0
 	},
 /turf/open/water/cleanshallow,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qHg" = (
 /obj/machinery/light/rogue/candle/weak/l,
 /turf/open/floor/rogue/blocks,
@@ -121393,7 +121405,7 @@
 "qHk" = (
 /obj/structure/fluff/walldeco/vinez/red,
 /turf/closed/wall/mineral/rogue/wooddark/vertical,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qHm" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border/east,
@@ -121639,7 +121651,7 @@
 "qJu" = (
 /obj/structure/table/wood/large_table/south_east,
 /turf/open/floor/carpet/red,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qJv" = (
 /obj/structure/roguewindow,
 /turf/open/floor/rogue/concrete,
@@ -121724,6 +121736,14 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/mountains)
+"qKe" = (
+/obj/structure/mineral_door/wood{
+	locked = 1;
+	lockid = "warden";
+	name = "Warden's Barracks"
+	},
+/turf/open/floor/rogue/concrete,
+/area/rogue/indoors/shelter/rtfield/grim)
 "qKg" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -122028,7 +122048,7 @@
 	pixel_y = -2
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qMY" = (
 /mob/living/carbon/human/species/human/northern/searaider/ambush,
 /turf/open/floor/rogue/dirt/road,
@@ -122067,7 +122087,7 @@
 	color = "#633b3b"
 	},
 /turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "qNv" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -122272,7 +122292,7 @@
 	},
 /obj/item/natural/feather,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "qOL" = (
 /obj/structure/fluff/walldeco/sparrowflag{
 	pixel_x = -32
@@ -122377,6 +122397,9 @@
 /obj/effect/decal/cleanable/debris/woody,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/grim)
+"qPH" = (
+/turf/closed/wall/mineral/rogue/craftstone,
+/area/rogue/indoors/shelter/rtfield/grim)
 "qPM" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -122621,7 +122644,7 @@
 	},
 /obj/structure/bookcase/random/fiction,
 /turf/open/floor/carpet/red,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qRz" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -122669,7 +122692,7 @@
 /obj/structure/flora/newtree,
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qRR" = (
 /obj/structure/fluff/customsign{
 	name = "TURN BACK NOW!!!"
@@ -122865,7 +122888,7 @@
 	pixel_y = 9
 	},
 /turf/open/floor/rogue/tile/brownbrick/browner,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qTp" = (
 /obj/machinery/light/rogue/candle/l,
 /turf/open/floor/carpet/royalblack,
@@ -123317,7 +123340,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/hexstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "qWj" = (
 /obj/structure/rack/rogue{
 	density = 0
@@ -123351,7 +123374,7 @@
 /area/rogue/indoors/town/zhurch)
 "qWp" = (
 /turf/open/floor/rogue/grass,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "qWq" = (
 /obj/structure/stairs/stone,
 /obj/structure/fluff/railing/wood{
@@ -124354,7 +124377,7 @@
 /area/rogue/outdoors/beach/north/grim)
 "ret" = (
 /turf/open/water/river/flow,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "rev" = (
 /obj/structure/flora/rock/jungle{
 	mouse_opacity = 0;
@@ -125582,7 +125605,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/hexstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "rnR" = (
 /obj/structure/lever/wall{
 	redstone_id = "keeplower";
@@ -126819,7 +126842,7 @@
 	pixel_y = 2
 	},
 /turf/open/floor/rogue/tile/brownbrick/browner,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "rwZ" = (
 /obj/structure/bars/pipe,
 /turf/closed/wall/mineral/rogue/decostone/mossy/blue/long{
@@ -126884,7 +126907,7 @@
 "rxu" = (
 /obj/structure/fluff/walldeco/vinez/red,
 /turf/closed/wall/mineral/rogue/wooddark,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "rxv" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -127260,7 +127283,7 @@
 /obj/structure/flora/roguegrass/bush/wall,
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "rAh" = (
 /obj/item/rogueore/silver,
 /turf/open/floor/rogue/dirt/road,
@@ -127449,7 +127472,7 @@
 "rBq" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "rBs" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/item/rogue/instrument/flute,
@@ -127482,7 +127505,7 @@
 /area/rogue/indoors/cave/central)
 "rBB" = (
 /turf/closed/wall/mineral/rogue/stone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "rBE" = (
 /turf/closed/wall/mineral/rogue/decostone/end/west,
 /area/rogue/indoors/town/church/basement)
@@ -127580,7 +127603,7 @@
 "rCf" = (
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "rCg" = (
 /obj/structure/fluff/railing/border/east,
 /obj/effect/decal/cobbleedge{
@@ -127606,7 +127629,7 @@
 	dir = 9
 	},
 /turf/closed/wall/mineral/rogue/wooddark/window,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "rCB" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor5-old"
@@ -128035,7 +128058,7 @@
 	name = "swamp shrubs"
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "rFV" = (
 /obj/structure/stairs{
 	dir = 8
@@ -128309,7 +128332,7 @@
 	layer = 5
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "rIu" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/table/wood/poor,
@@ -128529,7 +128552,7 @@
 	layer = 5
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "rKc" = (
 /obj/effect/decal/wood/herringbone2{
 	dir = 4
@@ -129947,7 +129970,7 @@
 /area/rogue/indoors/town/grim)
 "rUg" = (
 /turf/open/water/river/flow/north,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "rUi" = (
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/cobble/mossy,
@@ -131067,7 +131090,7 @@
 	},
 /obj/item/natural/cloth,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "sbG" = (
 /obj/effect/wisp/prestidigitation,
 /turf/open/floor/rogue/dirt/road,
@@ -131238,7 +131261,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "scU" = (
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault)
@@ -131549,7 +131572,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "seX" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 4
@@ -131913,7 +131936,7 @@
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "sht" = (
 /obj/effect/lily_petal/three,
 /turf/open/floor/rogue/cobble/mossy,
@@ -132081,7 +132104,7 @@
 	pixel_y = 15
 	},
 /turf/open/water/cleanshallow,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "six" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -132495,7 +132518,7 @@
 "slk" = (
 /obj/structure/flora/newleaf,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "sll" = (
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/shelter/bog/grim)
@@ -132742,7 +132765,7 @@
 "sne" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "snf" = (
 /obj/machinery/light/rogue/torchholder/r,
 /obj/effect/decal/edge_corner{
@@ -133386,7 +133409,7 @@
 	dir = 9
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "sqX" = (
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grass,
@@ -133831,7 +133854,7 @@
 	pixel_y = 32
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "stw" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -134055,7 +134078,7 @@
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "wooden_floort"
 	},
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "suX" = (
 /obj/structure/spider/cocoon,
 /turf/open/floor/rogue/naturalstone,
@@ -134217,7 +134240,7 @@
 	pixel_x = 0
 	},
 /turf/open/water/cleanshallow,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "swa" = (
 /obj/item/roguebin{
 	pixel_x = 3;
@@ -135762,7 +135785,7 @@
 "sGB" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "sGI" = (
 /obj/structure/fluff/clodpile,
 /obj/structure/fluff/walldeco/church/line{
@@ -136158,7 +136181,7 @@
 	name = "swamp shrubs"
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "sJX" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -136187,7 +136210,7 @@
 	pixel_y = -5
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "sKi" = (
 /obj/structure/fluff/railing/border{
 	dir = 10;
@@ -136462,7 +136485,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "sMs" = (
 /obj/effect/oneway/psy_bog_two{
 	dir = 1
@@ -136584,6 +136607,9 @@
 /obj/machinery/light/rogue/firebowl/standing/blue,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/cave/peace)
+"sNk" = (
+/turf/closed/wall/mineral/rogue/decowood,
+/area/rogue/indoors/shelter/rtfield/grim)
 "sNp" = (
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/physician)
@@ -136760,7 +136786,7 @@
 	color = "#3f3f3f"
 	},
 /turf/open/floor/rogue/hexstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "sOs" = (
 /obj/structure/mineral_door/swing_door{
 	keylock = 1;
@@ -136896,7 +136922,7 @@
 	pixel_y = 2
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "sPo" = (
 /turf/closed/mineral/random/rogue,
 /area/rogue/indoors/cave/southern)
@@ -136983,7 +137009,7 @@
 "sPY" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/pond,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "sQa" = (
 /obj/machinery/light/rogue/candle/l,
 /obj/structure/chair/stool/rogue,
@@ -137630,7 +137656,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "sUI" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -137919,7 +137945,7 @@
 "sWz" = (
 /obj/structure/fluff/railing/border/north,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "sWA" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/naturalstone,
@@ -138452,7 +138478,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "taW" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/cobble,
@@ -139118,7 +139144,7 @@
 "tfX" = (
 /obj/structure/flora/newleaf,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "tga" = (
 /obj/structure/table/wood/poor,
 /obj/item/reagent_containers/glass/cup/steel,
@@ -139867,7 +139893,7 @@
 	name = "DRUID'S KEYS"
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "tlO" = (
 /obj/structure/table/wood/poor,
 /obj/item/rogueweapon/woodstaff/quarterstaff{
@@ -140387,7 +140413,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "tpd" = (
 /obj/structure/chair/bench/church/r{
 	dir = 1
@@ -140498,7 +140524,7 @@
 	pixel_y = 0
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "tqe" = (
 /obj/structure/fluff/statue/knight/interior,
 /obj/structure/lever{
@@ -141234,7 +141260,7 @@
 	layer = 4.2
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "tvg" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8;
@@ -141526,7 +141552,7 @@
 	pixel_y = -12
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "twN" = (
 /obj/effect/decal/edge_corner{
 	color = "#3f3f3f";
@@ -142289,7 +142315,7 @@
 	pixel_y = 10
 	},
 /turf/open/water/swamp/deep,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "tCk" = (
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/under/underdark/north)
@@ -143125,7 +143151,7 @@
 	layer = 4.2
 	},
 /turf/open/floor/rogue/wood,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "tHM" = (
 /obj/effect/decal/cobbleedge{
 	dir = 9
@@ -143801,7 +143827,7 @@
 /obj/item/recipe_book/alchemy,
 /obj/item/book/rogue/fishing,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "tMB" = (
 /obj/structure/fluff/railing/border/west{
 	pixel_x = 0;
@@ -143931,7 +143957,7 @@
 	pixel_y = 9
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/indoors/shelter)
+/area/rogue/indoors/shelter/rtfield/grim)
 "tNf" = (
 /obj/effect/decal/cobbleedge{
 	dir = 6;
@@ -144395,7 +144421,7 @@
 	pixel_y = -31
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "tPO" = (
 /obj/structure/stairs,
 /obj/structure/fluff/railing/border{
@@ -144506,7 +144532,7 @@
 /area/rogue/outdoors/woods/grim/southeast)
 "tQt" = (
 /turf/closed/mineral/rogue/bedrock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "tQv" = (
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grassyel,
@@ -144697,7 +144723,7 @@
 "tRy" = (
 /obj/structure/flora/roguegrass/bush,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "tRz" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -145202,7 +145228,7 @@
 "tUH" = (
 /obj/structure/fluff/walldeco/vinez/red,
 /turf/closed/wall/mineral/rogue/craftstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "tUL" = (
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/rogue/blocks,
@@ -145798,7 +145824,7 @@
 "tYS" = (
 /obj/effect/landmark/quest_spawner/generic,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "tYW" = (
 /obj/effect/decal/cobbleedge{
 	dir = 6
@@ -146685,7 +146711,7 @@
 	layer = 5
 	},
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/indoors/shelter)
+/area/rogue/indoors/shelter/rtfield/grim)
 "ufz" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains)
@@ -147070,7 +147096,7 @@
 	},
 /obj/machinery/light/rogue/candle/blue,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "uiu" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -147794,7 +147820,7 @@
 	name = "swamp shrubs"
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "uoq" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
@@ -148250,7 +148276,7 @@
 	name = "swamp shrubs"
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "usa" = (
 /obj/machinery/light/rogue/candle/floorcandle/pink,
 /obj/structure/rack/rogue/shelf/notdense,
@@ -148975,7 +149001,7 @@
 	pixel_y = -4
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "uwa" = (
 /obj/structure/table/wood/poor,
 /obj/item/paper/inqslip/accusation{
@@ -149271,7 +149297,7 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "uxW" = (
 /obj/structure/fluff/littlebanners/bluewhite{
 	pixel_y = -6
@@ -149539,7 +149565,7 @@
 /area/rogue/outdoors/town/roofs)
 "uAu" = (
 /turf/closed/wall/mineral/rogue/wooddark/horizontal,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "uAw" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -149980,7 +150006,7 @@
 	dir = 5
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "uDy" = (
 /turf/closed/wall/mineral/rogue/decowood,
 /area/rogue/outdoors/beach/forest/hamlet/grim)
@@ -150432,7 +150458,7 @@
 	name = "The Tree"
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "uGb" = (
 /obj/structure/roguemachine/withdraw{
 	pixel_x = 32;
@@ -151379,7 +151405,7 @@
 	pixel_y = 2
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "uMf" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
@@ -151545,7 +151571,7 @@
 "uMZ" = (
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "uNa" = (
 /obj/effect/decal/mossy{
 	dir = 4
@@ -151554,7 +151580,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "uNf" = (
 /obj/structure/flora/roguetree/stump{
 	pixel_x = -10;
@@ -151708,7 +151734,7 @@
 	pixel_y = -32
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "uOd" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -151971,7 +151997,7 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "uPS" = (
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/woods/grim/northwest)
@@ -152790,7 +152816,7 @@
 "uWi" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "uWn" = (
 /obj/structure/fluff/statue/knight/interior/r/bronze,
 /obj/structure/fluff/walldeco/church/line{
@@ -153533,7 +153559,7 @@
 /turf/closed/wall/mineral/rogue/tent{
 	dir = 1
 	},
-/area/rogue/indoors/shelter)
+/area/rogue/indoors/shelter/rtfield/grim)
 "vbx" = (
 /obj/structure/stairs,
 /obj/machinery/light/rogue/torchholder/r,
@@ -154079,7 +154105,7 @@
 	name = "swamp shrubs"
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "veZ" = (
 /obj/structure/stairs{
 	dir = 1
@@ -154231,7 +154257,7 @@
 "vfU" = (
 /obj/structure/fluff/railing/corner,
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vfW" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
@@ -155200,7 +155226,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vnb" = (
 /obj/structure/chair/stool/rogue{
 	pixel_x = -2;
@@ -155594,7 +155620,7 @@
 	pixel_y = 27
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vpY" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/twig,
@@ -155849,7 +155875,7 @@
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "wooden_floort"
 	},
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vrM" = (
 /obj/structure/hotspring/border/seven,
 /turf/open/floor/rogue/cobblerock,
@@ -155859,7 +155885,7 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vrV" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/rogue/dirt/road,
@@ -156465,7 +156491,7 @@
 /obj/item/roguekey/church/druidmaster,
 /obj/item/storage/keyring,
 /turf/open/floor/rogue/hexstone,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vwC" = (
 /obj/structure/table/wood/poor,
 /obj/item/millstone{
@@ -156610,7 +156636,7 @@
 "vxB" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/cleanshallow,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vxD" = (
 /obj/structure/table/wood/poor,
 /obj/structure/rack/rogue/shelf,
@@ -157315,7 +157341,7 @@
 	pixel_x = 0
 	},
 /turf/open/transparent/openspace,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vCs" = (
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/church/basement)
@@ -157565,7 +157591,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vEr" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -158037,7 +158063,7 @@
 /obj/item/kitchen/spoon,
 /obj/item/kitchen/spoon,
 /turf/open/floor/rogue/tile/brownbrick/browner,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vHe" = (
 /obj/machinery/light/rogue/hearth,
 /obj/item/cooking/pan,
@@ -158179,7 +158205,7 @@
 /area/rogue/indoors/town/grim)
 "vIt" = (
 /turf/closed/wall/mineral/rogue/wooddark/vertical,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vIu" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -158240,7 +158266,7 @@
 	pixel_y = 3
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vIQ" = (
 /obj/machinery/light/rogue/candle/blue{
 	pixel_y = -32
@@ -158549,7 +158575,7 @@
 "vLf" = (
 /obj/structure/flora/newleaf,
 /turf/closed/wall/mineral/rogue/wooddark,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vLm" = (
 /obj/structure/table/wood/long_table{
 	dir = 1
@@ -158668,7 +158694,7 @@
 "vLZ" = (
 /obj/structure/flora/roguegrass/bush/westleach,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vMb" = (
 /obj/structure/fluff/railing/corner/south_east,
 /obj/structure/fluff/railing/border/east{
@@ -158698,7 +158724,7 @@
 	layer = 4.2
 	},
 /turf/open/floor/rogue/wood,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vMe" = (
 /obj/effect/decal/mossy{
 	dir = 1
@@ -158710,7 +158736,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vMf" = (
 /mob/living/carbon/human/species/dwarfskeleton/ambush,
 /obj/effect/decal/cobbleedge{
@@ -159421,7 +159447,7 @@
 	layer = 5.1
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vQp" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -159599,7 +159625,7 @@
 "vRQ" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vRU" = (
 /turf/open/water/sewer,
 /area/rogue/indoors/cave/central)
@@ -160281,11 +160307,11 @@
 "vWz" = (
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vWB" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vWG" = (
 /obj/machinery/light/rogue/candle/r,
 /turf/open/floor/rogue/blocks,
@@ -160485,7 +160511,7 @@
 	pixel_y = 11
 	},
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "vXT" = (
 /obj/effect/decal/cobbleedge{
 	dir = 9
@@ -160830,7 +160856,7 @@
 	dir = 6
 	},
 /turf/open/floor/rogue/grassred,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wah" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 4
@@ -162466,7 +162492,7 @@
 "wlS" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wlT" = (
 /obj/machinery/light/rogue/oven/north,
 /turf/open/floor/rogue/cobble,
@@ -162528,7 +162554,7 @@
 /area/rogue/outdoors/mountains/decap)
 "wmi" = (
 /turf/open/water/river/flow/east,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wmj" = (
 /obj/machinery/light/rogue/torchholder/c,
 /obj/structure/closet/crate/roguecloset/inn{
@@ -163226,7 +163252,7 @@
 "wrq" = (
 /obj/machinery/light/rogue/candle/blue,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wrr" = (
 /obj/structure/bed/rogue/inn/hay,
 /turf/open/floor/rogue/ruinedwood/turned,
@@ -164474,7 +164500,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wAm" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor5-old"
@@ -164764,7 +164790,7 @@
 	pixel_y = -15
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wCA" = (
 /turf/closed/wall/mineral/rogue/pipe,
 /area/rogue/indoors/shelter/mountains/decap)
@@ -164773,7 +164799,7 @@
 	dir = 9
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wCF" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/wood,
@@ -165166,7 +165192,7 @@
 	},
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wGv" = (
 /obj/machinery/light/rogue/candle,
 /turf/open/floor/rogue/ruinedwood{
@@ -165607,7 +165633,7 @@
 	layer = 5.1
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wIW" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/clothing,
@@ -165886,7 +165912,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wLk" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/grassyel,
@@ -166232,7 +166258,7 @@
 "wNG" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/rogue/dirt,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wNH" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/rogue/blocks,
@@ -166915,7 +166941,7 @@
 	},
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wSA" = (
 /obj/structure/roguewindow/stained/zizo,
 /turf/closed/wall/mineral/rogue/stonebrick,
@@ -167633,7 +167659,7 @@
 	pixel_y = -2
 	},
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "wXs" = (
 /obj/structure/stairs{
 	dir = 1
@@ -167796,7 +167822,7 @@
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "wooden_floort"
 	},
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wYH" = (
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town/steward)
@@ -167986,7 +168012,7 @@
 "wZX" = (
 /obj/structure/flora/junglebush/large,
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "wZY" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -168001,7 +168027,7 @@
 	pixel_x = 0
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xab" = (
 /obj/effect/decal/edge_corner{
 	color = "#3f3f3f"
@@ -168200,7 +168226,7 @@
 	redstone_id = "warsougate"
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "xbg" = (
 /obj/structure/table/wood/long_table,
 /obj/structure/closet/crate/chest{
@@ -169407,7 +169433,7 @@
 	layer = 4.2
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xjl" = (
 /obj/structure/mineral_door/wood{
 	name = "Bunks";
@@ -170012,7 +170038,7 @@
 	name = "Pilgrim West Gate"
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xnI" = (
 /obj/structure/spider/stickyweb{
 	dir = 4;
@@ -170382,7 +170408,7 @@
 "xpW" = (
 /obj/structure/flora/newleaf,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xpX" = (
 /obj/effect/landmark/chimeric_calyx_spawner/fifteen,
 /turf/open/floor/rogue/dirt,
@@ -170452,7 +170478,7 @@
 "xqx" = (
 /obj/structure/flora/roguegrass/water,
 /turf/open/water/swamp/deep,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xqy" = (
 /obj/structure/fluff/railing/corner{
 	dir = 10
@@ -170532,7 +170558,7 @@
 	pixel_y = -32
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xri" = (
 /obj/structure/table/wood/long_table,
 /obj/item/candle/silver/lit{
@@ -171118,7 +171144,7 @@
 "xvv" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xvC" = (
 /obj/structure/bars/passage/shutter{
 	max_integrity = 15000;
@@ -171135,7 +171161,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xvK" = (
 /obj/machinery/light/rogue/candle{
 	pixel_y = -32
@@ -171486,7 +171512,7 @@
 	pixel_y = 1
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xyn" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -171926,7 +171952,7 @@
 "xBf" = (
 /obj/machinery/light/rogue/cauldron,
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xBg" = (
 /obj/structure/stairs,
 /obj/structure/fluff/railing/border/east,
@@ -172698,7 +172724,7 @@
 "xGo" = (
 /obj/structure/flora/roguegrass/herb/random,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xGp" = (
 /obj/structure/easel,
 /turf/open/floor/rogue/tile/brownbrick/browner,
@@ -173555,7 +173581,7 @@
 "xLV" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xLW" = (
 /obj/structure/chair/wood/rogue/chair3{
 	dir = 4
@@ -173985,7 +174011,7 @@
 "xPn" = (
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/closed/wall/mineral/rogue/wooddark,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xPo" = (
 /obj/structure/vine,
 /turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
@@ -174089,7 +174115,7 @@
 /area/rogue/under/cave/dukecourt)
 "xPV" = (
 /turf/closed/wall/mineral/rogue/wooddark/end,
-/area/rogue/indoors/shelter/woods/grim)
+/area/rogue/indoors/shelter/rtfield/grim)
 "xPW" = (
 /obj/structure/stairs,
 /obj/structure/fluff/railing/border{
@@ -174142,7 +174168,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/concrete,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xQu" = (
 /obj/structure/table/wood/poor,
 /obj/item/cooking/platter/pewter{
@@ -174416,7 +174442,7 @@
 	pixel_y = 16
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xSv" = (
 /mob/living/carbon/human/species/construct/metal/zizoconstruct/ambush,
 /turf/open/floor/rogue/concrete/bronze,
@@ -175265,7 +175291,7 @@
 	pixel_x = -5
 	},
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "xYN" = (
 /obj/structure/mineral_door/wood/fancywood{
 	locked = 1;
@@ -175925,7 +175951,7 @@
 /area/rogue/outdoors/mountains/decap/banditcamp)
 "ydn" = (
 /turf/open/floor/rogue/grasscold,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ydq" = (
 /obj/item/rogueweapon/huntingknife/chefknife,
 /obj/structure/table/wood/long_table/mid,
@@ -176145,7 +176171,7 @@
 	dir = 6
 	},
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/indoors/shelter)
+/area/rogue/indoors/shelter/rtfield/grim)
 "yfc" = (
 /obj/structure/bars,
 /turf/open/floor/rogue/naturalstone,
@@ -176250,7 +176276,7 @@
 /turf/closed/wall/mineral/rogue/tent{
 	dir = 4
 	},
-/area/rogue/indoors/shelter)
+/area/rogue/indoors/shelter/rtfield/grim)
 "ygc" = (
 /obj/item/alch/salvia,
 /obj/effect/decal/edge{
@@ -176290,7 +176316,7 @@
 /area/rogue/under/cave/his_vault)
 "ygv" = (
 /turf/closed/wall/mineral/rogue/wooddark/window,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "ygw" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1
@@ -176579,7 +176605,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/druidsgrove)
+/area/rogue/druidsgrove/grim)
 "yiJ" = (
 /obj/machinery/light/rogue/hearth{
 	pixel_y = 8
@@ -487209,8 +487235,8 @@ paV
 tWg
 plc
 mYh
-eaH
-eaH
+mRt
+mRt
 pDN
 mqY
 mqY
@@ -490252,11 +490278,11 @@ mqY
 mkX
 mkX
 tCg
-lLP
-ddR
-gFL
-gFL
-gFL
+eaH
+sNk
+qPH
+qPH
+qPH
 paV
 tWg
 mkX
@@ -490638,7 +490664,7 @@ qds
 qds
 mqY
 wXq
-gFL
+qPH
 tWg
 mkX
 tWg
@@ -491398,7 +491424,7 @@ tCg
 cVV
 tWg
 tCg
-lLP
+eaH
 tCg
 tCg
 tCg
@@ -492166,7 +492192,7 @@ mqY
 icy
 aTS
 qds
-ddR
+sNk
 tWg
 paV
 tWg
@@ -492545,10 +492571,10 @@ mqY
 tCg
 tWg
 tWg
-lLP
+eaH
 ofE
 qNr
-lLP
+eaH
 mkX
 tWg
 mkX
@@ -494822,11 +494848,11 @@ tEC
 dIi
 tWg
 plc
-gFL
-gFL
+qPH
+qPH
 qNr
-ddR
-lLP
+sNk
+eaH
 tWg
 paV
 tWg
@@ -495204,11 +495230,11 @@ rEO
 gxf
 tWg
 mkX
-gFL
+qPH
 pRy
 qds
 qds
-ddR
+sNk
 mkX
 tWg
 paV
@@ -495586,11 +495612,11 @@ aCg
 dIi
 rZP
 rZP
-gFL
+qPH
 mRt
 cua
 qds
-xDH
+eVy
 ojG
 mkX
 tWg
@@ -495985,12 +496011,12 @@ tWg
 paV
 tCg
 mkX
-lLP
-ddR
+eaH
+sNk
 ofE
 qNr
-gFL
-gFL
+qPH
+qPH
 plc
 ufG
 tWg
@@ -496354,7 +496380,7 @@ qWp
 tWg
 qWp
 dTk
-ddR
+sNk
 dTk
 tCg
 tWg
@@ -496368,11 +496394,11 @@ tWg
 mkX
 mkX
 qNr
-rss
+cag
 qds
 qds
 fAk
-gFL
+qPH
 mkX
 mkX
 qgB
@@ -496734,9 +496760,9 @@ tWg
 mkX
 mkX
 mkX
-xDH
+eVy
 bSH
-lLP
+eaH
 tWg
 tCg
 plc
@@ -496749,7 +496775,7 @@ mkX
 mkX
 aCP
 mqY
-rss
+cag
 tCg
 qds
 tCg
@@ -497131,7 +497157,7 @@ mqY
 mqY
 mkX
 tCg
-lLP
+eaH
 cua
 tCg
 cua
@@ -497516,9 +497542,9 @@ cVV
 tCg
 paV
 aTS
-rss
+cag
 qds
-ddR
+sNk
 tWg
 mkX
 tCg
@@ -497897,10 +497923,10 @@ cVV
 rZP
 mkX
 tWg
-lLP
+eaH
 ofE
 ofE
-lLP
+eaH
 plc
 mkX
 mkX
@@ -500559,7 +500585,7 @@ qjJ
 xPV
 gUz
 gUz
-cFT
+lTK
 mqY
 mqY
 tCg
@@ -500938,9 +500964,9 @@ tWg
 rZP
 tWg
 pWO
-cFT
+lTK
 hON
-gbA
+ehx
 pKb
 mqY
 mqY
@@ -501322,8 +501348,8 @@ mkX
 plc
 xbe
 mLT
-gbA
-uDq
+ehx
+qKe
 mqY
 tCg
 tCg
@@ -501705,7 +501731,7 @@ tWg
 lFm
 qOE
 hji
-cFT
+lTK
 mqY
 tCg
 tCg
@@ -502084,10 +502110,10 @@ mkX
 dTk
 mkX
 mkX
-cFT
+lTK
 gUz
 pKb
-cFT
+lTK
 mHC
 mHC
 qjJ
