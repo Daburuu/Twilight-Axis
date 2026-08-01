@@ -165,7 +165,7 @@
 /area/rogue/indoors/shelter/woods/grim
 	name = "Jaggedjaw Grove"
 	icon_state = "woods"
-	droning_sound = list('sound/music/area/grimmorning.ogg', 'sound/music/area/grimtwilight.ogg')
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
 	threat_region = THREAT_REGION_AZURE_GROVE
@@ -183,7 +183,7 @@
 		/mob/living/carbon/human/species/hobgoblin/npc/ambush = 15,
 		/mob/living/carbon/human/species/human/northern/highwayman/ambush = 30)
 	threat_region = THREAT_REGION_AZURE_GROVE
-	droning_sound = list('sound/music/area/grimmorning.ogg', 'sound/music/area/grimtwilight.ogg')
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
 
@@ -201,7 +201,7 @@
 			/mob/living/carbon/human/species/hobgoblin/npc/ambush = 12,
 			/mob/living/carbon/human/species/human/northern/highwayman/ambush = 30)
 	threat_region = THREAT_REGION_AZURE_GROVE
-	droning_sound = list('sound/music/area/grimmorning.ogg', 'sound/music/area/grimtwilight.ogg')
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
 
@@ -218,7 +218,7 @@
 		/mob/living/carbon/human/species/goblin/npc/sea = 10,
 		/mob/living/carbon/human/species/hobgoblin/npc/ambush = 12,
 		/mob/living/carbon/human/species/human/northern/highwayman/ambush = 30)
-	droning_sound = list('sound/music/area/grimmorning.ogg', 'sound/music/area/grimtwilight.ogg')
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
 
@@ -234,7 +234,7 @@
 		/mob/living/carbon/human/species/goblin/npc/archer = 7,
 		/mob/living/carbon/human/species/hobgoblin/npc/ambush = 18,
 		/mob/living/carbon/human/species/human/northern/highwayman/ambush = 20)
-	droning_sound = list('sound/music/area/grimmorning.ogg', 'sound/music/area/grimtwilight.ogg')
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
 
@@ -250,7 +250,7 @@
 		/mob/living/carbon/human/species/goblin/npc/archer = 7,
 		/mob/living/carbon/human/species/hobgoblin/npc/ambush = 18,
 		/mob/living/carbon/human/species/human/northern/highwayman/ambush = 20)
-	droning_sound = list('sound/music/area/grimmorning.ogg', 'sound/music/area/grimtwilight.ogg')
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
 
@@ -266,7 +266,7 @@
 		/mob/living/carbon/human/species/goblin/npc/archer = 7,
 		/mob/living/carbon/human/species/hobgoblin/npc/ambush = 18,
 		/mob/living/carbon/human/species/human/northern/highwayman/ambush = 20)
-	droning_sound = list('sound/music/area/grimmorning.ogg', 'sound/music/area/grimtwilight.ogg')
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
 

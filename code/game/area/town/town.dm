@@ -64,7 +64,7 @@
 /area/rogue/indoors/town/manor/grim
 	name = "Manor"
 	icon_state = "manor"
-	droning_sound = list('sound/music/area/manor.ogg', 'sound/music/area/manor2.ogg', 'sound/music/area/grimmanor.ogg', 'sound/music/area/grimcastle.ogg')
+	droning_sound = list('sound/music/area/manor.ogg', 'sound/music/area/manor2.ogg', 'sound/music/area/grimmanor.ogg', 'sound/music/area/grimcastle.ogg', 'sound/music/area/grimabode.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = 'sound/music/area/grimnight.ogg'
 	converted_type = /area/rogue/outdoors/exposed/manorgarri
@@ -75,7 +75,7 @@
 /area/rogue/outdoors/exposed/town/grim
 	icon_state = "town"
 	droning_sound = list('sound/music/area/towngen.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
-	droning_sound_dusk = list('sound/music/area/townalright.ogg', 'sound/music/area/townambient.ogg')
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
 	fog_protected = TRUE
 
@@ -83,7 +83,7 @@
 	name = "Keep"
 	icon_state = "manor"
 	droning_sound = 'sound/music/area/grimgarri.ogg'
-	droning_sound_dusk = list('sound/music/area/townalright.ogg', 'sound/music/area/townambient.ogg')
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
 	keep_area = TRUE
 	town_area = TRUE

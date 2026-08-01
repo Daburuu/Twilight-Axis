@@ -56842,8 +56842,13 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/goblinfort)
 "hSS" = (
-/obj/item/roguemachine/zadcote/bathhouse{
-	pixel_y = -32
+/obj/item/roguebin{
+	pixel_x = -6;
+	pixel_y = -2
+	},
+/obj/machinery/gear_painter{
+	pixel_x = 6;
+	pixel_y = 10
 	},
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/bath/grim)
@@ -67244,8 +67249,12 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cavewet/bogcaves/north)
 "jnT" = (
-/obj/machinery/light/rogue/candle/blue/r,
-/obj/item/roguebin,
+/obj/structure/roguemachine/atm{
+	location_tag = "Bathhouse Lobby";
+	mammonsiphoned = 250;
+	pixel_x = -32;
+	pixel_y = 0
+	},
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/bath/grim)
 "jnV" = (
@@ -70410,8 +70419,12 @@
 /area/rogue/outdoors/town/roofs)
 "jJO" = (
 /obj/structure/closet/crate/drawer,
-/obj/structure/mirror,
+/obj/item/roguekey/bathworker,
+/obj/item/roguekey/bathworker,
+/obj/item/roguekey/bathworker,
+/obj/item/roguekey/bathworker,
 /obj/item/roguekey/bathmaster,
+/obj/structure/mirror,
 /turf/open/floor/rogue/tile/harem2,
 /area/rogue/indoors/town/bath/grim)
 "jJQ" = (
@@ -95970,29 +95983,12 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/grim)
 "nno" = (
-/obj/item/roguekey{
-	icon_state = "brownkey";
-	lockid = "locker1";
-	name = "locker I key"
-	},
-/obj/item/roguekey{
-	icon_state = "brownkey";
-	lockid = "locker2";
-	name = "locker II key"
-	},
-/obj/item/roguekey{
-	icon_state = "brownkey";
-	lockid = "locker3";
-	name = "locker III key"
-	},
-/obj/item/roguekey{
-	icon_state = "brownkey";
-	lockid = "locker4";
-	name = "locker IV key"
-	},
 /obj/structure/rack/rogue/shelf/big{
 	icon_state = "shelf_biggest";
 	pixel_y = 0
+	},
+/obj/item/roguemachine/zadcote/bathhouse{
+	pixel_y = -32
 	},
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/floor/rogue/tile/harem,
@@ -115812,8 +115808,8 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/bog/bogmanfort)
 "pVf" = (
-/obj/item/roguebin,
-/turf/open/floor/rogue/tile/harem,
+/obj/machinery/light/rogue/candle/blue/r,
+/turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/bath/grim)
 "pVh" = (
 /turf/open/transparent/openspace,
@@ -131544,25 +131540,41 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/grim)
 "shp" = (
+/obj/structure/rack/rogue/shelf/big{
+	icon_state = "shelf_biggest";
+	pixel_y = 0
+	},
 /obj/item/roguekey/bathworker{
-	lockid = "bath1";
-	name = "room I key"
+	lockid = "bath3";
+	name = "room III key"
 	},
 /obj/item/roguekey/bathworker{
 	lockid = "bath2";
 	name = "room II key"
 	},
 /obj/item/roguekey/bathworker{
-	lockid = "bath3";
-	name = "room III key"
+	lockid = "bath1";
+	name = "room I key"
 	},
-/obj/structure/rack/rogue/shelf/big{
-	icon_state = "shelf_biggest";
-	pixel_y = 0
+/obj/item/roguekey{
+	icon_state = "brownkey";
+	lockid = "locker4";
+	name = "locker IV key"
 	},
-/obj/effect/decal/carpet/square/black{
-	pixel_x = 16;
-	pixel_y = -15
+/obj/item/roguekey{
+	icon_state = "brownkey";
+	lockid = "locker3";
+	name = "locker III key"
+	},
+/obj/item/roguekey{
+	icon_state = "brownkey";
+	lockid = "locker2";
+	name = "locker II key"
+	},
+/obj/item/roguekey{
+	icon_state = "brownkey";
+	lockid = "locker1";
+	name = "locker I key"
 	},
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/bath/grim)
@@ -147235,17 +147247,15 @@
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault)
 "umR" = (
-/obj/structure/roguemachine/scomm/r{
-	scom_tag = "Baths - Public Bath"
+/obj/item/roguebin{
+	pixel_x = 6;
+	pixel_y = -2
 	},
-/obj/effect/decal/edge_corner{
-	color = "#3f3f3f";
-	dir = 1
+/obj/machinery/gear_painter{
+	pixel_x = -6;
+	pixel_y = 9
 	},
-/obj/effect/decal/edge_corner{
-	color = "#3f3f3f"
-	},
-/turf/open/floor/rogue/tile,
+/turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/bath/grim)
 "umS" = (
 /obj/structure/flora/rock,
@@ -160109,6 +160119,21 @@
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town/grim)
+"vYd" = (
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Baths - Public Bath";
+	pixel_x = null;
+	pixel_y = 32
+	},
+/obj/effect/decal/edge_corner{
+	color = "#3f3f3f";
+	dir = 1
+	},
+/obj/effect/decal/edge_corner{
+	color = "#3f3f3f"
+	},
+/turf/open/floor/rogue/tile,
+/area/rogue/indoors/town/bath/grim)
 "vYf" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/roguegrass,
@@ -163120,15 +163145,11 @@
 /turf/open/floor/rogue/metal/barograte/open,
 /area/rogue/under/underdark/north)
 "wtI" = (
-/obj/structure/lever/wall{
-	dir = 8;
-	redstone_id = "bathhouse_shutter"
-	},
-/obj/structure/roguemachine/atm{
-	location_tag = "Bathhouse Lobby";
-	mammonsiphoned = 250;
-	pixel_x = -32;
-	pixel_y = 0
+/obj/structure/lever{
+	redstone_id = "bathhouse_shutter";
+	name = "shutters";
+	pixel_x = -24;
+	pixel_y = -10
 	},
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/bath/grim)
@@ -354870,7 +354891,7 @@ bTF
 paD
 mQN
 mQN
-kPV
+umR
 mVH
 wzY
 flQ
@@ -355252,7 +355273,7 @@ xeb
 mQN
 mQN
 mQN
-kPV
+hSS
 mVH
 wqC
 flQ
@@ -356004,7 +356025,7 @@ kPV
 kPV
 ktc
 qWN
-jnT
+cGy
 mQN
 cGy
 gvB
@@ -356390,11 +356411,11 @@ kPV
 sbn
 kPV
 kPV
-pVf
-mQN
-mQN
-umR
-mQN
+kPV
+mIl
+kPV
+kPV
+vYd
 mQN
 fkn
 fIA
@@ -356772,9 +356793,9 @@ kPV
 pZE
 aCQ
 kPV
-kPV
-mIl
-kPV
+dmj
+mQN
+jnT
 kPV
 qCC
 dMA
@@ -357153,8 +357174,8 @@ aRn
 eUp
 aRn
 aRn
-kPV
-dmj
+rvT
+mQN
 mQN
 wtI
 nfv
@@ -358301,8 +358322,8 @@ dkO
 drf
 fWe
 shp
-mQN
-mQN
+osw
+pVf
 bhC
 axA
 nHU
@@ -358683,7 +358704,7 @@ uuj
 vGd
 fWe
 nno
-hSS
+kPV
 kPV
 kPV
 nHU
