@@ -220,7 +220,7 @@
 
 /area/rogue/outdoors/mountains/decap/grim
 	name = "Mount Grymspyre"
-	loot_budget = LOOT_BUDGET_MOUNT_DECAP
+	loot_budget = LOOT_BUDGET_MOUNT_GRYMSPYRE
 	icon_state = "decap"
 	ambush_mobs = list(
 				// Singles — budget filler across all factions
@@ -248,19 +248,33 @@
 	first_time_text = "MOUNT GRYMSPYRE"
 	ambush_times = list("night","dawn","dusk","day")
 	converted_type = /area/rogue/indoors/shelter/mountains/decap/grim
-	deathsight_message = "a spyre of jagged rock and winding crevices"
+	deathsight_message = "a spyre of jagged rock and winding crevices, surrounded by snow"
 	threat_region = THREAT_REGION_MOUNT_DECAP
 	detail_text = DETAIL_TEXT_DECAP
 
 /area/rogue/indoors/shelter/mountains/decap/grim
 	name = "Mount Grymspyre"
 	icon_state = "decap"
-	loot_budget = LOOT_BUDGET_DECAP_SHELTERS
+	loot_budget = LOOT_BUDGET_GRYMSPYRE_SHELTERS
 	loot_pool_key = "decap_shelters"
 	droning_sound = 'sound/music/area/grimspire.ogg'
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimspyre.ogg'
 	threat_region = THREAT_REGION_MOUNT_DECAP
-	deathsight_message = "a spyre of jagged rock and winding crevices"
+	deathsight_message = "the cover of jagged rock and winding crevices, buried in snow"
+	detail_text = DETAIL_TEXT_DECAP_TARICHEA
+
+/area/rogue/under/cave/grimspyre
+	name = "Mount Grymspyre"
+	icon_state = "decap"
+	loot_budget = LOOT_BUDGET_GRYMSPYRE_SHELTERS
+	loot_pool_key = "decap_shelters"
+	droning_sound = 'sound/music/area/grimcaves.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	first_time_text = "GRYMSPYRE CAVERNS"
+	threat_region = THREAT_REGION_MOUNT_DECAP
+	deathsight_message = "deep within jagged rock and winding crevices, volcanic ash in the air"
 	detail_text = DETAIL_TEXT_DECAP_TARICHEA
 //PILGRIM END
+

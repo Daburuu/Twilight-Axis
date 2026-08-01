@@ -85,11 +85,38 @@
 	droning_sound_dusk = null
 	droning_sound_night = null
 
+/area/rogue/indoors/town/bath/grim/abyssorbath
+	name = "Abyssor Shrine"
+	first_time_text = "ABYSSOR SHRINE"
+	droning_sound = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg')
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = null
+
+/area/rogue/under/town/basement/keep/grim
+	name = "keep basement"
+	icon_state = "basement"
+	droning_sound = list('sound/music/area/manor.ogg', 'sound/music/area/manor2.ogg', 'sound/music/area/grimmanor.ogg', 'sound/music/area/grimcastle.ogg', 'sound/music/area/grimabode.ogg')
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = 'sound/music/area/grimnight.ogg'
+	keep_area = TRUE
+	town_area = TRUE
+	ceiling_protected = TRUE
+
+/area/rogue/indoors/town/bath/grim/keep
+	name = "Keep Bath"
+	icon_state = "bath"
+	droning_sound = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg')
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg')
+	keep_area = TRUE
+	town_area = TRUE
+	ceiling_protected = TRUE
+
 /area/rogue/under/town/basement/townarenaview
 	name = "The Fulmen Dome Observation"
 	first_time_text = "THE FULMEN DOME"
 	droning_sound = list('sound/music/area/genericrevelry.ogg', 'sound/music/area/genericcalm.ogg', 'sound/music/area/genericchill.ogg', 'sound/music/area/genericflutey.ogg')
-	droning_sound_dusk = null
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = null
 
 /area/rogue/outdoors/exposed/under/sewer/grim

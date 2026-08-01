@@ -67,17 +67,10 @@
 	droning_sound = list('sound/music/area/manor.ogg', 'sound/music/area/manor2.ogg', 'sound/music/area/grimmanor.ogg', 'sound/music/area/grimcastle.ogg', 'sound/music/area/grimabode.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = 'sound/music/area/grimnight.ogg'
-	converted_type = /area/rogue/outdoors/exposed/manorgarri
+	converted_type = /area/rogue/outdoors/exposed/town/keep/grim
 	first_time_text = "PILGRIM KEEP"
 	keep_area = TRUE
 	detail_text = DETAIL_TEXT_MANOR
-
-/area/rogue/outdoors/exposed/town/grim
-	icon_state = "town"
-	droning_sound = list('sound/music/area/towngen.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
-	droning_sound_dusk = 'sound/music/area/townalright.ogg'
-	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
-	fog_protected = TRUE
 
 /area/rogue/outdoors/exposed/town/keep/grim
 	name = "Keep"
@@ -88,6 +81,39 @@
 	keep_area = TRUE
 	town_area = TRUE
 	detail_text = DETAIL_TEXT_KEEP
+
+/area/rogue/outdoors/exposed/town/keep/grim/training
+	name = "Training Yard"
+	icon_state = "manor"
+	droning_sound = 'sound/music/area/grimgarri.ogg'
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+	keep_area = TRUE
+	town_area = TRUE
+	detail_text = DETAIL_TEXT_KEEP
+
+/area/rogue/indoors/town/garrison/grim
+	icon_state = "garrison"
+	droning_sound = 'sound/music/area/grimgarri.ogg'
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+	keep_area = TRUE
+	town_area = TRUE
+
+/area/rogue/outdoors/exposed/town/grim
+	icon_state = "town"
+	droning_sound = list('sound/music/area/towngen.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+	fog_protected = TRUE
+
+/area/rogue/indoors/town/bath/grim
+	name = "Calmer Baths"
+	icon_state = "bath"
+	droning_sound = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg')
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg')
+	converted_type = /area/rogue/outdoors/exposed/bath
 //PILGRIM END
 
 /area/rogue/outdoors/exposed/manorgarri
@@ -160,14 +186,6 @@
 	name = "Baths"
 	icon_state = "bath"
 	droning_sound = 'sound/music/area/bath.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/exposed/bath
-
-/area/rogue/indoors/town/bath/grim
-	name = "Calmer Baths"
-	icon_state = "bath"
-	droning_sound = list('sound/music/area/bathchill.ogg', 'sound/music/area/grimchill.ogg', 'sound/music/area/bathcalm.ogg')
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/exposed/bath
