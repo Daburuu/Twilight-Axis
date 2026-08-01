@@ -403,7 +403,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimfield.ogg'
-	converted_type = /area/rogue/indoors/shelter/rtfield
+	converted_type = /area/rogue/indoors/shelter/rtfield/grim
 	deathsight_message = "somewhere in the wilds, next to towering walls"
 	warden_area = TRUE
 	threat_region = THREAT_REGION_AZURE_BASIN
@@ -415,7 +415,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	droning_sound = list('sound/music/area/towngen.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
-	converted_type = /area/rogue/indoors/shelter/town
+	converted_type = /area/rogue/indoors/shelter/town/grim
 	first_time_text = "THE CITY OF PILGRIM"
 	town_area = TRUE
 	fog_protected = TRUE

@@ -100,7 +100,7 @@
 				/mob/living/carbon/human/species/goblin/npc/archer/sea = 10,
 				new /datum/ambush_config/huscarl_raiding_party = 4)
 	first_time_text = "THE JAGGEDJAW COAST"
-	converted_type = /area/rogue/indoors/shelter/woods
+	converted_type = /area/rogue/indoors/shelter/woods/grim
 	deathsight_message = "somewhere betwixt Abyssor's realm and Dendor's bounty"
 	threat_region = THREAT_REGION_AZUREAN_COAST
 	detail_text = DETAIL_TEXT_NORTH_COAST

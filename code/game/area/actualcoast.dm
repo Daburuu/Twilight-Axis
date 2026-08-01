@@ -103,6 +103,9 @@
 		new /datum/ambush_config/deepone_party = 20,
 	)
 	first_time_text = "SOUTH JAGGEDJAW COAST"
+	droning_sound = list('sound/music/area/townstreets.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = 'sound/music/area/grimnight.ogg'
 	detail_text = DETAIL_TEXT_CITY_COAST
 	threat_region = THREAT_REGION_AZURE_BASIN
 //PILGRIM END

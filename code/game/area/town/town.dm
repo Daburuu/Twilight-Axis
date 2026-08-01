@@ -56,7 +56,7 @@
 	droning_sound = list('sound/music/area/towngen.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
 	droning_sound_dusk = list('sound/music/area/townalright.ogg', 'sound/music/area/townambient.ogg')
 	droning_sound_night = list( 'sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
-	converted_type = /area/rogue/outdoors/exposed/town
+	converted_type = /area/rogue/outdoors/exposed/town/grim
 	town_area = TRUE
 	deathsight_message = "the city of Pilgrim and all its bustling souls"
 	detail_text = DETAIL_TEXT_AZURE_PEAK
