@@ -30,6 +30,25 @@
 	layer = ABOVE_MOB_LAYER
 	pixel_y = 32
 
+/obj/structure/roguemachine/noticeboard/wall/bulletinboard
+	name = "Bulletin Board"
+	desc = "A rough wooden bulletin board, various worn parchments dotting the face"
+	icon = 'icons/roguetown/structure/bulletinboard32.dmi'
+	icon_state = "bulletinboard0"
+
+/obj/structure/roguemachine/noticeboard/wall/bulletinboard/update_icon()
+	. = ..()
+	var/total_length = length(GLOB.noticeboard_notices) + length(GLOB.noticeboard_listings)
+	switch(total_length)
+		if(0)
+			icon_state = "bulletinboard0"
+		if(1 to 3)
+			icon_state = "bulletinboard1"
+		if(4 to 6)
+			icon_state = "bulletinboard2"
+		else
+			icon_state = "bulletinboard3"
+
 /obj/structure/roguemachine/noticeboard/wall/OnCrafted(dirin, user)
 	pixel_x = 0
 	pixel_y = 0
