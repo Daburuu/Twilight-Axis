@@ -7936,7 +7936,7 @@
 /obj/structure/spider/stickyweb,
 /mob/living/simple_animal/hostile/rogue/mirespider_lurker,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "beS" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -11895,7 +11895,7 @@
 "bGf" = (
 /obj/machinery/light/rogue/candle/blue/l,
 /turf/open/floor/rogue/twig,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "bGh" = (
 /obj/structure/table/wood,
 /obj/item/book/rogue/law,
@@ -15262,7 +15262,7 @@
 /obj/machinery/tanningrack,
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "cdy" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
 /obj/effect/decal/cleanable/blood,
@@ -16533,7 +16533,7 @@
 	},
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/twig,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "cmS" = (
 /obj/machinery/light/rogue/cauldron,
 /turf/open/floor/rogue/concrete,
@@ -21195,6 +21195,9 @@
 /obj/item/reagent_containers/glass/bottle/alchemical/healthpot,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/grim)
+"cTy" = (
+/turf/closed/mineral/rogue/bedrock,
+/area/rogue/indoors/abandonedhotsprings/grim)
 "cTz" = (
 /obj/structure/closet/crate/roguecloset/dark{
 	keylock = 1;
@@ -24869,7 +24872,7 @@
 "drM" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated,
 /turf/open/floor/rogue/twig,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "drR" = (
 /obj/effect/decal/cobbleedge{
 	dir = 6
@@ -32772,7 +32775,7 @@
 /area/rogue/indoors/town/grim)
 "exQ" = (
 /turf/closed/wall/mineral/rogue/decowood,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "exR" = (
 /obj/item/reagent_containers/food/snacks/crow{
 	dir = 4
@@ -33131,7 +33134,7 @@
 /obj/machinery/light/rogue/candle/floorcandle,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/twig,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "eAb" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/rooftop/green/west,
@@ -34850,7 +34853,7 @@
 "eMB" = (
 /obj/structure/roguewindow,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "eMD" = (
 /obj/structure/table/wood/poor,
 /obj/item/candle/candlestick/silver/single/lit{
@@ -39411,7 +39414,7 @@
 "frD" = (
 /obj/structure/mineral_door/swing_door,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "frH" = (
 /obj/structure/table/finestone,
 /obj/item/paper{
@@ -43959,7 +43962,7 @@
 /obj/structure/roguemachine/withdraw,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "gbr" = (
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue/outdoors/woods/grim/northeast)
@@ -46526,7 +46529,7 @@
 /obj/structure/fluff/railing/border/east,
 /obj/structure/roguewindow/harem3,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "gty" = (
 /obj/effect/decal/cobbleedge{
 	dir = 10;
@@ -52318,7 +52321,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "hjs" = (
 /obj/effect/decal/cobbleedge{
 	dir = 5;
@@ -58080,7 +58083,7 @@
 /area/rogue/outdoors/beach/south/grim)
 "hWV" = (
 /turf/open/floor/rogue/twig,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "hXa" = (
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/under/town/basement/keep/grim)
@@ -65578,7 +65581,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "iWL" = (
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/outdoors/mountains/decap/grim)
@@ -67039,7 +67042,7 @@
 /obj/effect/spawner/lootdrop/valuable_tableware_spawner,
 /obj/structure/table/wood/poor,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "jgB" = (
 /obj/structure/bars/grille,
 /mob/living/simple_animal/hostile/retaliate/rogue/primordial/water{
@@ -71294,7 +71297,7 @@
 "jJB" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "jJC" = (
 /obj/structure/rack/rogue{
 	density = 0
@@ -74959,7 +74962,7 @@
 	},
 /obj/structure/table/wood/poor,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "kjn" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -76886,7 +76889,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/twig,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "kyu" = (
 /obj/effect/decal/cobble/mossy{
 	dir = 9
@@ -80188,7 +80191,7 @@
 "kWk" = (
 /mob/living/simple_animal/hostile/rogue/mirespider_lurker,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "kWm" = (
 /obj/effect/decal/cobbleedge{
 	dir = 9
@@ -82272,7 +82275,7 @@
 /obj/structure/table/wood/poor,
 /obj/item/roguecoin/silver/pile,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "ljz" = (
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cavewet/bogcaves/north)
@@ -84140,7 +84143,7 @@
 	},
 /obj/structure/table/wood/poor,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "lxu" = (
 /turf/closed/wall/mineral/rogue/roofwall/outercorner/dir1,
 /area/rogue/outdoors/town/roofs/keep)
@@ -84509,7 +84512,7 @@
 /obj/effect/spawner/lootdrop/valuable_candle_spawner,
 /obj/effect/spawner/lootdrop/general_loot_hi/x3,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "lzK" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
@@ -84575,7 +84578,7 @@
 /obj/item/reagent_containers/glass/cup/ceramic/fancy,
 /obj/structure/table/wood/poor,
 /turf/open/floor/rogue/twig,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "lAk" = (
 /turf/closed/wall/mineral/rogue/decostone/mossy/blue/end{
 	dir = 8
@@ -94722,7 +94725,7 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated,
 /obj/structure/table/wood/poor,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "mVO" = (
 /turf/closed/mineral/rogue/silver,
 /area/rogue/under/cave/his_vault)
@@ -124123,7 +124126,7 @@
 "qSO" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/twig,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "qSS" = (
 /obj/structure/roguemachine/withdraw,
 /obj/structure/fluff/railing/border,
@@ -129951,7 +129954,7 @@
 "rKe" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/spider,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "rKf" = (
 /obj/structure/stairs/stone{
 	dir = 4
@@ -130266,7 +130269,7 @@
 /obj/structure/table/wood/poor,
 /obj/item/roguecoin/silver/pile,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "rMS" = (
 /obj/structure/roguetent,
 /obj/effect/decal/cleanable/blood/tracks{
@@ -148364,7 +148367,7 @@
 /obj/item/bedsheet/rogue/double_pelt,
 /obj/machinery/light/rogue/campfire/fireplace,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "ugg" = (
 /mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/water/swamp/deep,
@@ -155571,7 +155574,7 @@
 /obj/item/millstone,
 /obj/structure/table/wood/poor,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "vdM" = (
 /obj/structure/stairs{
 	dir = 4
@@ -157691,7 +157694,7 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated,
 /obj/machinery/light/rogue/campfire/fireplace,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "vsw" = (
 /obj/structure/bars/pipe{
 	dir = 8
@@ -159552,7 +159555,7 @@
 "vFI" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "vFN" = (
 /obj/structure/bed/rogue/inn{
 	dir = 1
@@ -162895,7 +162898,7 @@
 "wbR" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/spider,
 /turf/open/floor/rogue/twig,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "wbS" = (
 /obj/structure/closet/crate/drawer,
 /obj/effect/decal/edge{
@@ -163375,7 +163378,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "wfr" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/rogue/dirt/road,
@@ -164152,7 +164155,7 @@
 "wlc" = (
 /obj/effect/spawner/lootdrop/general_loot_hi/x3,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "wlf" = (
 /obj/structure/bed/rogue/inn/double{
 	dir = 1
@@ -165702,7 +165705,7 @@
 /obj/structure/fluff/railing/border/east,
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "wwh" = (
 /obj/structure/roguewindow/stained/zizo,
 /turf/closed/wall/mineral/rogue/stone,
@@ -166913,7 +166916,7 @@
 /obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "wFK" = (
 /obj/structure/roguewindow,
 /turf/open/floor/rogue/concrete,
@@ -166945,7 +166948,7 @@
 /obj/machinery/light/rogue/hearth,
 /obj/machinery/light/rogue/oven/south,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "wGq" = (
 /obj/structure/fluff/psycross/psycrucifix/silver,
 /obj/structure/fluff/walldeco/chains,
@@ -167536,7 +167539,7 @@
 /area/rogue/indoors/town/grim)
 "wJO" = (
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "wJW" = (
 /obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = 16
@@ -169168,7 +169171,7 @@
 "wVa" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "wVc" = (
 /obj/machinery/light/rogue/hearth,
 /obj/item/cooking/pan,
@@ -169608,7 +169611,7 @@
 /area/rogue/under/underdark/north)
 "wYn" = (
 /turf/closed/wall/mineral/rogue/wooddark,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "wYr" = (
 /obj/structure/fluff/railing/corner/north_east,
 /obj/structure/fluff/railing/border/east,
@@ -172051,7 +172054,7 @@
 	},
 /obj/structure/table/wood/poor,
 /turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "xoK" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/cobble/mossy,
@@ -173247,7 +173250,7 @@
 	},
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "xxz" = (
 /obj/effect/decal/wood/herringbone{
 	dir = 1
@@ -174031,7 +174034,7 @@
 /area/rogue/outdoors/exposed/under/sewer/grim)
 "xCM" = (
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "xCS" = (
 /obj/structure/mineral_door/wood/window{
 	name = "Clinic";
@@ -174890,7 +174893,7 @@
 /obj/structure/bed/rogue/inn/wooldouble,
 /obj/item/bedsheet/rogue/double_pelt,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/abandonedhotsprings)
+/area/rogue/indoors/abandonedhotsprings/grim)
 "xID" = (
 /obj/structure/fluff/railing/border/east,
 /obj/machinery/light/rogue/candle/off,
@@ -787103,7 +787106,7 @@ wvm
 wvm
 wvm
 wvm
-wvm
+cTy
 wYn
 exQ
 exQ
