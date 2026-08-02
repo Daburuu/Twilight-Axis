@@ -75288,12 +75288,6 @@
 /obj/machinery/light/rogue/candle/blue/l,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/magician)
-"klX" = (
-/obj/structure/fluff/walldeco/mageguild2{
-	pixel_y = 32
-	},
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town/grim)
 "klY" = (
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/rogue/ruinedwood/turned,
@@ -75631,7 +75625,7 @@
 "koW" = (
 /obj/structure/mineral_door/wood/fancywood{
 	lockid = "church";
-	name = "To Friar's Fat Fellas"
+	name = "Infirmary"
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/church/grim/infirmary)
@@ -118561,7 +118555,7 @@
 /area/rogue/indoors/town/garrison/grim)
 "qdH" = (
 /obj/structure/mineral_door/wood/window{
-	name = "Friars Fat Fellas";
+	name = "Eoran Almonry";
 	lockid = "church"
 	},
 /turf/open/floor/rogue/concrete,
@@ -149117,6 +149111,12 @@
 "ulZ" = (
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/woods/grim/northeast)
+"umc" = (
+/obj/structure/fluff/walldeco/mageguild2{
+	pixel_y = 32
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/town/grim)
 "umd" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
@@ -491404,7 +491404,7 @@ fuH
 fuH
 qDM
 qDM
-klX
+umc
 dfx
 dfx
 dfx
