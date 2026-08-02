@@ -403,8 +403,31 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimfield.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	converted_type = /area/rogue/indoors/shelter/rtfield/grim
-	deathsight_message = "somewhere in the wilds, next to towering walls"
+	deathsight_message = "Somewhere in the wilds, near a flowing river and flanking cliffs"
+	warden_area = TRUE
+	threat_region = THREAT_REGION_AZURE_BASIN
+
+/area/rogue/outdoors/rtfield/grim/south
+	name = "Jaggedjaw Basin South"
+	icon_state = "rtfield"
+	soundenv = 19
+	ambush_times = list("night")
+	ambush_mobs = list(
+				/mob/living/simple_animal/hostile/retaliate/rogue/badger = 10,
+				/mob/living/simple_animal/hostile/retaliate/rogue/raccoon = 25,
+				/mob/living/simple_animal/hostile/retaliate/rogue/bobcat = 20,
+				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 30,
+				/mob/living/simple_animal/hostile/retaliate/rogue/fox = 30,
+				/mob/living/carbon/human/species/skeleton/npc/supereasy = 30)
+	first_time_text = "JAGGEDJAW BASIN SOUTH"
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = 'sound/music/area/grimfield.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
+	converted_type = /area/rogue/indoors/shelter/rtfield/grim
+	deathsight_message = "Somewhere in the wilds, within a basin of woods"
 	warden_area = TRUE
 	threat_region = THREAT_REGION_AZURE_BASIN
 
@@ -415,6 +438,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	droning_sound = list('sound/music/area/towngen.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	converted_type = /area/rogue/indoors/shelter/town/grim
 	first_time_text = "THE CITY OF PILGRIM"
 	town_area = TRUE
@@ -425,6 +449,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	droning_sound = list('sound/music/area/towngen.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 
 /area/rogue/druidsgrove/grim
 	name = "Druids grove"
@@ -433,12 +458,24 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	droning_sound = list('sound/ambience/riverday (1).ogg','sound/ambience/riverday (2).ogg','sound/ambience/riverday (3).ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = list ('sound/ambience/rivernight (1).ogg','sound/ambience/rivernight (2).ogg','sound/ambience/rivernight (3).ogg' )
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
+
+/area/rogue/druidsgrove/grim/tree
+	name = "Druids tree"
+	icon_state = "rtfield"
+	first_time_text = "Druids tree"
+	converted_type = /area/rogue/druidsgrove/grim
+	droning_sound = list('sound/ambience/riverday (1).ogg','sound/ambience/riverday (2).ogg','sound/ambience/riverday (3).ogg')
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = list ('sound/ambience/rivernight (1).ogg','sound/ambience/rivernight (2).ogg','sound/ambience/rivernight (3).ogg' )
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 
 /area/rogue/indoors/shelter/rtfield/grim
 	icon_state = "rtfield"
 	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimfield.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 
 /area/rogue/outdoors/mountains/grim
 	name = "Mountains"
@@ -450,6 +487,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimfield.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	warden_area = TRUE
 	soundenv = 17
 	converted_type = /area/rogue/indoors/shelter/mountains

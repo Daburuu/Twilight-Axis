@@ -54,8 +54,9 @@
 	name = "indoors"
 	icon_state = "town"
 	droning_sound = list('sound/music/area/towngen.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
-	droning_sound_dusk = list('sound/music/area/townalright.ogg', 'sound/music/area/townambient.ogg')
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = list( 'sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
 	converted_type = /area/rogue/outdoors/exposed/town/grim
 	town_area = TRUE
 	deathsight_message = "the city of Pilgrim and all its bustling souls"
@@ -67,6 +68,7 @@
 	droning_sound = list('sound/music/area/manor.ogg', 'sound/music/area/manor2.ogg', 'sound/music/area/grimmanor.ogg', 'sound/music/area/grimcastle.ogg', 'sound/music/area/grimabode.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = 'sound/music/area/grimnight.ogg'
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
 	converted_type = /area/rogue/outdoors/exposed/town/keep/grim
 	first_time_text = "PILGRIM KEEP"
 	keep_area = TRUE
@@ -78,6 +80,7 @@
 	droning_sound = 'sound/music/area/grimgarri.ogg'
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
 	keep_area = TRUE
 	town_area = TRUE
 	detail_text = DETAIL_TEXT_KEEP
@@ -88,6 +91,7 @@
 	droning_sound = 'sound/music/area/grimgarri.ogg'
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
 	keep_area = TRUE
 	town_area = TRUE
 	detail_text = DETAIL_TEXT_KEEP
@@ -97,6 +101,7 @@
 	droning_sound = 'sound/music/area/grimgarri.ogg'
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
 	keep_area = TRUE
 	town_area = TRUE
 
@@ -105,15 +110,88 @@
 	droning_sound = list('sound/music/area/towngen.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
 	fog_protected = TRUE
 
 /area/rogue/indoors/town/bath/grim
 	name = "Calmer Baths"
 	icon_state = "bath"
-	droning_sound = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg')
+	droning_sound = list('sound/music/area/bathchill.ogg', 'sound/music/area/grimpeace.ogg', 'sound/music/area/bathcalm.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
-	droning_sound_night = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg')
+	droning_sound_night = list('sound/music/area/bathchill.ogg', 'sound/music/area/grimpeace.ogg', 'sound/music/area/bathcalm.ogg')
 	converted_type = /area/rogue/outdoors/exposed/bath
+
+/area/rogue/indoors/town/church/grim
+	name = "The House of the Ten"
+	icon_state = "church"
+	droning_sound = 'sound/music/area/grimchurch.ogg'
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = null
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
+	holy_area = TRUE
+	converted_type = /area/rogue/outdoors/exposed/church/grim
+	deathsight_message = "a hallowed place, sworn to the Ten"
+
+/area/rogue/indoors/town/church/grim/infirmary
+	name = "The Infirmary of the Ten"
+	icon_state = "church"
+	droning_sound = 'sound/music/area/grimchurch.ogg'
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = null
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
+	holy_area = TRUE
+	converted_type = /area/rogue/outdoors/exposed/church/grim
+	deathsight_message = "a hallowed place, sworn to the Ten"
+
+/area/rogue/outdoors/exposed/church/grim
+	icon_state = "church"
+	droning_sound = 'sound/music/area/grimchurch.ogg'
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = null
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
+	deathsight_message = "a hallowed place, sworn to the Ten"
+
+/area/rogue/indoors/town/church/chapel/grim
+	icon_state = "chapel"
+	first_time_text = "THE CATHEDRAL OF THE TEN"
+	droning_sound = 'sound/music/area/grimchurch.ogg'
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = null
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
+	holy_area = TRUE
+	detail_text = DETAIL_TEXT_CHAPEL
+
+/area/rogue/indoors/town/church/chapel/grim/friars
+	icon_state = "chapel"
+	first_time_text = "FRIARS FAT FELLAS"
+	droning_sound = list( 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
+	holy_area = TRUE
+	detail_text = DETAIL_TEXT_CHAPEL
+
+/area/rogue/indoors/town/church/basement/grim
+	icon_state = "church"
+	droning_sound = 'sound/music/area/catacombs.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	first_time_text = "CATHEDRAL CRYPTS"
+
+/area/rogue/indoors/town/tavern/grim
+	first_time_text = "THE BLUSHING BOGMAN"
+	name = "Blushing Bogman"
+	icon_state = "tavern"
+	ambientsounds = AMB_INGEN
+	ambientnight = AMB_INGEN
+	droning_sound = list('sound/music/area/genericrevelry.ogg', 'sound/music/area/genericcalm.ogg', 'sound/music/area/genericchill.ogg', 'sound/music/area/genericflutey.ogg')
+	droning_sound_dusk = list('sound/music/area/townalright.ogg', 'sound/music/area/grimpeace.ogg', 'sound/music/area/genericjaunty.ogg')
+	droning_sound_night = 'sound/music/area/grimnight.ogg'
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
+	converted_type = /area/rogue/outdoors/exposed/tavern
+	tavern_area = TRUE
+	deathsight_message = "the local tavern, shadowed patrons either scattering or standing to watch this unfortunate soul"
+
 //PILGRIM END
 
 /area/rogue/outdoors/exposed/manorgarri
@@ -232,19 +310,6 @@
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/exposed/tavern
 	tavern_area = TRUE
-
-/area/rogue/indoors/town/tavern/grim
-	first_time_text = "THE BLUSHING BOGMAN"
-	name = "Blushing Bogman"
-	icon_state = "tavern"
-	ambientsounds = AMB_INGEN
-	ambientnight = AMB_INGEN
-	droning_sound = list('sound/music/area/genericrevelry.ogg', 'sound/music/area/genericcalm.ogg', 'sound/music/area/genericchill.ogg', 'sound/music/area/genericflutey.ogg')
-	droning_sound_dusk = list('sound/music/area/townalright.ogg', 'sound/music/area/grimpeace.ogg', 'sound/music/area/genericjaunty.ogg')
-	droning_sound_night = 'sound/music/area/grimnight.ogg'
-	converted_type = /area/rogue/outdoors/exposed/tavern
-	tavern_area = TRUE
-	deathsight_message = "the local tavern, shadowed patrons either scattering or standing to watch this unfortunate soul"
 
 /area/rogue/outdoors/exposed/tavern
 	icon_state = "tavern"

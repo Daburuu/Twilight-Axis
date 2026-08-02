@@ -67,7 +67,7 @@
 //PILGRIM
 
 /area/rogue/outdoors/beach/forest/grim
-	name = "Jaggedjaw Coast"
+	name = "Bilewood"
 	loot_budget = LOOT_BUDGET_AZURE_COAST
 	loot_pool_key = "azure_coast"
 	icon_state = "beach"
@@ -79,6 +79,7 @@
 	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	soundenv = 15
 	ambush_times = list("night","dusk")
 	ambush_mobs = list(
@@ -99,33 +100,38 @@
 				/mob/living/carbon/human/species/hobgoblin/npc/ambush = 12,
 				/mob/living/carbon/human/species/goblin/npc/archer/sea = 10,
 				new /datum/ambush_config/huscarl_raiding_party = 4)
-	first_time_text = "THE JAGGEDJAW COAST"
+	first_time_text = "BILEWOOD"
 	converted_type = /area/rogue/indoors/shelter/woods/grim
 	deathsight_message = "somewhere betwixt Abyssor's realm and Dendor's bounty"
 	threat_region = THREAT_REGION_AZUREAN_COAST
 	detail_text = DETAIL_TEXT_NORTH_COAST
 
 /area/rogue/outdoors/beach/forest/hamlet/grim
-	name = "Jaggedjaw Coast - Hamlet"
-	first_time_text = "THE HAMLET"
-	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
+	name = "Bilewood - Hamlet"
+	first_time_text = "BILEWOOD HAMLET"
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg', 'sound/music/area/grimcoast.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	ambush_mobs = null // We don't want actual ambushes in Hamlet but we also don't want to misuse outdoors/beach lol
 	threat_region = THREAT_REGION_AZUREAN_COAST
 	detail_text = DETAIL_TEXT_NORTH_COAST_HAMLET
 
 /area/rogue/outdoors/beach/forest/north/grim
-	name = "Jaggedjaw Coast - North"
-	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
+	name = "Bilewood - North"
+	first_time_text = "BILEWOOD NORTH"
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg', 'sound/music/area/grimcoast.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	threat_region = THREAT_REGION_AZUREAN_COAST
 
 /area/rogue/outdoors/beach/forest/south/grim
-	name = "Jaggedjaw Coast - South"
-	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
+	name = "Bilewood - South"
+	first_time_text = "BILEWOOD SOUTH"
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg', 'sound/music/area/grimcoast.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	threat_region = THREAT_REGION_AZUREAN_COAST
 //PILGRIM END

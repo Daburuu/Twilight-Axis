@@ -143,6 +143,7 @@
 	droning_sound = list('sound/music/area/grimmorning.ogg', 'sound/music/area/grimtwilight.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	soundenv = 15
 	warden_area = TRUE
 	ambush_times = list("night","dawn","dusk","day")
@@ -156,7 +157,7 @@
 				/mob/living/carbon/human/species/human/northern/militia/deserter = 20,
 				/mob/living/carbon/human/species/hobgoblin/npc/ambush = 15,
 				/mob/living/carbon/human/species/human/northern/highwayman/ambush = 10)
-	first_time_text = "THE JAGGEDJAW GROVE"
+	first_time_text = "BILEWOOD GROVE"
 	converted_type = /area/rogue/indoors/shelter/woods/grim
 	deathsight_message = "somewhere in the wilds of jaggedjaw grove"
 	threat_region = THREAT_REGION_AZURE_GROVE
@@ -168,6 +169,7 @@
 	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	threat_region = THREAT_REGION_AZURE_GROVE
 	deathsight_message = "somewhere in the wilds of jaggedjaw grove, shrouded under cover"
 
@@ -186,6 +188,8 @@
 	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
+	deathsight_message = "somewhere in the wilds of jaggedjaw grove, near a curling river and jagged inlet cliffs"
 
 /area/rogue/outdoors/woods/grim/northeast
 	name = "Jaggedjaw Grove - Northeast"
@@ -204,6 +208,7 @@
 	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 
 /area/rogue/outdoors/woods/grim/southeast
 	name = "Jaggedjaw Grove - Southeast"
@@ -221,6 +226,7 @@
 	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 
 /area/rogue/outdoors/woods/grim/south
 	name = "Jaggedjaw Grove - South"
@@ -237,6 +243,7 @@
 	droning_sound = list(, 'sound/music/area/grimdrama.ogg', 'sound/music/area/grimtwilight.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 
 /area/rogue/outdoors/woods/grim/southwest
 	name = "Jaggedjaw Grove - Southwest"
@@ -253,6 +260,7 @@
 	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 
 /area/rogue/outdoors/woods/grim/northwest
 	name = "Jaggedjaw Grove - Northwest"
@@ -269,5 +277,5 @@
 	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
-
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 //PILGRIM END

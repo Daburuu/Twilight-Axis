@@ -70,13 +70,14 @@
 	droning_sound = list('sound/music/area/townstreets.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = 'sound/music/area/grimnight.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	converted_type = /area/rogue/under/lake
 	first_time_text = "PILGRIM HARBOR"
 	deathsight_message = "a freshwater shore"
 	detail_text = DETAIL_TEXT_ACTUAL_COAST
 
 /area/rogue/outdoors/beach/north/grim
-	name = "North Jaggedjaw Coast"
+	name = "Bilewater Coast"
 	ambush_mobs = list(
 		/mob/living/carbon/human/species/human/northern/searaider/ambush = 10,
 		/mob/living/carbon/human/species/human/northern/searaider/archer/ambush = 3,
@@ -87,11 +88,14 @@
 		/mob/living/simple_animal/hostile/retaliate/rogue/mossback = 40,
 		new /datum/ambush_config/huscarl_raiding_party = 3
 	)
-	first_time_text = "NORTH JAGGEDJAWCOAST"
+	first_time_text = "BILEWATER COAST"
+	droning_sound = 'sound/music/area/grimcoast.ogg'
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	threat_region = THREAT_REGION_AZUREAN_COAST
 
 /area/rogue/outdoors/beach/south/grim
-	name = "South Jaggedjaw Coast"
+	name = "Jaggedjaw Coast"
 	ambush_mobs = list(
 		/mob/living/carbon/human/species/human/northern/searaider/ambush = 5,
 		/mob/living/carbon/human/species/human/northern/searaider/archer/ambush = 2,
@@ -102,7 +106,7 @@
 		new /datum/ambush_config/triple_deepone = 30,
 		new /datum/ambush_config/deepone_party = 20,
 	)
-	first_time_text = "SOUTH JAGGEDJAW COAST"
+	first_time_text = "JAGGEDJAW COAST"
 	droning_sound = list('sound/music/area/townstreets.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = 'sound/music/area/grimnight.ogg'
