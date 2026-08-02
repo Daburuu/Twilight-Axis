@@ -128,4 +128,20 @@
 	droning_sound = list('sound/music/area/sewerspooky.ogg', 'sound/music/area/sewerdrone.ogg', 'sound/music/area/sewerominous.ogg')
 	droning_sound_dusk = null
 	droning_sound_night = null
+
+/area/rogue/under/town/basement/grim
+	name = "basement"
+	icon_state = "basement"
+	ambientsounds = AMB_BASEMENT
+	ambientnight = AMB_BASEMENT
+	spookysounds = SPOOKY_DUNGEON
+	spookynight = SPOOKY_DUNGEON
+	droning_sound = list( 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
+	soundenv = 5
+	town_area = TRUE
+	converted_type = /area/rogue/outdoors/exposed/under/basement
+
 //PILGRIM END

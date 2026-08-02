@@ -171,6 +171,18 @@
 	holy_area = TRUE
 	detail_text = DETAIL_TEXT_CHAPEL
 
+/area/rogue/indoors/town/pestra_sanctum/grim
+	name = "Pestran Crypts"
+	icon_state = "pestrasanctum"
+	droning_sound = 'sound/music/area/grimsanctum.ogg'
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = 'sound/music/area/grimnight.ogg'
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
+	spookysounds = SPOOKY_MYSTICAL
+	spookynight = SPOOKY_MYSTICAL
+	first_time_text = "THE PESTRAN CRYPTS"
+	keep_area = TRUE
+
 /area/rogue/indoors/town/church/basement/grim
 	icon_state = "church"
 	droning_sound = 'sound/music/area/grimchurch.ogg'
