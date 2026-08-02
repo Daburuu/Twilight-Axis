@@ -23140,7 +23140,9 @@
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/bath/grim)
 "dgF" = (
-/obj/structure/closet/crate/roguecloset/lord,
+/obj/structure/closet/crate/roguecloset/lord{
+	lockid = "vault"
+	},
 /obj/item/clothing/shoes/roguetown/boots/armor,
 /obj/item/clothing/under/roguetown/platelegs,
 /obj/item/storage/belt/rogue/leather/steel/tasset,
@@ -23149,7 +23151,10 @@
 /obj/item/clothing/suit/roguetown/armor/plate/full,
 /obj/item/clothing/neck/roguetown/chaincoif/full,
 /obj/item/clothing/head/roguetown/helmet/heavy/aventail,
-/obj/item/rogueweapon/sword/long/judgement,
+/obj/item/rogueweapon/sword/long/judgement{
+	name = "Judgement"
+	},
+/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk,
 /turf/open/floor/rogue/carpet/lord/center,
 /area/rogue/indoors/town/manor/grim)
 "dgI" = (
@@ -24071,6 +24076,9 @@
 "dmz" = (
 /obj/structure/stairs{
 	dir = 4
+	},
+/obj/structure/fluff/walldeco/mageguild2{
+	pixel_y = -32
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/town/grim)
@@ -75280,6 +75288,12 @@
 /obj/machinery/light/rogue/candle/blue/l,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/magician)
+"klX" = (
+/obj/structure/fluff/walldeco/mageguild2{
+	pixel_y = 32
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/town/grim)
 "klY" = (
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/rogue/ruinedwood/turned,
@@ -491390,7 +491404,7 @@ fuH
 fuH
 qDM
 qDM
-dfx
+klX
 dfx
 dfx
 dfx
