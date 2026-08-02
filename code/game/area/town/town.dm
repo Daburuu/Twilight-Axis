@@ -161,9 +161,9 @@
 	holy_area = TRUE
 	detail_text = DETAIL_TEXT_CHAPEL
 
-/area/rogue/indoors/town/church/chapel/grim/friars
+/area/rogue/indoors/town/church/chapel/grim/almonry
 	icon_state = "chapel"
-	first_time_text = "FRIARS FAT FELLAS"
+	first_time_text = "EORAN ALMONRY"
 	droning_sound = list( 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = list('sound/music/area/townambient.ogg', 'sound/music/area/grimnight.ogg')
@@ -173,9 +173,10 @@
 
 /area/rogue/indoors/town/church/basement/grim
 	icon_state = "church"
-	droning_sound = 'sound/music/area/catacombs.ogg'
-	droning_sound_dusk = null
+	droning_sound = 'sound/music/area/grimchurch.ogg'
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = null
+	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
 	first_time_text = "CATHEDRAL CRYPTS"
 
 /area/rogue/indoors/town/tavern/grim

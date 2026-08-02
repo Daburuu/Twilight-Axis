@@ -29,6 +29,7 @@
 	density = FALSE
 	layer = ABOVE_MOB_LAYER
 	pixel_y = 32
+//BULLETIN BOARD SUBTYPE
 
 /obj/structure/roguemachine/noticeboard/wall/bulletinboard
 	name = "Bulletin Board"
@@ -48,6 +49,8 @@
 			icon_state = "bulletinboard2"
 		else
 			icon_state = "bulletinboard3"
+//BULLETIN BOARD SUBTYPE END
+//draws from existing noticeboard for it's updates n' stuff.
 
 /obj/structure/roguemachine/noticeboard/wall/OnCrafted(dirin, user)
 	pixel_x = 0
