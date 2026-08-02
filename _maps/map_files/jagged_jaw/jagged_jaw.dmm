@@ -8720,6 +8720,12 @@
 "bkp" = (
 /turf/closed/mineral/random/rogue/med,
 /area/rogue/indoors/cave/east)
+"bkq" = (
+/obj/structure/fluff/walldeco/wantedposter{
+	pixel_y = -32
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/outdoors/exposed/town/keep/grim/training)
 "bkr" = (
 /obj/structure/closet/crate/roguecloset/inn,
 /obj/item/cooking/platter,
@@ -12801,11 +12807,6 @@
 /obj/effect/spawner/lootdrop/cheap_jewelry_spawner,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/cave/scarymaze)
-"bMO" = (
-/obj/structure/fluff/railing/border/north,
-/obj/structure/roguemachine/noticeboard/wall/bulletinboard,
-/turf/open/floor/rogue/wood/nosmooth,
-/area/rogue/outdoors/beach/south/grim)
 "bMS" = (
 /obj/effect/decal/cobbleedge{
 	dir = 10;
@@ -14209,15 +14210,8 @@
 /turf/open/floor/rogue/metal,
 /area/rogue/outdoors/mountains/decap/minotaurfort)
 "bWo" = (
-/obj/effect/decal/edge{
-	color = "#3f3f3f";
-	dir = 1
-	},
-/obj/structure/roguemachine/noticeboard/wall/bulletinboard{
-	pixel_y = -32
-	},
-/turf/open/floor/rogue/tile/brownbrick/browner,
-/area/rogue/indoors/town/tavern/grim)
+/turf/open/water/swamp/deep,
+/area/rogue/under/cave/orcdungeon)
 "bWp" = (
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors)
@@ -14368,11 +14362,8 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods/grim/south)
 "bXE" = (
-/obj/structure/roguemachine/noticeboard/wall/bulletinboard{
-	pixel_y = -32
-	},
-/turf/open/floor/rogue/cobblerock,
-/area/rogue/outdoors/town/grim)
+/turf/open/floor/rogue/metal/barograte,
+/area/rogue/under/cave/orcdungeon)
 "bXF" = (
 /obj/structure/fluff/railing/border/north,
 /turf/open/floor/rogue/hexstone,
@@ -65216,6 +65207,11 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods/grim/south)
+"iUv" = (
+/obj/structure/fluff/railing/border/north,
+/obj/structure/roguemachine/noticeboard/wall/bulletinboard,
+/turf/open/floor/rogue/wood/nosmooth,
+/area/rogue/outdoors/beach/south/grim)
 "iUC" = (
 /obj/effect/landmark/quest_spawner/generic,
 /turf/open/floor/rogue/dirt,
@@ -67170,6 +67166,16 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/snowpatchy,
 /area/rogue/outdoors/mountains/decap/banditcamp)
+"jhM" = (
+/obj/effect/decal/edge{
+	color = "#3f3f3f";
+	dir = 1
+	},
+/obj/structure/roguemachine/noticeboard/wall/bulletinboard{
+	pixel_y = -32
+	},
+/turf/open/floor/rogue/tile/brownbrick/browner,
+/area/rogue/indoors/town/tavern/grim)
 "jhR" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -69755,8 +69761,8 @@
 /area/rogue/indoors/town/grim)
 "jzr" = (
 /obj/structure/fluff/traveltile/vampire{
-	aportalgoesto = "vampinsecond";
-	aportalid = "vampexitsecond"
+	aportalgoesto = "vampin";
+	aportalid = "vampexit"
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/cave/east)
@@ -69909,6 +69915,12 @@
 	layer = 4.2
 	},
 /turf/open/floor/rogue/cobble,
+/area/rogue/outdoors/town/grim)
+"jAk" = (
+/obj/structure/roguemachine/noticeboard/wall/bulletinboard{
+	pixel_y = -32
+	},
+/turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town/grim)
 "jAp" = (
 /obj/effect/decal/wood/herringbone{
@@ -78112,6 +78124,10 @@
 	},
 /turf/open/floor/rogue/carpet/lord/center/no_teleport,
 /area/rogue/under/cave/licharena)
+"kGN" = (
+/obj/structure/fluff/walldeco/wantedposter/r,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/rtfield/grim/south)
 "kGO" = (
 /obj/structure/chair/bench,
 /turf/open/floor/rogue/dirt,
@@ -107822,8 +107838,8 @@
 "oKz" = (
 /obj/structure/fluff/railing/border/north,
 /obj/structure/winch{
-	name = "anchor winch";
-	desc = "The ship'/turf/closed/wall/mineral/rogue/stone/window/blue_moss anchor winch. You're not going anywhere with it lowered."
+	desc = "The centerpiece of any ship. You're not going anywhere with it lowered.";
+	name = "anchor winch"
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/outdoors/beach/north/grim)
@@ -111003,6 +111019,12 @@
 "pgM" = (
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/under/underdark/north)
+"pgN" = (
+/obj/structure/roguemachine/noticeboard/wall/bulletinboard{
+	pixel_y = -32
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/outdoors/exposed/town/keep/grim/training)
 "pgQ" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/structure/bookcase/random/archive,
@@ -115510,8 +115532,8 @@
 "pKj" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/winch{
-	name = "anchor winch";
-	desc = "The ship'/turf/closed/wall/mineral/rogue/stone/window/blue_moss anchor winch. You're not going anywhere with it lowered."
+	desc = "The centerpiece of any ship. You're not going anywhere with it lowered.";
+	name = "anchor winch"
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/outdoors/beach/north/grim)
@@ -139446,7 +139468,7 @@
 /area/rogue/outdoors/rtfield/abandonedhotsprings/grim)
 "sYq" = (
 /obj/machinery/light/rogue/torchholder/l,
-/turf/open/transparent/openspace,
+/turf/open/water/swamp/deep,
 /area/rogue/under/cave/orcdungeon)
 "sYz" = (
 /turf/closed/wall/mineral/rogue/pipe/joint/four,
@@ -140738,8 +140760,8 @@
 /area/rogue/under/cave/scarymaze)
 "tiO" = (
 /obj/structure/fluff/traveltile/vampire{
-	aportalgoesto = "vampin";
-	aportalid = "vampexit"
+	aportalgoesto = "vampinsecond";
+	aportalid = "vampexitsecond"
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cave/grim)
@@ -140946,12 +140968,6 @@
 /obj/structure/flora/roguegrass/herb/random,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods/grim/northeast)
-"tkh" = (
-/obj/structure/fluff/walldeco/wantedposter{
-	pixel_y = -32
-	},
-/turf/open/floor/rogue/cobblerock,
-/area/rogue/outdoors/exposed/town/keep/grim/training)
 "tki" = (
 /obj/effect/decal/wood/herringbone,
 /turf/open/floor/rogue/ruinedwood/herringbone_clear,
@@ -147452,7 +147468,7 @@
 "ubv" = (
 /obj/structure/fluff/railing/border/north,
 /obj/structure/winch{
-	desc = "The ship'/turf/closed/wall/mineral/rogue/stone/window/blue_moss anchor winch. You're not going anywhere with it lowered.";
+	desc = "The centerpiece of any ship. You're not going anywhere with it lowered.";
 	name = "anchor winch"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -163583,6 +163599,9 @@
 /mob/living/simple_animal/hostile/rogue/skeleton/bow,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/cave/central)
+"wiE" = (
+/turf/closed/wall/mineral/rogue/wooddark/horizontal,
+/area/rogue/outdoors/beach/south/grim)
 "wiG" = (
 /obj/structure/fluff/railing/border,
 /obj/effect/decal/cobble/mossy{
@@ -166634,7 +166653,7 @@
 /area/rogue/indoors/town/magician)
 "wFM" = (
 /obj/effect/decal/remains/human,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/rogue/metal/barograte,
 /area/rogue/under/cave/orcdungeon)
 "wFR" = (
 /obj/structure/bookcase,
@@ -168593,7 +168612,7 @@
 "wTo" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/winch{
-	desc = "The ship'/turf/closed/wall/mineral/rogue/stone/window/blue_moss anchor winch. You're not going anywhere with it lowered.";
+	desc = "The centerpiece of any ship. You're not going anywhere with it lowered.";
 	name = "anchor winch"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -177422,9 +177441,8 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/orcdungeon)
 "yct" = (
-/obj/structure/fluff/walldeco/wantedposter/r,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/rtfield/grim/south)
+/turf/closed/basic,
+/area/rogue/indoors/town/grim)
 "ycu" = (
 /obj/structure/flora/roguegrass/water,
 /turf/open/water/swamp/deep,
@@ -178192,12 +178210,6 @@
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/druidsgrove/grim)
-"yiI" = (
-/obj/structure/roguemachine/noticeboard/wall/bulletinboard{
-	pixel_y = -32
-	},
-/turf/open/floor/rogue/cobblerock,
-/area/rogue/outdoors/exposed/town/keep/grim/training)
 "yiJ" = (
 /obj/machinery/light/rogue/hearth{
 	pixel_y = 8
@@ -350285,8 +350297,8 @@ cXv
 jqk
 cXv
 sYq
-abb
-abb
+bXE
+bXE
 sYq
 cXv
 jqk
@@ -350666,10 +350678,10 @@ nWy
 cXv
 mKP
 clW
-gQy
-abb
+bWo
+bXE
 wFM
-gQy
+bWo
 jMD
 mKP
 cXv
@@ -351048,10 +351060,10 @@ nWy
 cXv
 abb
 clW
-gQy
-abb
-abb
-gQy
+bWo
+bXE
+bXE
+bWo
 jMD
 abb
 cXv
@@ -351430,10 +351442,10 @@ nWy
 cXv
 gdv
 clW
-gQy
-abb
-abb
-gQy
+bWo
+bXE
+bXE
+bWo
 jMD
 abb
 cXv
@@ -351812,10 +351824,10 @@ nWy
 cXv
 mKP
 clW
-gQy
+bWo
 wFM
-abb
-gQy
+bXE
+bWo
 jMD
 mKP
 cXv
@@ -352194,10 +352206,10 @@ nWy
 cXv
 cXv
 cXv
-gQy
-abb
-abb
-gQy
+bWo
+bXE
+bXE
+bWo
 cXv
 cXv
 cXv
@@ -448703,7 +448715,7 @@ kVN
 mDI
 cKy
 mDI
-kVN
+yct
 wGx
 mDI
 mDI
@@ -453287,7 +453299,7 @@ umK
 umK
 umK
 umK
-umK
+wiE
 umK
 umK
 umK
@@ -460179,7 +460191,7 @@ umK
 umK
 umK
 jOb
-bMO
+iUv
 jin
 kKv
 mEi
@@ -478394,7 +478406,7 @@ bsK
 lsl
 gFW
 bsK
-bWo
+jhM
 sOG
 cjv
 cjv
@@ -483693,7 +483705,7 @@ eup
 pZZ
 pZZ
 pZZ
-yiI
+pgN
 aqm
 aqm
 kst
@@ -484075,7 +484087,7 @@ und
 pZZ
 pZZ
 pZZ
-tkh
+bkq
 aqm
 cnD
 lNA
@@ -501305,7 +501317,7 @@ tXH
 dfx
 oFh
 dfx
-bXE
+jAk
 agE
 agE
 rRd
@@ -503336,7 +503348,7 @@ lTK
 bDh
 bQx
 jbU
-yct
+kGN
 bQx
 bQx
 bQx
