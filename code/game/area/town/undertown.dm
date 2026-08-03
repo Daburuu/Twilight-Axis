@@ -88,9 +88,9 @@
 /area/rogue/indoors/town/bath/grim/abyssorbath
 	name = "Abyssor Shrine"
 	first_time_text = "ABYSSOR SHRINE"
-	droning_sound = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg')
+	droning_sound = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg', 'sound/music/area/grimpeace.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
-	droning_sound_night = null
+	droning_sound_night = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg','sound/music/area/grimpeace.ogg')
 	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 
 /area/rogue/under/town/basement/keep/grim
@@ -107,9 +107,9 @@
 /area/rogue/indoors/town/bath/grim/keep
 	name = "Keep Bath"
 	icon_state = "bath"
-	droning_sound = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg')
+	droning_sound = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg', 'sound/music/area/grimpeace.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
-	droning_sound_night = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg')
+	droning_sound_night = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg','sound/music/area/grimpeace.ogg')
 	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	keep_area = TRUE
 	town_area = TRUE
@@ -143,5 +143,16 @@
 	soundenv = 5
 	town_area = TRUE
 	converted_type = /area/rogue/outdoors/exposed/under/basement
+
+/area/rogue/indoors/town/bath/grim/steward
+	name = "Steward Bath"
+	icon_state = "bath"
+	droning_sound = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg', 'sound/music/area/grimpeace.ogg')
+	droning_sound_dusk = 'sound/music/area/townalright.ogg'
+	droning_sound_night = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg','sound/music/area/grimpeace.ogg')
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
+	keep_area = TRUE
+	town_area = TRUE
+	ceiling_protected = TRUE
 
 //PILGRIM END

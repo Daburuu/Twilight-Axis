@@ -205,6 +205,20 @@
 	tavern_area = TRUE
 	deathsight_message = "the local tavern, shadowed patrons either scattering or standing to watch this unfortunate soul"
 
+/area/rogue/indoors/town/magician/grim
+	name = "Arcyne College"
+	icon_state = "magician"
+	spookysounds = SPOOKY_MYSTICAL
+	spookynight = SPOOKY_MYSTICAL
+	droning_sound = 'sound/music/area/magiciantower.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	first_time_text = "THE ARCYNE UNIVERSITY"
+	converted_type = /area/rogue/outdoors/exposed/magiciantower
+	keep_area = TRUE
+	detail_text = DETAIL_TEXT_UNIVERSITY_OF_AZURIA
+	deathsight_message = "A location wreathed in arcyne energies- swirling mists of purples and blues clouding the edges of your vision"
+
 //PILGRIM END
 
 /area/rogue/outdoors/exposed/manorgarri
