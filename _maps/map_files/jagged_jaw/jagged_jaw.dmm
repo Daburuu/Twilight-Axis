@@ -1845,7 +1845,9 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cavewet/bogcaves/north)
 "anP" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/saiga/tame,
+/mob/living/simple_animal/hostile/retaliate/rogue/saiga/tame{
+	name = "saiga rouncey doe"
+	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter/woods/grim)
 "anQ" = (
@@ -12702,7 +12704,10 @@
 /area/rogue/under/cavewet/bogcaves/south)
 "bMp" = (
 /obj/structure/fluff/railing/border/west,
-/mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame,
+/mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame{
+	name = "saiga destrier buck";
+	health = 550
+	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/exposed/town/keep/grim)
 "bMq" = (
@@ -22332,7 +22337,8 @@
 /area/rogue/outdoors/exposed/under/sewer/grim)
 "dav" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/saiga/tame{
-	health = 500
+	health = 550;
+	name = "saiga destrier doe"
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/town/church/chapel/grim)
@@ -55660,18 +55666,10 @@
 	},
 /area/rogue/under/cave/water_temple/one)
 "hFz" = (
-/obj/effect/decal/edge{
-	color = "#3f3f3f";
-	dir = 8
-	},
-/obj/effect/decal/edge{
+/obj/effect/decal/edge_corner{
 	color = "#3f3f3f"
 	},
-/obj/effect/decal/edge{
-	color = "#3f3f3f";
-	dir = 4
-	},
-/obj/effect/decal/edge{
+/obj/effect/decal/edge_corner{
 	color = "#3f3f3f";
 	dir = 1
 	},
@@ -60696,7 +60694,8 @@
 /area/rogue/indoors/town/church/basement/grim)
 "ioi" = (
 /obj/structure/well/fountain{
-	pixel_x = -16
+	pixel_x = -16;
+	desc = "A well, here? in the middle of the College?.. Where does the water come from?"
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/magician)
@@ -68492,8 +68491,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/obj/item/natural/fibers,
-/obj/item/reagent_containers/food/snacks/grown/wheat,
+/obj/structure/fluff/nest,
 /turf/open/floor/rogue/hay,
 /area/rogue/indoors/town/grim)
 "jpW" = (
@@ -68931,7 +68929,8 @@
 /area/rogue/under/cave/mazedungeon)
 "jtb" = (
 /obj/structure/mineral_door/wood/fancywood{
-	lockid = "Cafe Key"
+	lockid = "Cafe Key";
+	locked = 1
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/grim)
@@ -84620,6 +84619,10 @@
 /obj/machinery/light/rogue/candle{
 	pixel_y = -32
 	},
+/obj/structure/table/wood/poor,
+/obj/item/candle/candlestick/silver/lit{
+	pixel_y = 9
+	},
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/town/manor/grim)
 "lzT" = (
@@ -87809,6 +87812,15 @@
 	dir = 4
 	},
 /area/rogue/outdoors/mountains/grim)
+"lXb" = (
+/obj/structure/chair/wood/rogue,
+/obj/effect/landmark/start/seneschal,
+/obj/structure/roguemachine/mail/r{
+	mailtag = "Seneschal";
+	pixel_x = -32
+	},
+/turf/open/floor/rogue/ruinedwood/herringbone,
+/area/rogue/indoors/town/manor/grim)
 "lXh" = (
 /obj/item/bedsheet/rogue/pelt,
 /obj/structure/bed/rogue/inn/wool,
@@ -88257,6 +88269,7 @@
 	color = "#3f3f3f";
 	dir = 1
 	},
+/obj/structure/table/wood/poor,
 /turf/open/floor/rogue/church,
 /area/rogue/outdoors/exposed/church/grim)
 "maS" = (
@@ -94035,9 +94048,8 @@
 /area/rogue/under/cave/his_vault)
 "mPM" = (
 /obj/structure/fluff/railing/border,
-/obj/item/natural/fibers,
+/obj/structure/fluff/nest,
 /mob/living/simple_animal/hostile/retaliate/rogue/chicken,
-/obj/item/reagent_containers/food/snacks/grown/wheat,
 /turf/open/floor/rogue/hay,
 /area/rogue/indoors/town/grim)
 "mPN" = (
@@ -100398,6 +100410,7 @@
 /obj/structure/rack/rogue{
 	density = 0
 	},
+/obj/item/natural/saddle,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/exposed/town/keep/grim)
 "nIN" = (
@@ -112290,7 +112303,8 @@
 "pnv" = (
 /obj/structure/fluff/railing/border/west,
 /mob/living/simple_animal/hostile/retaliate/rogue/saiga/tame{
-	health = 500
+	health = 500;
+	name = "saiga courser doe"
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/exposed/town/keep/grim)
@@ -116564,7 +116578,9 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/steward)
 "pPd" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/saiga/tame,
+/mob/living/simple_animal/hostile/retaliate/rogue/saiga/tame{
+	name = "saiga rouncey doe"
+	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods/grim/south)
 "pPg" = (
@@ -123735,6 +123751,14 @@
 /obj/item/natural/feather,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/shelter/rtfield/grim)
+"qOF" = (
+/obj/structure/fluff/railing/border/west,
+/mob/living/simple_animal/hostile/retaliate/rogue/saiga/tame{
+	health = 550;
+	name = "saiga destrier doe"
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/exposed/town/keep/grim)
 "qOL" = (
 /obj/structure/fluff/walldeco/sparrowflag{
 	pixel_x = -32
@@ -123760,12 +123784,15 @@
 /turf/closed/wall/mineral/rogue/pipe,
 /area/rogue/under/cave/water_temple/three)
 "qOV" = (
-/obj/structure/table/wood/poor,
-/obj/item/candle/candlestick/silver/lit{
-	pixel_y = 9
+/obj/structure/curtain/black{
+	pixel_x = -32
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/manor/grim)
+/obj/structure/fermentation_keg{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/turf/open/floor/rogue/ruinedwood/chevron,
+/area/rogue/indoors/town/grim)
 "qOY" = (
 /obj/structure/fluff/railing/border/west{
 	dir = 10
@@ -130742,10 +130769,6 @@
 /turf/open/floor/rogue/blocks/flipped,
 /area/rogue/outdoors/exposed/under/sewer/grim)
 "rPu" = (
-/obj/structure/fermentation_keg{
-	pixel_x = -2;
-	pixel_y = 4
-	},
 /obj/structure/rack/rogue/shelf/notdense,
 /obj/item/storage/keyring{
 	pixel_x = 4;
@@ -146987,6 +147010,14 @@
 /obj/item/rogueweapon/huntingknife/stoneknife,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors)
+"tVn" = (
+/obj/structure/fluff/railing/border/west,
+/mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame{
+	name = "saiga charger buck";
+	health = 500
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/exposed/town/keep/grim)
 "tVp" = (
 /turf/closed/wall/mineral/rogue/pipe/corners/four,
 /area/rogue/outdoors/exposed/under/sewer/grim)
@@ -156204,6 +156235,12 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/grim)
+"vhc" = (
+/mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame{
+	name = "saiga rouncey buck"
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/shelter/woods/grim)
 "vhf" = (
 /obj/structure/mineral_door/wood/fancywood{
 	lockid = "church"
@@ -158457,13 +158494,14 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
 "vxt" = (
-/obj/structure/chair/wood/rogue,
-/obj/effect/landmark/start/seneschal,
-/obj/structure/roguemachine/mail/r{
-	mailtag = "Seneschal"
+/obj/structure/fluff/railing/border,
+/obj/structure/fluff/railing/border{
+	dir = 1
 	},
-/turf/open/floor/rogue/carpet,
-/area/rogue/indoors/town/manor/grim)
+/obj/structure/fluff/nest,
+/mob/living/simple_animal/hostile/retaliate/rogue/chicken,
+/turf/open/floor/rogue/hay,
+/area/rogue/indoors/town/grim)
 "vxv" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/naturalstone,
@@ -160176,11 +160214,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/mountains/decap/grim)
 "vIX" = (
-/obj/effect/decal/edge{
-	color = "#3f3f3f";
-	dir = 1
-	},
-/obj/effect/decal/edge{
+/obj/effect/decal/edge_corner{
 	color = "#3f3f3f";
 	dir = 8
 	},
@@ -162488,7 +162522,7 @@
 	pixel_y = -3
 	},
 /obj/item/paper,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/manor/grim)
 "vYE" = (
 /obj/structure/chair/wood/rogue{
@@ -163198,6 +163232,10 @@
 	pixel_y = -32
 	},
 /obj/machinery/light/rogue/candle/l,
+/obj/structure/fermentation_keg{
+	pixel_x = -2;
+	pixel_y = 4
+	},
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/indoors/town/grim)
 "wcW" = (
@@ -169352,7 +169390,9 @@
 /turf/open/floor/rogue/carpet/lord/center,
 /area/rogue/under/cave/scarymaze)
 "wVn" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame,
+/mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame{
+	name = "saiga rouncey buck"
+	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods/grim/south)
 "wVp" = (
@@ -345127,7 +345167,7 @@ ipG
 mzQ
 jke
 gYV
-anP
+vhc
 ido
 tvm
 exV
@@ -352384,7 +352424,7 @@ wvm
 wvm
 wvm
 gYV
-anP
+vhc
 rss
 tvm
 exV
@@ -481607,7 +481647,7 @@ vOU
 aTh
 lUS
 bSJ
-bSJ
+qOV
 wcV
 bcH
 gRB
@@ -482753,7 +482793,7 @@ aJT
 aTh
 eno
 hZU
-nuD
+fIg
 hZU
 nuD
 pMw
@@ -488787,7 +488827,7 @@ lyt
 lyt
 xdX
 nPs
-pnv
+qOF
 nPs
 nPs
 pnv
@@ -488800,7 +488840,7 @@ nPs
 bMp
 nPs
 nPs
-bMp
+tVn
 xdX
 lyt
 lyt
@@ -504142,7 +504182,7 @@ nuD
 nuD
 mPM
 pvY
-pvY
+vxt
 jpV
 hRS
 vOU
@@ -608320,7 +608360,7 @@ jGh
 qGL
 qGL
 hFz
-wip
+lXb
 lzS
 qGL
 bFy
@@ -609085,7 +609125,7 @@ qGL
 sVd
 vIX
 yhL
-qOV
+yhL
 qGL
 qGL
 iRV
@@ -609466,7 +609506,7 @@ qGL
 qGL
 dhn
 mcN
-vxt
+iZD
 vYy
 qGL
 opU
