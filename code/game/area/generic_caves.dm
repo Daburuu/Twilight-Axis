@@ -97,6 +97,7 @@
 	icon_state = "spider"
 	first_time_text = "INFESTED TUNNELS"
 	droning_sound = 'sound/music/area/grimcaves.ogg'
+	deathsight_message = "a tunnel writhing with the movement of shadowed arachnids"
 	droning_sound_dusk = null
 	droning_sound_night = null
 
@@ -105,5 +106,17 @@
 	droning_sound = 'sound/music/area/grimfountain.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
+
+/area/rogue/under/cave/spider/lost
+	icon_state = "spider"
+	first_time_text = "LOST CRYPT"
+	ambush_mobs = list(
+				/mob/living/simple_animal/hostile/retaliate/rogue/spider = 100)
+	droning_sound = 'sound/music/area/grimcaves.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	deathsight_message = "a lost, writhing crypt, active with the movement of shadowed arachnids"
+	converted_type = /area/rogue/outdoors/spidercave
+	loot_budget = LOOT_BUDGET_LOSTCRYPT
 
 //PILGRIM END

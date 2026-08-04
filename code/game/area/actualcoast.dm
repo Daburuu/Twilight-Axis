@@ -73,7 +73,7 @@
 	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	converted_type = /area/rogue/under/lake
 	first_time_text = "PILGRIM HARBOR"
-	deathsight_message = "a freshwater shore"
+	deathsight_message = "a dock, active with undiscernible people"
 	detail_text = DETAIL_TEXT_ACTUAL_COAST
 
 /area/rogue/outdoors/beach/north/grim
@@ -93,6 +93,7 @@
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	threat_region = THREAT_REGION_AZUREAN_COAST
+	deathsight_message = "a shore adjacent a cliff, with a lighthouse in the distance, and a deep cove to the south"
 
 /area/rogue/outdoors/beach/south/grim
 	name = "Jaggedjaw Coast"
@@ -110,6 +111,7 @@
 	droning_sound = list('sound/music/area/townstreets.ogg', 'sound/music/area/townchill.ogg', 'sound/music/area/townstroll.ogg', 'sound/music/area/townwander.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = 'sound/music/area/grimnight.ogg'
+	deathsight_message = "a freshwater shore, with a large dock between it and the city"
 	detail_text = DETAIL_TEXT_CITY_COAST
 	threat_region = THREAT_REGION_AZURE_BASIN
 //PILGRIM END
