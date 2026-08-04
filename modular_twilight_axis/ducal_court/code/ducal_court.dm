@@ -110,6 +110,33 @@
 		"fallback" = !(GLOB.lordprimary && GLOB.lordsecondary),
 	)
 
+/datum/ducal_court/proc/get_rite_assent_total(datum/usurpation_rite/rite)
+	var/datum/usurpation_rite/solar_succession/solar = rite
+	if(istype(solar))
+		return solar.get_assent_total()
+	var/datum/usurpation_rite/sacred_supercession/sacred = rite
+	if(istype(sacred))
+		return sacred.get_assent_total()
+	var/datum/usurpation_rite/popular_acclaim/acclaim = rite
+	if(istype(acclaim))
+		return acclaim.get_assent_total()
+	return length(rite.assenters)
+
+/datum/ducal_court/proc/get_rite_required_assents(datum/usurpation_rite/rite)
+	var/datum/usurpation_rite/solar_succession/solar = rite
+	if(istype(solar))
+		return solar.get_required_assents()
+	var/static/list/required_by_type = list(
+		/datum/usurpation_rite/lunar_ascension = LUNAR_REQUIRED_MAGES,
+		/datum/usurpation_rite/martial_supercession = MARTIAL_REQUIRED_ASSENTS,
+		/datum/usurpation_rite/golden_accord = GOLDEN_REQUIRED_ASSENTS,
+		/datum/usurpation_rite/sacred_supercession = BISHOPRIC_REQUIRED_ASSENTS,
+		/datum/usurpation_rite/progressive_dominion = DOMINION_REQUIRED_ASSENTS,
+		/datum/usurpation_rite/popular_acclaim = ACCLAIM_REQUIRED_ASSENTS,
+		/datum/usurpation_rite/psydonian_tribunal = TRIBUNAL_REQUIRED_ASSENTS,
+	)
+	return required_by_type[rite.type] || 0
+
 /datum/ducal_court/proc/get_throne_rite_data()
 	var/list/rite_data = list(
 		"active" = FALSE,
@@ -120,6 +147,7 @@
 		"claimant" = null,
 		"contester" = null,
 		"supporters" = 0,
+		"supporters_required" = 0,
 		"time_remaining_seconds" = null,
 	)
 	var/obj/structure/roguethrone/throne = GLOB.king_throne
@@ -154,7 +182,8 @@
 	rite_data["status"] = rite.get_status_text() || "A claim is active."
 	rite_data["claimant"] = rite.invoker?.real_name
 	rite_data["contester"] = rite.contester?.real_name
-	rite_data["supporters"] = length(rite.assenters)
+	rite_data["supporters"] = get_rite_assent_total(rite)
+	rite_data["supporters_required"] = get_rite_required_assents(rite)
 	rite_data["time_remaining_seconds"] = time_remaining_seconds
 	return rite_data
 

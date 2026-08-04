@@ -48,6 +48,7 @@ type RiteData = {
   claimant: string | null;
   contester: string | null;
   supporters: number;
+  supporters_required: number;
   time_remaining_seconds: number | null;
 };
 
@@ -710,6 +711,11 @@ const formatTime = (seconds?: number | null) => {
   return `${minutes}:${String(rest).padStart(2, '0')}`;
 };
 
+const formatSupporters = (rite: RiteData) =>
+  rite.supporters_required > 0
+    ? `${rite.supporters} / ${rite.supporters_required}`
+    : `${rite.supporters}`;
+
 const ruPlural = (count: number, forms: [string, string, string]) => {
   const abs = Math.abs(count) % 100;
   const last = abs % 10;
@@ -893,7 +899,7 @@ const SuccessionPanel = (props: {
         </div>
         <div>
           <b>{texts.labels.supporters}</b>
-          <span>{rite.supporters}</span>
+          <span>{formatSupporters(rite)}</span>
         </div>
         <div>
           <b>{texts.labels.time_remaining}</b>
@@ -1179,7 +1185,7 @@ const OverviewPanel = (props: {
         </div>
         <div className="DucalCourt__overviewFact">
           <b>{texts.labels.supporters}</b>
-          <span>{rite.supporters}</span>
+          <span>{formatSupporters(rite)}</span>
         </div>
         <div className="DucalCourt__overviewFact">
           <b>{texts.labels.time_remaining}</b>
