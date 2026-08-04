@@ -4572,13 +4572,10 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/exposed/under/sewer/grim)
 "aFV" = (
-/obj/effect/decal/mossy{
-	dir = 1
-	},
-/obj/effect/decal/mossy{
-	dir = 8
-	},
-/turf/open/floor/rogue/hay,
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/grown/log/tree/small,
+/obj/item/grown/log/tree/small,
+/turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/town/grim)
 "aFW" = (
 /obj/effect/decal/remains/human,
@@ -10317,14 +10314,13 @@
 /obj/structure/stairs{
 	dir = 8
 	},
-/obj/structure/fluff/railing/border,
-/obj/structure/fluff/railing/border{
-	dir = 10;
-	layer = 5
-	},
 /obj/structure/fluff/railing/border{
 	dir = 5;
 	layer = 4.2
+	},
+/obj/structure/fluff/railing/border{
+	dir = 6;
+	layer = 5
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/druidsgrove/grim/tree)
@@ -12241,15 +12237,10 @@
 /turf/open/water/swamp,
 /area/rogue/under/cave/grim)
 "bIo" = (
-/obj/effect/decal/mossy{
-	dir = 1
+/turf/closed/mineral/rogue{
+	density = 0
 	},
-/mob/living/simple_animal/hostile/retaliate/rogue/cow,
-/obj/effect/decal/mossy{
-	dir = 4
-	},
-/turf/open/floor/rogue/hay,
-/area/rogue/indoors/town/grim)
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "bIu" = (
 /obj/structure/stairs,
 /turf/open/floor/rogue/tile,
@@ -19097,7 +19088,6 @@
 /obj/effect/decal/mossy{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/retaliate/rogue/cow,
 /turf/open/floor/rogue/hay,
 /area/rogue/indoors/town/grim)
 "cEH" = (
@@ -19412,7 +19402,7 @@
 "cGz" = (
 /obj/effect/decal/cleanable/debris/glassy,
 /obj/structure/roguemachine/mail{
-	mailtag = "Eoran Spring"
+	mailtag = "Abandoned Hot Springs"
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/rtfield/abandonedhotsprings/grim)
@@ -24386,6 +24376,11 @@
 /obj/machinery/light/rogue/candle/l,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/indoors/town/church/basement/grim)
+"dnU" = (
+/obj/structure/fluff/walldeco/church/line,
+/obj/structure/roguemachine/stockpile,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/town/church/chapel/grim)
 "dnV" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -35977,7 +35972,7 @@
 /area/rogue/outdoors/town/grim)
 "eSv" = (
 /obj/effect/decal/mossy,
-/turf/closed/wall/mineral/rogue/wooddark/horizontal,
+/turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors/town/grim)
 "eSB" = (
 /obj/structure/fluff/railing/wood{
@@ -38119,12 +38114,14 @@
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/outdoors/town/roofs)
 "fhb" = (
-/obj/structure/fluff/railing/wood,
-/obj/structure/fluff/railing/wood{
-	dir = 8;
-	pixel_x = -10
+/obj/effect/decal/mossy{
+	dir = 1
 	},
-/turf/open/floor/rogue/cobble/mossy,
+/obj/effect/decal/mossy{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/retaliate/rogue/cow,
+/turf/open/floor/rogue/hay,
 /area/rogue/indoors/town/grim)
 "fhc" = (
 /obj/structure/fluff/railing/border/west{
@@ -41666,11 +41663,6 @@
 /obj/machinery/light/rogue/candle/weak/r,
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/town/church/basement/grim)
-"fHb" = (
-/turf/closed/mineral/rogue{
-	density = 0
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "fHd" = (
 /obj/structure/fluff/statue/small,
 /turf/open/floor/rogue/cobblerock,
@@ -64790,11 +64782,7 @@
 /area/rogue/indoors/town/grim)
 "iOT" = (
 /obj/effect/decal/mossy,
-/obj/effect/decal/mossy{
-	dir = 8
-	},
-/obj/effect/decal/mossy,
-/turf/open/floor/rogue/hay,
+/turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/town/grim)
 "iOU" = (
 /obj/structure/fluff/littlebanners/bluewhite{
@@ -64961,9 +64949,7 @@
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors/town/dwarfin)
 "iPZ" = (
-/obj/machinery/light/rogue/torchholder{
-	dir = 1
-	},
+/obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/town/grim)
 "iQb" = (
@@ -68091,13 +68077,7 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/bog/south/grim)
 "jmd" = (
-/obj/effect/decal/mossy{
-	dir = 1
-	},
 /mob/living/simple_animal/hostile/retaliate/rogue/goatmale,
-/obj/machinery/light/rogue/torchholder{
-	pixel_y = 32
-	},
 /turf/open/floor/rogue/hay,
 /area/rogue/indoors/town/grim)
 "jme" = (
@@ -77423,11 +77403,12 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/mountains/grim)
 "kzy" = (
-/obj/machinery/light/rogue/torchholder{
-	pixel_y = 32
+/obj/structure/roguemachine/mail{
+	mailtag = "Witch's Hill House";
+	pixel_y = -32
 	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/beach/forest/hamlet/grim)
+/turf/open/floor/rogue/ruinedwood/herringbone,
+/area/rogue/indoors/town/grim)
 "kzz" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -82909,8 +82890,10 @@
 /obj/effect/decal/edge{
 	color = "#3f3f3f"
 	},
-/obj/item/roguekey/church/druidmaster,
-/obj/item/storage/keyring,
+/obj/item/candle/skull/lit{
+	pixel_x = 6;
+	pixel_y = 12
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/druidsgrove/grim/tree)
 "llK" = (
@@ -83601,7 +83584,6 @@
 /obj/effect/decal/mossy{
 	dir = 1
 	},
-/mob/living/simple_animal/hostile/retaliate/rogue/goat,
 /obj/effect/decal/cobble/mossy{
 	dir = 6
 	},
@@ -83613,6 +83595,7 @@
 	pixel_x = -12;
 	pixel_y = -17
 	},
+/mob/living/simple_animal/hostile/retaliate/rogue/bull,
 /turf/open/floor/rogue/hay,
 /area/rogue/indoors/town/grim)
 "lrK" = (
@@ -86472,7 +86455,7 @@
 	dir = 8
 	},
 /obj/structure/fluff/railing/border{
-	dir = 4
+	dir = 5
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/grim)
@@ -92390,6 +92373,11 @@
 	pixel_x = 7;
 	pixel_y = 4
 	},
+/obj/structure/roguemachine/mail{
+	mailtag = "Duke's Quarters";
+	pixel_x = -32;
+	pixel_y = 0
+	},
 /turf/open/floor/rogue/carpet/lord/center,
 /area/rogue/indoors/town/manor/grim)
 "mCQ" = (
@@ -93247,16 +93235,11 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town/roofs)
 "mIj" = (
-/obj/effect/decal/mossy{
-	dir = 8
+/obj/structure/roguemachine/mail{
+	mailtag = "Bilewood Hamlet Wall"
 	},
-/obj/effect/decal/mossy{
-	dir = 8;
-	pixel_x = 0;
-	pixel_y = 9
-	},
-/turf/closed/wall/mineral/rogue/wooddark/window,
-/area/rogue/indoors/town/grim)
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/beach/forest/hamlet/grim)
 "mIk" = (
 /obj/item/grown/log/tree/small,
 /turf/open/floor/rogue/grass,
@@ -94699,7 +94682,6 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
 "mSx" = (
-/obj/structure/fluff/railing/wood,
 /obj/effect/decal/mossy,
 /obj/effect/decal/cobble/mossy{
 	dir = 9
@@ -94707,8 +94689,7 @@
 /obj/effect/decal/mossy{
 	dir = 4
 	},
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/hay,
+/turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors/town/grim)
 "mSy" = (
 /obj/effect/spawner/lootdrop/armored_boots_spawner,
@@ -95052,6 +95033,12 @@
 	},
 /turf/open/floor/rogue/rooftop/green/corner1/dirten,
 /area/rogue/outdoors/town/roofs)
+"mUV" = (
+/obj/structure/roguemachine/mail{
+	mailtag = "Entrance to Mount Decapitation"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/outdoors/mountains/decap/grim)
 "mUW" = (
 /obj/structure/stairs,
 /obj/structure/fluff/railing/border{
@@ -101603,9 +101590,6 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
-/obj/structure/fluff/railing/border{
-	dir = 5
-	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/town/grim)
 "nPs" = (
@@ -101870,8 +101854,8 @@
 "nRp" = (
 /obj/structure/roguemachine/mail{
 	mailtag = "Heir's Suite";
-	pixel_x = -31;
-	pixel_y = 1
+	pixel_y = 0;
+	pixel_x = -32
 	},
 /obj/structure/roguemachine/vendor/keep_princes{
 	pixel_y = 32;
@@ -105289,17 +105273,6 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/grim)
-"opc" = (
-/obj/structure/bars/steel{
-	max_integrity = 5000
-	},
-/turf/closed/wall/mineral/rogue/pipe/line{
-	density = 0;
-	name = "wide pipe";
-	dir = 4;
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "opd" = (
 /obj/item/roguebin/water,
 /turf/open/floor/rogue/hexstone,
@@ -107299,7 +107272,7 @@
 /obj/effect/decal/mossy{
 	dir = 1
 	},
-/mob/living/simple_animal/hostile/retaliate/rogue/swine/hog/tame,
+/mob/living/simple_animal/hostile/retaliate/rogue/swine,
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
@@ -107819,7 +107792,7 @@
 /area/rogue/outdoors/exposed/under/sewer/grim)
 "oGE" = (
 /obj/structure/roguemachine/mail/l{
-	mailtag = "Wardens' Barracks"
+	mailtag = "Wardens' Eastern Barracks"
 	},
 /obj/structure/rack/rogue{
 	density = 0
@@ -119400,10 +119373,8 @@
 /obj/effect/decal/wood/herringbone2{
 	dir = 1
 	},
-/obj/structure/roguemachine/mail/r{
-	mailtag = "Inquisitor's Chambers";
-	pixel_x = 0;
-	pixel_y = 32
+/obj/structure/roguemachine/mail{
+	mailtag = "Inquisitor's Chambers"
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/inq/office)
@@ -119887,6 +119858,7 @@
 /obj/effect/decal/mossy{
 	dir = 8
 	},
+/obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/hay,
 /area/rogue/indoors/town/grim)
 "qjh" = (
@@ -124599,6 +124571,7 @@
 	pixel_x = -4;
 	pixel_y = 8
 	},
+/obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/hay,
 /area/rogue/indoors/town/grim)
 "qSp" = (
@@ -131163,7 +131136,7 @@
 /area/rogue/under/cave/scarymaze)
 "rOU" = (
 /obj/structure/roguemachine/mail{
-	mailtag = "Wardens";
+	mailtag = "Wardens' Southern Barracks";
 	pixel_y = -32
 	},
 /turf/open/floor/rogue/wood,
@@ -137249,7 +137222,9 @@
 /area/rogue/outdoors/town/grim)
 "sBU" = (
 /obj/effect/decal/mossy,
-/turf/closed/wall/mineral/rogue/wooddark/window,
+/obj/structure/fluff/railing/wood/east,
+/obj/structure/fluff/railing/wood,
+/turf/open/floor/rogue/hay,
 /area/rogue/indoors/town/grim)
 "sBW" = (
 /obj/item/reagent_containers/glass/bucket{
@@ -139736,9 +139711,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/obj/structure/fluff/railing/border{
-	dir = 8
-	},
+/obj/structure/fluff/railing/corner,
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/town/grim)
 "sUp" = (
@@ -155367,12 +155340,16 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "uXw" = (
-/obj/effect/decal/mossy{
-	dir = 1
+/obj/structure/bars/steel{
+	max_integrity = 5000
 	},
-/mob/living/simple_animal/hostile/retaliate/rogue/bull,
-/turf/open/floor/rogue/hay,
-/area/rogue/indoors/town/grim)
+/turf/closed/wall/mineral/rogue/pipe/line{
+	density = 0;
+	name = "wide pipe";
+	dir = 4;
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+	},
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "uXy" = (
 /obj/item/storage/bag/tray{
 	pixel_y = 12
@@ -158917,8 +158894,10 @@
 	color = "#3f3f3f";
 	dir = 1
 	},
-/obj/item/roguekey/church/druidmaster,
-/obj/item/storage/keyring,
+/obj/item/candle/silver/lit{
+	pixel_x = -6;
+	pixel_y = 1
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/druidsgrove/grim/tree)
 "vwC" = (
@@ -161177,13 +161156,11 @@
 /obj/structure/stairs{
 	dir = 8
 	},
-/obj/structure/fluff/railing/border,
-/obj/structure/fluff/railing/border{
-	dir = 6;
-	layer = 5
-	},
 /obj/structure/fluff/railing/border{
 	dir = 9
+	},
+/obj/structure/fluff/railing/border{
+	dir = 10
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/druidsgrove/grim/tree)
@@ -161408,14 +161385,9 @@
 /turf/open/floor/rogue/tile/brownbrick/browner,
 /area/rogue/outdoors/town/grim)
 "vNi" = (
-/obj/structure/closet/crate/chest/old_crate{
-	pixel_x = -10;
-	pixel_y = -1
-	},
-/obj/item/grown/log/tree/small,
-/obj/item/grown/log/tree/small,
-/turf/open/floor/rogue/cobble/mossy,
-/area/rogue/indoors/town/grim)
+/obj/structure/roguemachine/noticeboard/wall/bulletinboard,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/beach/forest/hamlet/grim)
 "vNj" = (
 /obj/structure/table/wood/long_table,
 /obj/item/rogueweapon/tongs/aalloy,
@@ -164082,10 +164054,8 @@
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/cave/licharena/bossroom)
 "wfm" = (
-/obj/effect/decal/mossy{
-	dir = 1
-	},
-/turf/closed/wall/mineral/rogue/wooddark/window,
+/mob/living/simple_animal/hostile/retaliate/rogue/goat,
+/turf/open/floor/rogue/hay,
 /area/rogue/indoors/town/grim)
 "wfn" = (
 /obj/effect/decal/mossy{
@@ -165892,11 +165862,9 @@
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/rtfield/abandonedhotsprings/grim)
 "wsF" = (
-/obj/effect/decal/mossy{
-	dir = 8
-	},
-/obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/hay,
+/obj/structure/fluff/railing/wood/west,
+/obj/structure/fluff/railing/wood,
+/turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/town/grim)
 "wsG" = (
 /obj/effect/decal/wood/herringbone,
@@ -171580,7 +171548,7 @@
 "xgs" = (
 /obj/machinery/light/rogue/candle/off/l,
 /obj/structure/roguemachine/mail{
-	mailtag = "Checkpoint"
+	mailtag = "Wardens' Outpost"
 	},
 /obj/effect/decal/cleanable/debris/woody,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -172016,18 +171984,14 @@
 /turf/open/floor/rogue/blocks/newstone/alt,
 /area/rogue/outdoors/town/roofs)
 "xjd" = (
-/obj/structure/fluff/railing/border{
-	dir = 1
-	},
 /obj/structure/stairs{
 	dir = 4
 	},
 /obj/structure/fluff/railing/border{
-	dir = 5;
-	layer = 4.2
+	dir = 10
 	},
 /obj/structure/fluff/railing/border{
-	dir = 10
+	dir = 9
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/druidsgrove/grim/tree)
@@ -239231,7 +239195,7 @@ nEr
 nEr
 aNl
 nEr
-fHb
+bIo
 nEr
 aNl
 nEr
@@ -239613,7 +239577,7 @@ aNl
 nEr
 nEr
 nEr
-opc
+uXw
 nEr
 nEr
 nEr
@@ -385772,8 +385736,8 @@ xeL
 etr
 ghF
 xLR
-yec
-dZQ
+xeL
+xeL
 eMV
 fqe
 fqe
@@ -386153,9 +386117,9 @@ xeL
 wty
 gcU
 xEW
-kzy
-dZQ
-yec
+rgV
+xeL
+eHw
 dZQ
 dZQ
 dZQ
@@ -386535,8 +386499,8 @@ eMV
 dDY
 cbs
 xEW
-dZQ
-dZQ
+mIj
+xeL
 eMV
 dZQ
 yec
@@ -386917,7 +386881,7 @@ dZQ
 mUx
 cbs
 cbs
-dZQ
+vNi
 dDY
 dDY
 dDY
@@ -488360,7 +488324,7 @@ uRw
 ybO
 ybO
 uRw
-tto
+dnU
 bPp
 bPp
 bPp
@@ -494447,7 +494411,7 @@ gRB
 gRB
 hRS
 aIV
-chY
+cBG
 vCY
 hRS
 dfx
@@ -495209,7 +495173,7 @@ mLc
 gRB
 gRB
 dfx
-chY
+cBG
 eyh
 oRS
 aje
@@ -500170,10 +500134,10 @@ dfx
 vOU
 lUO
 nuD
+cBG
 nuD
 nuD
-nuD
-nuD
+cBG
 nuD
 nuD
 bgS
@@ -500934,12 +500898,12 @@ dfx
 vOU
 nuD
 lrH
-mjO
+gra
 mTR
 iDZ
 abv
 nZq
-nuD
+cBG
 gRB
 gRB
 vOU
@@ -501697,8 +501661,8 @@ mDI
 mDI
 dfx
 nuD
-jmd
-mjO
+vtL
+gra
 sBU
 iAD
 abv
@@ -502079,7 +502043,7 @@ joz
 bcH
 dfx
 nuD
-iCM
+fhb
 mjO
 kfY
 iDZ
@@ -502461,7 +502425,7 @@ dnp
 bcH
 aJT
 nuD
-kVN
+cBG
 eSv
 lKf
 nPr
@@ -502469,7 +502433,7 @@ cDo
 uBl
 nuD
 sUm
-gRB
+rhd
 gRB
 gRB
 vOU
@@ -502845,10 +502809,10 @@ dfx
 nuD
 aFV
 iOT
-oSU
 iDZ
 iDZ
-vNi
+iDZ
+iDZ
 nuD
 fDL
 avy
@@ -503225,18 +503189,18 @@ dfx
 dfx
 dfx
 nuD
-vtL
-mjO
-mIj
-fhb
+cBG
+cBG
+oSU
+cBG
+wsF
 kfY
-wfm
 nuD
 nuD
 hRS
-aIV
+cBG
 mUh
-vCY
+cBG
 hRS
 vOU
 dfx
@@ -503607,16 +503571,16 @@ rGn
 bZL
 bcH
 nuD
-uXw
+pRl
 mjO
-gra
-mTR
+mjO
+cBG
 vpI
 pfV
 iPZ
-nuD
+cBG
 qjg
-wsF
+jrZ
 jrZ
 qwp
 fBO
@@ -503989,10 +503953,10 @@ urL
 urL
 bHX
 nuD
-pRl
+vtL
+wfm
 mjO
-mjO
-mTR
+cBG
 vST
 kEo
 blL
@@ -504001,7 +503965,7 @@ pRl
 mjO
 mjO
 eKv
-hRS
+cBG
 pJa
 vOU
 oUI
@@ -504371,14 +504335,14 @@ urL
 myu
 nuD
 nuD
-bIo
+iCM
 aIL
-mjO
-mTR
+jmd
+cBG
 oCL
 dwq
 lMd
-nuD
+cBG
 ipx
 xfB
 lXS
@@ -504759,7 +504723,7 @@ cEF
 mSx
 aMI
 yhS
-nuD
+yhS
 nuD
 mPM
 pvY
@@ -505136,11 +505100,11 @@ jjN
 mDI
 vOU
 nuD
-nuD
+cBG
 nuD
 fTn
 nuD
-nuD
+cBG
 nuD
 hRS
 hRS
@@ -697924,7 +697888,7 @@ oyw
 oyw
 oyw
 oyw
-bSn
+mUV
 bSn
 bSn
 bSn
@@ -715515,7 +715479,7 @@ lqY
 lqY
 xLt
 pjc
-kqz
+kzy
 cAQ
 voy
 wDU

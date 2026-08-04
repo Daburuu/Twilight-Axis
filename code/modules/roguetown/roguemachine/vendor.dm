@@ -479,7 +479,7 @@
 /obj/structure/roguemachine/vendor/druid/Initialize()
 	. = ..()
 
-	for (var/X in list(/obj/item/roguekey/church/druid, /obj/item/roguekey/church/druid/two))
+	for (var/X in list(/obj/item/roguekey/church/druid, /obj/item/roguekey/church/druid/two, /obj/item/roguekey/church/druidmaster, /obj/item/storage/keyring, /obj/item/roguekey/church/druidmaster, /obj/item/storage/keyring))
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
