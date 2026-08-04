@@ -248,9 +248,7 @@
 		to_chat(user, span_warning("Вы более не восседаете на троне."))
 		ui.close()
 		return TRUE
-	. = handle_court_action(user, action, params)
-	if(.)
-		ui.set_autoupdate(needs_live_updates(user))
+	return handle_court_action(user, action, params)
 
 /datum/ducal_court/proc/handle_court_action(mob/living/carbon/human/user, action, list/params)
 	var/obj/structure/roguemachine/titan/T = get_throat()

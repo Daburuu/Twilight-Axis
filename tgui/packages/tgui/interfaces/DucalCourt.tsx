@@ -464,11 +464,14 @@ const makeCourtTexts = (flavor: {
         Stable: 'Спокойствие',
         'Claim Gathering': 'Сбор притязания',
         Contested: 'Оспаривается',
-        'Rebel Victory Ready': 'Бунтари готовы к победе',
-        'Rebel Pressure': 'Давление бунтарей',
+        'Rebel Victory': 'Победа бунтарей',
+        'Open Rebellion': 'Открытый бунт',
       },
       details: {
-        'Rebel pressure: {progress}': 'Давление бунтарей: {progress}',
+        'No open revolt in the realm.': 'Открытого бунта в землях нет.',
+        'The commonfolk are in open revolt.':
+          'Простолюдины подняли открытый бунт.',
+        'The people have seized the throne.': 'Народ захватил трон.',
       },
     },
     current_ruler: {
@@ -644,6 +647,16 @@ const STATUS_ICONS: Record<string, string> = {
   current_ruler: 'user-tie',
 };
 
+const STABILITY_ICONS: Record<string, string> = {
+  'Open Rebellion': 'fire',
+  'Rebel Victory': 'fire',
+};
+
+const getStatusIcon = (card: StatusCard) =>
+  (card.id === 'realm_stability' && STABILITY_ICONS[card.value]) ||
+  STATUS_ICONS[card.id] ||
+  'circle';
+
 const getStageIndex = (stage: RiteData['stage']) => {
   if (stage === 'gathering') return 0;
   if (stage === 'contesting') return 1;
@@ -679,13 +692,6 @@ const translatePattern = (
   const direct = map?.[value];
   if (direct) {
     return direct;
-  }
-  const rebelPressure = value.match(/^Rebel pressure: (.+)$/);
-  if (rebelPressure && map?.['Rebel pressure: {progress}']) {
-    return map['Rebel pressure: {progress}'].replace(
-      '{progress}',
-      rebelPressure[1],
-    );
   }
   const regent = value.match(/^Regent: (.+)$/);
   if (regent && map?.['Regent: {name}']) {
@@ -837,7 +843,7 @@ const StatusGrid = (props: { texts: CourtTexts; cards: StatusCard[] }) => (
           className={`DucalCourt__statusCard DucalCourt__statusCard--${card.tone}`}
         >
           <div className="DucalCourt__statusIcon">
-            <Icon name={STATUS_ICONS[card.id] || 'circle'} />
+            <Icon name={getStatusIcon(card)} />
           </div>
           <div className="DucalCourt__statusBody">
             <div className="DucalCourt__statusLabel">{cardText.label}</div>

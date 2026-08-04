@@ -98,18 +98,6 @@
 	var/list/rite_options = get_usurpation_rite_options(user)
 	return rite_options["any_eligible"]
 
-/datum/ducal_court/proc/needs_live_updates(mob/user)
-	var/obj/structure/roguethrone/throne = GLOB.king_throne
-	if(throne?.active_rite)
-		return TRUE
-	if(throne?.rebel_leader_sit_time > 0 && throne.rebel_leader_sit_time < REBEL_THRONE_TIME)
-		return TRUE
-	if(world.time < GLOB.last_crown_announcement_time + 2 MINUTES)
-		return TRUE
-	if(isliving(user) && !SScommunications.can_announce(user))
-		return TRUE
-	return FALSE
-
 /datum/ducal_court/proc/court_mob_name(mob/person, fallback = null)
 	if(!person)
 		return fallback
@@ -170,6 +158,14 @@
 	rite_data["time_remaining_seconds"] = time_remaining_seconds
 	return rite_data
 
+/datum/ducal_court/proc/get_rebellion_status()
+	for(var/datum/team/prebels/rebels in GLOB.antagonist_teams)
+		if(rebels.rite_won)
+			return "won"
+		if(rebels.rebellion_declared)
+			return "declared"
+	return null
+
 /datum/ducal_court/proc/get_court_status_cards(mob/living/carbon/human/user, list/rite_data)
 	var/obj/structure/roguethrone/throne = GLOB.king_throne
 	var/occupied = length(throne?.buckled_mobs)
@@ -178,16 +174,21 @@
 	var/mob/regent = SSticker.regentmob
 	if(!islist(rite_data))
 		rite_data = get_throne_rite_data()
-	var/rebel_progress = throne ? clamp(round((throne.rebel_leader_sit_time / REBEL_THRONE_TIME) * 100), 0, 100) : 0
+	var/rebellion = get_rebellion_status()
 	var/stability = "Stable"
+	var/stability_detail = "No open revolt in the realm."
+	if(rebellion == "won")
+		stability_detail = "The people have seized the throne."
+	else if(rebellion == "declared")
+		stability_detail = "The commonfolk are in open revolt."
 	if(rite_data["stage"] == "gathering")
 		stability = "Claim Gathering"
 	else if(rite_data["stage"] == "contesting")
 		stability = "Contested"
-	else if(rebel_progress >= 100)
-		stability = "Rebel Victory Ready"
-	else if(rebel_progress > 0)
-		stability = "Rebel Pressure"
+	else if(rebellion == "won")
+		stability = "Rebel Victory"
+	else if(rebellion == "declared")
+		stability = "Open Rebellion"
 
 	return list(
 		list(
@@ -215,8 +216,8 @@
 			"id" = "realm_stability",
 			"label" = "Realm Stability",
 			"value" = stability,
-			"detail" = "Rebel pressure: [rebel_progress]%",
-			"tone" = (rite_data["active"] || rebel_progress >= 60) ? "warning" : "good",
+			"detail" = stability_detail,
+			"tone" = rebellion ? "bad" : (rite_data["active"] ? "warning" : "good"),
 		),
 		list(
 			"id" = "current_ruler",
@@ -266,19 +267,13 @@
 	)
 
 /datum/ducal_court/ui_state(mob/user)
-	return GLOB.conscious_state
+	return GLOB.throne_seated_state
 
 /datum/ducal_court/ui_interact(mob/user, datum/tgui/ui)
-	if(!user_seated_on_throne(user))
-		to_chat(user, span_warning("Чтобы управлять двором, нужно восседать на троне."))
-		return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "DucalCourt", "Двор")
-		ui.set_autoupdate(needs_live_updates(user))
 		ui.open()
-	else
-		ui.set_autoupdate(needs_live_updates(user))
 
 /datum/ducal_court/ui_data(mob/user)
 	var/list/data = list()
