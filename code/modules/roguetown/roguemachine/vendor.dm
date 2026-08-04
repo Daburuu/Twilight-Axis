@@ -719,3 +719,18 @@
 	. += span_info("The PEDDLER CART will bind to the first key inserted into its lock by left-clicking with said key.")
 	. += span_info("Owners of the PEDDLER CART can UNLOCK it by left-clicking with the relevant key, allowing them both restock wares and vend whatever coinage might've been earned from completed sales.")
 	. += span_info("Owners of the PEDDLER CART can ANCHOR it by right-clicking with the relevant key, preventing the wheels from moving.")
+//PILGRIM
+
+/obj/structure/roguemachine/vendor/church_bedroomset_grim
+	keycontrol = "priest"
+	will_hawk = FALSE
+
+/obj/structure/roguemachine/vendor/church_bedroomset_grim/Initialize()
+	. = ..()
+
+	for (var/X in list(/obj/item/roguekey/church/roomi, /obj/item/roguekey/church/roomii, /obj/item/roguekey/church/roomiii, /obj/item/roguekey/church/roomiv, /obj/item/roguekey/church/roomv, /obj/item/roguekey/church/roomvi, /obj/item/roguekey/church/roomvii, /obj/item/roguekey/church/roomviii, /obj/item/roguekey/church/roomix, /obj/item/roguekey/church/roomx))
+		var/obj/P = new X(src)
+		held_items[P] = list()
+		held_items[P]["NAME"] = P.name
+		held_items[P]["PRICE"] = 0
+//PILGRIM END
