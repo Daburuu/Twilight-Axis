@@ -1127,12 +1127,6 @@
 /obj/effect/landmark/chimeric_calyx_spawner/fifteen,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/bog/grim)
-"aip" = (
-/obj/structure/closet/crate/drawer/emergency,
-/obj/structure/mirror,
-/obj/machinery/light/rogue/candle/l,
-/turf/open/floor/rogue/ruinedwood/herringbone,
-/area/rogue/indoors/town/grim)
 "aiu" = (
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/floor/rogue/tile,
@@ -4999,6 +4993,12 @@
 	},
 /turf/open/floor/rogue/churchrough,
 /area/rogue/under/cave/water_temple/three)
+"aJw" = (
+/obj/structure/closet/crate/drawer/emergency,
+/obj/structure/mirror,
+/obj/machinery/light/rogue/candle/l,
+/turf/open/floor/rogue/ruinedwood/herringbone,
+/area/rogue/indoors/town/grim)
 "aJx" = (
 /obj/structure/flora/roguegrass/bush,
 /turf/open/floor/rogue/cobblerock,
@@ -13479,6 +13479,12 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/shelter)
+"bRr" = (
+/obj/structure/stairs{
+	dir = 8
+	},
+/turf/open/floor/rogue/twig/platform,
+/area/rogue/under/cave/grim)
 "bRt" = (
 /turf/closed/mineral/random/rogue/med,
 /area/rogue/under/cave/grim)
@@ -17421,13 +17427,12 @@
 /obj/structure/fluff/railing/border/north{
 	alpha = 0;
 	mouse_opacity = 0;
-	dir = 8;
-	opacity = 1
+	dir = 4
 	},
 /turf/closed/wall/mineral/rogue/pipe/corners/four{
 	name = "wide pipe";
 	density = 0;
-	dir = 1;
+	dir = 8;
 	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
 	},
 /area/rogue/outdoors/exposed/under/sewer/grim)
@@ -17684,6 +17689,22 @@
 	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/exposed/magiciantower)
+"cvj" = (
+/obj/structure/bars{
+	color = "#755f48";
+	max_integrity = 9999;
+	name = "rusted bars"
+	},
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0
+	},
+/turf/closed/wall/mineral/rogue/pipe{
+	density = 0;
+	name = "plumbing system";
+	desc = "A large access hatch for plumbing maintenence, the inner pipe looks big enough to jump into, should you be so bold."
+	},
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "cvk" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -19029,12 +19050,8 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
 "cEx" = (
-/obj/structure/mineral_door/wood/fancywood{
-	locked = 1;
-	lockid = "nightman";
-	max_integrity = 2000
-	},
-/turf/open/floor/rogue/concrete,
+/obj/structure/closet/crate/drawer/emergency,
+/turf/open/floor/rogue/tile/harem2,
 /area/rogue/indoors/town/bath/grim)
 "cEA" = (
 /obj/structure/rack/rogue{
@@ -19724,19 +19741,6 @@
 /obj/structure/flora/roguegrass/herb/random,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains/decap/banditcamp)
-"cIz" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 4
-	},
-/turf/closed/wall/mineral/rogue/pipe/corners/four{
-	name = "wide pipe";
-	density = 0;
-	dir = 8;
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "cIA" = (
 /obj/machinery/light/rogue/oven/east,
 /obj/machinery/light/rogue/hearth,
@@ -21447,18 +21451,6 @@
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town/grim)
-"cUl" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 2
-	},
-/turf/closed/wall/mineral/rogue/pipe/corners/four{
-	name = "wide pipe";
-	density = 0;
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "cUq" = (
 /obj/effect/decal/edge_corner{
 	color = "#3f3f3f";
@@ -22555,21 +22547,11 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/underdark/north)
 "dbv" = (
-/obj/structure/bars{
-	color = "#755f48";
-	max_integrity = 9999;
-	name = "rusted bars"
+/obj/structure/curtain/magenta{
+	alpha = 125
 	},
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0
-	},
-/turf/closed/wall/mineral/rogue/pipe{
-	density = 0;
-	name = "plumbing system";
-	desc = "A large access hatch for plumbing maintenence, the inner pipe looks big enough to jump into, should you be so bold."
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
+/turf/closed/wall/mineral/rogue/craftstone,
+/area/rogue/indoors/town/bath/grim)
 "dby" = (
 /obj/structure/stairs,
 /turf/open/floor/rogue/dirt,
@@ -24418,13 +24400,18 @@
 	},
 /area/rogue/under/cave/water_temple/two)
 "doa" = (
-/obj/structure/closet/crate/drawer/emergency,
-/obj/item/reagent_containers/glass/bottle/alchemical/healthpot,
-/obj/item/natural/bundle/cloth/bandage/full,
-/obj/item/natural/bundle/fibers/full,
-/obj/item/roguekey/warden,
-/turf/open/floor/rogue/twig,
-/area/rogue/indoors/town/grim)
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	opacity = 1
+	},
+/turf/closed/wall/mineral/rogue/pipe/corners/four{
+	name = "wide pipe";
+	density = 0;
+	dir = 1;
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+	},
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "dod" = (
 /obj/item/ash,
 /turf/open/floor/rogue/church,
@@ -33424,6 +33411,10 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/taricheamanor)
+"eBd" = (
+/obj/item/rogueweapon/pick,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cave/dragonden)
 "eBr" = (
 /obj/structure/fluff/railing/border/west,
 /obj/structure/fluff/railing/border,
@@ -35452,10 +35443,11 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/garrison/grim)
 "eOZ" = (
-/obj/structure/curtain/magenta{
-	alpha = 125
+/obj/structure/stairs{
+	dir = 1
 	},
-/turf/closed/wall/mineral/rogue/craftstone,
+/obj/structure/curtain/magenta,
+/turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/bath/grim)
 "ePa" = (
 /turf/open/floor/rogue/concrete,
@@ -37665,6 +37657,24 @@
 "fek" = (
 /turf/closed/wall/mineral/rogue/wood,
 /area/rogue/outdoors/mountains/grim)
+"fen" = (
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 8;
+	opacity = 1
+	},
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 4
+	},
+/turf/closed/wall/mineral/rogue/pipe/line{
+	density = 0;
+	name = "wide pipe";
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+	},
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "fet" = (
 /obj/structure/roguemachine/chimeric_heart_beast,
 /obj/effect/decal/edge{
@@ -39556,23 +39566,6 @@
 	},
 /turf/open/floor/rogue/ruinedwood/platform,
 /area/rogue/outdoors/town/roofs/keep)
-"frq" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 4
-	},
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 2
-	},
-/turf/closed/wall/mineral/rogue/pipe/corners/four{
-	name = "wide pipe";
-	density = 0;
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "frr" = (
 /obj/structure/closet/crate/chest/neu_fancy,
 /obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
@@ -40832,6 +40825,11 @@
 "fAV" = (
 /turf/closed/wall/mineral/rogue/stone/window,
 /area/rogue/indoors/town/grim)
+"fAW" = (
+/obj/structure/table/wood/large_table/south_west,
+/obj/item/natural/cloth,
+/turf/open/floor/rogue/tile/brownbrick/browner,
+/area/rogue/indoors/town/bath/grim)
 "fBc" = (
 /obj/effect/landmark/chimeric_calyx_spawner/fifteen,
 /turf/open/floor/rogue/AzureSand,
@@ -41506,11 +41504,15 @@
 /turf/open/floor/rogue/churchrough,
 /area/rogue/under/cave/scarymaze)
 "fGd" = (
-/obj/structure/roguewindow/harem1{
-	opacity = 1
+/obj/structure/flora/rock/pile{
+	mouse_opacity = 0
 	},
-/turf/closed/wall/mineral/rogue/craftstone,
-/area/rogue/under/cavewet/bogcaves/central)
+/obj/effect/decal/edge{
+	color = "#3f3f3f";
+	dir = 4
+	},
+/turf/open/floor/rogue/blocks/flipped,
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "fGe" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/grasscold,
@@ -51564,10 +51566,9 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/goblinfort)
 "hbR" = (
-/obj/structure/table/wood/large_table/south_west,
-/obj/item/natural/cloth,
-/turf/open/floor/rogue/tile/brownbrick/browner,
-/area/rogue/indoors/town/bath/grim)
+/obj/structure/closet/crate/drawer/emergency,
+/turf/open/floor/carpet/red,
+/area/rogue/indoors/town/grim)
 "hbS" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
@@ -51850,18 +51851,13 @@
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/cave/scarymaze)
 "heC" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 2
-	},
-/turf/closed/wall/mineral/rogue/pipe/corners/four{
-	name = "wide pipe";
-	density = 0;
-	dir = 2;
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
+/obj/structure/closet/crate/drawer/emergency,
+/obj/item/reagent_containers/glass/bottle/alchemical/healthpot,
+/obj/item/natural/bundle/cloth/bandage/full,
+/obj/item/natural/bundle/fibers/full,
+/obj/item/roguekey/warden,
+/turf/open/floor/rogue/twig,
+/area/rogue/indoors/town/grim)
 "heH" = (
 /obj/effect/decal/edge{
 	color = "#371A14";
@@ -53424,12 +53420,8 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/mountains/decap/minotaurfort)
 "hoS" = (
-/obj/structure/bars{
-	icon_state = "barsbent";
-	layer = 2.81
-	},
 /obj/structure/roguemachine/vendor,
-/turf/closed/wall/mineral/rogue/wooddark/window,
+/turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors/town/shop)
 "hoT" = (
 /obj/structure/fluff/railing/border{
@@ -58674,8 +58666,17 @@
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/manor/grim)
 "hZC" = (
-/turf/closed/wall/mineral/rogue/craftstone,
-/area/rogue/under/cavewet/bogcaves/central)
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 4
+	},
+/turf/closed/wall/mineral/rogue/pipe/line{
+	density = 0;
+	name = "wide pipe";
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+	},
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "hZG" = (
 /obj/structure/fluff/railing/wood{
 	pixel_y = -8
@@ -63863,21 +63864,6 @@
 	},
 /turf/open/floor/rogue/churchrough,
 /area/rogue/under/cave/scarymaze)
-"iIR" = (
-/obj/structure/roguemachine/scomm/r{
-	scom_tag = "Baths - Gambling Hall";
-	pixel_x = null;
-	pixel_y = -32
-	},
-/obj/effect/decal/edge_corner{
-	color = "#3f3f3f";
-	dir = 1
-	},
-/obj/effect/decal/edge_corner{
-	color = "#3f3f3f"
-	},
-/turf/open/floor/rogue/tile,
-/area/rogue/indoors/town/bath/grim)
 "iIT" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8;
@@ -64698,7 +64684,11 @@
 	},
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
-	dir = 8
+	dir = 5
+	},
+/obj/effect/decal/edge{
+	color = "#3f3f3f";
+	dir = 5
 	},
 /turf/open/floor/rogue/blocks/flipped,
 /area/rogue/outdoors/exposed/under/sewer/grim)
@@ -69327,6 +69317,19 @@
 	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/cave/scarymaze)
+"juG" = (
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 2
+	},
+/turf/closed/wall/mineral/rogue/pipe/corners/four{
+	name = "wide pipe";
+	density = 0;
+	dir = 2;
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+	},
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "juL" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted,
@@ -71014,10 +71017,6 @@
 	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/manor/grim)
-"jFY" = (
-/obj/item/rogueweapon/pick,
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/under/cave/dragonden)
 "jFZ" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/cobble,
@@ -86454,6 +86453,19 @@
 /obj/structure/roguemachine/withdraw,
 /turf/open/floor/rogue/twig,
 /area/rogue/under/town/basement/grim/townarenaview)
+"lLd" = (
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 2
+	},
+/turf/closed/wall/mineral/rogue/pipe/line{
+	density = 0;
+	name = "wide pipe";
+	dir = 4;
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+	},
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "lLj" = (
 /obj/structure/closet/crate/chest/neu,
 /obj/item/canvas,
@@ -86725,18 +86737,18 @@
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/beach/south/grim)
 "lNp" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 2
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Baths - Public Bath Three"
 	},
-/turf/closed/wall/mineral/rogue/pipe/line{
-	density = 0;
-	name = "wide pipe";
-	dir = 4;
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+/obj/effect/decal/edge_corner{
+	color = "#3f3f3f";
+	dir = 1
 	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
+/obj/effect/decal/edge_corner{
+	color = "#3f3f3f"
+	},
+/turf/open/floor/rogue/tile,
+/area/rogue/indoors/town/bath/grim)
 "lNv" = (
 /obj/structure/flora/rock/pile{
 	mouse_opacity = 0
@@ -89441,7 +89453,9 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/mountains/decap/grim)
 "mhI" = (
-/obj/structure/roguewindow/harem2,
+/obj/structure/roguewindow/harem1{
+	opacity = 1
+	},
 /obj/structure/fluff/railing/border/west,
 /obj/structure/fluff/railing/border/east,
 /turf/open/floor/rogue/tile/brownbrick/browner,
@@ -92364,9 +92378,10 @@
 	mouse_opacity = 0;
 	dir = 4
 	},
-/turf/closed/wall/mineral/rogue/pipe/line{
-	density = 0;
+/turf/closed/wall/mineral/rogue/pipe/corners/four{
 	name = "wide pipe";
+	density = 0;
+	dir = 8;
 	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
 	},
 /area/rogue/outdoors/exposed/under/sewer/grim)
@@ -92763,19 +92778,6 @@
 /obj/effect/decal/remains/bear,
 /turf/open/floor/rogue/grass,
 /area/rogue/indoors/cave)
-"mFO" = (
-/obj/structure/roguemachine/scomm/r{
-	scom_tag = "Baths - Public Bath Three"
-	},
-/obj/effect/decal/edge_corner{
-	color = "#3f3f3f";
-	dir = 1
-	},
-/obj/effect/decal/edge_corner{
-	color = "#3f3f3f"
-	},
-/turf/open/floor/rogue/tile,
-/area/rogue/indoors/town/bath/grim)
 "mFQ" = (
 /obj/structure/table/wood/fancy/black,
 /obj/item/hair_dye_cream{
@@ -93967,24 +93969,6 @@
 	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/chapel/grim)
-"mNB" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 8;
-	opacity = 1
-	},
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 4
-	},
-/turf/closed/wall/mineral/rogue/pipe/line{
-	density = 0;
-	name = "wide pipe";
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "mND" = (
 /obj/structure/bed/rogue/shit,
 /mob/living/carbon/human/species/goblin/npc/cave,
@@ -96145,6 +96129,21 @@
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/bog/south/grim)
+"nda" = (
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Baths - Gambling Hall";
+	pixel_x = null;
+	pixel_y = -32
+	},
+/obj/effect/decal/edge_corner{
+	color = "#3f3f3f";
+	dir = 1
+	},
+/obj/effect/decal/edge_corner{
+	color = "#3f3f3f"
+	},
+/turf/open/floor/rogue/tile,
+/area/rogue/indoors/town/bath/grim)
 "ndb" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
@@ -97040,12 +97039,6 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/grim)
-"nje" = (
-/obj/effect/decal/edge{
-	color = "#3f3f3f"
-	},
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "njk" = (
 /obj/effect/decal/remains/human,
 /obj/effect/decal/edge{
@@ -98748,6 +98741,23 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/underdark/north)
+"nvu" = (
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 4
+	},
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 2
+	},
+/turf/closed/wall/mineral/rogue/pipe/corners/four{
+	name = "wide pipe";
+	density = 0;
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+	},
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "nvx" = (
 /turf/closed/wall/mineral/rogue/wood,
 /area/rogue/under/cavewet/bogcaves/west)
@@ -100863,6 +100873,25 @@
 /obj/item/rogueweapon/pick/stone,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/cave/central)
+"nKL" = (
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 8;
+	opacity = 1
+	},
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	opacity = 1
+	},
+/turf/closed/wall/mineral/rogue/pipe/corners/four{
+	name = "wide pipe";
+	density = 0;
+	dir = 1;
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+	},
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "nKM" = (
 /obj/effect/landmark/start/monk,
 /obj/structure/fluff/railing/border{
@@ -106485,6 +106514,15 @@
 /obj/machinery/light/rogue/candle/blue/l,
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/bath/grim)
+"oyd" = (
+/obj/structure/lever/wall{
+	redstone_id = "bathsecret";
+	dir = 1;
+	pixel_x = -30;
+	pixel_y = 0
+	},
+/turf/open/floor/rogue/blocks/flipped,
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "oye" = (
 /obj/effect/decal/mossy{
 	dir = 8
@@ -107649,6 +107687,24 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/druidsgrove/grim)
+"oGq" = (
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 8;
+	opacity = 1
+	},
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0
+	},
+/turf/closed/wall/mineral/rogue/pipe/corners/four{
+	name = "wide pipe";
+	density = 0;
+	dir = 1;
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+	},
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "oGr" = (
 /obj/structure/stairs{
 	dir = 1
@@ -108980,10 +109036,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/taricheamanor)
-"oOv" = (
-/obj/structure/curtain/magenta,
-/turf/open/floor/rogue/concrete,
-/area/rogue/indoors/town/bath/grim)
 "oOx" = (
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/rtfield/grim/south)
@@ -112493,6 +112545,13 @@
 /obj/item/kitchen/fork/silver,
 /turf/open/floor/rogue/tile/checkeralt,
 /area/rogue/indoors/town/steward)
+"pmP" = (
+/obj/machinery/light/rogue/candle/floorcandle{
+	pixel_y = 3;
+	pixel_x = -1
+	},
+/turf/open/floor/rogue/tile/harem2,
+/area/rogue/indoors/town/bath/grim)
 "pmR" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/wood,
@@ -113647,6 +113706,10 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement/keep/grim)
+"puO" = (
+/obj/structure/closet/crate/drawer/emergency,
+/turf/open/floor/carpet/royalblack,
+/area/rogue/indoors/town/grim)
 "puP" = (
 /obj/structure/fluff/railing/border/north{
 	pixel_x = -3;
@@ -129612,14 +129675,23 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/fishmandungeon)
 "rDF" = (
-/obj/structure/rack/rogue/shelf/notdense{
-	pixel_y = -31
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 8;
+	opacity = 1
 	},
-/obj/item/flashlight/flare/torch/lantern{
-	pixel_x = -1;
-	pixel_y = -23
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 2
 	},
-/turf/open/floor/rogue/blocks/flipped,
+/turf/closed/wall/mineral/rogue/pipe/corners/four{
+	name = "wide pipe";
+	density = 0;
+	dir = 2;
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+	},
 /area/rogue/outdoors/exposed/under/sewer/grim)
 "rDG" = (
 /obj/structure/fluff/railing/border{
@@ -129854,15 +129926,6 @@
 /obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/floor/rogue/blocks/flipped,
 /area/rogue/outdoors/exposed/under/sewer/grim)
-"rFn" = (
-/obj/structure/lever/wall{
-	pixel_x = -2;
-	pixel_y = 30;
-	redstone_id = "waregate";
-	name = "gates"
-	},
-/turf/open/floor/rogue/twig,
-/area/rogue/indoors/town/grim)
 "rFo" = (
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/transparent/openspace,
@@ -130224,19 +130287,6 @@
 /obj/item/toy/cards/deck,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/grim)
-"rIw" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	opacity = 1
-	},
-/turf/closed/wall/mineral/rogue/pipe/corners/four{
-	name = "wide pipe";
-	density = 0;
-	dir = 8;
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "rIA" = (
 /obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/floor/rogue/naturalstone,
@@ -131101,6 +131151,12 @@
 "rOV" = (
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/under/town/basement/keep/grim)
+"rOW" = (
+/obj/structure/roguewindow/harem1{
+	opacity = 1
+	},
+/turf/closed/wall/mineral/rogue/craftstone,
+/area/rogue/under/cavewet/bogcaves/central)
 "rOZ" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -131521,24 +131577,6 @@
 /obj/item/roguebin,
 /turf/open/floor/rogue/ruinedwood/platform,
 /area/rogue/outdoors/beach/grim)
-"rRF" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	opacity = 1
-	},
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 4
-	},
-/turf/closed/wall/mineral/rogue/pipe/corners/four{
-	name = "wide pipe";
-	density = 0;
-	dir = 8;
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "rRJ" = (
 /obj/effect/falling_sakura,
 /obj/effect/decal/cobble/mossy{
@@ -132775,6 +132813,13 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault)
+"sad" = (
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/obj/structure/closet/crate/chest/inqcrate/supplies/smokes,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/tavern/grim)
 "sae" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -133521,6 +133566,18 @@
 	},
 /turf/open/floor/rogue/grasscold,
 /area/rogue/druidsgrove/grim)
+"seW" = (
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 2
+	},
+/turf/closed/wall/mineral/rogue/pipe/corners/four{
+	name = "wide pipe";
+	density = 0;
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+	},
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "seX" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 4
@@ -137178,10 +137235,6 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/spider)
-"sBJ" = (
-/obj/structure/closet/crate/drawer/emergency,
-/turf/open/floor/carpet/red,
-/area/rogue/indoors/town/grim)
 "sBN" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 7;
@@ -137326,16 +137379,8 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/outdoors/beach/forest/south/grim)
 "sCZ" = (
-/obj/machinery/light/rogue/candle/blue{
-	pixel_y = -32
-	},
-/obj/item/roguebin/water/gross{
-	pixel_x = 11;
-	pixel_y = 0;
-	density = 0
-	},
-/turf/open/floor/rogue/tile/brownbrick/browner,
-/area/rogue/indoors/town/bath/grim)
+/turf/closed/wall/mineral/rogue/craftstone,
+/area/rogue/under/cavewet/bogcaves/central)
 "sDa" = (
 /obj/structure/chair/wood/rogue{
 	dir = 8
@@ -138002,6 +138047,25 @@
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault)
+"sHX" = (
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	opacity = 1
+	},
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 8;
+	opacity = 1
+	},
+/turf/closed/wall/mineral/rogue/pipe/corners/four{
+	name = "wide pipe";
+	density = 0;
+	dir = 1;
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+	},
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "sId" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/book/rogue/bibble,
@@ -138661,25 +138725,6 @@
 /obj/structure/fluff/railing/border/east,
 /turf/open/floor/rogue/rooftop/green/east,
 /area/rogue/outdoors/town/roofs)
-"sNe" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 8;
-	opacity = 1
-	},
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 2
-	},
-/turf/closed/wall/mineral/rogue/pipe/corners/four{
-	name = "wide pipe";
-	density = 0;
-	dir = 2;
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "sNg" = (
 /obj/structure/mineral_door/bars,
 /turf/open/floor/rogue/concrete,
@@ -139370,13 +139415,6 @@
 /obj/structure/fluff/railing/border/north,
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/woods/grim/north)
-"sSb" = (
-/obj/machinery/light/rogue/candle/floorcandle{
-	pixel_y = 3;
-	pixel_x = -1
-	},
-/turf/open/floor/rogue/tile/harem2,
-/area/rogue/indoors/town/bath/grim)
 "sSd" = (
 /obj/structure/well,
 /turf/open/floor/rogue/cobblerock,
@@ -140886,6 +140924,23 @@
 /obj/machinery/light/rogue/candle/r,
 /turf/open/floor/rogue/tile/bath,
 /area/rogue/outdoors/mountains/decap/gunduzirak/bossarena)
+"tda" = (
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 8
+	},
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 2
+	},
+/turf/closed/wall/mineral/rogue/pipe{
+	density = 0;
+	name = "plumbing system";
+	desc = "A large access hatch for plumbing maintenence, the inner pipe looks big enough to jump into, should you be so bold."
+	},
+/area/rogue/indoors/town/bath/grim)
 "tdb" = (
 /obj/structure/roguemachine/mail{
 	mailtag = "Throne Room"
@@ -141357,24 +141412,6 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/magician)
-"thd" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 8;
-	opacity = 1
-	},
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0
-	},
-/turf/closed/wall/mineral/rogue/pipe/corners/four{
-	name = "wide pipe";
-	density = 0;
-	dir = 1;
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "thg" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fluff/walldeco/church/line{
@@ -141801,12 +141838,6 @@
 /obj/machinery/light/rogue/candle/off/r,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/magician)
-"tjT" = (
-/obj/structure/stairs{
-	dir = 8
-	},
-/turf/open/floor/rogue/twig/platform,
-/area/rogue/under/cave/grim)
 "tjU" = (
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/outdoors/beach/forest/south/grim)
@@ -145219,13 +145250,6 @@
 /obj/structure/crabnest,
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog/south/grim/se)
-"tHe" = (
-/obj/structure/fluff/railing/border{
-	dir = 5
-	},
-/obj/structure/closet/crate/chest/inqcrate/supplies/smokes,
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/tavern/grim)
 "tHg" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -147642,15 +147666,6 @@
 	opacity = 0
 	},
 /area/rogue/outdoors/mountains/grim)
-"tWe" = (
-/obj/structure/lever/wall{
-	redstone_id = "bathsecret";
-	dir = 1;
-	pixel_x = -30;
-	pixel_y = 0
-	},
-/turf/open/floor/rogue/blocks/flipped,
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "tWf" = (
 /obj/structure/standingbell{
 	name = "servantry service bell";
@@ -147822,10 +147837,6 @@
 "tXn" = (
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/cave/dragonden)
-"tXp" = (
-/obj/structure/closet/crate/drawer/emergency,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/grim)
 "tXu" = (
 /obj/effect/decal/cleanable/blood/splatter/walls,
 /turf/closed/wall/mineral/rogue/craftstone,
@@ -148408,13 +148419,6 @@
 /obj/effect/spawner/lootdrop/medium_armor_spawner,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/orcdungeon)
-"uby" = (
-/obj/effect/decal/edge{
-	color = "#3f3f3f";
-	dir = 8
-	},
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "ubz" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/concrete,
@@ -151824,6 +151828,12 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/his_vault/one)
+"uzP" = (
+/obj/effect/decal/edge{
+	color = "#3f3f3f"
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "uzS" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -152216,18 +152226,16 @@
 /turf/open/floor/rogue/blocks/newstone/alt,
 /area/rogue/outdoors/town/roofs)
 "uCC" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	opacity = 1
+/obj/machinery/light/rogue/candle/blue{
+	pixel_y = -32
 	},
-/turf/closed/wall/mineral/rogue/pipe/corners/four{
-	name = "wide pipe";
-	density = 0;
-	dir = 1;
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+/obj/item/roguebin/water/gross{
+	pixel_x = 11;
+	pixel_y = 0;
+	density = 0
 	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
+/turf/open/floor/rogue/tile/brownbrick/browner,
+/area/rogue/indoors/town/bath/grim)
 "uCD" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -155387,12 +155395,15 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "uXw" = (
-/obj/structure/stairs{
-	dir = 1
+/obj/structure/flora/rock/pile{
+	mouse_opacity = 0
 	},
-/obj/structure/curtain/magenta,
-/turf/open/floor/rogue/concrete,
-/area/rogue/indoors/town/bath/grim)
+/obj/effect/decal/edge{
+	color = "#3f3f3f";
+	dir = 8
+	},
+/turf/open/floor/rogue/blocks/flipped,
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "uXy" = (
 /obj/item/storage/bag/tray{
 	pixel_y = 12
@@ -161292,25 +161303,6 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/grim)
-"vMC" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 8;
-	opacity = 1
-	},
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	opacity = 1
-	},
-/turf/closed/wall/mineral/rogue/pipe/corners/four{
-	name = "wide pipe";
-	density = 0;
-	dir = 1;
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "vMG" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
@@ -161595,6 +161587,13 @@
 	},
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/scarymaze)
+"vOa" = (
+/obj/effect/decal/edge{
+	color = "#3f3f3f";
+	dir = 8
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "vOc" = (
 /obj/structure/table/wood/long_table/mid/alt,
 /obj/effect/decal/edge{
@@ -166614,24 +166613,6 @@
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/grim)
-"wxe" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	opacity = 1
-	},
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 2
-	},
-/turf/closed/wall/mineral/rogue/pipe/line{
-	density = 0;
-	name = "wide pipe";
-	dir = 4;
-	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
-	},
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "wxg" = (
 /obj/structure/table/church/end,
 /obj/item/rogueweapon/spear{
@@ -166697,6 +166678,16 @@
 	smooth = 0
 	},
 /area/rogue/outdoors/town/grim)
+"wxL" = (
+/obj/structure/rack/rogue/shelf/notdense{
+	pixel_y = -31
+	},
+/obj/item/flashlight/flare/torch/lantern{
+	pixel_x = -1;
+	pixel_y = -23
+	},
+/turf/open/floor/rogue/blocks/flipped,
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "wxM" = (
 /obj/structure/lever/wall{
 	pixel_x = -2;
@@ -166745,20 +166736,6 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/mountains/grim)
-"wyo" = (
-/obj/structure/flora/rock/pile{
-	mouse_opacity = 0
-	},
-/obj/effect/decal/edge{
-	color = "#3f3f3f";
-	dir = 5
-	},
-/obj/effect/decal/edge{
-	color = "#3f3f3f";
-	dir = 5
-	},
-/turf/open/floor/rogue/blocks/flipped,
-/area/rogue/outdoors/exposed/under/sewer/grim)
 "wyr" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/mountains/decap/grim)
@@ -168954,21 +168931,8 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/grim)
 "wOw" = (
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 8
-	},
-/obj/structure/fluff/railing/border/north{
-	alpha = 0;
-	mouse_opacity = 0;
-	dir = 2
-	},
-/turf/closed/wall/mineral/rogue/pipe{
-	density = 0;
-	name = "plumbing system";
-	desc = "A large access hatch for plumbing maintenence, the inner pipe looks big enough to jump into, should you be so bold."
-	},
+/obj/structure/curtain/magenta,
+/turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/bath/grim)
 "wOz" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
@@ -169982,6 +169946,15 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/town/basement/keep/grim)
+"wVh" = (
+/obj/structure/lever/wall{
+	pixel_x = -2;
+	pixel_y = 30;
+	redstone_id = "waregate";
+	name = "gates"
+	},
+/turf/open/floor/rogue/twig,
+/area/rogue/indoors/town/grim)
 "wVj" = (
 /obj/structure/fermentation_keg/random/water,
 /obj/machinery/light/rogue/candle/blue,
@@ -171302,14 +171275,17 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/magician)
 "xdD" = (
-/obj/structure/flora/rock/pile{
-	mouse_opacity = 0
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	opacity = 1
 	},
-/obj/effect/decal/edge{
-	color = "#3f3f3f";
-	dir = 4
+/turf/closed/wall/mineral/rogue/pipe/corners/four{
+	name = "wide pipe";
+	density = 0;
+	dir = 8;
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
 	},
-/turf/open/floor/rogue/blocks/flipped,
 /area/rogue/outdoors/exposed/under/sewer/grim)
 "xdJ" = (
 /obj/effect/decal/edge{
@@ -171405,6 +171381,14 @@
 /obj/effect/decal/cleanable/blood/gibs,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/town/basement/keep/grim)
+"xeJ" = (
+/obj/structure/mineral_door/wood/fancywood{
+	locked = 1;
+	lockid = "nightman";
+	max_integrity = 2000
+	},
+/turf/open/floor/rogue/concrete,
+/area/rogue/indoors/town/bath/grim)
 "xeL" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/beach/forest/hamlet/grim)
@@ -175473,6 +175457,24 @@
 	},
 /turf/open/floor/rogue/blocks/flipped,
 /area/rogue/outdoors/exposed/under/sewer/grim)
+"xGN" = (
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	opacity = 1
+	},
+/obj/structure/fluff/railing/border/north{
+	alpha = 0;
+	mouse_opacity = 0;
+	dir = 2
+	},
+/turf/closed/wall/mineral/rogue/pipe/line{
+	density = 0;
+	name = "wide pipe";
+	dir = 4;
+	desc = "A wide, open sewer pipe, looks claustrophobic but big enough to fit a person."
+	},
+/area/rogue/outdoors/exposed/under/sewer/grim)
 "xGO" = (
 /obj/structure/fluff/railing/border/west{
 	dir = 6
@@ -177090,10 +177092,6 @@
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/rogue/blocks/paving/vert,
 /area/rogue/outdoors/town/roofs)
-"xRT" = (
-/obj/structure/closet/crate/drawer/emergency,
-/turf/open/floor/rogue/tile/harem2,
-/area/rogue/indoors/town/bath/grim)
 "xRV" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -234704,7 +234702,7 @@ smG
 qCC
 kPV
 smG
-hZC
+sCZ
 nDB
 nDB
 nDB
@@ -235086,7 +235084,7 @@ jwM
 qCC
 vbq
 iMy
-hZC
+sCZ
 xqz
 nDB
 nDB
@@ -235462,13 +235460,13 @@ xqz
 gdp
 gdp
 kPV
-sSb
+pmP
 uSD
 mlx
-uXw
+eOZ
 iMy
 iMy
-fGd
+rOW
 xqz
 xqz
 xqz
@@ -235847,10 +235845,10 @@ kPV
 pqr
 pVR
 baQ
-uXw
+eOZ
 iMy
 iMy
-fGd
+rOW
 xqz
 xqz
 xqz
@@ -236232,7 +236230,7 @@ aRn
 qCC
 bBL
 iMy
-hZC
+sCZ
 xqz
 xqz
 xqz
@@ -236608,13 +236606,13 @@ xqz
 kPV
 kPV
 kPV
-oOv
-oOv
+wOw
+wOw
 kPV
 smG
 kPV
 smG
-hZC
+sCZ
 xqz
 xqz
 xqz
@@ -240802,7 +240800,7 @@ nEr
 nEr
 mcE
 hYG
-tWe
+oyd
 mcE
 mcE
 mcE
@@ -241184,7 +241182,7 @@ tiu
 nEr
 mcE
 ewH
-rDF
+wxL
 mcE
 mcE
 mcE
@@ -243107,7 +243105,7 @@ kPV
 kPV
 kPV
 yez
-mFO
+lNp
 mQN
 oqp
 kPV
@@ -244997,7 +244995,7 @@ lvI
 tDF
 tDF
 lvI
-xdD
+fGd
 hYX
 jrL
 hYX
@@ -245006,14 +245004,14 @@ tDF
 lvI
 lvI
 lvI
-xdD
+fGd
 tDF
 lvI
 tDF
 tDF
 jOd
 lvI
-wyo
+iOO
 mcE
 mcE
 mcE
@@ -245756,7 +245754,7 @@ tDF
 tbC
 tbC
 tbC
-uby
+vOa
 tbC
 tbC
 tDF
@@ -245773,7 +245771,7 @@ tbC
 tDF
 tbC
 tbC
-iOO
+uXw
 tbC
 nbT
 oBO
@@ -250741,7 +250739,7 @@ ndf
 ndf
 ndf
 mcE
-nje
+uzP
 oBO
 xWI
 mcE
@@ -348529,7 +348527,7 @@ kPV
 kPV
 iiu
 jvr
-nET
+qCC
 oJn
 jvr
 kPV
@@ -348911,7 +348909,7 @@ kPV
 kPV
 cRn
 lYQ
-nET
+qCC
 cRn
 lYQ
 kPV
@@ -348923,7 +348921,7 @@ aRn
 aRn
 fgq
 aRn
-xRT
+cEx
 kPV
 vbr
 wvm
@@ -354649,9 +354647,9 @@ eco
 kPV
 kPV
 cnW
-heC
-uCC
-mDk
+juG
+doa
+hZC
 oBt
 nEr
 mcE
@@ -355030,10 +355028,10 @@ mWg
 mWg
 oIP
 kPV
-lNp
-rRF
-frq
+lLd
 csP
+nvu
+sHX
 oEO
 nEr
 nEr
@@ -355412,15 +355410,15 @@ mWg
 mWg
 xZQ
 kPV
-cIz
-mNB
-sNe
-wxe
-thd
+mDk
+fen
+rDF
+xGN
+oGq
 jgf
 jgf
 jgf
-dbv
+cvj
 sJt
 kic
 mcE
@@ -355791,13 +355789,13 @@ lYv
 whB
 jZS
 mWg
-iIR
+nda
 kPV
 cnW
-sNe
-vMC
-cUl
-rIw
+rDF
+nKL
+seW
+xdD
 oEO
 nEr
 nEr
@@ -356175,8 +356173,8 @@ mWg
 mWg
 fvc
 kPV
-wOw
-rIw
+tda
+xdD
 oEO
 mVH
 mVH
@@ -356541,7 +356539,7 @@ rvT
 ugL
 wRc
 kPV
-eOZ
+dbv
 vpL
 umj
 rCi
@@ -357701,7 +357699,7 @@ dAo
 lud
 ndc
 mWg
-sCZ
+uCC
 kPV
 mVH
 mVH
@@ -358083,7 +358081,7 @@ mWg
 mWg
 mWg
 mWg
-hbR
+fAW
 kPV
 mVH
 wzY
@@ -362273,7 +362271,7 @@ kPV
 kPV
 kPV
 kPV
-cEx
+xeJ
 kPV
 kPV
 kPV
@@ -479402,7 +479400,7 @@ tDK
 pCB
 pCB
 hML
-tjT
+bRr
 sQN
 sQN
 sQN
@@ -483757,7 +483755,7 @@ vmm
 bsK
 bsK
 oYd
-tHe
+sad
 twQ
 pVS
 szc
@@ -597204,7 +597202,7 @@ pVh
 pVh
 pVh
 nuD
-aip
+aJw
 kqz
 kqz
 tHT
@@ -617131,7 +617129,7 @@ bcH
 pVh
 aTh
 vtJ
-sBJ
+hbR
 ono
 rft
 aTh
@@ -623235,7 +623233,7 @@ cWI
 jTb
 uYu
 uYu
-tXp
+puO
 qon
 aTh
 omU
@@ -680681,7 +680679,7 @@ nBZ
 nBZ
 nBZ
 nBZ
-jFY
+eBd
 nOc
 jNa
 nzF
@@ -745901,7 +745899,7 @@ jui
 qem
 qnQ
 weV
-doa
+heC
 rin
 lrO
 vHn
@@ -747429,7 +747427,7 @@ jui
 qem
 jfN
 kPG
-doa
+heC
 rin
 cfa
 cTx
@@ -748474,7 +748472,7 @@ tNx
 pmx
 phr
 pXt
-rFn
+wVh
 urL
 urL
 piE
