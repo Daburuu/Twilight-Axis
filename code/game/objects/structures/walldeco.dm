@@ -609,6 +609,49 @@
 /obj/structure/fluff/walldeco/vinez/red
 	icon_state = "vinez_red"
 
+/obj/structure/fluff/walldeco/vinez/glow//glowy vines
+	name = "glow vines"
+	icon_state = "vinez"
+	mouse_opacity = 0
+
+/obj/structure/fluff/walldeco/vinez/glow/Initialize()
+	. = ..()
+	set_light(4, 0, 1, l_color = "#75a35b", l_on = TRUE)
+
+/obj/structure/fluff/walldeco/vinez/glow/l
+	pixel_x = -32
+
+/obj/structure/fluff/walldeco/vinez/glow/r
+	pixel_x = 32
+
+/obj/structure/fluff/walldeco/vinez/glow/blue
+	name = "blue glow vines"
+	icon_state = "vinez_blue"
+
+/obj/structure/fluff/walldeco/vinez/glow/blue/Initialize()
+	. = ..()
+	set_light(4, 0, 1, l_color = "#5a83b8", l_on = TRUE)
+
+/obj/structure/fluff/walldeco/vinez/glow/blue/l
+	pixel_x = -32
+
+/obj/structure/fluff/walldeco/vinez/glow/blue/r
+	pixel_x = 32
+
+/obj/structure/fluff/walldeco/vinez/glow/red
+	name = "red glow vines"
+	icon_state = "vinez_red"
+
+/obj/structure/fluff/walldeco/vinez/glow/red/Initialize()
+	. = ..()
+	set_light(4, 0, 1, l_color = "#a84d4d", l_on = TRUE)
+
+/obj/structure/fluff/walldeco/vinez/glow/red/l
+	pixel_x = -32
+
+/obj/structure/fluff/walldeco/vinez/glow/red/r
+	pixel_x = 32
+
 /obj/structure/fluff/walldeco/bath // suggestive stonework
 	icon_state = "bath1"
 	pixel_x = -32
