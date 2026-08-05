@@ -1,7 +1,3 @@
-#define MAP_VOTE_LOSSES_FILE "data/map_vote_losses.json"
-#define MAP_VOTE_LOSS_STREAK_MAX 6
-#define MAP_VOTE_LOSS_WEIGHT_STEP 0.5
-
 SUBSYSTEM_DEF(mapping)
 	name = "Mapping"
 	init_order = INIT_ORDER_MAPPING
@@ -13,7 +9,6 @@ SUBSYSTEM_DEF(mapping)
 	var/datum/map_config/config
 	var/datum/map_config/next_map_config
 	var/datum/map_adjustment/map_adjustment
-	var/list/map_vote_losses = list()
 
 	var/map_voted = FALSE
 
@@ -78,7 +73,6 @@ SUBSYSTEM_DEF(mapping)
 	retainer = new
 	if(initialized)
 		return
-	load_map_vote_losses()
 	if(config.defaulted)
 		var/old_config = config
 		config = global.config.defaultmap
@@ -282,7 +276,7 @@ SUBSYSTEM_DEF(mapping)
 			continue
 
 		if(pmv)
-			mapvotes[map] = mapvotes[map] * get_map_voteweight(VM)
+			mapvotes[map] = mapvotes[map]*VM.voteweight
 
 	var/pickedmap = pickweight(mapvotes)
 	if (!pickedmap)
@@ -290,8 +284,6 @@ SUBSYSTEM_DEF(mapping)
 	var/datum/map_config/VM = global.config.maplist[pickedmap]
 	message_admins("Randomly rotating map to [VM.map_name]")
 	. = changemap(VM)
-	if(.)
-		update_map_vote_loss_streaks(VM.map_name)
 	if (. && VM.map_name != config.map_name)
 		to_chat(world, "<span class='boldannounce'>Map rotation has chosen [VM.map_name] for next round!</span>")
 
@@ -303,57 +295,6 @@ SUBSYSTEM_DEF(mapping)
 
 	next_map_config = VM
 	return TRUE
-
-/datum/controller/subsystem/mapping/proc/get_map_voteweight(datum/map_config/VM)
-	if(!VM)
-		return 0
-	var/loss_streak = map_vote_losses[VM.map_name] || 0
-	loss_streak = CLAMP(loss_streak, 0, MAP_VOTE_LOSS_STREAK_MAX)
-	return VM.voteweight * (1 + (loss_streak * MAP_VOTE_LOSS_WEIGHT_STEP))
-
-/datum/controller/subsystem/mapping/proc/get_map_voteweight_by_name(map_name)
-	if(!map_name)
-		return 0
-	var/datum/map_config/VM = global.config.maplist[map_name]
-	if(!VM)
-		return 0
-	return get_map_voteweight(VM)
-
-/datum/controller/subsystem/mapping/proc/load_map_vote_losses()
-	map_vote_losses = list()
-	var/json_file = file(MAP_VOTE_LOSSES_FILE)
-	if(!fexists(json_file))
-		return FALSE
-	var/list/file_data = safe_json_decode(file2text(json_file))
-	if(!islist(file_data))
-		return FALSE
-	for(var/map_name in file_data)
-		var/loss_streak = text2num(file_data[map_name])
-		if(loss_streak > 0)
-			map_vote_losses[map_name] = CLAMP(loss_streak, 0, MAP_VOTE_LOSS_STREAK_MAX)
-	return TRUE
-
-/datum/controller/subsystem/mapping/proc/save_map_vote_losses()
-	var/list/file_data = list()
-	for(var/map_name in map_vote_losses)
-		var/loss_streak = map_vote_losses[map_name]
-		if(loss_streak <= 0)
-			continue
-		file_data[map_name] = CLAMP(loss_streak, 0, MAP_VOTE_LOSS_STREAK_MAX)
-	var/json_file = file(MAP_VOTE_LOSSES_FILE)
-	fdel(json_file)
-	WRITE_FILE(json_file, json_encode(file_data))
-
-/datum/controller/subsystem/mapping/proc/update_map_vote_loss_streaks(winning_map_name)
-	if(!winning_map_name)
-		return
-	for(var/map_name in global.config.maplist)
-		if(map_name == winning_map_name)
-			map_vote_losses -= map_name
-			continue
-		var/loss_streak = map_vote_losses[map_name] || 0
-		map_vote_losses[map_name] = CLAMP(loss_streak + 1, 0, MAP_VOTE_LOSS_STREAK_MAX)
-	save_map_vote_losses()
 /*
 /datum/controller/subsystem/mapping/proc/preloadTemplates(path = "_maps/templates/") //see master controller setup
 

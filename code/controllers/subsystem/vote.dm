@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(vote)
 	var/list/vote_powers = list()
 	var/list/storyteller_vote_log = list()
 	var/list/generated_actions = list()
-	var/static/list/everyone_is_equal = list("custom", "map")
+	var/static/list/everyone_is_equal = list("custom")
 	/// Vote types that require lobby players to ready up before voting.
 	var/static/list/ready_required_modes = list("gamemode", "storyteller")
 
@@ -264,11 +264,11 @@ SUBSYSTEM_DEF(vote)
 					var/client/C = non_voters[non_voter_ckey]
 					if(C.prefs.preferred_map)
 						var/preferred_map = C.prefs.preferred_map
-						choices[preferred_map] += SSmapping.get_map_voteweight_by_name(preferred_map)
+						choices[preferred_map] += 1
 						greatest_votes = max(greatest_votes, choices[preferred_map])
 					else if(global.config.defaultmap)
 						var/default_map = global.config.defaultmap.map_name
-						choices[default_map] += SSmapping.get_map_voteweight_by_name(default_map)
+						choices[default_map] += 1
 						greatest_votes = max(greatest_votes, choices[default_map])
 	//get all options with that many votes and return them in a list
 	. = list()
@@ -338,10 +338,8 @@ SUBSYSTEM_DEF(vote)
 					else
 						GLOB.master_mode = .
 			if("map")
-				var/datum/map_config/map_choice = global.config.maplist[.]
-				if(SSmapping.changemap(map_choice))
-					SSmapping.update_map_vote_loss_streaks(map_choice.map_name)
-					SSmapping.map_voted = TRUE
+				SSmapping.changemap(global.config.maplist[.])
+				SSmapping.map_voted = TRUE
 			if("endround")
 				if(. == "Continue Playing")
 					log_game("LOG VOTE: CONTINUE PLAYING AT [REALTIMEOFDAY]")
@@ -521,8 +519,6 @@ SUBSYSTEM_DEF(vote)
 				remove_vote_for_ckey(usr.ckey)
 			voted += usr.ckey
 			var/vote_power = get_vote_power(usr)
-			if(mode == "map")
-				vote_power *= SSmapping.get_map_voteweight_by_name(selected_option)
 			var/choice_name = selected_option
 			if(mode == "storyteller")
 				choice_name = get_storyteller_choice_name(selected_option)
