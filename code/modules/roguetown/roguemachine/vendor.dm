@@ -733,4 +733,17 @@
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
 		held_items[P]["PRICE"] = 0
+
+/obj/structure/roguemachine/vendor/apothecaryrooms
+	keycontrol = "apothecary"
+	will_hawk = FALSE
+
+/obj/structure/roguemachine/vendor/apothecaryrooms/Initialize()
+	. = ..()
+
+	for (var/X in list(/obj/item/roguekey/apothecary/roomone, /obj/item/roguekey/apothecary/roomtwo))
+		var/obj/P = new X(src)
+		held_items[P] = list()
+		held_items[P]["NAME"] = P.name
+		held_items[P]["PRICE"] = 0
 //PILGRIM END

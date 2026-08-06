@@ -542,6 +542,18 @@
 	icon_state = "ekey"
 	lockid = "apothecary"
 
+/obj/item/roguekey/apothecary/roomone
+	name = "Apothecary room I key"
+	desc = "Apothecary dorm one's key, keep it close."
+	icon_state = "brownkey"
+	lockid = "apothecary_room_one"
+
+/obj/item/roguekey/apothecary/roomtwo
+	name = "Apothecary room II key"
+	desc = "Apothecary dorm two's key, keep it close."
+	icon_state = "brownkey"
+	lockid = "apothecary_room_two"
+
 /obj/item/roguekey/associate
 	name = "Associate room I key"
 	desc = "This key opens dormitory room one within the college of Azuria."
