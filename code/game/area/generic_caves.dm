@@ -94,6 +94,7 @@
 	converted_type = /area/rogue/outdoors/caves
 
 /area/rogue/under/cave/spider/grim
+	name = "infested cave"
 	icon_state = "spider"
 	first_time_text = "INFESTED TUNNELS"
 	droning_sound = 'sound/music/area/grimcaves.ogg'
@@ -108,6 +109,7 @@
 	droning_sound_night = null
 
 /area/rogue/under/cave/spider/lost
+	name = "lost crypt"
 	icon_state = "spider"
 	first_time_text = "LOST CRYPT"
 	ambush_mobs = list(
