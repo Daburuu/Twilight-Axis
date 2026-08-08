@@ -1056,6 +1056,7 @@
 	pixel_y = -20
 	max_integrity = 100
 	static_debris = list(/obj/item/grown/log/tree = 2)
+	stump_type = /obj/structure/flora/roguetree/stump
 
 /obj/structure/flora/roguetree/jungle/Initialize()
 	. = ..()
@@ -1067,5 +1068,6 @@
 	pixel_x = -32
 	pixel_y = 0
 	static_debris = list(/obj/item/grown/log/tree = 1)
+	stump_type = /obj/structure/flora/roguetree/stump
 
 #undef SEARCHTIME

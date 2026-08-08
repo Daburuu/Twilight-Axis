@@ -134,4 +134,8 @@
 	converted_type = /area/rogue/outdoors/spidercave
 	loot_budget = LOOT_BUDGET_LOSTCRYPT
 
+/area/rogue/under/cave/abyssor/inner/grim
+	name = "abyssal sanctum"
+	first_time_text = "THE ABYSSAL SANCTUM"
+
 //PILGRIM END

@@ -210,6 +210,20 @@
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
 	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 
+/area/rogue/outdoors/woods/grim/northeast/wardenscheckpoint
+	name = "Warden's Checkpoint"
+	first_time_text = "WARDEN'S CHECKPOINT"
+
+/area/rogue/indoors/shelter/woods/grim/northeast/wardenscheckpoint
+	name = "Warden's Checkpoint"
+	icon_state = "woods"
+	droning_sound = list(, 'sound/music/area/grimtwilight.ogg', 'sound/music/area/grimdrama.ogg')
+	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
+	droning_sound_night = 'sound/music/area/grimforest.ogg'
+	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
+	threat_region = THREAT_REGION_AZURE_GROVE
+	deathsight_message = "somewhere in the wilds of jaggedjaw grove, shrouded under cover"
+
 /area/rogue/outdoors/woods/grim/southeast
 	name = "Jaggedjaw Grove - Southeast"
 	ambush_mobs = list(
