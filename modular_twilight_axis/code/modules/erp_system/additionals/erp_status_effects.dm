@@ -4,6 +4,27 @@
 	alert_type = /atom/movable/screen/alert/status_effect/mouth_full
 	duration = -1
 
+/datum/status_effect/mouth_full/on_apply()
+	. = ..()
+	if(owner)
+		RegisterSignal(owner, COMSIG_LIVING_DEATH, PROC_REF(_on_owner_death))
+	return .
+
+/datum/status_effect/mouth_full/on_remove()
+	if(owner)
+		UnregisterSignal(owner, COMSIG_LIVING_DEATH, PROC_REF(_on_owner_death))
+	return ..()
+
+/datum/status_effect/mouth_full/proc/_on_owner_death(datum/source, gibbed)
+	SIGNAL_HANDLER
+	var/mob/living/user = owner
+	if(!istype(user))
+		return
+
+	var/datum/erp_sex_organ/mouth/M = user.get_erp_organ(SEX_ORGAN_MOUTH)
+	if(M)
+		M.spit(INFINITY)
+
 /atom/movable/screen/alert/status_effect/mouth_full
 	name = "Full Mouth"
 	desc = "Click to swallow a bit."
@@ -15,6 +36,12 @@
 
 	var/mob/living/user = usr
 	if(!istype(user))
+		return FALSE
+	if(user.stat == DEAD)
+		return FALSE
+
+	var/list/modifiers = params2list(params)
+	if(modifiers["shift"] || modifiers["ctrl"] || modifiers["alt"] || modifiers["middle"] || modifiers["right"])
 		return FALSE
 
 	var/datum/erp_sex_organ/mouth/M = user.get_erp_organ(SEX_ORGAN_MOUTH)

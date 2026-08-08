@@ -19,6 +19,7 @@
 		"do_knot_action" = FALSE,
 		"has_knotted_penis" = FALSE,
 		"can_knot_now" = FALSE,
+		"show_climax_controls" = FALSE,
 		"base_speed" = SEX_SPEED_MID,
 		"base_force" = SEX_FORCE_MID,
 	)
@@ -30,6 +31,7 @@
 	var/datum/erp_sex_organ/penis/P = C.get_owner_penis_organ()
 	D["climax_mode"] = P ? (P.climax_mode || "outside") : "outside"
 	D["climax_modes"] = list(list("id"="outside","name"="НАРУЖУ"),list("id"="inside","name"="ВНУТРЬ"))
+	D["show_climax_controls"] = P ? TRUE : FALSE
 	D["actor_nodes"] = C.get_actor_type_filters_ui() || list()
 	D["partner_nodes"] = C.get_partner_type_filters_ui() || list()
 	D["actions"] = C.get_action_list_ui(selected_actor_type, selected_partner_type) || list()
@@ -45,10 +47,18 @@
 			D["has_knotted_penis"] = kui["has_knotted_penis"] ? TRUE : FALSE
 			D["can_knot_now"] = kui["can_knot_now"] ? TRUE : FALSE
 	else
-		D["show_knot_toggle"] = FALSE
-		D["do_knot_action"] = FALSE
-		D["has_knotted_penis"] = FALSE
-		D["can_knot_now"] = FALSE
+		var/list/rkui = C.get_receiving_knot_ui_state(ui.actor)
+		if(islist(rkui) && (rkui["can_knot_now"] || rkui["has_knotted_penis"]))
+			D["show_penis_panel"] = TRUE
+			D["show_knot_toggle"] = TRUE
+			D["do_knot_action"] = C.do_knot_action ? TRUE : FALSE
+			D["has_knotted_penis"] = rkui["has_knotted_penis"] ? TRUE : FALSE
+			D["can_knot_now"] = rkui["can_knot_now"] ? TRUE : FALSE
+		else
+			D["show_knot_toggle"] = FALSE
+			D["do_knot_action"] = FALSE
+			D["has_knotted_penis"] = FALSE
+			D["can_knot_now"] = FALSE
 
 	return D
 
