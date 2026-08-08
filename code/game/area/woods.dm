@@ -222,7 +222,7 @@
 	droning_sound_night = 'sound/music/area/grimforest.ogg'
 	droning_sound_dawn = 'sound/music/area/grimdawn.ogg'
 	threat_region = THREAT_REGION_AZURE_GROVE
-	deathsight_message = "somewhere in the wilds of jaggedjaw grove, shrouded under cover"
+	deathsight_message = "somewhere in the wilds of jaggedjaw grove, within battered walls"
 
 /area/rogue/outdoors/woods/grim/southeast
 	name = "Jaggedjaw Grove - Southeast"
