@@ -149,7 +149,7 @@
 /obj/item/clothing/head/roguetown/chaperon/noble/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
@@ -252,6 +252,11 @@
 	sewrepair = TRUE
 	//dropshrink = 0.75
 	dynamic_hair_suffix = null
+	adjustable = CAN_CADJUST
+
+/obj/item/clothing/head/roguetown/headband/ComponentInitialize()
+	..()
+	AddComponent(/datum/component/adjustable_clothing, HEAD|HAIR|EARS, null, null, 'sound/foley/cloth_wipe (1).ogg', null, UPD_HEAD)
 
 /obj/item/clothing/head/roguetown/headband/bloodied
 	name = "bloodied headband"
@@ -288,7 +293,7 @@
 	color = "#48443b"
 	sewrepair = TRUE
 	resistance_flags = FIRE_PROOF
-	armor = ARMOR_LEATHER //Higher-tier protection for pugilist-centric classes. Fits the 'glass cannon' style, and prevents instant death through a glancing headshot on the intended archetype. 
+	armor = ARMOR_LEATHER //Higher-tier protection for pugilist-centric classes. Fits the 'glass cannon' style, and prevents instant death through a glancing headshot on the intended archetype.
 	body_parts_covered = HEAD|HAIR|EARS
 	max_integrity = ARMOR_INT_SIDE_STEEL //High leather-tier protection and critical resistances, steel-tier integrity. Integrity boost encourages hand-to-hand parrying. Weaker than the Psydonic Thorns.
 	blocksound = SOFTHIT
@@ -358,7 +363,6 @@
 	name = "nemes"
 	desc = "A foreign silk headdress."
 	icon_state = "headdress"
-	sellprice = 10
 	sewrepair = TRUE
 
 /obj/item/clothing/head/roguetown/headdress/alt
@@ -390,7 +394,7 @@
 	desc = "A feathered leather hat, to show them all your superiority."
 	icon_state = "duelhat"
 	sewrepair = TRUE
-	color = COLOR_ALMOST_BLACK	
+	color = COLOR_ALMOST_BLACK
 	detail_tag = "_detail"
 	detail_color = COLOR_SILVER
 
@@ -456,6 +460,11 @@
 	name = "shawl"
 	desc = "Keeps the hair in check, and looks proper."
 	icon_state = "shawl"
+
+/obj/item/clothing/head/roguetown/turban
+	name = "turban"
+	desc = "A long, continuous strip of cloth that is wrapped around the top of a persons head. It is worn mostly in the southern reaches of Psydonia."
+	icon_state = "turban"
 
 /obj/item/clothing/head/roguetown/articap
 	name = "artificer's cap"
@@ -575,7 +584,7 @@
 /obj/item/clothing/head/roguetown/veiled/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
@@ -583,7 +592,7 @@
 
 /obj/item/clothing/head/roguetown/veiled/ComponentInitialize()
 	..()
-	AddComponent(/datum/component/adjustable_clothing, (NECK|HEAD|EARS|HAIR), (HIDEEARS|HIDEHAIR), null, 'sound/foley/equip/cloak (3).ogg', null, (UPD_HEAD|UPD_MASK))	
+	AddComponent(/datum/component/adjustable_clothing, (NECK|HEAD|EARS|HAIR), (HIDEEARS|HIDEHAIR), null, 'sound/foley/equip/cloak (3).ogg', null, (UPD_HEAD|UPD_MASK))
 
 /obj/item/clothing/head/roguetown/veiled/loudmouth
 	name = "loudmouth's headcover"
@@ -620,7 +629,7 @@
 /obj/item/clothing/head/roguetown/courtphysician/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
@@ -641,7 +650,7 @@
 /obj/item/clothing/head/roguetown/courtphysician/female/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()

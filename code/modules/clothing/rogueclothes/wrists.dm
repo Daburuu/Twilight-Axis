@@ -59,7 +59,7 @@
 	icon_state = "goldbracers"
 	item_state = "goldbracers"
 	body_parts_covered = ARMS | HANDS //Experimental, but should compliment the cost. Let all handhitters fear your presence.. for exactly five strikes.
-	armor_class = ARMOR_CLASS_HEAVY //Ceremonial. Heavy is the head that bares the burden.
+	armor_class = ARMOR_CLASS_HEAVY //Ceremonial. Heavy is the head that bears the burden.
 	armor = ARMOR_INDESTRUCTIBLE //Renders its wearer completely invulnerable to damage. The caveat is, however..
 	max_integrity = ARMOR_INT_SIDE_GOLD // ..is that it's extraordinarily fragile. To note, this is lower than even Decrepit-tier armor.
 	anvilrepair = null
@@ -67,7 +67,6 @@
 	smelt_bar_num = 1
 	grid_height = 96
 	grid_width = 96
-	sellprice = 200
 	unenchantable = TRUE
 
 /obj/item/clothing/wrists/roguetown/bracers/gold/king
@@ -153,6 +152,8 @@
 	armor = ARMOR_PADDED
 	max_integrity = ARMOR_INT_SIDE_HARDLEATHER
 	blocksound = SOFTHIT
+	pickup_sound = 'sound/foley/equip/equip_armor.ogg'
+	equip_sound = 'sound/foley/equip/equip_armor.ogg'
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	anvilrepair = null
@@ -173,7 +174,6 @@
 	icon_state = "albracers"
 	armor = ARMOR_LEATHER
 	max_integrity = ARMOR_INT_SIDE_STEEL
-	sellprice = 10
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
 	color = "#7f829d"
@@ -223,6 +223,10 @@
 	blocksound = SOFTHIT
 	anvilrepair = null
 	sewrepair = TRUE
+	pickup_sound = 'sound/foley/equip/equip_armor.ogg'
+	equip_sound = 'sound/foley/equip/equip_armor.ogg'
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 
 /obj/item/clothing/wrists/roguetown/bracers/cloth/monk
 	name = "padded wrappings"
@@ -341,6 +345,7 @@
 /obj/item/clothing/wrists/roguetown/gem
 	name = "gem bracelet base"
 	desc = "You shouldn't be seeing this."
+	body_parts_covered = ARMS
 	slot_flags = ITEM_SLOT_WRISTS
 	armor = ARMOR_PLATE
 	max_integrity = ARMOR_INT_SIDE_CLOTH
@@ -531,7 +536,7 @@
 		user.update_inv_shirt()
 		playsound(user, 'sound/foley/equip/chain_equip.ogg', 50, TRUE)
 		wrapped = FALSE
-	
+
 /obj/item/clothing/wrists/roguetown/bracers/chain
 	name = "chain sleeves"
 	desc = "Coverings of steel maille, fashioned from hundreds of interlinked rings. An aura of inexplicable harlotry eminates from these sleeves. \
@@ -661,6 +666,32 @@
 	if(QDELETED(src))
 		return
 	qdel(src)
+
+/obj/item/clothing/wrists/roguetown/bracers/leather/baotha
+	name = "saccharine cuffs"
+	desc = "A betrayal without compare, and a sin without redemption; or so, She believed.."
+	icon_state = "baothabracers"
+	chunkcolor = "#6d1c87"
+	armor = ARMOR_PADDED
+	resistance_flags = FIRE_PROOF
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER + 150
+	smeltresult = /obj/item/ingot/component/baotha
+
+/obj/item/clothing/wrists/roguetown/bracers/leather/baotha/Initialize()
+	. = ..()
+	AddComponent(/datum/component/cursed_item, TRAIT_DEPRAVED, "BRACERS")
+	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+
+/obj/item/clothing/wrists/roguetown/bracers/leather/baotha/dropped(mob/living/carbon/human/user)
+	. = ..()
+	if(QDELETED(src))
+		return
+	qdel(src)
+
+/obj/item/clothing/wrists/roguetown/bracers/leather/baotha/get_examine_highlight_status()
+	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_ALARMING, HERESYDESC_BAOTHA_ARMOR)
+
+//
 
 /obj/item/clothing/wrists/roguetown/bracers/hand
 	name = "hand's bracers"

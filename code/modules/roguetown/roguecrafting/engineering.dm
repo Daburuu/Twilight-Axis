@@ -218,6 +218,7 @@
 		/obj/item/natural/fibers = 1,
 		/obj/item/natural/wood/plank = 1,
 	)
+	subtype_reqs = TRUE
 	structurecraft = /obj/structure/artificer_table
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 4
@@ -756,10 +757,12 @@
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/engineering/cog
-	name = "wooden cogwheel(4x)"
+	name = "wooden cogwheel(6x)"
 	category = "Rotational"
 	display_category = ITEM_CAT_ENG_MACHINERY
 	result = list(
+		/obj/item/rotation_contraption/cog,
+		/obj/item/rotation_contraption/cog,
 		/obj/item/rotation_contraption/cog,
 		/obj/item/rotation_contraption/cog,
 		/obj/item/rotation_contraption/cog,
@@ -796,10 +799,11 @@
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/engineering/large_cog
-	name = "large wooden cogwheel (2x)"
+	name = "large wooden cogwheel (3x)"
 	category = "Rotational"
 	display_category = ITEM_CAT_ENG_MACHINERY
 	result = list(
+		/obj/item/rotation_contraption/large_cog,
 		/obj/item/rotation_contraption/large_cog,
 		/obj/item/rotation_contraption/large_cog,
 	)
@@ -851,10 +855,15 @@
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/engineering/rails
-	name = "minecart rails (20x)"
+	name = "minecart rails (25x)"
 	category = "Minecarts"
 	display_category = ITEM_CAT_ENG_CONSTRUCTION
 	result = list(
+		/obj/item/rotation_contraption/minecart_rail,
+		/obj/item/rotation_contraption/minecart_rail,
+		/obj/item/rotation_contraption/minecart_rail,
+		/obj/item/rotation_contraption/minecart_rail,
+		/obj/item/rotation_contraption/minecart_rail,
 		/obj/item/rotation_contraption/minecart_rail,
 		/obj/item/rotation_contraption/minecart_rail,
 		/obj/item/rotation_contraption/minecart_rail,
@@ -926,10 +935,12 @@
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/engineering/roller
-	name = "rollers (2x)"
+	name = "rollers (4x)"
 	category = "Minecarts"
 	display_category = ITEM_CAT_ENG_CONSTRUCTION
 	result = list(
+		/obj/item/rotation_contraption/roller,
+		/obj/item/rotation_contraption/roller,
 		/obj/item/rotation_contraption/roller,
 		/obj/item/rotation_contraption/roller,
 	)
@@ -957,6 +968,22 @@
 	verbage = "engineers"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 5
+
+/datum/crafting_recipe/roguetown/engineering/autogrinder
+	name = "autogrinder"
+	category = "Machines"
+	display_category = ITEM_CAT_ENG_MACHINERY
+	result = /obj/structure/autogrinder
+	reqs = list(
+		/obj/item/roguegear = 3,
+		/obj/item/ingot/iron = 2,
+		/obj/item/natural/wood/plank = 4,
+		/obj/item/natural/stone = 4,
+	)
+	verbage_simple = "engineer"
+	verbage = "engineers"
+	skillcraft = /datum/skill/craft/engineering
+	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/engineering/infernalengine
 	name = "infernal engine"
@@ -1146,7 +1173,7 @@
 	craftdiff = 4
 
 // ------------ Craftable Traps ----------
-//setting these up as a more "arcane" alternative to trap making done with engineering. 
+//setting these up as a more "arcane" alternative to trap making done with engineering.
 
 /datum/crafting_recipe/roguetown/engineering/rocktrap
 	name = "rock trap (engineered)"

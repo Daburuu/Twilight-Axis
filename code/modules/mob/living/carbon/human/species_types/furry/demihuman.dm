@@ -71,8 +71,8 @@
 		/datum/customizer/bodypart_feature/piercing,
 		/datum/customizer/organ/ears/demihuman,
 		/datum/customizer/organ/horns/demihuman,
-		/datum/customizer/organ/tail/demihuman,
 		/datum/customizer/organ/wings/anthro,
+		/datum/customizer/organ/tail/demihuman,
 		/datum/customizer/organ/neck_feature/anthro,
 		/datum/customizer/organ/testicles/anthro,
 		/datum/customizer/organ/penis/anthro,
@@ -97,6 +97,9 @@
 		/datum/body_marking/bangs,
 		/datum/body_marking/bun,
 		/datum/body_marking/gradient,
+		/datum/body_marking/waist,
+		/datum/body_marking/womb_tattoo,
+		/datum/body_marking/butterfly
 	)
 	descriptor_choices = list(
 		/datum/descriptor_choice/trait,
@@ -112,7 +115,7 @@
 		/datum/descriptor_choice/prominent_three_wild,
 		/datum/descriptor_choice/prominent_four_wild,
 	)
-	
+
 /datum/species/demihuman/check_roundstart_eligible()
 	return TRUE
 

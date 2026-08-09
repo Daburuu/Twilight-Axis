@@ -8,7 +8,7 @@
 	min_pq = 2
 	cmode_music = 'sound/music/combat_blackstar.ogg'
 	subclass_languages = list(/datum/language/raneshi)
-	category_tags = list(CTAG_MERCENARY)
+	category_tags = list(CTAG_MERCENARY, CTAG_MERCPARTY_BULWARK)
 	traits_applied = list(TRAIT_NOPAINSTUN, TRAIT_CRITICAL_RESISTANCE) // We're going back to the original gimmick of Forlorn Hope, having Critical Resistance
 	// Since we demoted them to light armor, I think it is fair they have access to expert weapons as that is also the unarmed barbarian gimmick
 	// And unarmed now have weapons in AP's new meta. So nothing wrong with it.
@@ -42,7 +42,7 @@
 	..()
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	neck = /obj/item/clothing/neck/roguetown/gorget/forlorncollar
-	head = /obj/item/clothing/head/roguetown/helmet/heavy/volfplate
+	head = /obj/item/clothing/head/roguetown/helmet/heavy/volfplate/light
 	pants = /obj/item/clothing/under/roguetown/brigandinelegs		// They're brigandinejaks. ergo have them start w/the whole thing
 	gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/brigandine		// They're brigandinejaks. ergo have them start w/the whole thing
@@ -100,4 +100,4 @@
 		if("Militia Goedendag (Pair)")
 			H.put_in_hands(new /obj/item/rogueweapon/woodstaff/militia)
 			H.equip_to_slot_or_del(new /obj/item/rogueweapon/woodstaff/militia, SLOT_BACK_L)
-			H.adjust_skillrank_up_to(/datum/skill/combat/staves, SKILL_LEVEL_EXPERT)
+			H.adjust_skillrank_up_to(/datum/skill/combat/polearms, SKILL_LEVEL_EXPERT)

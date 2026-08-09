@@ -4,7 +4,7 @@
 	Join the local Soilsmen at their farm, or make your own little orchard."
 	allowed_sexes = list(MALE, FEMALE)
 	forbidden_races = list(RACES_DESPISED)
-	
+
 	outfit = /datum/outfit/job/roguetown/adventurer/peasant
 	cmode_music = 'sound/music/cmode/towner/combat_towner2.ogg'
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
@@ -28,7 +28,7 @@
 
 /datum/outfit/job/roguetown/adventurer/peasant/pre_equip(mob/living/carbon/human/H)
 	..()
-	belt = /obj/item/storage/belt/rogue/leather/rope
+	belt = /obj/item/storage/belt/rogue/leather/rope/upgraded
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 	pants = /obj/item/clothing/under/roguetown/trou
 	head = /obj/item/clothing/head/roguetown/cap
@@ -48,7 +48,6 @@
 						/obj/item/seeds/apple=1,
 						/obj/item/ash=1,
 						/obj/item/flashlight/flare/torch = 1,
-						/obj/item/recipe_book/survival = 1,
 						/obj/item/rogueweapon/scabbard/sheath = 1
 						)
 	beltl = /obj/item/rogueweapon/sickle

@@ -30,6 +30,8 @@ Credit dupes that require a lot of manual work shouldn't be removed, unless they
 	var/static_price = FALSE
 	var/looted = FALSE
 	var/no_loot_taint = FALSE
+	/// An item spawned via the handle_special_items_retrieval proc, that is not triumph
+	var/special_item = FALSE
 
 /atom/movable/proc/randomize_price()
 	if(sellprice)
@@ -39,9 +41,11 @@ Credit dupes that require a lot of manual work shouldn't be removed, unless they
 	return sellprice
 
 /atom/movable/proc/get_real_price()
+	if (special_item)
+		return 0
 	if(sellprice == initial(sellprice))
 		randomize_price()
-	if(!sellprice && initial(sellprice) == 0)
+	if(!static_price && !sellprice && initial(sellprice) == 0)
 		var/derived = GLOB.derived_sellprices?[type]
 		if(!derived)
 			derived = lookup_derived_subtype_price(type)

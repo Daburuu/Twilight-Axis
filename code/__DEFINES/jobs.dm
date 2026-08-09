@@ -19,6 +19,8 @@
 
 #define JOB_DISPLAY_ORDER_DEFAULT 0
 
+#define HOMESTEADER_TITLE_COOLDOWN (15 MINUTES)
+
 #define NOBLEMEN			(1<<0)
 
 #define LORD		(1<<0)
@@ -84,7 +86,6 @@
 #define APOTHECARY	(1<<5)
 #define INNKEEPER	(1<<6)
 #define BATHMASTER	(1<<7)
-#define CRIER		(1<<8)
 #define APPRENTICE	(1<<9) //Readd the mage part if you are going to add any other role that uses this tag or use ASSOCIATE to avoid weird spacing.
 #define MAYOR	(1<<10) //TA_EDIT
 #define BAILIFF	(1<<11) //TA_EDIT
@@ -233,7 +234,6 @@
 #define JDO_APOTHECARY 6.5
 #define JDO_INNKEEPER 6.6
 #define JDO_BATHMASTER 6.7
-#define JDO_CRIER 6.8
 #define JDO_APPRENTICE 6.9
 #define JDO_MAYOR 7.0 //TA_EDIT
 #define JDO_BAILIFF 7.1 //TA_EDIT
@@ -294,7 +294,7 @@
 	"Martyr", \
 )
 
-// START OF THE ECONOMY SECTION 
+// START OF THE ECONOMY SECTION
 #define ECONOMIC_RICH rand(120, 140)
 #define ECONOMIC_UPPER_CLASS rand(100, 120)
 #define ECONOMIC_UPPER_MIDDLE_CLASS rand(80, 100)
@@ -304,3 +304,5 @@
 #define ECONOMIC_DESTITUTE rand(0, 6)
 #define ECONOMIC_LETSGOGAMBLING pick(ECONOMIC_DESTITUTE, ECONOMIC_DESTITUTE, ECONOMIC_DESTITUTE, ECONOMIC_WORKING_CLASS, ECONOMIC_WORKING_CLASS, ECONOMIC_WORKING_CLASS, ECONOMIC_WORKING_CLASS, ECONOMIC_RICH)
 // END OF THE ECONOMY SECTION
+
+#define JOB_SUBPREFS_WINDOW_ID "job_subprefs"

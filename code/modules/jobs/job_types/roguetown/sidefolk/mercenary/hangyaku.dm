@@ -6,7 +6,7 @@
 	outfit = /datum/outfit/job/roguetown/mercenary/hangyaku
 	subclass_languages = list(/datum/language/kazengunese)
 	class_select_category = CLASS_CAT_KAZENGUN
-	category_tags = list(CTAG_MERCENARY)
+	category_tags = list(CTAG_MERCENARY, CTAG_MERCPARTY_VANGUARD)
 	traits_applied = list(TRAIT_NOBLE) //i hate nobles but it's thematic
 	noble_income = 15
 	cmode_music = 'sound/music/combat_Kazengun_Firestorm.ogg'
@@ -41,7 +41,7 @@
 	has_loadout = TRUE
 	to_chat(H, span_warning("Rebel. Outlaw. Failure. Once, you served the upper echelons of Kazengun society as more than just a 'knight'- you were a champion, a beacon of virtue, a legend in the making. Now you wander distant Psydonia, seeking a fresh start... or fresh coin, at least."))
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/kabuto
-	belt = /obj/item/storage/belt/rogue/leather/cloth
+	belt = /obj/item/storage/belt/rogue/leather/cloth/upgraded
 	neck = /obj/item/clothing/neck/roguetown/gorget/steel/kazengun
 	cloak = /obj/item/clothing/cloak/kazengun
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced/kazengun
@@ -108,8 +108,11 @@
 	outfit = /datum/outfit/job/roguetown/mercenary/chonin
 	subclass_languages = list(/datum/language/kazengunese)
 	class_select_category = CLASS_CAT_KAZENGUN
-	category_tags = list(CTAG_MERCENARY)
-	traits_applied = list(TRAIT_DECEIVING_MEEKNESS, TRAIT_MEDIUMARMOR) //peasant levy turned mercenary. the underdog.
+	category_tags = list(CTAG_MERCENARY, CTAG_MERCPARTY_VANGUARD)
+	traits_applied = list(TRAIT_MEDIUMARMOR) //peasant levy turned mercenary. the underdog.
+	subclass_virtues = list(
+		/datum/virtue/combat/guarded
+	)
 	cmode_music = 'sound/music/combat_kazengite.ogg'
 	subclass_stats = list(
 		STATKEY_STR = 2,

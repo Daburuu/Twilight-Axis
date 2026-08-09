@@ -190,7 +190,7 @@
 			return
 
 		var/prename = held_items[matches[1]]["NAME"]
-		var/newname = input(usr, "SET A NEW NAME FOR THIS PRODUCT", src, prename)
+		var/newname = sanitize(input(usr, "SET A NEW NAME FOR THIS PRODUCT", src, prename))
 		// explicit null check: input returns null on cancel; empty string allowed? we block empty.
 		if(newname != null && newname != "")
 			for(var/obj/item/I in matches)
@@ -553,6 +553,19 @@
 	. = ..()
 
 	for (var/X in list(/obj/item/roguekey/manor/servant, /obj/item/roguekey/manor/servant/two, /obj/item/roguekey/manor/servant/three, /obj/item/roguekey/manor/servant/four, /obj/item/roguekey/manor/servant/five, /obj/item/roguekey/manor/servant/six))
+		var/obj/P = new X(src)
+		held_items[P] = list()
+		held_items[P]["NAME"] = P.name
+		held_items[P]["PRICE"] = 0
+
+/obj/structure/roguemachine/vendor/inq_keys
+	keycontrol = "puritan"
+	will_hawk = FALSE
+
+/obj/structure/roguemachine/vendor/inq_keys/Initialize()
+	. = ..()
+
+	for (var/X in list(/obj/item/roguekey/ortho_one, /obj/item/roguekey/ortho_two, /obj/item/roguekey/ortho_three))
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name

@@ -1,5 +1,6 @@
 // Raw meat from land animals.
 /obj/item/reagent_containers/food/snacks/rogue/meat
+	dish_type = DISH_MEAT
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_HALF_MEAL)
 	name = "meat"
@@ -33,6 +34,7 @@
 
 /* ............. Generic Steak ................*/
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak
+	cuisine = CUISINE_NORTH_IMPERIAL
 	ingredient_size = 2
 	name = "raw meat"
 	icon_state = "meatsteak"
@@ -49,6 +51,7 @@
 
 /* ............. Pork (Fatty Sprite) ................*/
 /obj/item/reagent_containers/food/snacks/rogue/meat/fatty //pork
+	cuisine = CUISINE_NORTH_IMPERIAL
 	name = "raw pigflesh"
 	icon_state = "pork"
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/fatty/roast
@@ -60,6 +63,7 @@
 
 /* ............. Pork Belly ................*/
 /obj/item/reagent_containers/food/snacks/rogue/meat/pork_belly
+	cuisine = CUISINE_NORTH_IMPERIAL
 	name = "pork belly"
 	icon_state = "pork_belly"
 	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_FULL_MEAL)
@@ -70,6 +74,7 @@
 
 /* ............. Bacon ................*/
 /obj/item/reagent_containers/food/snacks/rogue/meat/bacon
+	cuisine = CUISINE_NORTH_IMPERIAL
 	name = "raw bacon"
 	icon_state = "bacon"
 	slice_path = null
@@ -88,10 +93,11 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/spider
 	slices_num = 2
 	cooked_smell = /datum/pollutant/food/fried_spidermeat
-	tastes = list("chitin" = 1, "mild venom" = 1)
+	tastes = list("slimy insectoid" = 1)
 
 /* ............. Whole Bird ................*/
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry
+	dish_type = DISH_POULTRY
 	name = "plucked bird"
 	icon_state = "halfchicken"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet
@@ -115,6 +121,8 @@
 
 /* ............. Crab Meat ................*/
 /obj/item/reagent_containers/food/snacks/rogue/meat/crab
+	cuisine = CUISINE_SOUTH_IMPERIAL
+	dish_type = DISH_SEAFOOD
 	name = "crab meat"
 	desc = "A chunk of raw crab meat, absolutely wonderful."
 	icon_state = "crabmeatraw"
@@ -127,6 +135,7 @@
 
 /* ............. Cabbit Meat ................*/
 /obj/item/reagent_containers/food/snacks/rogue/meat/rabbit
+	cuisine = CUISINE_SOUTH_IMPERIAL
 	name = "raw cabbit meat"
 	icon_state = "cabbitcutlet"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/rabbit
@@ -136,30 +145,42 @@
 	ingredient_size = 1
 
 /* ............. Volf Meat ................*/
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf
+/obj/item/reagent_containers/food/snacks/rogue/meat/wolf
+	cuisine = CUISINE_NORTHERN
+	ingredient_size = 2
+	slices_num = 2
+	slice_bclass = BCLASS_CHOP
 	name = "raw volf meat"
 	icon_state = "volfstrip"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef		//Honestly, we don't need our own minced type on this one.
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf/fried
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf/fried
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/wolf/fried
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/wolf/fried
 
 /* ............. Rous Meat ................*/
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/rat
+/obj/item/reagent_containers/food/snacks/rogue/meat/rat
+	cuisine = CUISINE_NORTHERN
+	ingredient_size = 2
+	slices_num = 2
+	slice_bclass = BCLASS_CHOP
 	name = "raw rous meat"
 	desc = "A delicacy for some races, whilst others will turn up their nose at such... Sewer meat."
 	icon_state = "rat"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef		//Honestly, we don't need our own minced type on this one.
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/rat/fried
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/rat/fried
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/rat/fried
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/rat/fried
 
 /* ............. Bear Meat ................*/
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/bear
+/obj/item/reagent_containers/food/snacks/rogue/meat/bear
+	cuisine = CUISINE_NORTHERN
+	ingredient_size = 2
+	slices_num = 2
+	slice_bclass = BCLASS_CHOP
 	name = "raw bear meat"
 	desc = "Grow some hair on yer chest lad!"
 	icon_state = "bear"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/bear/fried
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/bear/fried
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/bear/fried
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/bear/fried
 
 /* ............. Troll Meat ................*/
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak/troll
@@ -173,6 +194,8 @@
 
 /* ............. fish chop ................*/
 /obj/item/reagent_containers/food/snacks/rogue/meat/fish
+	cuisine = CUISINE_SOUTH_IMPERIAL
+	dish_type = DISH_SEAFOOD
 	name = "fish filet"
 	desc = "A filet of fish. All of them are the same inside."
 	icon_state = "fish_filet"
@@ -185,6 +208,8 @@
 
 /* .........   Shellfish    ................. */
 /obj/item/reagent_containers/food/snacks/rogue/meat/shellfish
+	cuisine = CUISINE_SOUTH_IMPERIAL
+	dish_type = DISH_SEAFOOD
 	name = "shellfish meat"
 	desc = "Meat from a crustacean. Salty with a different texture than most fishmeat. Chop to create mince, bake or fry to make fried shellfish meat"
 	icon_state = "shellfish_meat"
@@ -217,6 +242,8 @@
 	name = "minced meat"
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish
+	cuisine = CUISINE_SOUTH_IMPERIAL
+	dish_type = DISH_SEAFOOD
 	name = "minced fish"
 	icon_state = "fishmince"
 
@@ -225,15 +252,18 @@
 	icon_state = "spidermince"
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/rabbit
+	cuisine = CUISINE_SOUTH_IMPERIAL
 	name = "minced cabbit"
 	icon_state = "meatmince"
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry
+	dish_type = DISH_MEAT|DISH_POULTRY
 	name = "minced poultry"
 	icon_state = "meatmince"
 	cooked_smell = /datum/pollutant/food/cooked_chicken
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage
+	cuisine = CUISINE_NORTH_IMPERIAL
 	name = "raw sausage"
 	icon_state = "raw_sausage"
 	ingredient_size = 1
@@ -260,6 +290,8 @@
 
 /* ............. fish chop ................*/
 /obj/item/reagent_containers/food/snacks/rogue/meat/fish
+	cuisine = CUISINE_SOUTH_IMPERIAL
+	dish_type = DISH_SEAFOOD
 	name = "fish filet"
 	desc = "A filet of fish. All of them are the same inside."
 	icon_state = "fish_filet"
@@ -271,6 +303,8 @@
 
 /* .........   Shellfish    ................. */
 /obj/item/reagent_containers/food/snacks/rogue/meat/shellfish
+	cuisine = CUISINE_SOUTH_IMPERIAL
+	dish_type = DISH_SEAFOOD
 	name = "shellfish meat"
 	desc = "Meat from a crustacean. Salty with a different texture than most fishmeat. Chop to create mince, bake or fry to make fried shellfish meat"
 	icon_state = "shellfish_meat"
@@ -291,6 +325,7 @@
 
 /* ............. Cabbit Meat ................*/
 /obj/item/reagent_containers/food/snacks/rogue/meat/rabbit
+	cuisine = CUISINE_SOUTH_IMPERIAL
 	name = "raw cabbit meat"
 	icon_state = "cabbitcutlet"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/rabbit
@@ -300,13 +335,17 @@
 	ingredient_size = 1
 
 /* ............. Volf Meat ................*/
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf
+/obj/item/reagent_containers/food/snacks/rogue/meat/wolf
+	cuisine = CUISINE_NORTHERN
+	ingredient_size = 2
+	slices_num = 2
+	slice_bclass = BCLASS_CHOP
 	name = "raw volf meat"
 	desc = "Meat taken from a volf. Stringy, tough, and gamey - but edible."
 	icon_state = "volfstrip"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef		//Honestly, we don't need our own minced type on this one.
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf/fried
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf/fried
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/wolf/fried
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/wolf/fried
 
 // Do NOT add this to the stockpile, they have other uses and are unique in how they're obtained.
 /* ............. Gnoll Meat ................*/
@@ -408,27 +447,33 @@
 	foodtype = MEAT
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	cooked_smell = /datum/pollutant/food/fried_mushroom
-	tastes = list("wyvern" = 1, "natural gas" = 1)
+	tastes = list("wyvern and natural gas" = 1)
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/mushroom/cooked/fried
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/mushroom/cooked
 
 /* ............. Humanoid Meat ................*/
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/humanoid
+/obj/item/reagent_containers/food/snacks/rogue/meat/humanoid
+	ingredient_size = 2
+	slices_num = 2
+	slice_bclass = BCLASS_CHOP
 	name = "raw long pig"
-	desc = "Meat taken from some unfortunate individual. Why does it smell so right?"
+	desc = "Perfect cut of swine flesh, raw and ready to be steamed. It seems oddly longer than a swine limb's length, however."
 	icon_state = "longpig"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/humanoid
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/humanoid/fried
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/humanoid/fried
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/humanoid/fried
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/humanoid/fried
 	cooked_smell = /datum/pollutant/food/humanoid
+	tastes = list("pork(?)" = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/humanoid
 	name = "minced long pig"
-	desc = "Tasty mince! Wait a second..."
+	desc = "Meat sliced many times both with and against the grain, producing a fine mince. Oh wait a minute..."
 	icon_state = "longpigmince"
+	tastes = list("minced pork(?)" = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/humanoid_salted
 	name = "salted minced long pig"
-	desc = "Tasty mince! Wait a second..."
+	desc = "Meat sliced many times both with and against the grain, producing a fine mince. Blend with a suitable amount of salt. Oh wait a minute..."
 	icon_state = "pigsalt"
 	rotprocess = SHELFLIFE_LONG
+	tastes = list("salted pork(?)" = 1)

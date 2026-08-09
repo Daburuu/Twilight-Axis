@@ -16,7 +16,7 @@
 	if(!user.has_hand_for_held_index(user.active_hand_index, TRUE)) //we obviously have a hadn, but we need to check for fingers/prosthetics
 		to_chat(user, span_warning("I can't move the fingers."))
 		return
-	if(!istype(src, /obj/item/grabbing) && !istype(src, /obj/item/rogueweapon/werewolf_claw))
+	if(!istype(src, /obj/item/grabbing) && !istype(src, /obj/item/rogueweapon/werewolf_claw) && !istype(src, /obj/item/bodypart)) //Limbs/Claws are fine
 		if(HAS_TRAIT(user, TRAIT_CHUNKYFINGERS))
 			to_chat(user, span_warning("...What?"))
 			return
@@ -28,13 +28,19 @@
 		// even less aggressive; allows use of tools but not weapons
 		if(HAS_TRAIT(user, TRAIT_TINYPAWS))
 			var/obj/item/rogueweapon/weapon = src
-			if(istype(weapon) && !weapon.is_tool)
-				to_chat(user, span_warning("I am too small to properly wield a weapon."))
-				return
+			if(istype(weapon) && (!weapon.is_tool || ismob(target)))
+				var/exception = FALSE
+				if(weapon.is_tool && istype(user, /mob/living/carbon/human/species/familiar/elemental))
+					var/datum/action/cooldown/spell/arcyne_forge/elementalt2/spell = user.mind?.get_spell(/datum/action/cooldown/spell/arcyne_forge/elementalt2, TRUE)
+					if(spell && (spell.conjured_item == src))
+						exception = TRUE // elemental familiars can swing, but ONLY their conjured shittyiron weapons.
+				if(!exception)
+					to_chat(user, span_warning("I am too small to properly wield a weapon."))
+					return
 		// Uniquely reskinned variant, for those who don't happen to be familiars.Add a comment on  line R34Add diff commentMarkdown input:  edit mode selected.WritePreviewAdd a suggestionHeadingBoldItalicQuoteCodeLinkUnordered listNumbered listTask listMentionReferenceMore Formatting tools items 0Saved repliesAdd FilesPaste, drop, or click to add filesCancelCommentStart a review
 		if(HAS_TRAIT(user, TRAIT_WEAPONLESS))
 			var/obj/item/rogueweapon/weapon = src
-			if(istype(weapon) && !weapon.is_tool)
+			if(istype(weapon) && (!weapon.is_tool || ismob(target)))
 				to_chat(user, span_warning("I cannot properly wield this weapon."))
 				return
 	if(tool_behaviour && target.tool_act(user, src, tool_behaviour))
@@ -127,12 +133,12 @@
 
 
 	if(item_flags & NOBLUDGEON)
-		return FALSE	
+		return FALSE
 
 	if(force && HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, span_warning("I don't want to harm other living beings!"))
 		return
-	
+
 	if(force && user.has_status_effect(/datum/status_effect/debuff/deadite_grace) && M.mind)
 		to_chat(user, span_warning("Ah, Lux... I calm down considerably, but my hunger only increases."))
 		user.remove_status_effect(/datum/status_effect/debuff/deadite_grace)
@@ -168,7 +174,7 @@
 		if(user.add_swingdelay(cached_intent))
 			sleep(cached_intent.swingdelay)
 
-	// Getting struck w/ /disrupt swingdelay type sets our swing_state to false. 
+	// Getting struck w/ /disrupt swingdelay type sets our swing_state to false.
 	// If we had the effect, but not the bool, we were interrupted. (Or something else went wrong.)
 	if(user.is_swinging() && !user.swing_state)
 		return
@@ -191,6 +197,8 @@
 				if(get_dist(get_turf(user), get_turf(M)) <= user.used_intent.reach)
 					user.do_attack_animation(M, user.used_intent.animname, used_item = src, used_intent = user.used_intent, simplified = TRUE)
 			return
+	if(HAS_TRAIT(user, TRAIT_DUALWIELDER))
+		user.process_dualwield(M, src, null)
 	var/rmb_stam_penalty = 0
 	if(istype(user.rmb_intent, /datum/rmb_intent/strong))
 		rmb_stam_penalty = EXTRA_STAMDRAIN_SWIFSTRONG
@@ -214,7 +222,7 @@
 			user.adjust_blurriness(3)
 			user.adjustBruteLoss(5)
 			user.apply_status_effect(/datum/status_effect/churned, M)
-	
+
 	//Niche signal for post-swingdelay attacks when we want to care about those.
 	_attacker_signal = null
 	_attacker_signal = SEND_SIGNAL(user, COMSIG_MOB_ITEM_ATTACK_POST_SWINGDELAY, M, user, src)
@@ -239,37 +247,12 @@
 
 	SEND_SIGNAL(src, COMSIG_ITEM_ATTACK_SUCCESS, M, user)
 	SEND_SIGNAL(M, COMSIG_ITEM_ATTACKED_SUCCESS, src, user)
-	if(user.zone_selected == BODY_ZONE_PRECISE_R_INHAND)
-		var/offh = 0
-		var/obj/item/W = M.held_items[1]
-		if(W)
-			if(!(M.mobility_flags & MOBILITY_STAND))
-				M.throw_item(get_step(M,turn(M.dir, 90)), offhand = offh)
-			else
-				M.dropItemToGround(W)
-			M.visible_message(span_notice("[user] disarms [M]!"), \
-							span_boldwarning("I'm disarmed by [user]!"))
-			return
-
-	if(user.zone_selected == BODY_ZONE_PRECISE_L_INHAND)
-		var/offh = 0
-		var/obj/item/W = M.held_items[2]
-		if(W)
-			if(!(M.mobility_flags & MOBILITY_STAND))
-				M.throw_item(get_step(M,turn(M.dir, 270)), offhand = offh)
-			else
-				M.dropItemToGround(W)
-			M.visible_message(span_notice("[user] disarms [M]!"), \
-							span_boldwarning("I'm disarmed by [user]!"))
-			return
-
 	if(M.attacked_by(src, user))
-		if(user.used_intent == cached_intent)
-			var/tempsound = user.used_intent.hitsound
-			if(tempsound)
-				playsound(M.loc,  tempsound, 100, FALSE, -1)
-			else
-				playsound(M.loc,  "nodmg", 100, FALSE, -1)
+		var/tempsound = cached_intent?.hitsound
+		if(tempsound)
+			playsound(M.loc, tempsound, 100, FALSE, -1)
+		else
+			playsound(M.loc, "nodmg", 100, FALSE, -1)
 
 		if(M.has_flaw(/datum/charflaw/addiction/thrillseeker))
 			var/datum/component/arousal/CAR = M.GetComponent(/datum/component/arousal)
@@ -283,7 +266,7 @@
 
 		user.changeMaxDodge(2)
 		user.dodgetime = clamp(user.dodgetime - 2, 0, CLICK_CD_DODGE)
-				
+
 	log_combat(user, M, "attacked", src.name, "(INTENT: [uppertext(user.used_intent.name)]) (DAMTYPE: [uppertext(damtype)])")
 
 	execute_cleave(user, get_turf(M), M)
@@ -334,7 +317,13 @@
 	for(var/mob/living/L in living_targets + dead_targets)
 		if(cleave.max_targets && cleave_targets_hit >= cleave.max_targets)
 			break
-		if(L.checkdefense(user.used_intent, user))
+		var/cleave_override
+		var/_receiver_signal = SEND_SIGNAL(L, COMSIG_MOB_ITEM_BEING_ATTACKED, L, user, src)
+		if(_receiver_signal & COMPONENT_ITEM_NO_ATTACK)
+			continue
+		else if(_receiver_signal & COMPONENT_ITEM_NO_DEFENSE)
+			cleave_override = ATTACK_OVERRIDE_NODEFENSE
+		if(cleave_override != ATTACK_OVERRIDE_NODEFENSE && L.checkdefense(user.used_intent, user))
 			continue
 		if(L.attacked_by(src, user))
 			cleave_targets_hit++
@@ -356,7 +345,7 @@
 
 	if(!istype(user))
 		return newforce
-	
+
 	var/dullness_ratio
 	if(I.max_blade_int && I.sharpness != IS_BLUNT)
 		dullness_ratio = I.blade_int / I.max_blade_int
@@ -366,10 +355,6 @@
 		var/mob/living/carbon/C = user
 		if(C.domhand)
 			used_str = C.get_str_arms(C.used_hand)
-	if(ishuman(user))
-		var/mob/living/carbon/human/user_human = user
-		if(user_human.clan) // For each level of potence user gains 0.5 STR, at 5 Potence their STR buff is 2.5
-			used_str += floor(0.5 * user_human.potence_weapon_buff)
 	if(used_str >= 11)
 		var/strmod
 		if(used_str > STRENGTH_SOFTCAP && !HAS_TRAIT(user, TRAIT_STRENGTH_UNCAPPED))
@@ -515,7 +500,7 @@
 		newforce += (I.force_dynamic * STRONG_STANCE_DMG_BONUS)
 
 	if(istype(user.rmb_intent, /datum/rmb_intent/weak))
-		newforce = (newforce * 0.2)
+		newforce = (newforce * WEAK_STANCE_DMG_MULT)
 
 	newforce = CLAMP(newforce, user.used_intent.min_intent_damage, user.used_intent.max_intent_damage)
 
@@ -624,7 +609,7 @@
 
 	if(multiplier)
 		newforce = newforce * multiplier
-	
+
 	take_damage(newforce, I.damtype, I.d_type, 1)
 	if(newforce > 1)
 		I.take_damage(1, BRUTE, I.d_type)
@@ -672,10 +657,6 @@
 		if(BODY_ZONE_PRECISE_STOMACH)
 			return "body"
 		if(BODY_ZONE_PRECISE_GROIN)
-			return "body"
-		if(BODY_ZONE_PRECISE_R_INHAND)
-			return "body"
-		if(BODY_ZONE_PRECISE_L_INHAND)
 			return "body"
 	return "body"
 

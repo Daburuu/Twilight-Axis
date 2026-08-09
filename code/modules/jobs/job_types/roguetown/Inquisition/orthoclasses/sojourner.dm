@@ -6,7 +6,7 @@
 	Where your fists fall short, your wits prevail. Where your magyck falters, your fists answer. \
 	His will be done."
 	allowed_sexes = list(MALE, FEMALE)
-	
+
 	outfit = /datum/outfit/job/roguetown/sojourner
 	subclass_languages = list(/datum/language/otavan, /datum/language/celestial)
 	category_tags = list(CTAG_ORTHODOXIST)
@@ -15,17 +15,18 @@
 		TRAIT_ARCYNE,
 		TRAIT_NALEDI,
 		TRAIT_BLOOD_RESISTANCE,
+		TRAIT_STEELHEARTED,
+		TRAIT_INQUISITION
 	)
 	subclass_stats = list(
-		STATKEY_STR = 1,
-		STATKEY_SPD = 1,
+		STATKEY_STR = 2,
 		STATKEY_WIL = 2,
-		STATKEY_PER = 2,
-		STATKEY_CON = 1
+		STATKEY_CON = 3
 	)
 	subclass_skills = list(
-		/datum/skill/combat/wrestling = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/wrestling = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/combat/unarmed = SKILL_LEVEL_EXPERT,
+		/datum/skill/combat/arcyne = SKILL_LEVEL_EXPERT, // Bare-handed abilities no weapon and read AA. Match unarmed.
 		/datum/skill/misc/swimming = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/climbing = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/athletics = SKILL_LEVEL_JOURNEYMAN,
@@ -35,7 +36,7 @@
 		/datum/skill/magic/holy = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/sneaking = SKILL_LEVEL_JOURNEYMAN,
 	)
-	subclass_mage_aspects = list("mastery" = FALSE, "major" = 0, "minor" = 0, "utilities" = 4)
+	subclass_mage_aspects = list("mastery" = FALSE, "major" = 0, "minor" = 1, "utilities" = 4, ward = TRUE, "locked_aspects" = list(/datum/magic_aspect/autowardry))
 	subclass_stashed_items = list(
 		"The Book" = /obj/item/book/rogue/bibble/psy
 	)
@@ -78,7 +79,7 @@
 
 	switch(sidearm_selected)
 		if("katar")
-			H.put_in_hands(new /obj/item/rogueweapon/katar/psydon/preblessed(H))
+			H.put_in_hands(new /obj/item/rogueweapon/katar/psydon(H))
 		if("knuckledusters")
 			H.put_in_hands(new /obj/item/rogueweapon/knuckledusters/psy(H))
 
@@ -90,7 +91,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/psydonboots
 	neck = /obj/item/clothing/neck/roguetown/psicross/silver/naledi
 	id = /obj/item/clothing/ring/signet/psy/g
-	belt = /obj/item/storage/belt/rogue/leather/rope/dark
+	belt = /obj/item/storage/belt/rogue/leather/rope/upgraded/dark
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
 	backl = /obj/item/storage/backpack/rogue/satchel/black
 	cloak = /obj/item/clothing/cloak/tabard/psydontabard/alt
@@ -101,14 +102,14 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/pontifex
 			shirt = /obj/item/clothing/suit/roguetown/shirt/robe/pointfex //Yes, the item is spelled this way in the code.
 		if("Bare Skin")
-			armor = /obj/item/clothing/suit/roguetown/armor/regenerating/skin/disciple
+			armor = /obj/item/clothing/suit/roguetown/armor/manual/sewable/padded/disciple
 	var/naledi_book = pick(/obj/item/book/rogue/naledi1, /obj/item/book/rogue/naledi2, /obj/item/book/rogue/naledi3, /obj/item/book/rogue/naledi4)
 	backpack_contents = list(
 		/obj/item/roguekey/inquisitionmanor = 1,
 		/obj/item/paper/inqslip/arrival/ortho = 1,
 		/obj/item/roguegem/amethyst/naledi = 1,
 		(naledi_book) = 1,
-		/obj/item/book/spellbook = 1,
+		/obj/item/rogueweapon/spellbook = 1,
 		)
 
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)

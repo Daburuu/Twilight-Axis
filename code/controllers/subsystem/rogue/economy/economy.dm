@@ -207,10 +207,16 @@ SUBSYSTEM_DEF(economy)
 		var/datum/economic_region/region = GLOB.economic_regions[region_id]
 		region.produces_today = list()
 		region.demands_today = list()
+		region.produces_day_start = list()
+		region.demands_day_start = list()
 		for(var/good_id in region.produces)
-			region.produces_today[good_id] = max(1, round(region.produces[good_id] * pop_mult))
+			var/produced_units = max(1, round(region.produces[good_id] * pop_mult))
+			region.produces_today[good_id] = produced_units
+			region.produces_day_start[good_id] = produced_units
 		for(var/good_id in region.demands)
-			region.demands_today[good_id] = max(1, round(region.demands[good_id] * pop_mult))
+			var/demanded_units = max(1, round(region.demands[good_id] * pop_mult))
+			region.demands_today[good_id] = demanded_units
+			region.demands_day_start[good_id] = demanded_units
 	SStreasury.dirty_market_view()
 
 	var/list/expired = list()
@@ -339,6 +345,7 @@ SUBSYSTEM_DEF(economy)
 		return FALSE
 	var/chosen_path = pick(eligible)
 	var/datum/economic_event/E = new chosen_path()
+	E.ta_apply_realm_flavor() // TA EDIT
 	E.day_started = GLOB.dayspassed
 	E.day_expires = GLOB.dayspassed + E.duration_days
 	GLOB.active_economic_events += E
@@ -414,6 +421,7 @@ SUBSYSTEM_DEF(economy)
 	O.required_items = mix
 	O.name = O.generate_name(region)
 	O.description = O.generate_description(region)
+	O.ta_apply_realm_flavor(region) // TA EDIT
 	O.day_issued = GLOB.dayspassed
 	O.day_expires = GLOB.dayspassed + URGENT_ORDER_DURATION
 	O.total_payout = compute_order_payout(O, region)
@@ -526,6 +534,7 @@ SUBSYSTEM_DEF(economy)
 		O.required_items[good_id] = max(1, round(O.required_items[good_id] * order_size_mult))
 	O.name = O.generate_name(region)
 	O.description = O.generate_description(region)
+	O.ta_apply_realm_flavor(region) // TA EDIT
 	O.day_issued = GLOB.dayspassed
 	O.day_expires = GLOB.dayspassed + STANDING_ORDER_DURATION
 	O.total_payout = compute_order_payout(O, region)
@@ -621,7 +630,7 @@ SUBSYSTEM_DEF(economy)
 		order.is_fulfilled = TRUE
 		GLOB.standing_order_pool -= order
 		if(user)
-			to_chat(user, span_notice("Order Fulfilled: [full_payout]m paid to the Crown's Purse."))
+			to_chat(user, span_notice("Order Fulfilled: [full_payout]m paid to [ta_economy_authority_purse()].")) // TA EDIT
 			if(quality_delta > 0)
 				to_chat(user, span_green("Quality bonus: +[quality_delta]m for above-standard goods."))
 			else if(quality_delta < 0)
@@ -659,7 +668,7 @@ SUBSYSTEM_DEF(economy)
 	order.is_fulfilled = TRUE
 	GLOB.standing_order_pool -= order
 	if(user)
-		to_chat(user, span_notice("Order Settled (Partial): [round(coverage * 100)]% coverage, [payout]m paid to the Crown's Purse ([round(STANDING_ORDER_PARTIAL_PAYOUT_MULT * 100)]% of the delivered share)."))
+		to_chat(user, span_notice("Order Settled (Partial): [round(coverage * 100)]% coverage, [payout]m paid to [ta_economy_authority_purse()] ([round(STANDING_ORDER_PARTIAL_PAYOUT_MULT * 100)]% of the delivered share).")) // TA EDIT
 		if(quality_delta_partial > 0)
 			to_chat(user, span_green("Quality bonus: +[quality_delta_partial]m for above-standard goods."))
 		else if(quality_delta_partial < 0)
@@ -853,7 +862,7 @@ SUBSYSTEM_DEF(economy)
 		return null
 	return SStreasury.stockpile_by_trade_good[good_id]
 
-/datum/controller/subsystem/economy/proc/manual_import(mob/user, region_id, good_id, quantity)
+/datum/controller/subsystem/economy/proc/manual_import(mob/user, region_id, good_id, quantity, stipend = FALSE)
 	var/datum/economic_region/region = GLOB.economic_regions[region_id]
 	if(!region)
 		return 0
@@ -880,12 +889,21 @@ SUBSYSTEM_DEF(economy)
 
 	if(SStreasury.discretionary_fund.balance < total_cost)
 		if(user)
-			to_chat(user, span_warning("Crown's Purse insufficient: [SStreasury.discretionary_fund.balance]m < [total_cost]m."))
+			to_chat(user, span_warning("[ta_economy_authority_purse()] insufficient: [SStreasury.discretionary_fund.balance]m < [total_cost]m.")) // TA EDIT
 		return 0
 
 	var/actor_suffix = user ? " by [user.real_name]" : ""
-	var/import_label = user ? "Manual Import" : "Auto Import"
-	SStreasury.burn(SStreasury.discretionary_fund, total_cost, "[import_label]: [quantity] [tg.name] from [region.name][actor_suffix]")
+	var/import_label
+	if(stipend)
+		import_label = "Subsidy Import"
+	else
+		import_label = user ? "Manual Import" : "Auto Import"
+
+	if(quantity > 1)
+		SStreasury.burn(SStreasury.discretionary_fund, total_cost, "[import_label]: [quantity] [tg.name] from [region.name][actor_suffix]")
+	else
+		SStreasury.burn(SStreasury.discretionary_fund, total_cost, "[import_label]: [tg.name] from [region.name][actor_suffix]")
+
 	region.produces_today[good_id] = produces_today - quantity
 	var/datum/roguestock/stockpile_entry = find_stockpile_by_trade_good(good_id)
 	if(stockpile_entry)
@@ -936,7 +954,6 @@ SUBSYSTEM_DEF(economy)
 	var/export_label = user ? "Manual Export" : "Auto Export"
 	SStreasury.dirty_market_view()
 	SStreasury.mint(SStreasury.discretionary_fund, total_revenue, "[export_label]: [quantity] [tg.name] to [region.name][actor_suffix]")
-	SStreasury.mint(SStreasury.discretionary_fund, total_revenue, "Manual Export: [quantity] [tg.name] to [region.name]")
 	SStreasury.total_export += total_revenue
 	SStreasury.economic_output += total_revenue
 	credit_economic_event_saturation(good_id, quantity)
@@ -1047,3 +1064,67 @@ SUBSYSTEM_DEF(economy)
 		result["fallback_region_id"] = nominal_region_id
 		result["fallback_price"] = round(nominal_price)
 	return result
+
+
+/datum/economic_event/proc/ta_apply_realm_flavor() // TA EDIT START
+	if(ta_economy_default_azurian_labels())
+		return
+	var/current_name = uppertext(name)
+	switch(current_name)
+		if("WHEAT BLIGHT")
+			name = "GRAIN BLIGHT"
+			if(ta_economy_al_ashur_labels())
+				description = "A black rot has crept through the grain stores of oasis granaries and caravan depots."
+			else if(ta_economy_rockhill_labels())
+				description = "A black rot has crept through the grain stores of the Rockhill farms and granaries."
+			else
+				description = "A black rot has crept through the realm's grain stores and granaries."
+		if("SALT-MINE FLOODING")
+			if(ta_economy_al_ashur_labels())
+				name = "SALT-PAN FLOODING"
+				description = "Brackish groundwater has broken through the salt workings, drowning the lower beds and spoiling the pans."
+			else
+				name = "SALT WORKS FLOODING"
+				description = "Groundwater has broken through the salt workings, drowning the lower galleries and spoiling the stores."
+		if("DAIRY SURPLUS")
+			name = "DAIRY SURPLUS"
+			description = "A mild season has flooded the markets with butter and cheese, driving prices below the usual tally."
+		if("TANNERS' PLAGUE")
+			name = "TANNERS' PLAGUE"
+			description = "A skin-rotting sickness has forced the tanneries to dump half-cured hides for burning."
+		if("FOREIGN PIG-IRON GLUT")
+			name = "FOREIGN PIG-IRON GLUT"
+			description = "Foreign factors have dumped surplus ore and pig-iron on the open market. Wagons of iron, copper, and tin roll in below cost."
+		if("UNSEASONAL FUR")
+			name = "UNSEASONAL FUR"
+			description = "Trappers report massive herds migrating through the borderlands - pelts pile in the warehouses."
+		if("SALT CARAVAN ARRIVES")
+			name = "SALT CARAVAN ARRIVES"
+			description = "A distant caravan has rolled in with wagons of salt - prices fall until the reserves clear."
+		if("CIDERING SEASON")
+			if(ta_economy_al_ashur_labels())
+				name = "OASIS FRUIT GLUT"
+				description = "The oasis presses and bazaar stalls groan under a glut of fruit. Vendors dump the excess at any price."
+			else if(ta_economy_rockhill_labels())
+				name = "CIDERING SEASON"
+				description = "The Rockhill presses groan under a glut of fruit. Vendors dump the excess at any price."
+			else
+				name = "ORCHARD SURPLUS"
+				description = "The orchard presses groan under a glut of fruit. Vendors dump the excess at any price."
+
+/datum/standing_order/proc/ta_apply_realm_flavor(datum/economic_region/region)
+	if(ta_economy_default_azurian_labels())
+		return
+	if(!description)
+		return
+	if(findtext(description, "Lord Harlause"))
+		if(ta_economy_al_ashur_labels())
+			description = replacetext(description, "Lord Harlause", "A palace household")
+		else
+			description = replacetext(description, "Lord Harlause", "A noble house")
+		description = replacetext(description, "His house", "Their house")
+	if(ta_economy_al_ashur_labels())
+		description = replacetext(description, "the guild elders", "the caravan elders")
+		description = replacetext(description, "The guild elders", "The caravan elders")
+		description = replacetext(description, "a jeweler at", "a jeweler of")
+		description = replacetext(description, "A jeweler at", "A jeweler of") // TA EDIT END

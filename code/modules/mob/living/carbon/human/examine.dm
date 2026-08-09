@@ -30,10 +30,13 @@
 	var/origin_name = "<a href='?src=[REF(src)];origin_lore=1'><u>[dna.species.origin]</u></A>"
 	var/datum/antagonist/maniac/maniac = user.mind?.has_antag_datum(/datum/antagonist/maniac)
 	var/datum/antagonist/skeleton/skeleton = user.mind?.has_antag_datum(/datum/antagonist/skeleton)
+	var/datum/antagonist/zombie/zombie = user.mind?.has_antag_datum(/datum/antagonist/zombie)
 	if(maniac && (user != src))
 		race_name = "disgusting pig"
 	if(skeleton && (user != src))
 		race_name = "[pick("shambling", "taut", "decrepit")]"
+	if(zombie && (user != src))
+		race_name = "[pick("shambling thing", "taut thing", "decrepit thing", "wyrd thing", "UHHHHHHH...")]" //UHHHHH... zombie has to think moment
 
 	var/m1 = "[t_He] [t_is]"
 	var/m2 = "[t_his]"
@@ -76,25 +79,16 @@
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 	if(HAS_TRAIT(user, TRAIT_ROYALSERVANT))
 		var/datum/job/our_job = SSjob.name_occupations[job]
-		if(length(culinary_preferences) && is_type_in_list(our_job, list(/datum/job/roguetown/lord, /datum/job/roguetown/lady, /datum/job/roguetown/exlady, /datum/job/roguetown/prince)))
-			var/obj/item/reagent_containers/food/snacks/fav_food = src.culinary_preferences[CULINARY_FAVOURITE_FOOD]
-			var/datum/reagent/consumable/fav_drink = src.culinary_preferences[CULINARY_FAVOURITE_DRINK]
-			if(fav_food)
-				if(fav_drink)
-					. += span_notice("Their favourites are [fav_food.name] and [fav_drink.name].")
-				else
-					. += span_notice("Their favourite is [fav_food.name].")
-			else if(fav_drink)
-				. += span_notice("Their favourite is [fav_drink.name].")
-			var/obj/item/reagent_containers/food/snacks/hated_food = src.culinary_preferences[CULINARY_HATED_FOOD]
-			var/datum/reagent/consumable/hated_drink = src.culinary_preferences[CULINARY_HATED_DRINK]
-			if(hated_food)
-				if(hated_drink)
-					. += span_notice("They hate [hated_food.name] and [hated_drink.name].")
-				else
-					. += span_notice("They hate [hated_food.name].")
-			else if(hated_drink)
-				. += span_notice("They hate [hated_drink.name].")
+		if(is_type_in_list(our_job, list(/datum/job/roguetown/lord, /datum/job/roguetown/lady, /datum/job/roguetown/exlady, /datum/job/roguetown/prince)))
+			var/list/tastes = list()
+			if(favorite_cuisine)
+				tastes += "[culinary_flag_name(GLOB.culinary_cuisines, favorite_cuisine)] cuisine"
+			if(favorite_dish)
+				tastes += culinary_flag_name(GLOB.culinary_dishes, favorite_dish)
+			if(favorite_drink)
+				tastes += culinary_flag_name(GLOB.culinary_drinks, favorite_drink)
+			if(length(tastes))
+				. += span_notice("They have a taste for [english_list(tastes)].")
 
 	var/is_stupid = FALSE
 	var/is_smart = FALSE
@@ -114,6 +108,13 @@
 			if(HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS))
 				guarded = TRUE
 
+	if(HAS_TRAIT(src, TRAIT_DEADITE)) //Zombies always show up as deadites to others even behind masks
+		. += span_userdanger("DEADITE!") //Below this is an OOC hint, it AIN'T METAGAMING, you can TELL very clearly what this abomination is.
+		. += span_warning("Uneasy steps, the sound of profane flesh and bone knitting itself and a stench of rot. A walking corpse!")
+
+	if(HAS_TRAIT(user, TRAIT_DEADITE) && !HAS_TRAIT(src, TRAIT_ZOMBIE_IMMUNE) && src.stat == CONSCIOUS) //Zombies get some messed up examines on non-zombie immune people that aren't KO'd.
+		. += span_narsie(pick("KILL IT. KILL IT", "FLESH. HUNGER.", "KILL. CONSUME.", "CONSUME.", "KILL THE RASPING THING.", "HUNGER.", "EAT IT.", "MUST HAVE FLESH."))
+
 	if(user != src)
 		var/datum/mind/Umind = user.mind
 		if(Umind && mind)
@@ -124,6 +125,20 @@
 						. += shit
 		if(user.mind?.has_antag_datum(/datum/antagonist/vampire) || user.mind?.has_antag_datum(/datum/antagonist/vampire))
 			. += span_userdanger("<a href='?src=[REF(src)];task=bloodpoolinfo;'>Vitae: [(mind && !clan) ? (bloodpool * CLIENT_VITAE_MULTIPLIER) : bloodpool]; Blood: [blood_volume]</a>")
+
+	/*if(SSmapping.config.map_name == "Desert Town")
+		var/species_origin = src.dna?.species?.origin
+		var/mob/living/carbon/human/H_user = ishuman(user) ? user : null
+		var/user_origin = H_user?.dna?.species?.origin
+			var/user_is_lg = H_user.mind?.has_antag_datum(/datum/antagonist/bandit/lost_grenzel) // Lost Grenzel comment
+			var/target_is_lg = mind?.has_antag_datum(/datum/antagonist/bandit/lost_grenzel)
+
+			if(user_is_lg && species_origin == "Grenzelhoft" && !target_is_lg)
+				. += span_userdanger("<b>ПОДЛЫЙ ПРЕДАТЕЛЬ!</b>")
+			if(target_is_lg && user_origin == "Grenzelhoft" && !user_is_lg)
+				. += span_userdanger("<b>ОБЕЗУМЕВШИЙ В ПЕСКАХ!</b>")
+		if(mind?.has_antag_datum(/datum/antagonist/bandit/lost_grenzel) && !HAS_TRAIT(user, TRAIT_OUTLANDER))
+			. += span_userdanger("<b>НАЛЁТНИЧЕСКАЯ МРАЗЬ, ДЕТОУБИЙЦА!</b>")*/ // Lost Grenzel comment
 
 
 	if(HAS_TRAIT(src, TRAIT_NPC_EXAMINE) && !mind && src.stat == CONSCIOUS) //NPCs always show up if they're mindless.
@@ -216,8 +231,6 @@
 		str += backl.integrity_check(is_smart, guarded)
 		. += str
 
-	if((HAS_TRAIT(src, TRAIT_OUTLANDER) && !HAS_TRAIT(user, TRAIT_OUTLANDER)) || (HAS_TRAIT(user, TRAIT_BLACKOAK) && !(src.dna.species.name == "Elf" || src.dna.species.name == "Dark Elf" || src.dna.species.name == "Half Elf"))) //TA EDIT
-		. += span_phobia("A foreigner...") //TA EDIT
 
 	// Knotted effect message
 	if(has_status_effect(/datum/status_effect/knot_tied))
@@ -409,6 +422,9 @@
 	if(effect && HAS_TRAIT(user, TRAIT_INQUISITION))
 		. += "<A href='?src=[REF(src)];item=[effect.device]'><span class='warning'>[m3] \a [effect.device] implanted.</span></A>"
 
+	if(HAS_TRAIT(src, TRAIT_SILVER_BLESSED) && user.mind?.has_antag_datum(/datum/antagonist/vampire))
+		. += span_redtext("SILVER-BLOODED...")
+
 
 	var/showassess = FALSE
 	if(ishuman(user))
@@ -474,6 +490,7 @@
 //	if(length(rumour) || length(noble_gossip)) TA EDIT START
 //		if(!obscure_name || (obscure_name && client?.prefs.masked_examine) || observer_privilege)
 //			. += "<a href='?src=[REF(src)];task=view_rumours_gossip;'>Recall Rumours & Gossip</a>" TA EDIT END
+
 
 
 	//Gets encapsulated with a warning span
@@ -670,12 +687,12 @@
 					msg += "[m1] a shitfaced, slobbering wreck."
 
 			//Deadened
-			if(HAS_TRAIT(user, TRAIT_EMPATH) && HAS_TRAIT(src, TRAIT_DETACHED))
+			if(user.has_empath_for(src) && HAS_TRAIT(src, TRAIT_DETACHED))
 				msg += "[m1] completely hollow inside, radiating a deep, tragic silence."
 
 			//Stress
 			var/stress = get_stress_amount()
-			if(HAS_TRAIT(user, TRAIT_EMPATH))
+			if(user.has_empath_for(src))
 				switch(stress)
 					if(20 to INFINITY)
 						msg += "[m1] extremely stressed."
@@ -703,13 +720,16 @@
 
 		if(InCritical())
 			msg += span_warning("[m1] barely conscious.")
-		else
-			if(stat >= UNCONSCIOUS)
-				msg += "[m1] [IsSleeping() ? "sleeping" : "unconscious"].[client && ((world.time - disconnected_at) > 120 SECONDS) ? "" : " <b>[m1] won't be able to wake up soon. [m1] been like this for about [ceil(((world.time - disconnected_at)/10)/60)] minutes.</b>"]"
-			else if(eyesclosed)
-				msg += "[capitalize(m2)] eyes are closed."
-			else if(has_status_effect(/datum/status_effect/debuff/sleepytime))
-				msg += "[m1] looking a little tired."
+		else if(stat >= UNCONSCIOUS)
+			msg += "[m1] [IsSleeping() ? "sleeping" : "unconscious"]."
+		else if(eyesclosed)
+			msg += "[capitalize(m2)] eyes are closed."
+		else if(has_status_effect(/datum/status_effect/debuff/sleepytime))
+			msg += "[m1] looking a little tired."
+
+		if(key && !client && disconnected_at)
+			var/disconnected_minutes = max(0, ceil((world.time - disconnected_at) / (1 MINUTES)))
+			msg += "<b>[m1] won't be able to wake up soon. [m1] been like this for about [disconnected_minutes] minute[disconnected_minutes == 1 ? "" : "s"].</b>"
 	else
 		msg += "[m1] unconscious."
 //		else
@@ -789,6 +809,18 @@
 			. += span_warning(phys_msg)
 		else
 			. += phys_msg
+
+		if(HAS_TRAIT(src, TRAIT_SLAVE)) // TA EDIT
+			var/slave_descriptor
+			switch(pronouns)
+				if(HE_HIM)
+					slave_descriptor = "Он всего лишь жалкий раб..."
+				if(SHE_HER)
+					slave_descriptor = "Она всего лишь жалкая рабыня..."
+				else
+					slave_descriptor = "Это всего лишь жалкий раб..."
+			if(slave_descriptor)
+				. += span_warning(slave_descriptor) // TA EDIT
 
 	if((HAS_TRAIT(user,TRAIT_INTELLECTUAL)))
 		var/mob/living/L = user
@@ -954,7 +986,16 @@
 				if(issunelf(src) || patron?.type == /datum/patron/divine/astrata)
 					astratan_symbol = icon2html('icons/misc/language.dmi', world, "celestial")
 					astratan_tooltip = SPAN_TOOLTIP("One of Astrata's [issunelf(src) ? "chosen" : "followers"]", astratan_symbol)
-		. += span_info("[pronoun] [wording] [origin]. [astratan_tooltip]")	//"He hails from [X / Nowhere]" || "His [word] originates from [X]" || "His [word] is implacable..."
+		var/origin_suffix = ""
+		if(SSmapping.config.map_name == "Desert Town")
+			var/species_origin = dna?.species?.origin
+			var/mob/living/carbon/human/H_user = ishuman(user) ? user : null
+			var/user_origin = H_user?.dna?.species?.origin
+			if(species_origin == "Grenzelhoft" && !HAS_TRAIT(user, TRAIT_OUTLANDER) && user_origin != "Grenzelhoft")
+				origin_suffix = " <span class='warning' style='font-size: inherit !important; font-weight: inherit !important;'>Имперский кафир!</span>"
+			else if(H_user && user_origin == "Grenzelhoft" && (species_origin == "Raneshan" || species_origin == "Naledi" || species_origin == "Zybantu"))
+				origin_suffix = " <span class='warning' style='font-size: inherit !important; font-weight: inherit !important;'>Зибантийский швайнехунд!</span>"
+		. += span_info("[pronoun] [wording] [origin].[origin_suffix] [astratan_tooltip]")	//"He hails from [X / Nowhere]" || "His [word] originates from [X]" || "His [word] is implacable..."
 
 		if(HAS_TRAIT(src, TRAIT_WITCH))
 			if(HAS_TRAIT(user, TRAIT_NOBLE) || HAS_TRAIT(user, TRAIT_INQUISITION) || HAS_TRAIT(user, TRAIT_WITCH))
@@ -964,10 +1005,10 @@
 			else
 				. += span_notice("Something about them seems... different.")
 
-		if((HAS_TRAIT(user, TRAIT_ANCIENT_HAG) || HAS_TRAIT(user, TRAIT_FEYTOUCHED) || istype(user, /mob/living/simple_animal/pet/familiar/fae)) && HAS_TRAIT(src, TRAIT_FEYTOUCHED))
+		if((HAS_TRAIT(user, TRAIT_ANCIENT_HAG) || HAS_TRAIT(user, TRAIT_FEYTOUCHED) || istype(user, /mob/living/carbon/human/species/familiar/fae)) && HAS_TRAIT(src, TRAIT_FEYTOUCHED))
 			. += span_nicegreen("Someone touched by, or created by fey. Perhaps a vessel of the past, or a deeply affected puppet.")
 
-		if((HAS_TRAIT(user, TRAIT_FEYTOUCHED) ||  istype(user, /mob/living/simple_animal/pet/familiar/fae)) && HAS_TRAIT(src, TRAIT_ANCIENT_HAG))
+		if((HAS_TRAIT(user, TRAIT_FEYTOUCHED) ||  istype(user, /mob/living/carbon/human/species/familiar/fae)) && HAS_TRAIT(src, TRAIT_ANCIENT_HAG))
 			. += span_nicegreen("A true force of the fey, the mossmother speaks to this one closely.")
 
 		if(SSticker.rulermob == src)
@@ -975,11 +1016,12 @@
 		else if(GLOB.lord_titles[name])
 			. += span_notice("[m3] been granted the title of \"[GLOB.lord_titles[name]]\".")
 
-		if(HAS_TRAIT(src, TRAIT_NOBLE) || HAS_TRAIT(src, TRAIT_DEFILED_NOBLE))
-			if(HAS_TRAIT(user, TRAIT_NOBLE) || HAS_TRAIT(user, TRAIT_DEFILED_NOBLE))
-				. += span_notice("A fellow noble.")
-			else
-				. += span_notice("A noble!")
+		if(show_descriptors)
+			if(HAS_TRAIT(src, TRAIT_NOBLE) || HAS_TRAIT(src, TRAIT_DEFILED_NOBLE))
+				if(HAS_TRAIT(user, TRAIT_NOBLE) || HAS_TRAIT(user, TRAIT_DEFILED_NOBLE))
+					. += span_notice("A fellow noble.")
+				else
+					. += span_notice("A noble!")
 
 		if(HAS_TRAIT(src, TRAIT_RESIDENT))
 			. += span_notice("A chartered resident.")
@@ -1025,6 +1067,9 @@
 		if(src.job in GLOB.inquisition_positions)
 			. += span_notice("An adherent of the Holy Otavan Inquisition.")
 
+		if((HAS_TRAIT(src, TRAIT_OUTLANDER) && !HAS_TRAIT(user, TRAIT_OUTLANDER))) //TA EDIT
+			. += span_boldred("A foreigner...") //TA EDIT
+
 		if((HAS_TRAIT(user, TRAIT_BLACKOAK) && !(src.dna.species.name == "Elf" || src.dna.species.name == "Dark Elf" || src.dna.species.name == "Half-Elf")))
 			. += span_phobia("An invader...")
 
@@ -1049,6 +1094,7 @@
 
 		if(HAS_TRAIT(src, TRAIT_EXCOMMUNICATED))
 			. += span_userdanger("EXCOMMUNICATED! SHAME!")//Temporary, probably going to get rid of the trait since it doesn't fit for us.
+
 /*
 		if(name in GLOB.excommunicated_players)
 			var/mob/living/carbon/human/H = src
@@ -1109,7 +1155,7 @@
 
 			if(has_flaw(/datum/charflaw/addiction/thrillseeker) && user.has_flaw(/datum/charflaw/addiction/thrillseeker))
 				. += span_rose("[m1] twitching for a thrilling fight. So am I.")
-			
+
 			if(user.has_flaw(/datum/charflaw/averse))
 				var/datum/charflaw/averse/averseflaw = user.get_flaw(/datum/charflaw/averse)
 				if(averseflaw?.check_aversion(user, src))
@@ -1150,7 +1196,7 @@
 			if(we_got_spooked)
 				user.add_stress(/datum/stressevent/uncanny)
 			else
-				user.add_stress(/datum/stressevent/beautiful)		
+				user.add_stress(/datum/stressevent/beautiful)
 
 		if (HAS_TRAIT(src, TRAIT_BEAUTIFUL) || HAS_TRAIT(src, TRAIT_BEAUTIFUL_UNCANNY) || (issunelf(src) && issunelf(user)))
 			switch (pronouns)
@@ -1177,6 +1223,23 @@
 		var/datum/antagonist/vampire/vamp_inspect = src.mind?.has_antag_datum(/datum/antagonist/vampire)
 		if(vamp_inspect && (!SEND_SIGNAL(src, COMSIG_DISGUISE_STATUS)))
 			. += span_redtext("[m3] strange glowing eyes and fangs!")
+
+		//Blackblood Inquisition trauma
+		if((HAS_TRAIT(src, TRAIT_INQUISITION) && HAS_TRAIT(user, TRAIT_BLACKBLOOD)) && src != user)
+			var/mob/living/carbon/carbs = user
+			if(HAS_TRAIT(user, TRAIT_PSYDONIAN_GRIT) || HAS_TRAIT(user, TRAIT_NOMOOD))
+				return
+			if(!carbs.has_stress_event(/datum/stressevent/inq_trauma))
+				carbs.add_stress(/datum/stressevent/inq_trauma)
+				if(prob(20))
+					carbs.stress_freakout()
+				else if(prob(40))
+					carbs.freak_out()
+				else
+					carbs.emote("gulp")
+			if(!HAS_TRAIT(user, TRAIT_STEELHEARTED))
+				carbs.Jitter(10)
+				carbs.stuttering += 25
 
 		// Shouldn't be able to tell they are unrevivable through a mask as a Necran
 		if(HAS_TRAIT(src, TRAIT_DNR) && src != user)
@@ -1317,8 +1380,6 @@
 				villain_text = span_notice("Free man!")
 			if(can_identify_face && HAS_TRAIT(src,TRAIT_KNOWNCRIMINAL))
 				villain_text = span_userdanger("BANDIT!")
-		if(mind.special_role == "Deadite")
-			villain_text = span_userdanger("DEADITE!")
 		if(mind.assigned_role == "Lunatic")
 			villain_text += span_userdanger("LUNATIC!")
 	if(HAS_TRAIT(src, TRAIT_ZIZOEYES))

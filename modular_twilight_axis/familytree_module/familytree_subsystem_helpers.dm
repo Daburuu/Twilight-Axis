@@ -4,6 +4,8 @@ GLOBAL_LIST_INIT(familytree_title_prefixes, list(
 	"Sir ", "Brother ", "Sister ",
 	"Father ", "Mother ",
 	"King ", "Queen ", "Prince ", "Princess ",
+	"Sultan ", "Sultana ", "Vizier ", "Sheikh ",
+	"Amir ", "Amirah ",
 ))
 
 /proc/familytree_strip_title(name)
@@ -434,7 +436,6 @@ GLOBAL_LIST_INIT(familytree_title_prefixes, list(
 	var/nearest_summary = familytree_relative_audit_text(H, nearest)
 	var/found_text = found_summary || "unknown"
 	var/message = "FAMILYTREE: [key_name(H)] joined house '[house_name]'. searched=[search_summary]; found=[found_text]; nearest_relative=[nearest_summary]"
-	log_admin(message)
 	ftlog(message, FTLOG_INFO)
 
 /datum/controller/subsystem/familytree/proc/is_job_of_type(datum/job/job, list/type_list)
@@ -475,10 +476,10 @@ GLOBAL_LIST_INIT(familytree_title_prefixes, list(
 	return FALSE
 
 /datum/controller/subsystem/familytree/proc/is_royal_monarch_job(datum/job/job)
-	return istype(job, /datum/job/roguetown/lord)
+	return istype(job, /datum/job/roguetown/lord) || istype(job, /datum/job/roguetown/sultan)
 
 /datum/controller/subsystem/familytree/proc/is_royal_consort_job(datum/job/job)
-	return istype(job, /datum/job/roguetown/lady)
+	return istype(job, /datum/job/roguetown/lady) || is_royal_harem_job(job)
 
 /datum/controller/subsystem/familytree/proc/is_royal_suitor_job(datum/job/job)
 	return istype(job, /datum/job/roguetown/suitor)
@@ -487,7 +488,7 @@ GLOBAL_LIST_INIT(familytree_title_prefixes, list(
 	return istype(job, /datum/job/roguetown/prince)
 
 /datum/controller/subsystem/familytree/proc/is_royal_hand_job(datum/job/job)
-	return istype(job, /datum/job/roguetown/hand)
+	return istype(job, /datum/job/roguetown/hand) || istype(job, /datum/job/roguetown/vizier)
 
 /datum/controller/subsystem/familytree/proc/get_royal_status(mob/living/carbon/human/H)
 	var/datum/job/job = get_familytree_job(H)
@@ -587,7 +588,37 @@ GLOBAL_LIST_INIT(familytree_title_prefixes, list(
 		return TRUE
 	if(partner.familytree_blocked_ckeys && (seeker.ckey in partner.familytree_blocked_ckeys))
 		return TRUE
+	if(familytree_timeout_block_active(seeker, partner) || familytree_timeout_block_active(partner, seeker))
+		return TRUE
 	return FALSE
+
+/datum/controller/subsystem/familytree/proc/familytree_timeout_block_active(mob/living/carbon/human/holder, mob/living/carbon/human/other)
+	if(!holder || !other?.ckey || !islist(holder.familytree_timeout_blocks))
+		return FALSE
+	return holder.familytree_timeout_blocks[other.ckey] > 0
+
+/datum/controller/subsystem/familytree/proc/familytree_record_timeout_block(mob/living/carbon/human/a, mob/living/carbon/human/b)
+	if(!a || !b || !a.ckey || !b.ckey)
+		return FALSE
+	if(!islist(a.familytree_timeout_blocks))
+		a.familytree_timeout_blocks = list()
+	if(!islist(b.familytree_timeout_blocks))
+		b.familytree_timeout_blocks = list()
+	a.familytree_timeout_blocks[b.ckey] = FAMILYTREE_TIMEOUT_BLOCK_ITERATIONS
+	b.familytree_timeout_blocks[a.ckey] = FAMILYTREE_TIMEOUT_BLOCK_ITERATIONS
+	ftlog("TIMEOUT_BLOCK: [a.real_name] <-> [b.real_name] held back for [FAMILYTREE_TIMEOUT_BLOCK_ITERATIONS] iterations")
+	return TRUE
+
+/datum/controller/subsystem/familytree/proc/familytree_tick_timeout_blocks(mob/living/carbon/human/H)
+	if(!H || !islist(H.familytree_timeout_blocks) || !H.familytree_timeout_blocks.len)
+		return
+	for(var/blocked_ckey in H.familytree_timeout_blocks.Copy())
+		var/left = H.familytree_timeout_blocks[blocked_ckey] - 1
+		if(left > 0)
+			H.familytree_timeout_blocks[blocked_ckey] = left
+			continue
+		H.familytree_timeout_blocks -= blocked_ckey
+		ftlog("TIMEOUT_BLOCK: [H.real_name] may be matched with [blocked_ckey] again")
 
 /proc/familytree_donator_relatives_enabled(ckey)
 	if(!ckey)

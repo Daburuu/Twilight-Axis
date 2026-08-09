@@ -119,7 +119,6 @@
 
 // ==================== SPECIALIZED COMPONENT SUBTYPES ====================
 
-/// Component for kill/clearout/outlaw quests - handles mob death
 /datum/component/quest_object/kill
 	var/counted = FALSE
 
@@ -137,7 +136,6 @@
 	SIGNAL_HANDLER
 	count_kill()
 
-/// Guard against double-counting when a mob both dies and is later qdeleted.
 /datum/component/quest_object/kill/proc/count_kill()
 	if(counted)
 		return
@@ -147,13 +145,14 @@
 		return
 	var/datum/quest/kill/KQ = Q
 	if(istype(KQ))
+		if(KQ.failed)
+			return
 		KQ.on_guardian_killed()
 		if(!KQ.kills_count_progress)
 			return
 	Q.progress_current++
 	Q.on_progress_update()
 
-/// Component for retrieval quests - handles item collection
 /datum/component/quest_object/retrieval
 
 /datum/component/quest_object/retrieval/Initialize(datum/quest/target_quest)
@@ -179,7 +178,6 @@
 			qdel(dropped_item)
 			return
 
-/// Component for courier quests - handles delivery
 /datum/component/quest_object/courier
 
 /datum/component/quest_object/courier/Initialize(datum/quest/target_quest)
@@ -213,7 +211,6 @@
 		Q.on_progress_update()
 		return
 
-/// Component for kill quest spawners
 /datum/component/quest_object/mob_spawner
 	override_compatibility = TRUE
 	no_outline = TRUE

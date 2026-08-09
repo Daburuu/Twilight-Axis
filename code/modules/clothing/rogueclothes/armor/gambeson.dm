@@ -9,6 +9,8 @@
 	armor = ARMOR_PADDED
 	blocksound = SOFTUNDERHIT
 	max_integrity = ARMOR_INT_CHEST_LIGHT_MEDIUM
+	pickup_sound = 'sound/foley/equip/equip_armor.ogg'
+	equip_sound = 'sound/foley/equip/equip_armor.ogg'
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	sewrepair = TRUE
@@ -80,6 +82,7 @@
 	desc = "A thick robe in royal purple, befitting a travelling noble, while remaining easy for them to slip about in.."
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	icon_state = "shadowrobe"
+	color = null
 	shiftable = FALSE
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/raneshen
@@ -193,7 +196,7 @@
 		add_overlay(pic)
 
 /obj/item/clothing/suit/roguetown/shirt/freifechter
-	name = "padded fencing shirt"
+	name = "fencing shirt"
 	desc = "A strong loosely worn quilted shirt that places little weight on the arms, usually worn underneath a flexible leather vest. It won't cover your legs."
 	icon = 'icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/armor.dmi'
@@ -214,6 +217,13 @@
 	AddComponent(/datum/component/armour_filtering/positive, TRAIT_FENCERDEXTERITY)
 	AddComponent(/datum/component/armour_filtering/negative, TRAIT_HONORBOUND)
 
+/obj/item/clothing/suit/roguetown/shirt/freifechter/loadout
+	name = "aesthetic fencing shirt"
+
+/obj/item/clothing/suit/roguetown/shirt/freifechter/loadout/Initialize()
+	. = ..()
+	loadoutize()
+
 /obj/item/clothing/suit/roguetown/shirt/freifechter/shepherd
 	name = "shepherd's shirt"
 	desc = "A strong loosely worn quilted shirt that places little weight on the arms."
@@ -223,6 +233,14 @@
 	name = "padded caftan"
 	desc = "A long overcoat commonly worn in Naledi, Kazengun, and Aavnr - but mostly associated with steppesmen. This specific kind rivals a padded gambeson in protection."
 	icon_state = "chargah"
+	color = "#ffffff"
+	boobed = TRUE
+	shiftable = FALSE
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/hatanga
+	name = "beast-hide coat"
+	desc = "Layered robes reinforced with quilted padding and stitched hides from formidable beasts."
+	icon_state = "hatanga"
 	color = "#ffffff"
 	boobed = TRUE
 	shiftable = FALSE
@@ -258,6 +276,10 @@
 			var/mob/living/carbon/H = user
 			H.update_inv_shirt()
 
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/grenzelhoft/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/grenzelhoft/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
@@ -266,6 +288,13 @@
 		if(get_detail_color())
 			pic.color = get_detail_color()
 		add_overlay(pic)
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/grenzelhoft/loadout
+	name = "aesthetic grenzelhoftian hip-shirt"
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/grenzelhoft/loadout/Initialize()
+	. = ..()
+	loadoutize()
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/raneshen
 	name = "padded desert coat"
@@ -279,8 +308,16 @@
 	icon_state = "desertrobe"
 	item_state = "desertrobe"
 	desc = "A thick robe intervowen with spell-laced fabrics. Thick and protective while remaining light and breezy; the perfect gear for protecting one from the threats of the sun, the desert and the daemons, yet still allowing one to cast spells aptly."
+	color = null
 	naledicolor = TRUE
 	shiftable = FALSE
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/hierophant/loadout
+	name = "aesthetic hierophant's shawl"
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/hierophant/loadout/Initialize()
+	. = ..()
+	loadoutize()
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/pontifex
 	name = "pontifex's kaftan"
@@ -288,6 +325,12 @@
 	item_state = "monkleather"
 	desc = "Tight boiled leathers that stretch and fit to one's frame perfectly."
 	shiftable = FALSE
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/pontifex/loadout
+	name = "aesthetic pontifex's kaftan"
+	armor = ARMOR_CLOTHING
+	max_integrity = ARMOR_INT_CHEST_CIVILIAN
+	armor_class = ARMOR_CLASS_NONE
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/inq
 	name = "inquisitorial leather tunic"
@@ -303,9 +346,16 @@
 	desc = "A robe-like gambeson of moth-eaten cloth and cheap purple dye. No self-respecting elf would be seen wearing this."
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	icon_state = "shadowrobe"
+	color = null
 	armor = ARMOR_PADDED
 	max_integrity = ARMOR_INT_CHEST_LIGHT_MEDIUM + 30 //280
 
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/shadowrobe/loadout
+	name = "aesthetic stalker robe"
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/shadowrobe/loadout/Initialize()
+	. = ..()
+	loadoutize()
 //Hand's gambeson, looks fancy
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/hand
@@ -315,12 +365,58 @@
 	icon_state = "handgambeson"
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/hand.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/hand.dmi'
+	color = null
 	detail_tag = "_detail"
 	detail_color = "#6e423a"
 	shiftable = FALSE
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/hand/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/hand/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/hand/advisor
 	detail_color = "#6678c9"
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/hand/spymaster
 	detail_color = "#742277"
+
+//I'm feeling quite hungry!
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/baotha
+	name = "saccharine vestments"
+	desc = "A gemmed chalice, Eora's own, swilled with Psydonia's most noxious venoms - and but a simple sip was enough to bring Her to death's door.."
+	icon_state = "baothagamb"
+	armor_class = ARMOR_CLASS_LIGHT
+	armor = ARMOR_PADDED
+	color = null
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER + 150
+	armor_class = ARMOR_CLASS_LIGHT
+	resistance_flags = FIRE_PROOF
+	body_parts_covered = CHEST | GROIN | ARMS
+	icon = 'icons/roguetown/clothing/shirts.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/shirts.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_shirts.dmi'
+	smeltresult = /obj/item/ingot/component/baotha
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/baotha/Initialize()
+	. = ..()
+	AddComponent(/datum/component/cursed_item, TRAIT_DEPRAVED, "VESTMENTS")
+	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/baotha/dropped(mob/living/carbon/human/user)
+	. = ..()
+	if(QDELETED(src))
+		return
+	qdel(src)
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/baotha/get_examine_highlight_status()
+	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_ALARMING, HERESYDESC_BAOTHA_ARMOR)

@@ -25,7 +25,15 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	whitelist_req = FALSE
 	cmode_music = 'sound/music/cmode/church/combat_astrata.ogg'
 
-	spells = list(/obj/effect/proc_holder/spell/invoked/cure_rot, /obj/effect/proc_holder/spell/self/convertrole/templar, /obj/effect/proc_holder/spell/self/convertrole/monk, /obj/effect/proc_holder/spell/invoked/projectile/divineblast, /datum/action/cooldown/spell/miracle/intervention, /obj/effect/proc_holder/spell/invoked/takeapprentice)
+	spells = list(
+	 /datum/action/cooldown/spell/miracle/fortify,
+	 /obj/effect/proc_holder/spell/invoked/cure_rot,
+	 /datum/action/cooldown/spell/miracle/intervention,
+	 /obj/effect/proc_holder/spell/invoked/revive,
+	 /datum/action/cooldown/spell/miracle/bishop_pack,
+	 /obj/effect/proc_holder/spell/self/convertrole/templar,
+	 /obj/effect/proc_holder/spell/self/convertrole/monk
+	)
 	outfit = /datum/outfit/job/roguetown/priest
 	display_order = JDO_BISHOP
 	give_bank_account = TRUE
@@ -35,11 +43,11 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	same_job_respawn_delay = 30 MINUTES
 	//No nobility for you, being a member of the clergy means you gave UP your nobility. It says this in many of the church tutorial texts.
 	virtue_restrictions = list(/datum/virtue/utility/noble)
+	vice_restrictions = list(/datum/charflaw/silverweakness)
 	job_traits = list(TRAIT_CHOSEN, TRAIT_RITUALIST, TRAIT_GRAVEROBBER, TRAIT_HOMESTEAD_EXPERT, TRAIT_MEDICINE_EXPERT, TRAIT_CLERGY, TRAIT_MARRIAGE_CAPABLE)
 	advclass_cat_rolls = list(CTAG_BISHOP = 2)
-	job_subclasses = list(
-		/datum/advclass/bishop
-	)
+	job_subclasses = list(/datum/advclass/bishop)
+	has_subprefs = FALSE // only one subclass
 
 /datum/advclass/bishop
 	name = "Bishop"
@@ -62,7 +70,6 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		/datum/skill/combat/wrestling = SKILL_LEVEL_MASTER,
 		/datum/skill/combat/unarmed = SKILL_LEVEL_MASTER,
 		/datum/skill/combat/staves = SKILL_LEVEL_MASTER,
-		/datum/skill/combat/polearms = SKILL_LEVEL_MASTER,
 		/datum/skill/misc/reading = SKILL_LEVEL_LEGENDARY,
 		/datum/skill/misc/medicine = SKILL_LEVEL_EXPERT,
 		/datum/skill/craft/cooking = SKILL_LEVEL_APPRENTICE,
@@ -90,7 +97,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	wrists = /obj/item/clothing/wrists/roguetown/wrappings
 	shoes = /obj/item/clothing/shoes/roguetown/sandals
 	beltl = /obj/item/storage/keyring/church
-	belt = /obj/item/storage/belt/rogue/leather/rope
+	belt = /obj/item/storage/belt/rogue/leather/rope/upgraded
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 	id = /obj/item/clothing/ring/active/nomag
 	backl = /obj/item/storage/backpack/rogue/satchel
@@ -113,7 +120,6 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	add_verb(H, /mob/living/carbon/human/proc/churchpriestcurse) //snowflake priests button. Will not sacrifice them
 	add_verb(H, /mob/living/carbon/human/proc/churcheapostasy) //punish the lamb reward the wolf
 	add_verb(H, /mob/living/carbon/human/proc/completesermon)
-	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/convert_heretic_priest)
 	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/revive)
 	H.mind.special_items["Bishop Cape"] = /obj/item/clothing/cloak/bishop
 	H.mind.special_items["Bishop Hood"] = /obj/item/clothing/head/roguetown/roguehood/bishop
@@ -164,37 +170,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 
 /datum/outfit/job/roguetown/priest/basic/choose_loadout(mob/living/carbon/human/H)
 	. = ..()
-	var/t3_count = 2
-	var/list/t4 = list()
-	var/list/t3 = list()
-	for(var/path as anything in GLOB.patrons_by_faith[/datum/faith/divine])
-		var/datum/patron/patron = GLOB.patronlist[path]
-		if(!patron || !patron.name)
-			continue
-		for(var/miracle in patron.miracles)
-			var/obj/effect/proc_holder/checked_miracle = miracle
-			if(patron.miracles[checked_miracle] == CLERIC_T4 && (initial(checked_miracle.priest_excluded) == FALSE))
-				t4[initial(checked_miracle.name)] = checked_miracle
-			if(patron.miracles[checked_miracle] == CLERIC_T3 && (initial(checked_miracle.priest_excluded) == FALSE))
-				t3[initial(checked_miracle.name)] = checked_miracle
-	for(var/miracle in t4)
-		if(H.mind?.has_spell(t4[miracle]))
-			t4.Remove(miracle)
-	for(var/miracle in t3)
-		if(H.mind?.has_spell(t3[miracle]))
-			t3.Remove(miracle)
-	var/t4_choice = input(H,"Choose your Tier Four Miracle.", "TAKE UP KNAWLEDGE") as anything in t4
-	if(t4_choice)
-		var/obj/effect/proc_holder/chosen_miracle = t4[t4_choice]
-		H.mind?.AddSpell(new chosen_miracle)
 
-	for(var/i in 1 to t3_count)
-		var/t3_choice = input(H,"Choose your Tier Three Miracle.", "TAKE UP KNAWLEDGE ([t3_count] CHOICES REMAIN)") as anything in t3
-		if(t3_choice)
-			var/obj/effect/proc_holder/chosen_miracle = t3[t3_choice]
-			H.mind?.AddSpell(new chosen_miracle)
-			t3.Remove(t3_choice)
-			t3_count--
 	// -- Start of section for god specific bonuses --
 	if(H.patron?.type == /datum/patron/divine/undivided)
 		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
@@ -434,7 +410,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		return TRUE
 
 	if (inputty in GLOB.excommunicated_players)
-		return //No stacking	
+		return //No stacking
 
 	if (H.real_name == inputty)
 		if (!COOLDOWN_FINISHED(src, priest_apostasy))
@@ -613,88 +589,6 @@ code\modules\admin\verbs\divinewrath.dm has a variant with all the gods so keep 
 			log_game("DIVINE CURSE: [real_name] ([ckey]) has stricken [H.real_name] ([H.ckey] with [curse_pick])")
 
 		return
-
-/obj/effect/proc_holder/spell/invoked/convert_heretic_priest
-	name = "Absolve the Heretic"
-	desc = "Convert a heretic back to the fold of the church. Requires the heretic to be willing, and takes a long time to cast."
-	invocations = list("Show this lost sheep the way back to the flock.")
-	invocation_type = "whisper"
-	sound = 'sound/magic/bless.ogg'
-	devotion_cost = 100
-	recharge_time = 20 MINUTES
-	chargetime = 10 SECONDS
-	associated_skill = /datum/skill/magic/holy
-	overlay_state = "convert_heretic"
-
-/obj/effect/proc_holder/spell/invoked/convert_heretic_priest/cast(list/targets, mob/living/carbon/human/user)
-	var/mob/living/carbon/human/target = targets[1]
-
-	if(!ishuman(target))
-		revert_cast()
-		return FALSE
-
-	if(target.cmode)
-		revert_cast()
-		return FALSE
-
-	if(!HAS_TRAIT(target, TRAIT_HERESIARCH))
-		to_chat(user, span_warning("[target] wasn't marked by the enemy as a heretic!"))
-		revert_cast()
-		return FALSE
-
-	if(alert(target, "[user.real_name] is trying to convert you back to the church. Do you accept?", "Conversion Request", "Yes", "No") != "Yes")
-		to_chat(user, span_warning("[target] refused your offer of conversion."))
-		revert_cast()
-		return FALSE
-
-	// Remove from excommunication lists
-	if(target.real_name in GLOB.excommunicated_players)
-		GLOB.excommunicated_players -= target.real_name
-
-	// Remove heretic traits
-	REMOVE_TRAIT(target, TRAIT_HERESIARCH, TRAIT_GENERIC)
-	REMOVE_TRAIT(target, TRAIT_EXCOMMUNICATED, TRAIT_GENERIC)
-
-	// Remove divine punishments
-	target.remove_status_effect(/datum/status_effect/debuff/excomm)
-	target.remove_stress(/datum/stressevent/excommunicated)
-
-	// Save devotion state
-	var/saved_level = CLERIC_T0
-	var/saved_max_progression = CLERIC_T1
-	var/saved_devotion_gain = CLERIC_REGEN_MINOR
-
-	if(target.devotion)
-		saved_level = target.devotion.level
-		saved_devotion_gain = target.devotion.passive_devotion_gain
-		saved_max_progression = target.devotion.max_progression
-
-		// Remove all granted spells
-		for(var/obj/effect/proc_holder/spell/S in target.devotion.granted_spells)
-			target.mind.RemoveSpell(S)
-
-		target.devotion.Destroy()
-
-	// Convert to priest's patron
-	target.patron = new user.patron.type()
-
-	// Grant new devotion
-	var/datum/devotion/new_devotion = new /datum/devotion(target, target.patron)
-	target.devotion = new_devotion
-	new_devotion.grant_miracles(target, saved_level, saved_devotion_gain, saved_max_progression)
-
-	// Apply revival debuff as a small cost to conversion in addition to the cooldown
-	user.apply_status_effect(/datum/status_effect/debuff/devitalised)
-	target.apply_status_effect(/datum/status_effect/debuff/devitalised)
-
-	var/announcement_text = "[user.real_name] has brought [target.real_name] back into the fold of the church! [target.real_name] now follows [user.patron.name]!"
-	priority_announce(announcement_text, title = "REDEMPTION", sound = 'sound/misc/bell.ogg')
-	message_admins("HERETIC CONVERSION: [user.real_name] ([user.ckey]) has converted [target.real_name] ([target.ckey]) to [user.patron.name]")
-	log_game("HERETIC CONVERSION: [user.real_name] ([user.ckey]) converted [target.real_name] ([target.ckey]) to [user.patron.name]")
-	to_chat(user, span_danger("You've converted [target.name] to follow [user.patron.name]!"))
-	to_chat(target, span_danger("You feel the weight of heresy lift from your soul as you embrace [user.patron.name]!"))
-
-	return TRUE
 
 #undef PRIEST_ANNOUNCEMENT_COOLDOWN
 #undef PRIEST_SERMON_COOLDOWN

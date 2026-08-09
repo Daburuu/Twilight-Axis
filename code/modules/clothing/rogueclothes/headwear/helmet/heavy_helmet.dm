@@ -23,7 +23,7 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/bronze
 	name = "bronze barbute"
 	desc = "A greathelm of bronze, who's nasalguard and mandibles leave the wearer's face cloaked in darkness. The heroes of yore have long since \
-	passed, yet their blood still courses through the veins of Psydonia's children; you are no different. Quiff a feather to its skullcap to bare \
+	passed, yet their blood still courses through the veins of Psydonia's children; you are no different. Quiff a feather to its skullcap to bear \
 	your allegience with pride."
 	body_parts_covered = FULL_HEAD
 	icon_state = "bronzebarbute"
@@ -54,7 +54,7 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/bronze/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
@@ -93,7 +93,7 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/aalloy/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
@@ -138,13 +138,13 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/barbute/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
 		add_overlay(pic)
 	if(get_altdetail_tag())
-		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[icon_state][altdetail_tag]"))
+		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][altdetail_tag]"))
 		pic2.appearance_flags = RESET_COLOR
 		if(get_altdetail_color())
 			pic2.color = get_altdetail_color()
@@ -214,7 +214,7 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/paalloy/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
@@ -229,11 +229,6 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
-
-/obj/item/clothing/head/roguetown/helmet/heavy/guard/bogman
-	name = "steel bogman's helmet"
-	desc = "A helmet featuring the face of a snarling goblin. Once worn by the Bogmen, now a relic of old Azuria."
-	icon_state = "guardhelm"
 
 /obj/item/clothing/head/roguetown/helmet/heavy/guard/aalloy
 	name = "decrepit savoyard"
@@ -282,7 +277,7 @@
 	icon_state = "goldbarbute"
 	armor = ARMOR_INDESTRUCTIBLE //Renders its wearer completely invulnerable to damage. The caveat is, however..
 	max_integrity = ARMOR_INT_SIDE_GOLD // ..is that it's extraordinarily fragile. To note, this is lower than even Decrepit-tier armor.
-	armor_class = ARMOR_CLASS_HEAVY //Ceremonial. Heavy is the head that bares the burden.
+	armor_class = ARMOR_CLASS_HEAVY //Ceremonial. Heavy is the head that bears the burden.
 	anvilrepair = null
 	smeltresult = /obj/item/ingot/gold
 	smelt_bar_num = 1 //Prevents resmelting to easily recreate.
@@ -335,7 +330,7 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
@@ -406,7 +401,7 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/greatplume/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
@@ -419,7 +414,7 @@
 		This one used to be in the hands of a pale elf and may be fitted with a great plume atop, to bear heraldic colors."
 	icon_state = "armetowl"
 
-/obj/item/clothing/head/roguetown/helmet/heavy/knight/armet/eiren_helmet/attackby(obj/item/W, mob/living/user, params)
+/obj/item/clothing/head/roguetown/helmet/heavy/knight/armet/owl/attackby(obj/item/W, mob/living/user, params)
 	..()
 	if(!(istype(W, /obj/item/natural/feather) && !detail_tag))
 		return
@@ -459,7 +454,7 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/iron/greatplume/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
@@ -494,7 +489,7 @@
 	icon_state = "goldknight"
 	armor = ARMOR_INDESTRUCTIBLE //Renders its wearer completely invulnerable to damage. The caveat is, however..
 	max_integrity = ARMOR_INT_SIDE_GOLD // ..is that it's extraordinarily fragile. To note, this is lower than even Decrepit-tier armor.
-	armor_class = ARMOR_CLASS_HEAVY //Ceremonial. Heavy is the head that bares the burden.
+	armor_class = ARMOR_CLASS_HEAVY //Ceremonial. Heavy is the head that bears the burden.
 	anvilrepair = null
 	smeltresult = /obj/item/ingot/gold
 	smelt_bar_num = 1 //Prevents resmelting to easily recreate.
@@ -522,7 +517,7 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/gold/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
@@ -608,17 +603,21 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/armet/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
 		add_overlay(pic)
 	if(get_altdetail_tag())
-		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[icon_state][altdetail_tag]"))
+		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][altdetail_tag]"))
 		pic2.appearance_flags = RESET_COLOR
 		if(get_altdetail_color())
 			pic2.color = get_altdetail_color()
 		add_overlay(pic2)
+
+/obj/item/clothing/head/roguetown/helmet/heavy/knight/armet/snouted
+	name = "snouted armet"
+	icon_state = "armet_s"
 
 /obj/item/clothing/head/roguetown/helmet/heavy/bucket
 	name = "bucket helmet"
@@ -661,13 +660,13 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/bucket/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
 		add_overlay(pic)
 	if(get_altdetail_tag())
-		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[icon_state][altdetail_tag]"))
+		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][altdetail_tag]"))
 		pic2.appearance_flags = RESET_COLOR
 		if(get_altdetail_color())
 			pic2.color = get_altdetail_color()
@@ -825,13 +824,13 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/psydonhelm/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
 		add_overlay(pic)
 	if(get_altdetail_tag())
-		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[icon_state][altdetail_tag]"))
+		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][altdetail_tag]"))
 		pic2.appearance_flags = RESET_COLOR
 		if(get_altdetail_color())
 			pic2.color = get_altdetail_color()
@@ -882,7 +881,7 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/iron/greatplume/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
@@ -941,7 +940,7 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/ordinatorhelm/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
@@ -1033,13 +1032,13 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/psybucket/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
 		add_overlay(pic)
 	if(get_altdetail_tag())
-		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[icon_state][altdetail_tag]"))
+		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][altdetail_tag]"))
 		pic2.appearance_flags = RESET_COLOR
 		if(get_altdetail_color())
 			pic2.color = get_altdetail_color()
@@ -1070,6 +1069,13 @@
 	block2add = FOV_DEFAULT
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+
+/obj/item/clothing/head/roguetown/helmet/heavy/nochelm/snouted
+	name = "snouted noc helmet"
+	desc = "Headwear commonly worn by Templars in service to Noc, its brow drawn forward to seat a snout. Without the night there can be no day; without Noc there can be no light in the dark hours."
+	icon_state = "nochelm_s"
+	item_state = "nochelm_s"
+	flags_inv = HIDEEARS|HIDEHAIR|HIDESNOUT
 
 /obj/item/clothing/head/roguetown/helmet/heavy/necrahelm
 	name = "necra helmet"
@@ -1130,8 +1136,9 @@
 			H.update_inv_head()
 
 /obj/item/clothing/head/roguetown/helmet/heavy/volfplate
-	name = "volf-face helm"
-	desc = "A steel bascinet helmet with a volfish visor protecting the head, ears, eyes, nose and mouth."
+	name = "heavy volfskulle bascinet"
+	desc = "A steel bascinet helmet with a snarling visor that protects the entire head and face. It mimics the \
+	guise of a terrible nitebeast; intimidating to the levyman, inspiring to the hunter."
 	icon_state = "volfplate"
 	item_state = "volfplate"
 	adjustable = CAN_CADJUST
@@ -1141,20 +1148,34 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	max_integrity = ARMOR_INT_HELMET_HEAVY_STEEL - ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY
-	armor_class = null	//Needs no armor class, snowflake merc gear.
 
 /obj/item/clothing/head/roguetown/helmet/heavy/volfplate/ComponentInitialize()
 	AddComponent(/datum/component/adjustable_clothing, (HEAD|EARS|HAIR), (HIDEEARS|HIDEHAIR), null, 'sound/items/visor.ogg', null, UPD_HEAD)	//Standard helmet
 	AddComponent(/datum/component/armour_filtering/negative, TRAIT_HONORBOUND)
 	AddComponent(/datum/component/armour_filtering/negative, TRAIT_FENCERDEXTERITY)
 
-/obj/item/clothing/head/roguetown/helmet/heavy/volfplate/puritan
+/obj/item/clothing/head/roguetown/helmet/heavy/volfplate/light
 	name = "volfskulle bascinet"
-	desc = "A steel bascinet helmet with a snarling visor that protects the entire head and face. It mimics the \
-	guise of a terrible nitebeast; intimidating to the levyman, inspiring to the hunter."
+	armor_class = null	//Needs no armor class, snowflake merc gear.
+
+/obj/item/clothing/head/roguetown/helmet/heavy/volfplate/psydonic
+	name = "psydonic volfskulle bascinet"
+	desc = "An Otavan re-creation of the generic volfskulle bascinet. Far more protective than a muzzle, that's for certain."
+	icon_state = "psyhelm_s"
+	item_state = "psyhelm_s"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x40/head.dmi'
+	worn_x_dimension = 32
+	worn_y_dimension = 40
+	adjustable = CANT_CADJUST
+	max_integrity = ARMOR_INT_HELMET_HEAVY_STEEL
+	smeltresult = /obj/item/ingot/silver
+
+/obj/item/clothing/head/roguetown/helmet/heavy/volfplate/psydonic/ComponentInitialize()
+	AddComponent(/datum/component/armour_filtering/negative, TRAIT_HONORBOUND)
+	AddComponent(/datum/component/armour_filtering/negative, TRAIT_FENCERDEXTERITY)
 
 /obj/item/clothing/head/roguetown/helmet/heavy/volfplate/berserker
-	name = "volfskulle bascinet"
+	name = "stripped volfskulle bascinet"
 	desc = "A steel bascinet helmet with a snarling visor that protects the entire head and face. Just like the nitebeasts it mimics, so too does the helmet's teeth glisten with flesh-sundering sharpness."
 	armor_class = ARMOR_CLASS_LIGHT //Pseudoantagonist-exclusive. Gives them an edge over traditional pugilists and barbarians.
 	var/active_item = FALSE
@@ -1275,13 +1296,13 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/frogmouth/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
 		add_overlay(pic)
 	if(get_altdetail_tag())
-		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[icon_state][altdetail_tag]"))
+		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][altdetail_tag]"))
 		pic2.appearance_flags = RESET_COLOR
 		if(get_altdetail_color())
 			pic2.color = get_altdetail_color()
@@ -1326,13 +1347,13 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/frogmouth/greatplume/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
 		add_overlay(pic)
 	if(get_altdetail_tag())
-		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[icon_state][altdetail_tag]"))
+		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][altdetail_tag]"))
 		pic2.appearance_flags = RESET_COLOR
 		if(get_altdetail_color())
 			pic2.color = get_altdetail_color()
@@ -1458,6 +1479,7 @@
 	AddComponent(/datum/component/armour_filtering/negative, TRAIT_HONORBOUND)
 	AddComponent(/datum/component/armour_filtering/negative, TRAIT_FENCERDEXTERITY)
 
+/*
 /obj/item/clothing/head/roguetown/helmet/heavy/avantyne
 	name = "avantyne-threaded veil"
 	desc = "A veil threaded from an otherworldly alloy, perpetually backlit with an eerie crimson haze. Glimpse into the abyss for too \
@@ -1474,6 +1496,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/avantyne/get_examine_highlight_status()
 	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_ALARMING, HERESYDESC_ZIZO_ARMOR)
+*/
 
 /obj/item/clothing/head/roguetown/helmet/heavy/bucket/iron
 	name = "iron bucket helm"
@@ -1504,9 +1527,168 @@
 	AddComponent(/datum/component/armour_filtering/negative, TRAIT_HONORBOUND)
 	AddComponent(/datum/component/armour_filtering/negative, TRAIT_FENCERDEXTERITY)
 
+/obj/item/clothing/head/roguetown/helmet/heavy/banneret/sallet
+	name = "banneret's snouted sallet"
+	desc = "An elegant sallet, fitted with the gold trim and polished metal of nobility. Its bevor is drawn forward into a muzzle."
+	icon_state = "capsallet_s"
+
+/obj/item/clothing/head/roguetown/helmet/heavy/banneret/bascinet
+	name = "banneret's snouted bascinet"
+	desc = "An elegant bascinet, fitted with the gold trim and polished metal of nobility. Its visor tapers into a muzzle."
+	icon_state = "capbascinet_s"
+
 /obj/item/clothing/head/roguetown/helmet/heavy/holyseebarbute
 	name = "holy see barbute"
 	desc = "A polished plate of sheer silver curtains the barbute's front, its mirror-like sheen reflecting that which the Ten make of His Creation. \
 			\n\n'Look upon their works, ye mighty, and despair.'"
 	icon_state = "seebascinet"
 	item_state = "seebascinet"
+
+/obj/item/clothing/head/roguetown/helmet/heavy/aventail
+	name = "hounskull with aventail"
+	desc = "A steel hounskull bascinet with a thick maille aventail secured to the inside. Just as a froggemund befits a knight in the tournaments, an \
+	aventailed bascinet befits a knight on the battlefield; unmatched in coverage, durability, and weight."
+	icon_state = "visaventail"
+	item_state = "visaventail"
+	adjustable = CAN_CADJUST
+	emote_environment = 3
+	body_parts_covered = FULL_HEAD|NECK
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	block2add = FOV_RIGHT|FOV_LEFT
+	max_integrity = ARMOR_INT_HELMET_HEAVY_STEEL + ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY //Froggemunds, galore!
+	smeltresult = /obj/item/ingot/steel
+	smelt_bar_num = 2
+	armor_class = ARMOR_CLASS_HEAVY //For the worthy - or in this case, the knightly.
+
+/obj/item/clothing/head/roguetown/helmet/heavy/aventail/ComponentInitialize()
+	AddComponent(/datum/component/adjustable_clothing, (HEAD|EARS|HAIR|MOUTH|NECK), (HIDEEARS|HIDEHAIR), null, 'sound/items/visor.ogg', null, UPD_HEAD)
+	AddComponent(/datum/component/armour_filtering/negative, TRAIT_HONORBOUND)
+	AddComponent(/datum/component/armour_filtering/negative, TRAIT_FENCERDEXTERITY)
+
+/obj/item/clothing/head/roguetown/helmet/heavy/aventail/attackby(obj/item/W, mob/living/user, params)
+	..()
+	if(istype(W, /obj/item/natural/feather) && !detail_tag)
+		var/choice = input(user, "Choose a color.", "Plume") as anything in COLOR_MAP + pridelist
+		detail_color = COLOR_MAP[choice]
+		detail_tag = "_detail"
+		user.visible_message(span_warning("[user] adds [W] to [src]."))
+		user.transferItemToLoc(W, src, FALSE, FALSE)
+		update_icon()
+		if(loc == user && ishuman(user))
+			var/mob/living/carbon/H = user
+			H.update_inv_head()
+	if(istype(W, /obj/item/natural/cloth) && !altdetail_tag)
+		var/choicealt = input(user, "Choose a color.", "Orle") as anything in COLOR_MAP + pridelist
+		user.visible_message(span_warning("[user] adds [W] to [src]."))
+		user.transferItemToLoc(W, src, FALSE, FALSE)
+		altdetail_color = COLOR_MAP[choicealt]
+		altdetail_tag = "_detailalt"
+		if(choicealt in pridelist)
+			detail_tag = "_detailp"
+		update_icon()
+		if(loc == user && ishuman(user))
+			var/mob/living/carbon/H = user
+			H.update_inv_head()
+
+/obj/item/clothing/head/roguetown/helmet/heavy/aventail/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+	if(get_altdetail_tag())
+		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[get_detail_state(icon_state)][altdetail_tag]"))
+		pic2.appearance_flags = RESET_COLOR
+		if(get_altdetail_color())
+			pic2.color = get_altdetail_color()
+		add_overlay(pic2)
+
+/obj/item/clothing/head/roguetown/helmet/heavy/aventail/iron
+	name = "iron hounskull with aventail"
+	desc = "An iron hounskull bascinet with a thick maille aventail secured to the inside. Just as a froggemund befits a knight in the tournaments, an \
+	aventailed bascinet befits a knight on the battlefield; unmatched in coverage, durability, and weight."
+	icon_state = "iavenheavy"
+	item_state = "iavenheavy"
+	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON + ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY //Froggemunds, galore!
+	smeltresult = /obj/item/ingot/iron
+
+/obj/item/clothing/head/roguetown/helmet/heavy/beakhelm/iron
+	name = "beaked iron helmet"
+	desc = "No sacrifice is too great, when one is locked into the pursuit of dreams-most-divine."
+	icon_state = "ibeakhelmet"
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON
+
+/obj/item/clothing/head/roguetown/helmet/heavy/sheriff/iron
+	name = "barred iron helmet"
+	desc = "A helmet which offers good protection to the face at the expense of vision."
+	icon_state = "igatehelm"
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON
+
+/obj/item/clothing/head/roguetown/helmet/heavy/guard/iron
+	name = "savoyard"
+	desc = "An iron helmet with a menacing visage."
+	icon_state = "isavoyard"
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON
+
+/obj/item/clothing/head/roguetown/helmet/heavy/guard/bogman/iron
+	name = "bogman's helmet"
+	desc = "An iron helmet featuring the face of a snarling goblin. Once worn by the Bogmen, now a relic of old Azuria."
+	icon_state = "iguardhelm"
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON
+
+/obj/item/clothing/head/roguetown/helmet/heavy/knight/skettle/iron
+	name = "slitted iron kettle helm"
+	desc = "A reinforced iron Eisenhut that's been extended downwards to cover the face, fully protecting the wearer but limiting his field of view. Pairs well with a bevor."
+	icon_state = "iskettle"
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON
+
+/obj/item/clothing/head/roguetown/helmet/heavy/bucket/iron/classic
+	name = "iron bucket helmet"
+	desc = "An iron greathelmet that offers excellent protection to the head, while also ensuring total coverage to its most vulnerable spots. It \
+	resembles an overturned bucket when worn - ergo, 'bucket helmet'. Owing to its simple-yet-robust design, the bucket helmet's venerability \
+	can still be observed todae, atop the shoulders of hedge-knights and paladins alike."
+	icon_state = "itopfhelm"
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON
+
+/obj/item/clothing/head/roguetown/helmet/heavy/knight/armet/iron
+	name = "iron armet"
+	desc = "Holy lamb, sacrificial hero, blessed idiot - Psydon endures. Will you endure alongside Him, as a knight of humenity, or crumble before temptation?"
+	icon_state = "iarmet"
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON - ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY
+
+/obj/item/clothing/head/roguetown/helmet/heavy/knight/armet/iron/snouted
+	name = "iron snouted armet"
+	icon_state = "iarmet_s"
+
+/obj/item/clothing/head/roguetown/helmet/heavy/volfplate/iron
+	name = "iron volfskulle bascinet"
+	desc = "An iron bascinet helmet with a snarling visor that protects the entire head and face. It mimics the \
+	guise of a terrible nitebeast; intimidating to the levyman, inspiring to the hunter."
+	icon_state = "ivolfplate"
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON - ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY
+
+/obj/item/clothing/head/roguetown/helmet/heavy/barbute/iron
+	name = "iron barbute"
+	desc = "A steel helmet that provides excellent coverage, while uniquely keeping its wearer's field-of-view almost entirely unrestricted. The cruciformic visor is \
+	an inherited design, borne from the earliest daes of Psydonia. Mounted on the back is a unique couplet, fit for adopting feathered greatplumes."
+	icon_state = "ibarbute"
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON - ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY
+
+/obj/item/clothing/head/roguetown/helmet/heavy/barbute/visor/iron
+	name = "visored iron barbute"
+	desc = "A steel greathelm that provides excellent coverage, and whose cruciformic guise is further reinforced by a heavy visor. Valiant paladin, wretched bulwark, thoughtless worm; it \
+	won't be long until they're almost here. Will you cry all your tears, or will you face your fears? </br>Mounted on the back is a unique couplet, fit for adopting feathered greatplumes."
+	icon_state = "ibarbute_visor"
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON - ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY

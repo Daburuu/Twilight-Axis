@@ -220,6 +220,62 @@
 	. = ..()
 	AddComponent(/datum/component/skill_blessed, TRAIT_LONGSWORDSMAN, /datum/skill/combat/swords, SKILL_LEVEL_MASTER)
 
+/obj/item/rogueweapon/sword/long/iron
+	name = "bastard sword"
+	desc = "A bastard sword that can chop with ease. It can be effectively wielded in both one- and two-handed grips, hence the name."
+	icon_state = "ilongsword"
+	item_state = "ilongsword"
+	sheathe_icon = "ilongsword"
+	max_integrity = 100
+	smeltresult = /obj/item/ingot/iron
+
+/obj/item/rogueweapon/sword/long/blacksteel
+	name = "blacksteel longsword"
+	desc = "A sleek blade of a dark, and burnished hue. \
+			A handle carved from a rosawood branch. A pairing that shall sing as it parts the air. \
+			With it, one can write a song across all of Psydonia."
+	force = 27
+	force_wielded = 33
+	icon_state = "bslongsword"
+	item_state = "bslongsword"
+	sheathe_icon = "bslongsword"
+	max_blade_int = 400
+	max_integrity = 180
+	wdefense_wbonus = 5
+	smeltresult = /obj/item/ingot/blacksteel
+	var/used = FALSE
+	var/list/selection = list(
+		/datum/special_intent/side_sweep,
+		/datum/special_intent/axe_swing,
+		/datum/special_intent/piercing_lunge,
+		/datum/special_intent/polearm_backstep,
+		/datum/special_intent/limbguard,
+		/datum/special_intent/dagger_dash,
+		/datum/special_intent/flail_sweep,
+		)
+
+/obj/item/rogueweapon/sword/long/blacksteel/examine(mob/user)
+	. = ..()
+	if(!used)
+		. += span_notice("The Special Manoeuvre of this weapon can be changed. Right-click it with a free hand to select one. This can only be done once.")
+
+/obj/item/rogueweapon/sword/long/blacksteel/attack_right(mob/user)
+	. = ..()
+	if(used)
+		return
+		
+	var/list/special_options = list()
+	for(var/intent in selection)
+		var/datum/special_intent/S = intent // Hate this DM quirk.
+		special_options[S::name] = S
+	
+	var/choice = input(user, "Choose the Manoeuvre", "MANOEUVRE") as anything in special_options
+	if(choice)
+		qdel(special)
+		var/datum/special_intent/S = special_options[choice]
+		special = new S()
+		used = TRUE
+
 /obj/item/rogueweapon/sword/long/ap
 	name = "stecher"
 	desc = "A unique longsword from the highest plateaus of the Azure Peak, sacrificing its cutting edge for a piercing tip that can easily penetrate maille. Tracing its roots to the \
@@ -326,7 +382,7 @@
 /obj/item/rogueweapon/sword/long/cleric
 	name = "anointed longsword"
 	desc = "A crusader's longsword, adorned with a blade of cold iron and blessed to smite evil. Though this blessed alloy lacks the strength to \
-	sunder those who bare greater curses, it nevertheless channels enough power to dispell the lesser curses of mindless fiends-and-foes. </br>'Strike \
+	sunder those who bear greater curses, it nevertheless channels enough power to dispell the lesser curses of mindless fiends-and-foes. </br>'Strike \
 	true, my child, for thy blade is thine God..'"
 	icon_state = "crusaderlongsword"
 	sheathe_icon = "crusaderlongsword"
@@ -348,7 +404,7 @@
 
 /obj/item/rogueweapon/sword/long/undivided
 	name = "decablade"
-	desc = "A blessed longsword, held by the Holy See's templars in their stalwart defense against evil. The golden crossguard bares the winged motif of an angel, and \
+	desc = "A blessed longsword, held by the Holy See's templars in their stalwart defense against evil. The golden crossguard bears the winged motif of an angel, and \
 	psalms from the Pantheon's holy tome have been meticulously carved along the blade's edge. </br>'With a drop of holy Eclipsum, doth the blade rise..' </br>'..gilded, \
 	gleaming, radiant heat, warm my soul, immolate my enemies..' </br>'..and let me vanquish all those who would dare to Divide us, once more.'"
 	icon_state = "seeblade"
@@ -413,6 +469,30 @@
 	when drawn, a symbol of distress. Ad pacem servandam."
 	sheathe_icon = "reform"
 	icon_state = "reformistsword"
+
+/obj/item/rogueweapon/sword/long/etruscan/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the projectile", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+	SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, args)
+	var/mob/attacker
+	var/obj/item/I
+	if(attack_type == THROWN_PROJECTILE_ATTACK)
+		if(istype(hitby, /obj/item)) // can't trust mob -> item assignments
+			I = hitby
+		if(I?.thrownby)
+			attacker = I.thrownby
+	if(attack_type == PROJECTILE_ATTACK)
+		var/obj/projectile/P = hitby
+		if(P?.firer)
+			attacker = P.firer
+	if(attacker && istype(attacker))
+		if (!owner.can_see_cone(attacker))
+			return FALSE
+		if(obj_broken)
+			return FALSE
+		if((owner.client?.chargedprog == 100 && owner.used_intent?.tranged) || prob(40)) // let's give it a 40% coverage, it's still something thinner than a shield
+			owner.visible_message(span_danger("[owner] expertly blocks [hitby] with [src]!"))
+			src.take_damage(floor(damage / 4))
+			return TRUE
+	return FALSE
 
 /obj/item/rogueweapon/sword/long/fencerguy
 	name = "grenzelhoftian longsword"
@@ -507,7 +587,7 @@
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/chop)
 	icon_state = "crucified"
 	sheathe_icon = "crucified"
-	item_state = "judgement"
+	item_state = "crucified"
 	smeltresult = /obj/item/ingot/steel
 	sellprice = 999
 	static_price = TRUE
@@ -550,6 +630,9 @@
 	SEND_GLOBAL_SIGNAL(COMSIG_NEW_ICHOR_FANG_SPAWNED, src)
 	RegisterSignal(SSdcs, COMSIG_NEW_ICHOR_FANG_SPAWNED, PROC_REF(on_recall))
 
+/obj/item/rogueweapon/sword/long/judgement/vlord/get_examine_highlight_status() //Its an unholy longsword sire, what did you expect?
+	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_VERYODD, HERESYDESC_VAMPIRE_SWORD)
+
 /obj/item/rogueweapon/sword/long/judgement/vlord/proc/on_recall(obj/new_sword)
 	if(new_sword == src)
 		return
@@ -577,7 +660,7 @@
 /obj/item/rogueweapon/sword/long/judgement/vlord/examine(mob/user)
 	. = ..()
 	if(user.mind?.has_antag_datum(/datum/antagonist/vampire))
-		. += span_notice("You can feel the unholy blade's enchantment resonate with your cursed nature, anyone that does not bare your curse will be unable to touch it.")
+		. += span_notice("You can feel the unholy blade's enchantment resonate with your cursed nature, anyone that does not bear your curse will be unable to touch it.")
 
 /obj/item/rogueweapon/sword/long/judgement/vlord/Initialize()
   ..()
@@ -680,7 +763,7 @@
 	name = "\"Terminus Est\""
 	desc = "An ornate executioner's sword, decorated with a golden pommel and crossguard. A bloody rag \
 	winds around the ricasso, ever-present to keep its edge spotless for the executionee's final \
-	judgement. The stout-angled blade bares an enscription along its length; </br>'WHEN THIS SWORDE I DOTH LYFT, I WISH THE SINNER ETERNAL LYFE AS THINE GYFT.'"
+	judgement. The stout-angled blade bears an enscription along its length; </br>'WHEN THIS SWORDE I DOTH LYFT, I WISH THE SINNER ETERNAL LYFE AS THINE GYFT.'"
 	smeltresult = /obj/item/ingot/gold // It is the most valuable component
 	max_blade_int = 363 
 	smelt_bar_num = 2
@@ -1240,6 +1323,18 @@
 	max_integrity = 150
 	sheathe_icon = "kopis"
 
+/obj/item/rogueweapon/sword/short/messer/blacksteel
+	name = "blacksteel messer"
+	desc = "A magnificent shortsword of blacksteel. Divorced from the labors that originally warranted its creation, yet no-less-adept at cleaving \
+	whatever might trouble one's morning strolls."
+	force = 27
+	possible_item_intents = list(/datum/intent/sword/cut/sabre, /datum/intent/sword/thrust, /datum/intent/axe/chop, /datum/intent/sword/cut/sabre/heavy)
+	smeltresult = /obj/item/ingot/blacksteel
+	icon_state = "bs_messer"
+	sheathe_icon = "bs_messer"
+	max_blade_int = 300
+	wbalance = WBALANCE_SWIFT
+
 /obj/item/rogueweapon/sword/sabre
 	name = "sabre"
 	desc = "A very popular backsword made for cavalrymen that originated in Naledi and spread its influence further north, reaching Aavnr as a \"Szablya\" and \
@@ -1576,6 +1671,47 @@
 	icon_state = "decrapier"
 	sheathe_icon = "decrapier"
 	no_loot_taint = TRUE
+
+/obj/item/rogueweapon/sword/rapier/blacksteel
+	name = "blacksteel rapier"
+	desc = "A magnificent rapier of blacksteel. Despite originating from the matrimony of cutting-edge swordsmanship techniques and metallurgy, it \
+	doesn't actually have a cutting edge to call its own. Not like that matters as much, of course, when it can pierce straight through plate armor."
+	force = 27
+	smeltresult = /obj/item/ingot/blacksteel
+	icon_state = "blacksteelrapier"
+	sheathe_icon = "blacksteelrapier"
+	max_blade_int = 400
+	possible_item_intents = list(/datum/intent/sword/thrust/rapier, /datum/intent/sword/cut/rapier, /datum/intent/sword/thrust/rapier/lunge)
+	wdefense = 9 //Absurdly high defense, but no added integrity; for the discerning duelmaster.
+	var/used = FALSE
+	var/list/selection = list(
+		/datum/special_intent/piercing_lunge,
+		/datum/special_intent/polearm_backstep,
+		/datum/special_intent/dagger_dash,
+		/datum/special_intent/limbguard
+		)
+
+/obj/item/rogueweapon/sword/rapier/blacksteel/examine(mob/user)
+	. = ..()
+	if(!used)
+		. += span_notice("The Special Manoeuvre of this weapon can be changed. Right-click it with a free hand to select one. This can only be done once.")
+
+/obj/item/rogueweapon/sword/rapier/blacksteel/attack_right(mob/user)
+	. = ..()
+	if(used)
+		return
+		
+	var/list/special_options = list()
+	for(var/intent in selection)
+		var/datum/special_intent/S = intent // Hate this DM quirk.
+		special_options[S::name] = S
+	
+	var/choice = input(user, "Choose the Manoeuvre", "MANOEUVRE") as anything in special_options
+	if(choice)
+		qdel(special)
+		var/datum/special_intent/S = special_options[choice]
+		special = new S()
+		used = TRUE
 
 /obj/item/rogueweapon/sword/rapier/silver
 	name = "silver rapier"
@@ -2331,7 +2467,6 @@
 	max_integrity = 50 //For reference, regular attacks drain each 'max_' value by one point. Parries will quite literally cause this to explode.
 	max_blade_int = 50
 	anvilrepair = null //Ceremonial. This should break comedically easily, but still have just enough toughness to work with a few strikes.
-	sellprice = 300
 	sheathe_icon = "goldsword"
 	wbalance = WBALANCE_HEAVY
 	unenchantable = TRUE
@@ -2349,7 +2484,6 @@
 	wdefense = 6
 	max_integrity = 350
 	max_blade_int = 350
-	sellprice = 150
 
 /obj/item/rogueweapon/sword/blacksteel/decorated
 	name = "decorated blacksteel arming sword"
@@ -2358,7 +2492,6 @@
 	icon_state = "bs_swordregal"
 	sheathe_icon = "bs_swordregal"
 	wdefense = 7
-	sellprice = 250
 	no_loot_taint = TRUE
 
 /obj/item/rogueweapon/sword/short/gronn
@@ -2410,7 +2543,6 @@
 	wdefense = 4
 	minstr = 10
 	force = 7	//This sword gets its real damage values from its intents. IYKYK.
-	sellprice = 25
 	blade_int = 350	//You're gonna cut. A lot.
 	max_integrity = 110	//Iron arming sword + 10
 	pickup_sound = 'sound/foley/equip/scrap_equip.ogg'

@@ -1,6 +1,4 @@
 // Unarmed base weapon defense equivalents — fed into the same (skill * 20) + (wdef * 10) formula as weapons
-#define UNARMED_BASE_WDEF_BARE 2		// Bare fists — still bad, but not hopeless
-#define UNARMED_BASE_WDEF_EQUIPPED 7	// Bracers / knuckles / bandages — matches a rapier
 
 /mob/living/proc/attempt_parry(datum/intent/intenty, mob/living/user)
 	var/prob2defend = user.defprob
@@ -80,12 +78,12 @@
 
 	if(mainhand)
 		if(mainhand.can_parry)
-			mainhand_defense += (H.get_skill_level(mainhand.associated_skill) * 20)
-			mainhand_defense += (mainhand.wdefense_dynamic * 10)
+			mainhand_defense += (H.get_skill_level(mainhand.associated_skill) * PARRY_PER_SKILL_LEVEL)
+			mainhand_defense += (mainhand.wdefense_dynamic * PARRY_PER_WDEF_POINT)
 	if(offhand)
 		if(offhand.can_parry)
-			offhand_defense += (H.get_skill_level(offhand.associated_skill) * 20)
-			offhand_defense += (offhand.wdefense_dynamic * 10)
+			offhand_defense += (H.get_skill_level(offhand.associated_skill) * PARRY_PER_SKILL_LEVEL)
+			offhand_defense += (offhand.wdefense_dynamic * PARRY_PER_WDEF_POINT)
 
 	if(mainhand_defense >= offhand_defense)
 		highest_defense += mainhand_defense
@@ -108,16 +106,16 @@
 	var/obj/K = H.get_item_by_slot(SLOT_GLOVES)
 	var/is_pugilist = HAS_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN) // Only expert pugilists get the generous unarmed wdef
 	if(istype(B, /obj/item/clothing/wrists/roguetown/bracers))
-		unarmed_defense = (unarmed_skill * 20) + ((is_pugilist ? UNARMED_BASE_WDEF_EQUIPPED : UNARMED_BASE_WDEF_BARE) * 10)
+		unarmed_defense = (unarmed_skill * PARRY_PER_SKILL_LEVEL) + ((is_pugilist ? UNARMED_BASE_WDEF_EQUIPPED : UNARMED_BASE_WDEF_BARE) * PARRY_PER_WDEF_POINT)
 		unarmed_bracers = B
 	else if(istype(K, /obj/item/clothing/gloves/roguetown/knuckles))
-		unarmed_defense = (unarmed_skill * 20) + ((is_pugilist ? UNARMED_BASE_WDEF_EQUIPPED : UNARMED_BASE_WDEF_BARE) * 10)
+		unarmed_defense = (unarmed_skill * PARRY_PER_SKILL_LEVEL) + ((is_pugilist ? UNARMED_BASE_WDEF_EQUIPPED : UNARMED_BASE_WDEF_BARE) * PARRY_PER_WDEF_POINT)
 		unarmed_knuckles = K
 	else if(istype(K, /obj/item/clothing/gloves/roguetown/bandages))
-		unarmed_defense = (unarmed_skill * 20) + ((is_pugilist ? UNARMED_BASE_WDEF_EQUIPPED : UNARMED_BASE_WDEF_BARE) * 10)
+		unarmed_defense = (unarmed_skill * PARRY_PER_SKILL_LEVEL) + ((is_pugilist ? UNARMED_BASE_WDEF_EQUIPPED : UNARMED_BASE_WDEF_BARE) * PARRY_PER_WDEF_POINT)
 		unarmed_bandages = K
 	else
-		unarmed_defense = (unarmed_skill * 20) + (UNARMED_BASE_WDEF_BARE * 10)
+		unarmed_defense = (unarmed_skill * PARRY_PER_SKILL_LEVEL) + (UNARMED_BASE_WDEF_BARE * PARRY_PER_WDEF_POINT)
 
 	// If held weapon uses unarmed skill (katar, etc), allow unarmed parry fallback
 	var/allow_unarmed_fallback = FALSE
@@ -160,7 +158,7 @@
 		if(intenty.sharpness_penalty)
 			intenty.masteritem.remove_bintegrity(intenty.sharpness_penalty)
 
-		prob2defend -= (attacker_skill * 20)
+		prob2defend -= (attacker_skill * PARRY_PER_SKILL_LEVEL)
 		if(att_swift_capable)
 			if(!has_status_effect(/datum/status_effect/buff/weapon_binded))
 				if((intenty.masteritem.wbalance == WBALANCE_SWIFT) && (user.STASPD > src.STASPD)) //enemy weapon is quick, so get a bonus based on spddiff
@@ -185,7 +183,7 @@
 					prob2defend -= finalmod
 	else
 		attacker_skill = U.get_skill_level(/datum/skill/combat/unarmed)
-		prob2defend -= (attacker_skill * 20)
+		prob2defend -= (attacker_skill * PARRY_PER_SKILL_LEVEL)
 		if(user.STASPD > src.STASPD) //unarmed is inherently swift
 			var/spdmod = ((user.STASPD - src.STASPD) * 10)
 			var/permod = ((src.STAPER - user.STAPER) * 10)
@@ -204,7 +202,7 @@
 
 	if(has_status_effect(/datum/status_effect/buff/weapon_binded))
 		prob2defend += 20
-	if(used_weapon)
+	if(used_weapon && !allow_unarmed_fallback)
 		if(!has_status_effect(/datum/status_effect/buff/weapon_binded) && !has_status_effect(/datum/status_effect/debuff/weapon_binded))
 			if(ishuman(src) && user.get_tempo_bonus(TEMPO_TAG_BINDABLE) && mind)
 				var/mob/living/carbon/human/HL = src
@@ -212,26 +210,6 @@
 					return TRUE	//Tentative, might be better if it only increased parry chance on the initial binding rather than a full block.
 
 	// --- Weapon Binding End! ---
-
-	if(HAS_TRAIT(src, TRAIT_GUIDANCE))
-		prob2defend += FULL_GUIDANCE_CHANCE
-	else if(HAS_TRAIT(src, TRAIT_LESSER_GUIDANCE))
-		prob2defend += LESSER_GUIDANCE_CHANCE
-
-	if(HAS_TRAIT(user, TRAIT_GUIDANCE))
-		prob2defend -= FULL_GUIDANCE_CHANCE
-	else if(HAS_TRAIT(user, TRAIT_LESSER_GUIDANCE))
-		prob2defend -= LESSER_GUIDANCE_CHANCE
-
-	if(HAS_TRAIT(src, TRAIT_REVERSE_GUIDANCE))
-		prob2defend -= FULL_GUIDANCE_CHANCE
-	else if(HAS_TRAIT(src, TRAIT_LESSER_REVERSE_GUIDANCE))
-		prob2defend -= LESSER_GUIDANCE_CHANCE
-
-	if(HAS_TRAIT(user, TRAIT_REVERSE_GUIDANCE))
-		prob2defend += FULL_GUIDANCE_CHANCE
-	else if(HAS_TRAIT(user, TRAIT_LESSER_REVERSE_GUIDANCE))
-		prob2defend += LESSER_GUIDANCE_CHANCE
 	
 	if(HAS_TRAIT(user, TRAIT_CURSE_RAVOX))
 		prob2defend -= 40
@@ -265,18 +243,13 @@
 		drained = drained + 5							//More stamina usage for not being trained in the armor you're using.
 		untrained_armor = TRUE
 
-	//Dual Wielding
-	var/defender_dualw
-	var/extradefroll
+	var/parry_status = FALSE
+	var/text
 
-	//Dual Wielder defense disadvantage
-	if(HAS_TRAIT(src, TRAIT_DUALWIELDER) && (istype(offhand, mainhand) || istype(mainhand, offhand)))
-		extradefroll = prob(prob2defend)
-		defender_dualw = TRUE
-
-	var/text = "Roll to parry... [HAS_TRAIT(user, TRAIT_DECEIVING_MEEKNESS) ? "???" : prob2defend]%"
-	if(defender_dualw)
-		text += " Twice! Disadvantage! [!HAS_TRAIT(user, TRAIT_DECEIVING_MEEKNESS) ? "([(prob2defend / 100) * (prob2defend / 100) * 100]%)" : ""]"
+	// Dual wield drawback (-5%)
+	var/dualwield_penalty = HAS_TRAIT(src, TRAIT_DUALWIELDER) && src.can_dualwield(mainhand, offhand)
+	if(dualwield_penalty)
+		prob2defend = clamp(prob2defend - 5, 5, 90)
 
 	if(has_status_effect(/datum/status_effect/swingdelay/penalty))
 		prob2defend = clamp(prob2defend - 50, 5, 90)
@@ -284,13 +257,12 @@
 	if(HAS_TRAIT(src, TRAIT_NODEF))
 		prob2defend = 0
 
-	var/parry_status = FALSE
-	if(defender_dualw)
-		if(prob(prob2defend) && extradefroll)
-			parry_status = TRUE
-	else
-		if(prob(prob2defend))
-			parry_status = TRUE
+	text += "Roll to parry... [HAS_TRAIT(user, TRAIT_DECEIVING_MEEKNESS) ? "???" : prob2defend]%"
+	if(dualwield_penalty)
+		text += " (-5%)"
+
+	if(prob(prob2defend))
+		parry_status = TRUE
 
 	if(parry_status)
 		if(!has_status_effect(/datum/status_effect/buff/weapon_binded))
@@ -333,7 +305,7 @@
 					if(!HAS_TRAIT(U, TRAIT_GOODTRAINER))
 						skill_target -= SKILL_LEVEL_NOVICE
 					if(HAS_TRAIT(U, TRAIT_BADTRAINER))
-						skill_target -= SKILL_LEVEL_APPRENTICE
+						skill_target -= SKILL_LEVEL_NOVICE
 					if (can_train_combat_skill(src, used_weapon.associated_skill, skill_target))
 						mind.add_sleep_experience(used_weapon.associated_skill, max(round(STAINT*exp_multi), 0), FALSE)
 
@@ -343,8 +315,8 @@
 						var/skill_target = defender_skill
 						if(!HAS_TRAIT(src, TRAIT_GOODTRAINER))
 							skill_target -= SKILL_LEVEL_NOVICE
-						if(HAS_TRAIT(U, TRAIT_BADTRAINER))
-							skill_target -= SKILL_LEVEL_APPRENTICE
+						if(HAS_TRAIT(src, TRAIT_BADTRAINER))
+							skill_target -= SKILL_LEVEL_NOVICE
 						if (can_train_combat_skill(U, attacker_skill_type, skill_target))
 							U.mind.add_sleep_experience(attacker_skill_type, max(round(STAINT*exp_multi), 0), FALSE)
 
@@ -388,9 +360,16 @@
 			else
 				// Unarmed attacker
 				var/intdam = INTEG_PARRY_DECAY_UNARMED
+				var/sharp_loss = SHARPNESS_ONHIT_DECAY
+
+				if(istype(user.rmb_intent, /datum/rmb_intent/strong))
+					sharp_loss += STRONG_SHP_BONUS
+					intdam += STRONG_INTG_BONUS
+
 				if(istype(used_weapon, /obj/item/rogueweapon/shield) && intenty)
 					intdam *= intenty.intent_intdamage_factor
 				used_weapon.take_damage(intdam, BRUTE, used_weapon.d_type)
+				used_weapon.remove_bintegrity(sharp_loss, user)
 			if(mind)
 				dodgetime = CLAMP(dodgetime - 2, 0, CLICK_CD_DODGE)
 				changeMaxDodge(2)
@@ -412,11 +391,11 @@
 						H.mind?.add_sleep_experience(/datum/skill/combat/unarmed, max(round(STAINT*exp_multi), 0), FALSE)
 
 			if(unarmed_bracers)
-				unarmed_bracers.take_damage(INTEG_PARRY_DECAY_NOSHARP, "slash", armor_penetration = 100)
+				unarmed_bracers.take_damage(INTEG_PARRY_DECAY_NOSHARP, BRUTE)
 			else if(unarmed_knuckles)
-				unarmed_knuckles.take_damage(INTEG_PARRY_DECAY_NOSHARP, "slash", armor_penetration = 100)
+				unarmed_knuckles.take_damage(INTEG_PARRY_DECAY_NOSHARP, BRUTE)
 			else if(unarmed_bandages)
-				unarmed_bandages.take_damage(INTEG_PARRY_DECAY_NOSHARP, "slash", armor_penetration = 100)
+				unarmed_bandages.take_damage(INTEG_PARRY_DECAY_NOSHARP, BRUTE)
 			flash_fullscreen("blackflash2")
 			if(mind)
 				dodgetime = CLAMP(dodgetime - 2, 0, CLICK_CD_DODGE)
@@ -507,5 +486,3 @@
 			return pick('sound/foley/binds/bind_heavy1.ogg','sound/foley/binds/bind_heavy2.ogg','sound/foley/binds/bind_heavy3.ogg','sound/foley/binds/bind_heavy4.ogg','sound/foley/binds/bind_heavy5.ogg','sound/foley/binds/bind_heavy6.ogg','sound/foley/binds/bind_heavy7.ogg','sound/foley/binds/bind_heavy8.ogg','sound/foley/binds/bind_heavy9.ogg','sound/foley/binds/bind_heavy10.ogg','sound/foley/binds/bind_heavy11.ogg','sound/foley/binds/bind_heavy12.ogg')
 		if(WBALANCE_SWIFT)
 			return pick('sound/foley/binds/bind_swift1.ogg','sound/foley/binds/bind_swift2.ogg','sound/foley/binds/bind_swift3.ogg','sound/foley/binds/bind_swift4.ogg','sound/foley/binds/bind_swift5.ogg','sound/foley/binds/bind_swift6.ogg')
-#undef UNARMED_BASE_WDEF_BARE
-#undef UNARMED_BASE_WDEF_EQUIPPED

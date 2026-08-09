@@ -284,3 +284,35 @@
 	item_state = "tiara"
 	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/donor_clothes.dmi'
+
+//somethingawful917
+//artist beltguy
+/obj/item/clothing/head/roguetown/sagesbighat
+	name = "sage's big hat"
+	desc = "Enormous hat that completely obscures the face. The pair are said to be successors to someone named \"the great sage\", and this big hat is a symbol of their pedigree"
+	slot_flags = ITEM_SLOT_HEAD
+	icon_state = "sagesbighat"
+	item_state = "sagesbighat"
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes_46x32.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/donor_clothes_46x32.dmi'
+	worn_x_dimension = 46
+
+//Etruscan design cloak resprite
+
+/obj/item/clothing/cloak/poncho/dittocloak
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/donor_clothes.dmi'
+	sleeved = 'modular_twilight_axis/icons/clothing/onmob/donor_sleeves_armor.dmi'
+
+/obj/item/clothing/cloak/poncho/dittocloak/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/clothing/cloak/poncho/dittocloak/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)

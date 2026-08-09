@@ -29,7 +29,7 @@
 		usr.client.prefs.ShowChoices(usr, 4)
 
 /client/verb/toggle_fullscreen()
-	set name = "ToggleFullscreen"
+	set name = "Toggle Fullscreen"
 	set category = "Preferences.Options"
 	set desc = ""
 	if(prefs)
@@ -180,6 +180,9 @@
 	if(prefs)
 		prefs.no_redflash = !prefs.no_redflash
 		prefs.save_preferences()
+		var/mob/living/carbon/C = mob
+		if(istype(C))
+			C.update_damage_hud() // Fixes that the overlay is not removed when toggling if already present.
 		to_chat(src, "You will see the red flashing effect [prefs.no_redflash ? "less" : "more"] frequently.")
 
 /client/verb/toggle_topexamine()
@@ -204,18 +207,6 @@
 	else
 		to_chat(src, "You will no longer hear music in the lobby.")
 		mob.stop_sound_channel(CHANNEL_LOBBYMUSIC)
-
-/client/verb/toggle_roleplay_ads()
-	set name = "Roleplay Ads (Toggle)"
-	set category = "OOC"
-	set desc = ""
-	if(prefs)
-		prefs.toggles ^= ROLEPLAY_ADS
-		prefs.save_preferences()
-	if(prefs.toggles & ROLEPLAY_ADS)
-		to_chat(src, "You will now be notified of new roleplay ads.")
-	else
-		to_chat(src, "You will no longer be notified of new roleplay ads.")
 
 /client/verb/stop_sounds_rogue()
 	set name = "StopSounds"
@@ -811,6 +802,20 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 		to_chat(src, span_notice("I will now hear all LOOC chatter."))
 	else
 		to_chat(src, span_info("I will now only hear LOOC chatter around me."))
+
+/client/proc/hearsubtleLOOC()
+	set category = "Admin.Preferences"
+	set name = "Show/Hide Subtle LOOC"
+	if(!holder)
+		return
+	if(!prefs)
+		return
+	prefs.admin_chat_toggles ^= CHAT_ADMIN_SLOOC
+	prefs.save_preferences()
+	if(prefs.admin_chat_toggles & CHAT_ADMIN_SLOOC)
+		to_chat(src, span_notice("I will now hear subtle LOOC (SLOOC) chatter I am not part of."))
+	else
+		to_chat(src, span_info("I will no longer hear subtle LOOC (SLOOC) chatter I am not part of."))
 
 /client/proc/togglespawnmessages()
 	set category = "Admin.Preferences"

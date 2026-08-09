@@ -12,8 +12,9 @@
 	storyteller_pill_label = "Masquerade"
 	storyteller_rumour_name = "a vampire masquerade"
 	storyteller_slot_key = "Masquerade"
+	consumes_hard_antag_slot = FALSE
 
-	weight = 12
+	weight = 8
 
 	denominator = 80
 

@@ -86,6 +86,11 @@
 		/mob/living/carbon/human/proc/emote_lizard_hiss,
 		/mob/living/carbon/human/proc/emote_lizard_squeal,
 		/mob/living/carbon/human/proc/emote_lizard_thump,
+		/mob/living/carbon/human/proc/emote_growl,
+		/mob/living/carbon/human/proc/emote_purr,
+		/mob/living/carbon/human/proc/emote_squeak,
+		/mob/living/carbon/human/proc/emote_hiss,
+		/mob/living/carbon/human/proc/emote_phiss,
 	)
 //	modifies_speech = TRUE
 /*
@@ -201,8 +206,7 @@
 	var/static/list/languages_possible_alien = typecacheof(list(
 		/datum/language/xenocommon,
 		/datum/language/common,
-		/datum/language/draconic,
-		/datum/language/monkey))
+		/datum/language/draconic))
 
 /obj/item/organ/tongue/alien/Initialize(mapload)
 	. = ..()
@@ -297,6 +301,13 @@
 		/mob/living/carbon/human/proc/emote_growl,
 		/mob/living/carbon/human/proc/emote_prbt,
 		/mob/living/carbon/human/proc/emote_bleat,
+		/mob/living/carbon/human/proc/emote_chitter,
+		/mob/living/carbon/human/proc/emote_flutter,
+		/mob/living/carbon/human/proc/emote_yip,
+		/mob/living/carbon/human/proc/emote_lizard_bellow,
+		/mob/living/carbon/human/proc/emote_lizard_hiss,
+		/mob/living/carbon/human/proc/emote_lizard_squeal,
+		/mob/living/carbon/human/proc/emote_lizard_thump,
 	)
 
 /obj/item/organ/tongue/moth
@@ -305,4 +316,5 @@
 	emote_verbs = list(
 		/mob/living/carbon/human/proc/emote_chitter,
 		/mob/living/carbon/human/proc/emote_flutter,
+		/mob/living/carbon/human/proc/emote_squeak,
 	)

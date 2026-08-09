@@ -78,6 +78,12 @@
 	maximum = 1
 	marquescost = 12
 
+/datum/inqports/supplies/litany
+	name = "The Archbishop's Litany - Singular Blessing Of Psydonic Weaponry"
+	item_type = /obj/item/inqarticles/litany
+	maximum = 5
+	marquescost = 6
+
 /datum/inqports/supplies/psybuns
 	name = "The 'Otavan Bakery Special' Crate"
 	item_type = /obj/structure/closet/crate/chest/inqcrate/supplies/psybuns
@@ -518,6 +524,7 @@
 	new /obj/item/clothing/head/roguetown/helmet/heavy/psysallet(src)
 	new /obj/item/clothing/head/roguetown/helmet/heavy/psybucket(src)
 	new /obj/item/clothing/head/roguetown/helmet/heavy/psydonhelm(src)
+	new /obj/item/clothing/head/roguetown/helmet/heavy/volfplate/psydonic(src)
 	new /obj/item/clothing/head/roguetown/helmet/heavy/absolver/unblessed(src)
 
 /datum/inqports/wardrobe/fencerset

@@ -35,6 +35,7 @@
 	job_subclasses = list(
 		/datum/advclass/archivist
 	)
+	has_subprefs = FALSE // only one subclass
 
 /datum/advclass/archivist
 	name = "Archivist"
@@ -68,6 +69,8 @@
 	age_mod = /datum/class_age_mod/archivist
 	subclass_mage_aspects = list("mastery" = FALSE, "major" = 1, "minor" = 1, "utilities" = 2, "ward" = TRUE)
 	subclass_skills = list(
+		/datum/skill/combat/staves = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/arcyne = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/reading = SKILL_LEVEL_LEGENDARY,
 		/datum/skill/craft/alchemy = SKILL_LEVEL_LEGENDARY,
 		/datum/skill/magic/arcane = SKILL_LEVEL_APPRENTICE,
@@ -105,7 +108,7 @@
 		/obj/item/paper,
 		/obj/item/paper,
 		/obj/item/paper,
-		/obj/item/book/spellbook
+		/obj/item/rogueweapon/spellbook
 	)
 
 	if(H.mind)

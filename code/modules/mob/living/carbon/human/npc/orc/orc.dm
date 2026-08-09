@@ -21,8 +21,10 @@
 	faction = list(FACTION_ORCS, FACTION_STATION)
 	ai_controller = /datum/ai_controller/human_npc
 	cmode_music = FALSE
+	ambush_faction = "orcs"
 
 /mob/living/carbon/human/species/orc/npc/archer
+	threat_point = THREAT_HIGH
 	orc_outfit = /datum/outfit/job/roguetown/orc/npc/archer
 
 /mob/living/carbon/human/species/orc/npc/Initialize()
@@ -82,32 +84,7 @@
 	new_facial.hair_color = "#31302E"
 	hair_color = "#31302E"
 
-	var/voice_choice = rand(1, 12)
-	switch(voice_choice)
-		if(1)
-			src.voice_color = "0bb1e4"
-		if(2)
-			src.voice_color = "d30c0c"
-		if(3)
-			src.voice_color = "4d4afc"
-		if(4)
-			src.voice_color = "da40c0"
-		if(5)
-			src.voice_color = "51e251"
-		if(6)
-			src.voice_color = "a059cf"
-		if(7)
-			src.voice_color = "8700c5"
-		if(8)
-			src.voice_color = "cfc886"
-		if(9)
-			src.voice_color = "ff9100"
-		if(10)
-			src.voice_color = "a0a0a0"
-		if(11)
-			src.voice_color = "797979"
-		if(12)
-			src.voice_color = "ff5e00"
+	random_voice_NPC()
 
 	dna.update_ui_block(DNA_HAIR_COLOR_BLOCK)
 	dna.species.handle_body(src)
@@ -134,22 +111,22 @@
 	H.STAINT = 6
 
 	//light labor skills for armor repairs and such, equipment is so-so, with good stats
-	H.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/sewing, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/sewing, 1, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/craft/carpentry, SKILL_LEVEL_NOVICE, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/craft/masonry, SKILL_LEVEL_NOVICE, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/craft/crafting, SKILL_LEVEL_NOVICE, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/craft/sewing, SKILL_LEVEL_NOVICE, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/craft/sewing, SKILL_LEVEL_NOVICE, TRUE)
 
-	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/polearms, SKILL_LEVEL_JOURNEYMAN, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/maces, SKILL_LEVEL_JOURNEYMAN, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/axes, SKILL_LEVEL_JOURNEYMAN, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/wrestling, SKILL_LEVEL_JOURNEYMAN, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/unarmed, SKILL_LEVEL_JOURNEYMAN, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/misc/athletics, SKILL_LEVEL_EXPERT, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_JOURNEYMAN, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/shields, SKILL_LEVEL_JOURNEYMAN, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/knives, SKILL_LEVEL_JOURNEYMAN, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/misc/climbing, SKILL_LEVEL_APPRENTICE, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/misc/swimming, SKILL_LEVEL_APPRENTICE, TRUE)
 
 

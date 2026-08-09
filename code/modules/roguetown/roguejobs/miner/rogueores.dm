@@ -22,7 +22,6 @@
 	desc = "A clump of dirty lustrous nuggets!"
 	icon_state = "oregold1"
 	smeltresult = /obj/item/ingot/gold
-	sellprice = SELLPRICE_GOLD_ORE
 
 /obj/item/rogueore/gold/Initialize()
 	icon_state = "oregold[rand(1,3)]"
@@ -46,7 +45,6 @@
 	desc = "A dark ore of rugged strength."
 	icon_state = "oreiron1"
 	smeltresult = /obj/item/ingot/iron
-	sellprice = SELLPRICE_IRON_ORE
 
 /obj/item/rogueore/iron/Initialize()
 	icon_state = "oreiron[rand(1,3)]"
@@ -92,7 +90,6 @@
 	icon_state = "orecoal1"
 	firefuel = 30 MINUTES
 	smeltresult = /obj/item/rogueore/coal
-	sellprice = SELLPRICE_COAL
 
 /obj/item/rogueore/coal/Initialize()
 	icon_state = "orecoal[rand(1,3)]"
@@ -366,6 +363,24 @@
 	icon_state = "jadeslag"
 	sellprice = 9
 
+/obj/item/ingot/silverslag
+	name = "silver-speckled slag"
+	desc = "A mass of smoldered silver, rendered lame from the forge's heat. Holy might, marred and tarnished." 
+	icon_state = "silverslag"
+	sellprice = 9
+
+/obj/item/ingot/goldslag
+	name = "gold-speckled slag"
+	desc = "A mass of smoldered gold, rendered lame from the forge's heat. Haughty dreams, brought lower than low." 
+	icon_state = "goldslag"
+	sellprice = 12
+
+/obj/item/ingot/copperslag
+	name = "copper-speckled slag"
+	desc = "A mass of smoldered copper, rendered lame from the forge's heat. Primeval innovation, gnarled into rubble." 
+	icon_state = "copperslag"
+	sellprice = 3
+
 //Anomalous Smeltings
 /obj/item/ingot/weeping
 	name = "enduring ingot"
@@ -481,7 +496,6 @@
 	desc = "A massive handle, assembled from the double-handed grip of an Executioner's Sword. The unique crescent-styled crossguard seems to have a slot, fittable only by the tang of a fittingly large blade."
 	icon_state = "component_berserkhandle"
 	smeltresult = /obj/item/ingot/iron
-	sellprice = 33
 
 /obj/item/ingot/component/threadavantyne
 	name = "avantyne thread"

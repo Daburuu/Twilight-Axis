@@ -35,7 +35,9 @@
 		TRAIT_RITUALIST,
 		TRAIT_STRENGTH_UNCAPPED,
 		TRAIT_DREAMWALKER,
-		TRAIT_UNLYCKERABLE
+		TRAIT_UNLYCKERABLE,
+		TRAIT_NOWW,
+		TRAIT_UNCONVERTIBLE
 		)
 
 	var/STASTR = 15
@@ -70,13 +72,13 @@
 	owner.current.STACON = src.STACON
 	owner.current.STALUC = src.STALUC
 	//Dreamfiends fear them up close.
-	var/mob/living/carbon/human/body = owner.current 
+	var/mob/living/carbon/human/body = owner.current
 	body.faction |= "dream"
 	for (var/trait in traits_dreamwalker)
 		ADD_TRAIT(body, trait, "[type]")
 	if(body.mind)
 		body.mind.RemoveAllSpells()
-		body.mind.AddSpell(new /datum/action/cooldown/spell/blink)
+		body.mind.AddSpell(new /datum/action/cooldown/spell/blink/dreamwalker)
 		body.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mark_target)
 		body.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/jaunt)
 		body.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/dream_bind)
@@ -113,7 +115,7 @@
 	H.change_stat(STATKEY_INT, 2)
 	H.change_stat(STATKEY_CON, 2)
 	H.change_stat(STATKEY_PER, 2)
-	H.change_stat(STATKEY_SPD, 2)
+	H.change_stat(STATKEY_SPD, 1)
 	H.change_stat(STATKEY_WIL, 2)
 
 	if(H.mind)

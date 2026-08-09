@@ -177,7 +177,7 @@
 
 	if (opacity && isturf(loc))
 		var/turf/T = loc
-		T.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
+		T.opaque_atom_count++
 
 	if (canSmoothWith)
 		canSmoothWith = typelist("canSmoothWith", canSmoothWith)
@@ -230,7 +230,10 @@
 	LAZYCLEARLIST(overlays)
 
 	QDEL_NULL(light)
-	QDEL_NULL(ai_controller)
+	if(ispath(ai_controller))
+		ai_controller = null
+	else
+		QDEL_NULL(ai_controller)
 
 	return ..()
 
@@ -302,13 +305,6 @@
 				L.transferItemToLoc(M, src)
 			else
 				M.forceMove(src)
-
-/obj/item/CheckParts(list/parts_list, datum/crafting_recipe/R)
-	..()
-	if(R)
-		if(R.sellprice)
-			sellprice = R.sellprice
-			randomize_price()
 
 ///Hook for multiz???
 /atom/proc/update_multiz(prune_on_fail = FALSE)

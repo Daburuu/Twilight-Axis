@@ -200,7 +200,6 @@
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "mimic_trinket"
 	possible_item_intents = list(/datum/intent/use)
-	dropshrink = 0.6
 	var/duration = 10 MINUTES
 	var/oldicon
 	var/oldicon_state
@@ -332,6 +331,7 @@
 	name = "sending stone"
 	desc = "One of a pair of sending stones."
 	var/obj/item/natural/stone/sending/paired_with
+	obj_flags = UNIQUE_RENAME
 
 /obj/item/natural/stone/sending/attack_self(mob/user)
 	var/input_text = input(user, "Enter your message:", "Message")

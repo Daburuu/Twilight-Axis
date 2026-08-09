@@ -79,6 +79,11 @@
 			user.playsound_local(user, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 			playsound(target, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 			return FALSE
+		if(HAS_TRAIT(target, TRAIT_UNFORGIVABLE))
+			target.visible_message(span_info("[target] stirs for a moment, the miracle dissipates."), span_notice("A dull warmth swells in your hollow husk of a body, only to fade as quickly as it arrived."))
+			user.playsound_local(user, 'sound/magic/PSY.ogg', 100, FALSE, -1)
+			playsound(target, 'sound/magic/PSY.ogg', 100, FALSE, -1)
+			return FALSE
 		if(target.has_status_effect(/datum/status_effect/buff/baothablessing))
 			to_chat(user, span_warning("They're already blessed by these effects!"))
 			revert_cast()
@@ -169,15 +174,15 @@
 			if(thing.reagents.holder_full() || (user.devotion.devotion - fatigue_used <= 0))
 				break
 
-			var/water_qty = max(1, holy_skill) + 1
+			var/water_qty = max(2, holy_skill*2)
 			var/list/water_contents = list(/datum/reagent/medicine/loversruin = water_qty)
 			var/datum/reagents/reagents_to_add = new()
 			reagents_to_add.add_reagent_list(water_contents)
-			reagents_to_add.trans_to(thing, reagents_to_add.total_volume, transfered_by = user, method = INGEST)
+			reagents_to_add.trans_to(thing, reagents_to_add.total_volume, transfered_by = user)
 
 			fatigue_spent += fatigue_used
 			user.stamina_add(fatigue_used)
-			user.devotion?.update_devotion(-1.0)
+			user.devotion?.update_devotion(-1.5)
 
 			if(prob(80))
 				playsound(user, 'sound/items/fillcup.ogg', 55, TRUE)
@@ -337,6 +342,7 @@
 /obj/projectile/magic/blowingdust
 	name = "unholy dust"
 	icon_state = "spark"
+	expose_caster_on_deflect = TRUE
 	nodamage = FALSE
 	damage = 1
 	poisontype = /datum/reagent/herozium
@@ -371,15 +377,17 @@
 	poisonamount = 8 //Decent bit of high, three doses would be just above the overdose threshold if applied fast enough - in practice usually 4.
 
 
-/obj/projectile/magic/blowingdust/on_hit(target, mob/living/M)
+/obj/projectile/magic/blowingdust/on_hit(target, blocked = FALSE)
 	. = ..()
-	if(!istype(M))
+	if(!isliving(target))
 		return
 	if(out_of_effective_range())
 		return
-	if(target)
-		to_chat(target, span_warning("Gah! Something.. got in my - eyes.."))
-		M.blur_eyes(2)
+	if(blocked >= 100)
+		return
+	var/mob/living/M = target
+	to_chat(M, span_warning("Gah! Something.. got in my - eyes.."))
+	M.blur_eyes(2)
 
 // T2 - clears all stress. Forget your worries, pookie bear.
 /obj/effect/proc_holder/spell/invoked/lasthigh

@@ -1191,29 +1191,6 @@ GLOBAL_REAL_VAR(list/stack_trace_storage)
 	pixel_x = initialpixelx
 	pixel_y = initialpixely
 
-///Checks if the given iconstate exists in the given file, caching the result. Setting scream to TRUE will print a stack trace ONCE.
-/proc/icon_exists(file, state, scream)
-	var/static/list/icon_states_cache = list()
-	if(icon_states_cache[file]?[state])
-		return TRUE
-
-	if(icon_states_cache[file]?[state] == FALSE)
-		return FALSE
-
-	var/list/states = icon_states(file)
-
-	if(!icon_states_cache[file])
-		icon_states_cache[file] = list()
-
-	if(state in states)
-		icon_states_cache[file][state] = TRUE
-		return TRUE
-	else
-		icon_states_cache[file][state] = FALSE
-		if(scream)
-			stack_trace("Icon Lookup for state: [state] in file [file] failed.")
-		return FALSE
-
 /proc/weightclass2text(w_class)
 	switch(w_class)
 		if(WEIGHT_CLASS_TINY)
@@ -1572,7 +1549,8 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 	/area/rogue/outdoors/bog, \
 	/area/rogue/outdoors/mountains, \
 	/area/rogue/outdoors/rtfield, \
-	/area/rogue/outdoors/bograt \
+	/area/rogue/outdoors/bograt, \
+	/area/rogue/outdoors/desert \
 )
 
 /proc/is_valid_hunting_area(area/A)

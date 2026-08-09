@@ -22,6 +22,10 @@
 	if(!CheckAdminHref(href, href_list))
 		return
 
+	if(href_list["ccg_manage"])
+		ccg_management_topic(href_list)
+		return
+
 	// Open Heal Panel from Player Panel
 	if(href_list["heal_panel"])
 		var/mob/living/M = locate(href_list["heal_panel"])
@@ -480,8 +484,6 @@
 				var/mob/living/carbon/human/newmob = M.change_mob_type( /mob/living/carbon/human , null, null, delmob )
 				if(posttransformoutfit && istype(newmob))
 					newmob.equipOutfit(posttransformoutfit)
-			if("monkey")
-				M.change_mob_type( /mob/living/carbon/monkey , null, null, delmob )
 			if("cat")
 				M.change_mob_type( /mob/living/simple_animal/pet/cat , null, null, delmob )
 			if("runtime")
@@ -718,32 +720,6 @@
 		Game() // updates the main game menu
 		HandleFSecret()
 
-	else if(href_list["monkeyone"])
-		if(!check_rights(R_SPAWN))
-			return
-
-		var/mob/living/carbon/human/H = locate(href_list["monkeyone"])
-		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human.")
-			return
-
-		log_admin("[key_name(usr)] attempting to monkeyize [key_name(H)].")
-		message_admins(span_adminnotice("[key_name_admin(usr)] attempting to monkeyize [key_name_admin(H)]."))
-		H.monkeyize()
-
-	else if(href_list["humanone"])
-		if(!check_rights(R_SPAWN))
-			return
-
-		var/mob/living/carbon/monkey/Mo = locate(href_list["humanone"])
-		if(!istype(Mo))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/monkey.")
-			return
-
-		log_admin("[key_name(usr)] attempting to humanize [key_name(Mo)].")
-		message_admins(span_adminnotice("[key_name_admin(usr)] attempting to humanize [key_name_admin(Mo)]."))
-		Mo.humanize()
-
 	else if(href_list["corgione"])
 		if(!check_rights(R_SPAWN))
 			return
@@ -808,7 +784,10 @@
 			to_chat(usr, span_warning("[M] doesn't seem to have an active client."))
 			return
 		var/datum/job/mob_job
-		var/target_job = SSrole_class_handler.get_advclass_by_name(M.advjob)
+		var/datum/advclass/target_job
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			target_job = H.get_advclass_datum()
 		if(M.mind)
 			if(mob_job)
 				mob_job.current_positions = max(0, mob_job.current_positions - 1)
@@ -823,7 +802,6 @@
 		log_admin("[key_name(usr)] has sent [key_name(M)] back to the Lobby.")
 		GLOB.chosen_names -= M.real_name
 		LAZYREMOVE(GLOB.actors_list, M.mobid)
-		LAZYREMOVE(GLOB.roleplay_ads, M.mobid)
 		SSdroning.kill_droning(M.client)
 		SSdroning.kill_loop(M.client)
 		SSdroning.kill_rain(M.client)
@@ -1722,7 +1700,7 @@
 		if(M.ckey == usr.ckey)
 			to_chat(src, span_boldwarning("Самому себе триумфы выдавать нельзя."))
 			return
-		M.adjust_triumphs(amt2change, FALSE, raisin)
+		M.adjust_triumphs(amt2change, FALSE, "Edit Triumphs (Game Master panel) by [usr.key]: [raisin]")
 		world.TgsAnnounceTriumphChanges(amt2change, M.ckey, usr.ckey, raisin)
 		message_admins("[usr.key] adjusted [M.key]'s triumphs by [amt2change] with [!raisin ? "no reason given" : "reason: [raisin]"].")
 		log_admin("[usr.key] adjusted [M.key]'s triumphs by [amt2change] with [!raisin ? "no reason given" : "reason: [raisin]"].")

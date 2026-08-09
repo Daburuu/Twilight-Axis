@@ -18,7 +18,7 @@
 
 	charge_required = TRUE
 	charge_time = 2 SECONDS
-	charge_drain = 1
+	hold_drain = 1
 	charge_slowdown = CHARGING_SLOWDOWN_SMALL
 	charge_sound = 'sound/magic/charging.ogg'
 	cooldown_time = 3 MINUTES
@@ -98,8 +98,8 @@
 	if(!link)
 		return
 
-	to_chat(link.owner, span_warning("The mindlink with [link.target] fades away..."))
-	to_chat(link.target, span_warning("The mindlink with [link.owner] fades away..."))
+	to_chat(link.owner, span_notice("The mindlink with [link.target] fades away..."))
+	to_chat(link.target, span_notice("The mindlink with [link.owner] fades away..."))
 
 	GLOB.mindlinks -= link
 	qdel(link)

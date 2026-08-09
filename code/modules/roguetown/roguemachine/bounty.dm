@@ -180,7 +180,7 @@
 	new_bounty.amount = amount
 	new_bounty.target = target_realname
 	new_bounty.bandit = bandit_status
-	new_bounty.reason = reason
+	new_bounty.reason = html_encode(reason)
 	new_bounty.employer = employer_name
 	new_bounty.target_race = race
 	new_bounty.target_height = lowertext(descriptor_height)
@@ -452,6 +452,8 @@
 			message_admins("[M.real_name] was killed by the EXCIDIUM.")
 			log_admin("[M.real_name] was killed by the EXCIDIUM.")
 			playsound(src, 'sound/combat/vite.ogg', 100, FALSE, -1)
+			M.emote("superagony")
+			M.visible_message(span_warningbig("The CASTIFICO begins GRUESOMELY SHAVING OUT every bit and ounce of [M]'s FLESH on their HEAD, leaving only a grinning, bleeding skull behind. Justice has been served."))
 			victim_head.skeletonize()
 			submission = TRUE
 	else

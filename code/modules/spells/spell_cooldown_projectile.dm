@@ -24,6 +24,8 @@
 	var/projectiles_per_fire = 1
 	/// Whether this spell is currently set to fire in arc mode.
 	var/arc_mode = FALSE
+	/// If TRUE, a non-click (facing-direction) cast snaps the aim to the nearest cardinal direction.
+	var/cardinal_aim = FALSE
 
 /datum/action/cooldown/spell/projectile/generate_wiki_html(mob/user)
 	if(!displayed_damage && projectile_type)
@@ -39,7 +41,8 @@
 	var/atom/target = cast_on
 	// For non-click spells, resolve target in the caster's facing direction
 	if(!click_to_activate)
-		target = get_ranged_target_turf(owner, owner.dir, cast_range)
+		var/aim_dir = cardinal_aim ? angle2dir_cardinal(dir2angle(owner.dir)) : owner.dir
+		target = get_ranged_target_turf(owner, aim_dir, cast_range)
 
 	fire_projectile(target)
 	return TRUE
@@ -59,17 +62,18 @@
 	to_fire.firer = user
 	to_fire.fired_from = get_turf(user)
 	to_fire.def_zone = user.zone_selected
+	to_fire.source_spell = src
 
 	// Propagate spell impact intensity to the projectile
 	if(istype(to_fire, /obj/projectile/magic))
 		var/obj/projectile/magic/M = to_fire
 		M.spell_impact_intensity = spell_impact_intensity
 
-	// Accuracy from INT and skill, matching the old proc_holder system
+	// Accuracy from PER and skill, matching the old proc_holder system
 	if(isliving(user))
 		var/mob/living/L = user
-		to_fire.accuracy += (L.STAINT - 9) * 4
-		to_fire.bonus_accuracy += (L.STAINT - 8) * 3
+		to_fire.accuracy += (L.STAPER - 9) * 4
+		to_fire.bonus_accuracy += (L.STAPER - 8) * 3
 		if(L.mind)
 			to_fire.bonus_accuracy += (L.get_skill_level(associated_skill) * 5)
 
@@ -136,5 +140,5 @@
 		else
 			stats += span_info("Damage: [proj_damage]")
 	if(projectile_type_arc)
-		stats += span_info("Arc Mode (toggle with Ctrl+G): lobs the shot across elevations - aim at a target a level above or below, or at an opening over them.")
+		stats += span_info("Arc Mode (toggle with Shift+G): lobs the shot across elevations - aim at a target a level above or below, or at an opening over them.")
 	return stats
