@@ -12632,13 +12632,6 @@
 "bId" = (
 /turf/closed/wall/mineral/rogue/decostone/mossy/blue/cand,
 /area/rogue/under/cave/water_temple/one)
-"bIe" = (
-/obj/structure/fluff/railing/fence{
-	dir = 1
-	},
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/ruinedwood/turned,
-/area/rogue/outdoors/town/roofs/grim)
 "bIh" = (
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/naledi1,
@@ -17246,13 +17239,6 @@
 /obj/item/natural/stone,
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/dwarfin)
-"cnT" = (
-/obj/effect/decal/edge{
-	color = "#3f3f3f";
-	dir = 8
-	},
-/turf/open/floor/rogue/hexstone,
-/area/rogue/outdoors/mountains/grim)
 "cnW" = (
 /turf/closed/wall/mineral/rogue/pipe/corners/four{
 	name = "wide pipe";
@@ -21398,11 +21384,12 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/under/cave/mazedungeon)
 "cPW" = (
-/obj/structure/stairs{
+/obj/effect/decal/edge{
+	color = "#3f3f3f";
 	dir = 1
 	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/woods/grim/northeast/wardenscheckpoint)
+/turf/open/floor/rogue/rooftop/green/west,
+/area/rogue/outdoors/mountains/grim)
 "cPX" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -35053,10 +35040,6 @@
 	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town/grim)
-"eGe" = (
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/ruinedwood/turned,
-/area/rogue/outdoors/town/roofs/grim)
 "eGf" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -36331,6 +36314,13 @@
 	},
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/manor/grim)
+"eOD" = (
+/obj/structure/fluff/railing/fence{
+	dir = 1
+	},
+/obj/machinery/light/rogue/torchholder/r,
+/turf/open/floor/rogue/ruinedwood/turned,
+/area/rogue/outdoors/town/roofs/grim)
 "eOF" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /obj/effect/decal/cleanable/blood,
@@ -41193,6 +41183,13 @@
 	smooth = 0
 	},
 /area/rogue/outdoors/town/grim)
+"fww" = (
+/obj/structure/chair/wood/rogue/throne,
+/obj/effect/decal/edge{
+	color = "#3f3f3f"
+	},
+/turf/open/floor/rogue/carpet,
+/area/rogue/outdoors/town/roofs/grim)
 "fwz" = (
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grassyel,
@@ -46407,6 +46404,17 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
+"giI" = (
+/obj/structure/roguewindow,
+/obj/structure/bars/grille{
+	density = 1;
+	name = "window bars"
+	},
+/obj/structure/bars/passage/shutter{
+	redstone_id = "weaponsmith_shutter"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town/dwarfin)
 "giJ" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
 /obj/effect/decal/cleanable/blood,
@@ -57057,9 +57065,12 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/grim)
 "hEJ" = (
-/obj/machinery/light/rogue/candle/l,
+/obj/effect/decal/edge{
+	color = "#3f3f3f";
+	dir = 1
+	},
 /turf/open/floor/rogue/hexstone,
-/area/rogue/indoors/town/garrison/grim)
+/area/rogue/outdoors/mountains/grim)
 "hEL" = (
 /obj/structure/flora/roguetree/burnt,
 /turf/open/floor/rogue/dirt,
@@ -128037,9 +128048,9 @@
 "qXc" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
-	dir = 1
+	dir = 8
 	},
-/turf/open/floor/rogue/rooftop/green/west,
+/turf/open/floor/rogue/hexstone,
 /area/rogue/outdoors/mountains/grim)
 "qXd" = (
 /obj/structure/fluff/littlebanners/bluewhite{
@@ -142111,11 +142122,6 @@
 	},
 /turf/open/floor/rogue/metal,
 /area/rogue/under/cave/scarymaze)
-"sPu" = (
-/obj/structure/fluff/railing/corner/south_east,
-/obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/garrison/grim)
 "sPv" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	pixel_x = 0;
@@ -144172,12 +144178,10 @@
 /turf/open/water/bloody,
 /area/rogue/under/cave/taricheamanor)
 "tef" = (
-/obj/structure/chair/wood/rogue/throne,
-/obj/effect/decal/edge{
-	color = "#3f3f3f"
-	},
-/turf/open/floor/rogue/carpet,
-/area/rogue/outdoors/town/roofs/grim)
+/obj/structure/fluff/railing/corner/south_east,
+/obj/machinery/light/rogue/torchholder/l,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/garrison/grim)
 "teh" = (
 /obj/structure/closet/crate/roguecloset/inn,
 /obj/item/reagent_containers/glass/bowl/iron,
@@ -144256,6 +144260,10 @@
 "teK" = (
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/church/chapel/grim/almonry)
+"teL" = (
+/obj/machinery/light/rogue/candle/l,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/town/garrison/grim)
 "teN" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor6-old"
@@ -152929,17 +152937,6 @@
 	},
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/bath/grim)
-"umn" = (
-/obj/structure/roguewindow,
-/obj/structure/bars/grille{
-	density = 1;
-	name = "window bars"
-	},
-/obj/structure/bars/passage/shutter{
-	redstone_id = "weaponsmith_shutter"
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/indoors/town/dwarfin)
 "umo" = (
 /obj/structure/fluff/signage{
 	name = "GRAVEYARD - SOUTHWEST";
@@ -176709,12 +176706,9 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/garrison/grim)
 "xpF" = (
-/obj/effect/decal/edge{
-	color = "#3f3f3f";
-	dir = 1
-	},
-/turf/open/floor/rogue/hexstone,
-/area/rogue/outdoors/mountains/grim)
+/obj/machinery/light/rogue/torchholder/r,
+/turf/open/floor/rogue/ruinedwood/turned,
+/area/rogue/outdoors/town/roofs/grim)
 "xpJ" = (
 /obj/structure/bed/rogue/inn/wooldouble,
 /obj/item/bedsheet/rogue/double_pelt,
@@ -403801,7 +403795,7 @@ wkC
 lNA
 fst
 inH
-cPW
+iqv
 hbd
 cJe
 naw
@@ -491716,7 +491710,7 @@ ppk
 ppk
 aVd
 vNr
-hEJ
+teL
 qNp
 bBP
 bBP
@@ -493655,7 +493649,7 @@ tgh
 tgh
 jJb
 aDp
-umn
+giI
 pgt
 hCk
 ipJ
@@ -597527,13 +597521,13 @@ qrO
 qrO
 qrO
 qrO
-qXc
+cPW
 ivW
-cnT
-cnT
-cnT
-cnT
-cnT
+qXc
+qXc
+qXc
+qXc
+qXc
 vBZ
 xhJ
 yfG
@@ -597909,8 +597903,8 @@ qrO
 qrO
 qrO
 qrO
-qXc
-xpF
+cPW
+hEJ
 cag
 cag
 cag
@@ -607077,7 +607071,7 @@ qrO
 qrO
 qrO
 uBb
-eGe
+xpF
 nbS
 pVh
 pVh
@@ -607817,7 +607811,7 @@ qrO
 qrO
 qrO
 bBP
-sPu
+tef
 psh
 oye
 meP
@@ -610894,7 +610888,7 @@ pVh
 pVh
 pVh
 pVh
-bIe
+eOD
 xhJ
 tQp
 jiA
@@ -622376,7 +622370,7 @@ guS
 jiA
 soV
 fuN
-tef
+fww
 pIl
 pVh
 pVh
