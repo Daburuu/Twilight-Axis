@@ -152,9 +152,6 @@
 	return erp_try_start(src, target_atom, src)
 
 /atom/proc/erp_is_familiar_menu_blocked()
-	if(istype(src, /mob/living/simple_animal/pet/familiar))
-		return TRUE
-
 	if(islist(GLOB.familiar_types))
 		for(var/familiar_name in GLOB.familiar_types)
 			var/familiar_type = GLOB.familiar_types[familiar_name]
