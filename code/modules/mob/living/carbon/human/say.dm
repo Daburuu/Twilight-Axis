@@ -1,6 +1,17 @@
+/mob/living/carbon/human/verb/feign_impairment() // TA EDIT START
+	set name = "Feign Impairment"
+	set category = "IC"
+	set desc = "Pretend to be impaired by deliberately slurring your speech."
+
+	feigning_impairment = !feigning_impairment
+	if(feigning_impairment)
+		to_chat(src, span_notice("I begin to deliberately slur my speech."))
+	else
+		to_chat(src, span_notice("I stop feigning impairment.")) // TA EDIT END
+
 /mob/living/carbon/human/say_mod(input, message_mode)
 	verb_say = dna.species.say_mod
-	if(slurring)
+	if(slurring || feigning_impairment) // TA EDIT
 		return "slurs"
 	else
 		. = ..()
