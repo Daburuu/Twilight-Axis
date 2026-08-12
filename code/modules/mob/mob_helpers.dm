@@ -239,13 +239,13 @@
 					newletter = "...huuuhhh..."
 				if(newletter == ".")
 					newletter = " *BURP*."
-			switch(rand(1, 20))
-				if(1)
-					newletter += "'"
-				if(10)
-					newletter += "[newletter]"
-				if(20)
-					newletter += "[newletter][newletter]"
+			var/repeat_roll = rand(1, 20)
+			if(repeat_roll == 1)
+				newletter += "'"
+			else if(repeat_roll == 10)
+				newletter += "[newletter]"
+			else if(repeat_roll == 20)
+				newletter += "[newletter][newletter]"
 
 		newphrase += "[newletter]"
 		counter -= 1
