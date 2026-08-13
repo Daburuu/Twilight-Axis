@@ -132166,8 +132166,6 @@
 /obj/item/reagent_containers/glass/cup/ceramic,
 /obj/item/reagent_containers/glass/cup/ceramic,
 /obj/item/book/rogue/yeoldecookingmanual,
-/obj/item/contraption/folding_table_stored,
-/obj/item/contraption/folding_table_stored,
 /turf/open/floor/rogue/tile/brownbrick/browner,
 /area/rogue/indoors/town/church/chapel/grim/almonry)
 "rzl" = (
