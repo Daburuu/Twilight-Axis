@@ -28,8 +28,8 @@
 /atom/movable/screen/alert/status_effect/mouth_full
 	name = "Full Mouth"
 	desc = "Click to swallow a bit."
-	icon = 'modular_twilight_axis/icons/roguetown/misc/screen_alert.dmi'
-	icon_state = "full_in"
+	icon = 'modular_twilight_axis/icons/mob/screen_alert.dmi'
+	icon_state = "emberwine"
 
 /atom/movable/screen/alert/status_effect/mouth_full/Click(location, control, params)
 	..()
@@ -139,8 +139,8 @@
 /atom/movable/screen/alert/status_effect/love_potion
 	name = "love sickness"
 	desc = "Непреодолимая тяга к тому, кого вы любите."
-	icon = 'modular_twilight_axis/icons/roguetown/misc/screen_alert.dmi'
-	icon_state = "full_in"
+	icon = 'modular_twilight_axis/icons/mob/screen_alert.dmi'
+	icon_state = "emberwine"
 
 #define ERP_COATING_ZONE_GROIN "groin"
 #define ERP_COATING_ZONE_CHEST "chest"
@@ -236,8 +236,8 @@
 /atom/movable/screen/alert/status_effect/erp_coating
 	name = "Coated"
 	desc = "Something is smeared over your body."
-	icon = 'modular_twilight_axis/icons/roguetown/misc/screen_alert.dmi'
-	icon_state = "full_in"
+	icon = 'modular_twilight_axis/icons/mob/screen_alert.dmi'
+	icon_state = "emberwine"
 
 #undef ERP_COATING_ZONE_GROIN
 #undef ERP_COATING_ZONE_CHEST
@@ -329,7 +329,8 @@
 
 /datum/status_effect/buff/erp_satisfaction
 	id = "erp_satisfaction"
-	status_type = STATUS_EFFECT_UNIQUE
+	duration = 10 SECONDS
+	status_type = STATUS_EFFECT_REFRESH
 	alert_type = /atom/movable/screen/alert/status_effect/buff/erp_satisfaction
 
 	var/tier = 0
@@ -337,8 +338,8 @@
 /atom/movable/screen/alert/status_effect/buff/erp_satisfaction
 	name = "Satisfied"
 	desc = "A warm afterglow lingers."
-	icon_state = "full_in"
-	icon = 'modular_twilight_axis/icons/roguetown/misc/screen_alert.dmi'
+	icon = 'modular_twilight_axis/icons/mob/screen_alert.dmi'
+	icon_state = "emberwine"
 
 /datum/status_effect/buff/erp_satisfaction/proc/set_tier(new_tier)
 	tier = clamp(new_tier, 0, ERP_SATISFY_MAX_TIER)
@@ -369,5 +370,5 @@
 /atom/movable/screen/alert/status_effect/debuff/erp_overload
 	name = "Overstimulated"
 	desc = "Too much pleasure. My mind is foggy and my body is heavy."
-	icon = 'modular_twilight_axis/icons/roguetown/misc/screen_alert.dmi'
-	icon_state = "full_in"
+	icon = 'modular_twilight_axis/icons/mob/screen_alert.dmi'
+	icon_state = "debuff"
