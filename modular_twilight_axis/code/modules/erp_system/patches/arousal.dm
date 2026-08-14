@@ -18,6 +18,9 @@
 	. = ..()
 	check_processing()
 	seed_satisfaction_if_needed()
+	var/mob/parent_mob = parent
+	if(parent_mob?.client && is_lovefiend())
+		START_PROCESSING(SSobj, src)
 
 /datum/component/arousal/proc/seed_satisfaction_if_needed()
 	var/mob/living/carbon/human/H = parent
