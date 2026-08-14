@@ -170,7 +170,9 @@
 /// Handles moved actors and stops invalid links.
 /datum/erp_controller/proc/on_pair_moved(atom/movable/source, atom/oldloc, dir, forced)
 	SIGNAL_HANDLER
+	mark_actions_ui_dirty()
 	links_d?.on_pair_moved(source, oldloc, dir, forced)
+	request_ui_update()
 
 /// Collects links relevant to source mob.
 /datum/erp_controller/proc/on_get_links(datum/source, list/out_links)
@@ -345,6 +347,7 @@
 
 	owner.custom_actions += A
 	owner.save_custom_actions_to_prefs()
+	mark_actions_ui_dirty()
 	ui?.request_update()
 	return TRUE
 
@@ -381,6 +384,7 @@
 		return FALSE
 
 	owner.save_custom_actions_to_prefs()
+	mark_actions_ui_dirty()
 	ui?.request_update()
 	return TRUE
 
@@ -391,6 +395,7 @@
 
 	if(owner.delete_custom_action(id))
 		owner.save_custom_actions_to_prefs()
+		mark_actions_ui_dirty()
 		ui?.request_update()
 		return TRUE
 
@@ -721,6 +726,10 @@
 /// Requests throttled UI update.
 /datum/erp_controller/proc/request_ui_update()
 	ui_d?.request_ui_update()
+
+/// Invalidates cached action-list UI payload.
+/datum/erp_controller/proc/mark_actions_ui_dirty()
+	ui?.mark_actions_dirty()
 
 /// Performs throttled UI update now.
 /datum/erp_controller/proc/_do_ui_update()
