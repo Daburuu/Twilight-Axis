@@ -737,7 +737,7 @@
 /area/rogue/outdoors/bog/north/grim/ne)
 "afK" = (
 /obj/effect/decal/remains/human,
-/obj/effect/spawner/lootdrop/general_loot_mid,
+/obj/effect/spawner/lootdrop/general_loot_mid/x3,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/under/cave/water_temple/two)
 "afO" = (
@@ -8659,10 +8659,7 @@
 /area/rogue/indoors/town/magician)
 "bhe" = (
 /obj/structure/table/church,
-/obj/effect/spawner/lootdrop/general_loot_hi{
-	pixel_x = 0;
-	pixel_y = 8
-	},
+/obj/effect/spawner/lootdrop/general_loot_hi/x3,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/water_temple/three)
 "bhf" = (
@@ -11813,7 +11810,7 @@
 	pixel_y = 0
 	},
 /obj/effect/spawner/lootdrop/general_loot_low,
-/obj/effect/spawner/lootdrop/general_loot_low,
+/obj/effect/spawner/lootdrop/general_loot_mid,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/under/cave/water_temple/one)
 "bBX" = (
@@ -21776,7 +21773,7 @@
 	color = "#1E1E1E";
 	name = "charred remains"
 	},
-/obj/effect/spawner/lootdrop/general_loot_hi,
+/obj/effect/spawner/lootdrop/general_loot_hi/x3,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
 /obj/structure/trap/shock,
 /turf/open/floor/rogue/metal/barograte,
@@ -24054,7 +24051,7 @@
 	icon_state = "shelf_biggest";
 	pixel_y = 0
 	},
-/obj/effect/spawner/lootdrop/general_loot_low,
+/obj/effect/spawner/lootdrop/general_loot_mid,
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/water_temple/one)
 "dfW" = (
@@ -25062,7 +25059,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood/large_table/south_east,
-/obj/effect/spawner/lootdrop/general_loot_low,
+/obj/effect/spawner/lootdrop/general_loot_mid,
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/water_temple/one)
 "dmx" = (
@@ -27688,7 +27685,7 @@
 /area/rogue/under/cave/grim)
 "dEP" = (
 /obj/effect/decal/remains/human,
-/obj/effect/spawner/lootdrop/general_loot_mid,
+/obj/effect/spawner/lootdrop/general_loot_hi,
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/water_temple/two)
 "dEQ" = (
@@ -29525,7 +29522,7 @@
 /area/rogue/indoors/town/manor/grim)
 "dRW" = (
 /obj/effect/decal/cleanable/dreamfiend_ichor/huge,
-/obj/effect/spawner/lootdrop/general_loot_mid,
+/obj/effect/spawner/lootdrop/general_loot_hi,
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/under/cave/water_temple/two)
@@ -50419,10 +50416,11 @@
 	pixel_y = 4;
 	pixel_x = 1
 	},
-/obj/item/roguecoin/gold/pile,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
 /obj/effect/spawner/lootdrop/random_gem,
 /obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /obj/effect/spawner/lootdrop/random_gem,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/water_temple/lootroom)
 "gHW" = (
@@ -51055,7 +51053,7 @@
 /obj/structure/bars/passage/shutter/bookcase{
 	redstone_id = "secretwaterbooks"
 	},
-/turf/open/floor/rogue/churchrough,
+/turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/water_temple/one)
 "gMh" = (
 /obj/structure/mineral_door/wood/fancywood{
@@ -55052,7 +55050,7 @@
 	pixel_y = 10
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/general_loot_hi,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/water_temple/two)
 "hnQ" = (
@@ -56697,17 +56695,6 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/stepbelow)
-"hzE" = (
-/obj/structure/table/wood/large_table{
-	dir = 8
-	},
-/obj/effect/spawner/lootdrop/cheap_clutter_spawner,
-/obj/effect/decal/edge{
-	color = "#3f3f3f";
-	dir = 8
-	},
-/turf/open/floor/rogue/churchrough,
-/area/rogue/under/cave/water_temple/two)
 "hzF" = (
 /obj/structure/fluff/railing/border/west,
 /obj/structure/closet/crate/chest/wicker,
@@ -57774,7 +57761,7 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor5-old"
 	},
-/obj/effect/spawner/lootdrop/roguetown/sewers,
+/obj/effect/spawner/lootdrop/general_loot_mid,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/under/cave/water_temple/one)
 "hGQ" = (
@@ -58195,15 +58182,6 @@
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/under/cave/goblinfort)
-"hJH" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	max_integrity = 50000;
-	lockid = "waterkey2";
-	locked = 1;
-	lockdifficulty = 3
-	},
-/turf/open/floor/rogue/churchrough,
-/area/rogue/under/cave/water_temple/one)
 "hJI" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
@@ -73226,7 +73204,7 @@
 	pixel_x = 11;
 	pixel_y = 12
 	},
-/obj/effect/spawner/lootdrop/general_loot_low,
+/obj/effect/spawner/lootdrop/general_loot_mid,
 /obj/item/candle/gold/lit{
 	pixel_x = -7;
 	pixel_y = 4
@@ -85076,7 +85054,8 @@
 /obj/structure/table/finestone,
 /obj/effect/spawner/lootdrop/armored_gloves_spawner,
 /obj/effect/spawner/lootdrop/armored_wrists_spawner,
-/obj/effect/spawner/lootdrop/armored_boots_spawner,
+/obj/effect/spawner/lootdrop/general_loot_hi,
+/obj/effect/spawner/lootdrop/general_loot_hi,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/water_temple/lootroom)
 "lkk" = (
@@ -92758,7 +92737,7 @@
 	},
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/dreamfiend_ichor,
-/obj/effect/spawner/lootdrop/general_loot_low,
+/obj/effect/spawner/lootdrop/general_loot_mid,
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/water_temple/two)
 "mmN" = (
@@ -93080,7 +93059,7 @@
 	pixel_x = 1
 	},
 /obj/item/repair_kit/metal,
-/obj/effect/spawner/lootdrop/general_loot_mid,
+/obj/effect/spawner/lootdrop/general_loot_mid/x3,
 /obj/item/repair_kit{
 	pixel_x = -1;
 	pixel_y = 5
@@ -98023,15 +98002,10 @@
 	color = "#3f3f3f";
 	dir = 1
 	},
-/obj/structure/rack/rogue{
-	density = 0;
-	pixel_y = 18
-	},
-/obj/effect/spawner/lootdrop/heavy_armor_spawner{
+/turf/open/floor/rogue/church{
 	pixel_x = 0;
-	pixel_y = 13
+	pixel_y = 0
 	},
-/turf/open/floor/rogue/church,
 /area/rogue/under/cave/water_temple/lootroom)
 "mXj" = (
 /obj/machinery/light/rogue/campfire/fireplace,
@@ -99815,7 +99789,7 @@
 	color = "#3f3f3f";
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/general_loot_mid,
+/obj/effect/spawner/lootdrop/general_loot_mid/x3,
 /obj/effect/decal/cleanable/dreamfiend_ichor,
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/water_temple/two)
@@ -107869,7 +107843,7 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor6-old"
 	},
-/obj/effect/spawner/lootdrop/general_loot_hi,
+/obj/effect/spawner/lootdrop/general_loot_hi/x3,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/water_temple/three)
@@ -108572,7 +108546,7 @@
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/indoors/town/magician)
 "osG" = (
-/obj/effect/spawner/lootdrop/general_loot_hi,
+/obj/effect/spawner/lootdrop/general_loot_hi/x3,
 /obj/structure/table/wood/poor,
 /obj/item/candle/candlestick/gold/lit{
 	pixel_x = -6;
@@ -144626,7 +144600,7 @@
 /area/rogue/indoors/town/grim)
 "tcd" = (
 /obj/structure/curtain/blue,
-/turf/closed/wall/mineral/rogue/decostone/mossy/blue,
+/turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/water_temple/one)
 "tce" = (
 /obj/effect/decal/cobbleedge,
@@ -163619,7 +163593,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
 "vyS" = (
-/obj/effect/spawner/lootdrop/roguetown/sewers,
+/obj/effect/spawner/lootdrop/general_loot_hi,
 /turf/open/water/cleanshallow/deep,
 /area/rogue/under/cave/water_temple/one)
 "vyT" = (
@@ -172501,7 +172475,7 @@
 /obj/structure/table/finestone,
 /obj/effect/spawner/lootdrop/armored_gloves_spawner,
 /obj/effect/spawner/lootdrop/armored_wrists_spawner,
-/obj/effect/spawner/lootdrop/armored_boots_spawner,
+/obj/effect/spawner/lootdrop/general_loot_hi/x3,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/water_temple/lootroom)
 "wHd" = (
@@ -223931,7 +223905,7 @@ muu
 fPt
 wMl
 uxz
-hzE
+uxz
 oZv
 dEX
 eON
@@ -232752,7 +232726,7 @@ kcN
 kXG
 bvf
 gMb
-hJH
+pUO
 txM
 gEa
 baN
