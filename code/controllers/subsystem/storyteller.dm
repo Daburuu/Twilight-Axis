@@ -716,6 +716,7 @@ SUBSYSTEM_DEF(gamemode)
 
 	if(SSticker.IsRoundInProgress())
 		update_wretch_slots()
+		update_bandits_slots(active_players) // TA EDIT
 //TA EDIT END
 
 	update_pop_scaling()
