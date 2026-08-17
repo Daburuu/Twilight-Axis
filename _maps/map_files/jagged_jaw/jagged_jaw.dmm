@@ -8402,7 +8402,9 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/shelter)
 "bff" = (
-/obj/structure/closet/crate/roguecloset/dark,
+/obj/structure/closet/crate/roguecloset/dark{
+	name = "gloves"
+	},
 /obj/item/clothing/gloves/roguetown/chain/iron,
 /obj/item/clothing/gloves/roguetown/chain/iron,
 /obj/item/clothing/gloves/roguetown/chain/iron,
@@ -21490,6 +21492,12 @@
 /obj/structure/fireaxecabinet/south,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/grim)
+"cPS" = (
+/obj/structure/fluff/wallclock{
+	pixel_y = -32
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/garrison/grim)
 "cPU" = (
 /obj/structure/curtain/black{
 	pixel_x = 32
@@ -32300,7 +32308,9 @@
 /area/rogue/indoors/town/magician)
 "emf" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
-/obj/structure/closet/crate/roguecloset/dark,
+/obj/structure/closet/crate/roguecloset/dark{
+	name = "gambesons"
+	},
 /obj/item/clothing/suit/roguetown/armor/gambeson/lord,
 /obj/item/clothing/suit/roguetown/armor/gambeson/lord,
 /obj/item/clothing/suit/roguetown/armor/gambeson/lord,
@@ -37328,6 +37338,7 @@
 /area/rogue/indoors/town/physician)
 "eTy" = (
 /obj/machinery/gear_painter,
+/obj/structure/fluff/wallclock/l,
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/town/garrison/grim)
 "eTC" = (
@@ -45812,6 +45823,14 @@
 	},
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/town/grim)
+"gcj" = (
+/obj/machinery/light/rogue/campfire/fireplace{
+	pixel_x = -16
+	},
+/obj/effect/decal/cobbleedge,
+/obj/structure/fluff/wallclock/r,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/manor/grim)
 "gck" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f"
@@ -51521,7 +51540,9 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/church/chapel/grim)
 "gPC" = (
-/obj/structure/closet/crate/roguecloset/dark,
+/obj/structure/closet/crate/roguecloset/dark{
+	name = "satchels"
+	},
 /obj/item/storage/backpack/rogue/satchel/short,
 /obj/item/storage/backpack/rogue/satchel/short,
 /obj/item/storage/backpack/rogue/satchel/short,
@@ -53578,12 +53599,16 @@
 "heI" = (
 /obj/structure/table/wood/long_table,
 /obj/item/candle/candlestick/gold/single/lit{
-	pixel_x = 4;
-	pixel_y = 12
+	pixel_x = 1;
+	pixel_y = 13
 	},
 /obj/structure/curtain/black{
 	pixel_x = 0;
 	pixel_y = -32
+	},
+/obj/item/reagent_containers/glass/cup/golden/small{
+	pixel_x = 17;
+	pixel_y = 8
 	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/manor/grim)
@@ -87283,19 +87308,19 @@
 /turf/open/water/river/flow/murk/deep,
 /area/rogue/under/cave/water_temple/one)
 "lAa" = (
-/obj/structure/rack/rogue{
-	density = 0
+/obj/item/clothing/neck/roguetown/coif/heavypadding,
+/obj/item/clothing/neck/roguetown/coif/heavypadding,
+/obj/item/clothing/neck/roguetown/coif/heavypadding,
+/obj/item/clothing/neck/roguetown/coif/heavypadding,
+/obj/item/clothing/neck/roguetown/coif/heavypadding,
+/obj/item/clothing/neck/roguetown/chaincoif/full,
+/obj/item/clothing/neck/roguetown/chaincoif/full,
+/obj/item/clothing/neck/roguetown/chaincoif/full,
+/obj/item/clothing/neck/roguetown/chaincoif/full,
+/obj/item/clothing/neck/roguetown/chaincoif/full,
+/obj/structure/closet/crate/roguecloset/dark{
+	name = "coifs"
 	},
-/obj/item/clothing/neck/roguetown/coif/heavypadding,
-/obj/item/clothing/neck/roguetown/coif/heavypadding,
-/obj/item/clothing/neck/roguetown/coif/heavypadding,
-/obj/item/clothing/neck/roguetown/coif/heavypadding,
-/obj/item/clothing/neck/roguetown/coif/heavypadding,
-/obj/item/clothing/neck/roguetown/chaincoif/full,
-/obj/item/clothing/neck/roguetown/chaincoif/full,
-/obj/item/clothing/neck/roguetown/chaincoif/full,
-/obj/item/clothing/neck/roguetown/chaincoif/full,
-/obj/item/clothing/neck/roguetown/chaincoif/full,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison/grim)
 "lAf" = (
@@ -101784,7 +101809,6 @@
 	},
 /obj/item/clothing/gloves/roguetown/chain/iron,
 /obj/item/clothing/suit/roguetown/armor/brigandine/light/retinue,
-/obj/item/clothing/neck/roguetown/chaincoif/iron/full,
 /obj/item/clothing/head/roguetown/helmet/kettle/iron,
 /obj/item/clothing/under/roguetown/chainlegs/iron,
 /turf/open/floor/rogue/blocks,
@@ -104382,6 +104406,7 @@
 	pixel_x = -4;
 	pixel_y = 6
 	},
+/obj/structure/fluff/wallclock/r,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/garrison/grim)
 "nQD" = (
@@ -108186,7 +108211,6 @@
 /obj/item/clothing/under/roguetown/chainlegs/iron,
 /obj/item/clothing/head/roguetown/helmet/sallet,
 /obj/item/clothing/neck/roguetown/bevor/iron,
-/obj/item/clothing/neck/roguetown/coif/heavypadding,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison/grim)
 "oqI" = (
@@ -122779,7 +122803,9 @@
 /turf/open/floor/rogue/ruinedwood/platform,
 /area/rogue/outdoors/town/roofs/grim)
 "qiu" = (
-/obj/structure/closet/crate/roguecloset/dark,
+/obj/structure/closet/crate/roguecloset/dark{
+	name = "scabbards"
+	},
 /obj/item/rogueweapon/scabbard/sword,
 /obj/item/rogueweapon/scabbard/sword,
 /obj/item/rogueweapon/scabbard/sword,
@@ -124820,7 +124846,9 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town/grim)
 "qvE" = (
-/obj/structure/closet/crate/roguecloset/dark,
+/obj/structure/closet/crate/roguecloset/dark{
+	name = "boots"
+	},
 /obj/item/clothing/shoes/roguetown/boots/armor/iron,
 /obj/item/clothing/shoes/roguetown/boots/armor/iron,
 /obj/item/clothing/shoes/roguetown/boots/armor/iron,
@@ -131846,6 +131874,10 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/outdoors/town/roofs/grim)
+"ruY" = (
+/obj/structure/fluff/wallclock,
+/turf/open/floor/rogue/tile,
+/area/rogue/indoors/town/garrison/grim)
 "rvc" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -140359,6 +140391,10 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/town/grim)
+"syq" = (
+/obj/machinery/light/rogue/candle/weak/r,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town/garrison/grim)
 "syr" = (
 /obj/effect/decal/edge{
 	color = "#3f3f3f";
@@ -142751,6 +142787,7 @@
 /obj/effect/decal/cobbleedge{
 	dir = 6
 	},
+/obj/structure/fluff/wallclock/r,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/manor/grim)
 "sOR" = (
@@ -146824,6 +146861,10 @@
 /obj/item/clothing/neck/roguetown/coif/heavypadding,
 /obj/item/clothing/neck/roguetown/bevor/iron,
 /obj/item/clothing/neck/roguetown/bevor/iron,
+/obj/item/clothing/neck/roguetown/coif/heavypadding,
+/obj/item/clothing/neck/roguetown/coif/heavypadding,
+/obj/item/clothing/neck/roguetown/chaincoif/iron/full,
+/obj/item/clothing/neck/roguetown/chaincoif/iron/full,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison/grim)
 "trT" = (
@@ -148738,6 +148779,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/cave/mazedungeon)
 "tEO" = (
+/obj/structure/fluff/wallclock/r,
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/manor/grim)
 "tEP" = (
@@ -150450,9 +150492,7 @@
 /obj/structure/stairs/stone{
 	dir = 1
 	},
-/obj/structure/fluff/railing/border{
-	dir = 4
-	},
+/obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/town/basement/keep/grim)
 "tPA" = (
@@ -161615,7 +161655,11 @@
 	mouse_opacity = 0;
 	dir = 4
 	},
-/obj/structure/bars,
+/obj/structure/bars{
+	color = "#755f48";
+	max_integrity = 400;
+	name = "rusted bars"
+	},
 /turf/closed/wall/mineral/rogue/pipe{
 	density = 0;
 	name = "plumbing system";
@@ -174018,6 +174062,7 @@
 /obj/structure/fluff/walldeco/rpainting/forest{
 	pixel_y = 32
 	},
+/obj/structure/fluff/wallclock/r,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/manor/grim)
 "wQF" = (
@@ -179369,9 +179414,7 @@
 /obj/structure/stairs/stone{
 	dir = 1
 	},
-/obj/structure/fluff/railing/border{
-	dir = 8
-	},
+/obj/structure/fluff/railing/corner,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/town/basement/keep/grim)
 "xAR" = (
@@ -180920,7 +180963,9 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/underdark/north/grim)
 "xKN" = (
-/obj/structure/closet/crate/roguecloset/dark,
+/obj/structure/closet/crate/roguecloset/dark{
+	name = "javelins"
+	},
 /obj/item/quiver/javelin/iron,
 /obj/item/quiver/javelin/iron,
 /obj/item/quiver/javelin/iron,
@@ -181941,6 +181986,14 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/open/floor/rogue/grassyel,
 /area/rogue/under/cave/dukecourt)
+"xRR" = (
+/obj/effect/decal/edge_corner{
+	color = "#3f3f3f";
+	dir = 1
+	},
+/obj/structure/fluff/wallclock/r,
+/turf/open/floor/rogue/carpet,
+/area/rogue/indoors/town/manor/grim)
 "xRS" = (
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/rogue/blocks/paving/vert,
@@ -182318,7 +182371,6 @@
 	},
 /obj/item/clothing/gloves/roguetown/chain/iron,
 /obj/item/clothing/suit/roguetown/armor/brigandine/light/retinue,
-/obj/item/clothing/neck/roguetown/chaincoif/iron/full,
 /obj/item/clothing/head/roguetown/helmet/kettle/iron,
 /obj/item/clothing/under/roguetown/chainlegs/iron,
 /obj/machinery/light/rogue/candle/l,
@@ -252134,12 +252186,12 @@ gun
 gun
 gun
 lcQ
-bBP
+osd
 vbr
-ixi
-ixi
-ixi
-ixi
+ndf
+ndf
+ndf
+ndf
 rOV
 imP
 yly
@@ -252518,10 +252570,10 @@ gun
 lcQ
 bBP
 vbr
-ktX
-say
-say
-ktX
+ixi
+ixi
+ixi
+ixi
 rOV
 kCH
 jfL
@@ -252900,9 +252952,9 @@ gun
 lcQ
 bBP
 vbr
+ktX
 say
-kFZ
-pvU
+say
 ktX
 rOV
 yly
@@ -259010,7 +259062,7 @@ wvX
 wvX
 bBP
 uVe
-eGg
+syq
 bBP
 ktX
 ncf
@@ -261297,11 +261349,11 @@ vxP
 sDd
 dYj
 bBP
-eGg
+ebQ
 eGg
 eGg
 bBP
-eGg
+ebQ
 eGg
 eGg
 ktX
@@ -380478,7 +380530,7 @@ rjc
 kYQ
 kYQ
 aSh
-rAj
+wvX
 wvX
 wvX
 aSh
@@ -380861,7 +380913,7 @@ mka
 rjc
 rjc
 aiC
-wvX
+rAj
 uKU
 rjc
 vxD
@@ -382384,7 +382436,7 @@ rjc
 rjc
 rjc
 rjc
-kYQ
+ruY
 kYQ
 qpY
 rjc
@@ -502717,7 +502769,7 @@ bBP
 bBP
 pjG
 sDd
-sDd
+cPS
 bBP
 bIu
 bBP
@@ -505389,7 +505441,7 @@ bBP
 bBP
 bBP
 bBP
-kYQ
+ruY
 eKd
 ipS
 kbS
@@ -618835,7 +618887,7 @@ iZD
 iZD
 iZD
 qGL
-fac
+gcj
 mXY
 tnM
 ksZ
@@ -621890,7 +621942,7 @@ bwh
 cBl
 dSI
 qgS
-twN
+xRR
 isH
 cEr
 jxS
