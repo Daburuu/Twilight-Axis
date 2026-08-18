@@ -178,7 +178,6 @@
 		t += "..." //signals missing text
 	return t
 /**
-/**
   * Makes you speak like you're drunk
   */
 /proc/slur(n) // TA EDIT START
