@@ -51,6 +51,7 @@
 #define LOOT_BUDGET_WATEMPLE			2000
 #define LOOT_BUDGET_WATEMPLELOOTROOM	1000
 #define LOOT_BUDGET_LOSTCRYPT			200
+#define LOOT_BUDGET_HAMTUNNELS			500
 //PILGRIM END
 
 // ---- Spawner Loot Values (mammons) ----

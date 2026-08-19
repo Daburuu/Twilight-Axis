@@ -1103,6 +1103,24 @@
 	icon_state = "brownkey"
 	lockid = "pizzard"
 
+/obj/item/roguekey/hamtunnels
+	name = "tunnels key"
+	desc = "A key seemingly made to fit the doors underneath the Hamlet."
+	icon_state = "brownkey"
+	lockid = "hamtunnels"
+
+/obj/item/roguekey/hamguards
+	name = "hamlet guard key"
+	desc = "A key to the guardhouse and similar in the Hamlet."
+	icon_state = "brownkey"
+	lockid = "hamguards"
+
+/obj/item/roguekey/hamguardevidence
+	name = "hamlet lockup key"
+	desc = "A key to the guard's lockup in the Hamlet."
+	icon_state = "brownkey"
+	lockid = "hamguardsevidence"
+
 ///////////////////////////////////////
 // ABSOLUTELY ZERO CLUE WHAT THIS IS //
 ///////////////////////////////////////
