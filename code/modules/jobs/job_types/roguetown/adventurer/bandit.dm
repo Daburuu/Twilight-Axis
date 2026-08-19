@@ -179,7 +179,10 @@
 
 		slots = 4 // TA EDIT START
 		if(player_count > 40)
-			slots += floor((player_count - 40) / 20)
+			if(storyteller_type == /datum/storyteller/gamemode/guaranteed_antag)
+				slots += floor((player_count - 40) / 10)
+			else
+				slots += floor((player_count - 40) / 20)
 		slots = min(slots, max_slots)
 		if(SSticker.IsRoundInProgress())
 			slots = min(slots, SSgamemode.combat_positions_alive) // TA EDIT END
