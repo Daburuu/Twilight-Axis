@@ -874,6 +874,12 @@
 	icon_state = "brownkey"
 	lockid = "townie_smith_extra"
 
+/obj/item/roguekey/brewerfence
+	name = "brewery fence key"
+	desc = "The key to the fence gates around the brewery."
+	icon_state = "brownkey"
+	lockid = "brewerfence"
+
 /////////////////
 // INQUISITION //
 /////////////////

@@ -152,7 +152,7 @@
 	droning_sound = 'sound/music/area/grimbog.ogg'
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
 	droning_sound_night = 'sound/music/area/grimswamp.ogg'
-	loot_budget = LOOT_BUDGET_GRIMBOG_SOUTH
+	loot_budget = LOOT_BUDGET_GRIMBOG_SOUTHEAST
 	deathsight_message = "an utter forest of roots and reeds, the air completely saturated with thick humidity"
 //PILGRIM END
 

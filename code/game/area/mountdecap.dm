@@ -271,7 +271,7 @@
 	icon_state = "decap"
 	loot_budget = LOOT_BUDGET_GRYMSPYRE_SHELTERS
 	loot_pool_key = "decap_shelters"
-	droning_sound = 'sound/music/area/grimcaves.ogg'
+	droning_sound = list('sound/music/area/grimcaves.ogg','sound/music/area/grimcaverns.ogg')
 	droning_sound_dusk = null
 	droning_sound_night = null
 	first_time_text = "GRYMSPYRE CAVERNS"

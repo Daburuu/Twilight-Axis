@@ -1,6 +1,6 @@
 /area/rogue/under/cave/water_temple //just a water temple for them wet folk
 	name = "water temple"
-	loot_budget = LOOT_BUDGET_WATER_TEMPLE
+	loot_budget = LOOT_BUDGET_WATEMPLE
 	icon_state = "under"
 	first_time_text = "FORGOTTEN TEMPLE"
 	droning_sound = 'sound/music/area/sewers.ogg'
@@ -34,5 +34,6 @@
 	droning_sound = 'sound/music/area/dungeondrone.ogg'
 	droning_sound_dusk = 'sound/music/area/dungeondrone.ogg'
 	droning_sound_night = 'sound/music/area/dungeondrone.ogg'
+	loot_budget = LOOT_BUDGET_WATEMPLELOOTROOM
 	deathsight_message = "a quiet vault within a sunken temple, shaking vision somewhat eased of the machinery, protected by thick walls"
 	first_time_text = "ARTEFACT VAULT"
