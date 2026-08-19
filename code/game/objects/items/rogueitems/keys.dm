@@ -1121,6 +1121,12 @@
 	icon_state = "brownkey"
 	lockid = "hamguardsevidence"
 
+/obj/item/roguekey/hamvendor
+	name = "hamlet peddler key"
+	desc = "A key to the peddler within the shop, in the Hamlet."
+	icon_state = "brownkey"
+	lockid = "hamvendor"
+
 ///////////////////////////////////////
 // ABSOLUTELY ZERO CLUE WHAT THIS IS //
 ///////////////////////////////////////
