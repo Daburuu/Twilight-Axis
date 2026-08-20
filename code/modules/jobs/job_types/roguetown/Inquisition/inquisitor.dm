@@ -148,7 +148,7 @@
 		if("Relic, 'Marshal's Writ' (Runelock Pistol)") //TA EDIT START
 			qdel(H.get_item_by_slot(SLOT_BELT_L))
 			qdel(H.get_item_by_slot(SLOT_BELT))
-			H.equip_to_slot_or_del(new /obj/item/rogueweapon/whip/antique/psywhip, SLOT_BELT_L, TRUE)
+			H.put_in_hands(new /obj/item/rogueweapon/whip/antique/psywhip(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/belt/rogue/leather/twilight_holsterbelt/black/runelock, SLOT_BELT, TRUE)
 			H.equip_to_slot_or_del(new /obj/item/quiver/twilight_bullet/runicbag/runed, SLOT_BELT_R, TRUE)
 			H.adjust_skillrank_up_to(/datum/skill/combat/twilight_firearms, 3, TRUE) //TA EDIT END
