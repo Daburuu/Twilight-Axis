@@ -226,6 +226,10 @@
 /datum/sprite_accessory/penis/get_appearance(obj/item/organ/organ, obj/item/bodypart/bodypart, color_string)
 	var/mob/living/carbon/owner = organ?.owner
 	if(ta_uses_wide_taur_genitals(owner))
+		var/obj/item/organ/penis/pp = organ
+		if(istype(pp) && pp.erect_state == ERECT_STATE_NONE)
+			return null
+
 		var/datum/sprite_accessory/penis/penis_accessory = SPRITE_ACCESSORY(organ.accessory_type)
 		if(penis_accessory?.icon_state == "human")
 			return ..()
@@ -308,6 +312,10 @@
 /datum/sprite_accessory/testicles/get_appearance(obj/item/organ/organ, obj/item/bodypart/bodypart, color_string)
 	var/mob/living/carbon/owner = organ?.owner
 	if(ta_uses_wide_taur_genitals(owner))
+		var/obj/item/organ/penis/pp = owner.getorganslot(ORGAN_SLOT_PENIS)
+		if(pp && pp.erect_state == ERECT_STATE_NONE)
+			return null
+
 		var/datum/sprite_accessory/taur_testicles/taur_accessory = SPRITE_ACCESSORY(/datum/sprite_accessory/taur_testicles)
 		return taur_accessory.get_appearance(organ, bodypart, color_string)
 
