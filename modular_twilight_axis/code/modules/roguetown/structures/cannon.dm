@@ -66,6 +66,8 @@
 	icon_state = "fiber_fuse"
 	icon_state_lit = "fiber_fuse_lit"
 	burn_time = 3 SECONDS
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/cannon_fuse/parchment
 	name = "parchment fuse"
@@ -73,6 +75,8 @@
 	icon_state = "parchment_fuse"
 	icon_state_lit = "parchment_fuse_lit"
 	burn_time = 1 SECONDS
+	grid_width = 32
+	grid_height = 32
 
 
 
