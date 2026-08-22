@@ -314,7 +314,7 @@
 /obj/effect/proc_holder/spell/invoked/TAcraftercovenant/cast(list/targets, mob/user = usr)
 	. = ..()
 	var/tithe = 0
-	var/const/divine_tax = 1
+	var/const/divine_tax = 1.3
 	var/turf/altar = get_turf(targets[1])
 	var/datum/effect_system/spark_spread/sparks = new()
 	var/list/sacrifices = list()
@@ -378,7 +378,7 @@
 		revert_cast(user)
 		return
 
-	var/itemchoice = tgui_input_list(user, "Choose a boon. The offering is worth [tithe] mammon; Malum accepts half as tribute.", "The Crafter's Covenant", item_map, null, 0, GLOB.tgui_always_state, item_descriptions)
+	var/itemchoice = tgui_input_list(user, "Choose a boon. The offering is worth [tithe] mammon; Malum accepts 30% as tribute.", "The Crafter's Covenant", item_map, null, 0, GLOB.tgui_always_state, item_descriptions)
 	if(!itemchoice)
 		revert_cast(user)
 		return
