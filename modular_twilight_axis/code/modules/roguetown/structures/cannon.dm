@@ -1,15 +1,15 @@
 #define CANNON_POWDER_COST 10
 
 /datum/anvil_recipe/weapons/steel/cannon
-	name = "Cannon"
-	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/steel, /obj/item/ingot/blacksteel, /obj/item/ingot/steel, /obj/item/grown/log/tree/small, /obj/item/grown/log/tree/small,)
-	req_bar = /obj/item/ingot/steel
+	name = "Cannon (+2 Steel, +2 Small Log)"
+	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/steel, /obj/item/grown/log/tree/small, /obj/item/grown/log/tree/small)
+	req_bar = /obj/item/ingot/blacksteel
 	created_item = /obj/structure/cannon
 	display_category = ITEM_CAT_WEAPONS_SWORDS
 	craftdiff = 5
 
 /datum/anvil_recipe/weapons/steel/cannon_zizo
-	name = "Cannon"
+	name = "Cannon (+2 Steel, +2 Small Log)"
 	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/steel, /obj/item/grown/log/tree/small, /obj/item/grown/log/tree/small,)
 	req_bar = 	/obj/item/ingot/steel/zizo
 	created_item = /obj/structure/cannon
