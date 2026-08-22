@@ -18,7 +18,7 @@
 
 /datum/anvil_recipe/weapons/steel/cannonball
 	name = "Cannon Ball"
-	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/steel)
+	additional_items = list(/obj/item/ingot/steel)
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/cannon_shell/cannonball
 	display_category = ITEM_CAT_WEAPONS_AMMO
@@ -29,6 +29,7 @@
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/cannon_shell/grapeshot
 	display_category = ITEM_CAT_WEAPONS_AMMO
+	createditem_num = 2
 
 /datum/crafting_recipe/roguetown/survival/fiberfuse
 	name = "fiber fuse"
