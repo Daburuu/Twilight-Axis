@@ -314,7 +314,7 @@
 /obj/effect/proc_holder/spell/invoked/TAcraftercovenant/cast(list/targets, mob/user = usr)
 	. = ..()
 	var/tithe = 0
-	var/const/divine_tax = 2
+	var/const/divine_tax = 1
 	var/turf/altar = get_turf(targets[1])
 	var/datum/effect_system/spark_spread/sparks = new()
 	var/list/sacrifices = list()
