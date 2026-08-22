@@ -515,7 +515,10 @@
 	var/skill = 0
 	if(user && isliving(user))
 		var/mob/living/L = user
-		skill = L.get_skill_level(/datum/skill/combat/twilight_firearms)
+		skill = max(
+			L.get_skill_level(/datum/skill/combat/twilight_firearms),
+			L.get_skill_level(/datum/skill/craft/engineering),
+		)
 
 	var/misfire_chance = max(0, 25 - (skill * 5))
 
