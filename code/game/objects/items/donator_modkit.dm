@@ -1575,8 +1575,7 @@
 		/obj/item/rogueweapon/sword/short,
 		/obj/item/rogueweapon/sword/sabre
 	)
-	result_item = /obj/item/rogueweapon/example/dussack/moonlightigin/main
-	icon_loadout = /obj/item/clothing/suit/roguetown/armor/plate/cuirass/woodland/custom
+	result_item = /obj/item/rogueweapon/example/dussack/moonlight
 
 /////////////////////////////
 // ! Triumph-Exc. Kits !   //
