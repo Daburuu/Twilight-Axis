@@ -4820,6 +4820,12 @@ GLOBAL_LIST_EMPTY(loadout_items_by_category)
 	donatitem = TRUE
 	donat_tier = 2
 
+/datum/loadout_item/donator/rivercadaver_tabis
+	name = "Donator Item - Tabis - Required: Leather Boots, Psydonic Leather Boots, or Inquisitorial Boots"
+	category = list("Обувь", "Донат")
+	path = /obj/item/enchantingkit/donator_rivercadaver_tabis
+	donatitem = TRUE
+
 /datum/loadout_item/donator/stalkerino_drowhelmet
 	name = "Donator Kit - Skikudic Savoyard - Required: Hounskull Bascinet, Pigface Bascinet, Visored Sallet or Savoyard"
 	category = list("Броня", "Донат")

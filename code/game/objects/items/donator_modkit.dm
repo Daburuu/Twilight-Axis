@@ -1081,6 +1081,7 @@
 	/obj/item/clothing/shoes/roguetown/boots						= /obj/item/clothing/shoes/roguetown/boots/tabi
 	)
 	result_item = null
+	icon_loadout = /obj/item/clothing/shoes/roguetown/boots/tabi/otavan/inqboots
 
 /obj/item/enchantingkit/weapon/nicksonessang
 	name = "'Dark Delight' morphing elixir"
