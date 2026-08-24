@@ -650,6 +650,7 @@
 		/obj/item/clothing/suit/roguetown/armor/gambeson = /obj/item/clothing/suit/roguetown/armor/gambeson/donator_arming
 	)
 	result_item = null
+	icon_loadout = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/donator_arming
 
 /obj/item/enchantingkit/donator_jacketed_gambeson_long
 	name = "'Long Jacketed Gambeson' morphing elixr"
@@ -659,6 +660,7 @@
 		/obj/item/clothing/suit/roguetown/armor/gambeson = /obj/item/clothing/suit/roguetown/armor/gambeson/donator_jacket
 	)
 	result_item = null
+	icon_loadout = /obj/item/clothing/suit/roguetown/armor/gambeson/donator_jacket
 
 /////////////////////////////
 // ! Player / Donor Kits ! //
@@ -1364,6 +1366,7 @@
 		/obj/item/clothing/head/roguetown/helmet/heavy/guard					= /obj/item/clothing/head/roguetown/helmet/shadowplate
 	)
 	result_item = null
+	icon_loadout = /obj/item/clothing/head/roguetown/helmet/shadowplate
 
 /obj/item/enchantingkit/donator_chivalre_drowgreatflail
 	name = "'Jagged Skikuldic Greatflail' morphing elixir"
@@ -1372,6 +1375,7 @@
 		/obj/item/rogueweapon/flail/peasantwarflail/iron						=	/obj/item/rogueweapon/flail/peasantwarflail/drow
 	)
 	result_item = null
+	icon_loadout = /obj/item/rogueweapon/flail/peasantwarflail/drow
 
 /obj/item/enchantingkit/donator_chivalre_drowgreatflailalt
 	name = "'Smooth Skikuldic Greatflail' morphing elixir"
@@ -1380,6 +1384,7 @@
 		/obj/item/rogueweapon/flail/peasantwarflail/iron						=	/obj/item/rogueweapon/flail/peasantwarflail/drow/alt
 	)
 	result_item = null
+	icon_loadout = /obj/item/rogueweapon/flail/peasantwarflail/drow/alt
 
 //Truill
 /obj/item/enchantingkit/truill_flowerblade
@@ -1674,6 +1679,7 @@
 		/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow					= /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/donator_stalkerino
 	)
 	result_item = null
+	icon_loadout = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/donator_stalkerino
 
 /obj/item/enchantingkit/donator_stalkerino_drowhelmet
 	name = "'Skikudic Savoyard' morphing elixir"
@@ -1686,6 +1692,7 @@
 		/obj/item/clothing/head/roguetown/helmet/heavy/guard					= /obj/item/clothing/head/roguetown/helmet/bascinet/pigface/donator_stalkerino
 	)
 	result_item = null
+	icon_loadout = /obj/item/clothing/head/roguetown/helmet/bascinet/pigface/donator_stalkerino
 
 /////////////////////////////
 // ! Triumph-Exc. Kits !   //
