@@ -1377,3 +1377,9 @@
   saltprjak:
   - balance: Templar and Heretic Spellblades now have climbing, swimming, knives and
       minor medicine skills.
+2026-08-24:
+  Quinalion:
+  - rscadd: "\u0414\u043E\u0441\u043F\u0435\u0445\u0438 \u043B\u0435\u0433\u0430\u0442\
+      \u0430."
+  zRainbowcat:
+  - bugfix: fixed firearms qdeling powderflask even when they don't need to
