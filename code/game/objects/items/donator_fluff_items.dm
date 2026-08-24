@@ -284,8 +284,8 @@
 	name = "bronze heartplate"
 	desc = "A curious - and particularly revealing - variant of a bronze cuirass. It's said that the intentionally provocative design \
 	excels at diverting strikes that'd otherwise pierce the wearer's unprotected regions."
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/donor_clothes.dmi'
 	item_state = "heartplateb"
 	icon_state = "heartplateb"
 
@@ -684,9 +684,9 @@
 	desc = "A pair of interlocked steel plate arm harnesses, composed of pauldrons, rerebraces, couters, and vambraces - all snugly latched around the limb and secured to one another thanks to a series of leather straps, metal aglets, and sliding rivets. The engineering is so meticulous that flexibility of the limb is hardly impeded."
 	item_state = "armharness"
 	icon_state = "armharness"
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
-	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/donor_sleeves_armor.dmi'
+	sleeved = 'modular_twilight_axis/icons/clothing/onmob/donor_sleeves_armor.dmi'
 
 /obj/item/clothing/head/roguetown/decoration/orle
 	name = "noble striped decoration"
@@ -2961,8 +2961,8 @@ As Excaliber."
 	Let the world, through my deeds, once more see Your favor!" //A bit messy, but it works. Might be worth revisiting to properly optimize, later.
 	item_state = "apostleburgeonet"
 	icon_state = "apostleburgeonet"
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/donor_clothes.dmi'
 	adjustable = CAN_CADJUST
 	emote_environment = 3
 	body_parts_covered = FULL_HEAD
@@ -3445,9 +3445,9 @@ As Excaliber."
 /obj/item/clothing/suit/roguetown/armor/gambeson/donator_arming
 	name = "jacketed gambeson"
 	icon_state = "darming"
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
-	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/donor_clothes.dmi'
+	sleeved = 'modular_twilight_axis/icons/clothing/onmob/donor_sleeves_armor.dmi'
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/donator_arming/attack_right(mob/user)
 	if(!shiftable)
@@ -3480,9 +3480,9 @@ As Excaliber."
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/donator_arming
 	name = "heavy jacketed gambeson"
 	icon_state = "darming"
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
-	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/donor_clothes.dmi'
+	sleeved = 'modular_twilight_axis/icons/clothing/onmob/donor_sleeves_armor.dmi'
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/donator_arming/attack_right(mob/user)
 	if(!shiftable)
@@ -3515,9 +3515,9 @@ As Excaliber."
 /obj/item/clothing/suit/roguetown/armor/gambeson/donator_jacket
 	name = "jacketed gambeson"
 	icon_state = "djacket"
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
-	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/donor_clothes.dmi'
+	sleeved = 'modular_twilight_axis/icons/clothing/onmob/donor_sleeves_armor.dmi'
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/donator_jacket/attack_right(mob/user)
 	if(!shiftable)
@@ -3550,9 +3550,9 @@ As Excaliber."
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/donator_jacket
 	name = "heavy jacketed gambeson"
 	icon_state = "djacket"
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
-	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/donor_clothes.dmi'
+	sleeved = 'modular_twilight_axis/icons/clothing/onmob/donor_sleeves_armor.dmi'
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/donator_jacket/attack_right(mob/user)
 	if(!shiftable)
