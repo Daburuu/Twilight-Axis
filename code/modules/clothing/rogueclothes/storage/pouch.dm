@@ -37,6 +37,7 @@
 	if(!storage_comp)
 		return
 
+	//TA EDIT
 	if(target_coin in storage_comp.contents())
 		return
 
