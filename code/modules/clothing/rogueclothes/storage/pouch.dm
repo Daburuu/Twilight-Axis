@@ -37,6 +37,9 @@
 	if(!storage_comp)
 		return
 
+	if(target_coin in storage_comp.contents())
+		return
+
 	var/original_target_quantity = target_coin.quantity	// Store original quantity for verification
 	var/coins_to_collect = original_target_quantity
 
