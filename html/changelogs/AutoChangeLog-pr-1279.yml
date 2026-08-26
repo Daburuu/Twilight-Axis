@@ -1,5 +1,0 @@
-author: "PatapoIIIa"
-delete-after: True
-changes:
-  - rscadd: "Added a new TGUI interface for the throne (right-click while seated) covering all ruler commands and the succession ritual, alongside the existing voice commands at the Throat."
-  - qol: "Ruler commands now show live requirements and block reasons in the new throne interface instead of relying on trial-and-error voice commands."
