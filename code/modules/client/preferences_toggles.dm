@@ -51,6 +51,17 @@
 		else
 			to_chat(src, "Your character information will no longer be viewable when masked.")
 
+/client/verb/nsfw_examine_always()
+	set category = "Preferences.Options"
+	set name = "Toggle NSFW Examine"
+	if(prefs)
+		prefs.nsfw_examine_always = !prefs.nsfw_examine_always
+		prefs.save_preferences()
+		if(prefs.nsfw_examine_always)
+			to_chat(src, "Your character NSFW information will always be visible.")
+		else
+			to_chat(src, "Your character NSFW information will only be visible when nude.")
+
 /client/verb/toggle_instruments()
 	set category = "Preferences.Options"
 	set name = "Toggle Instrument Sounds"
@@ -265,15 +276,6 @@
 		prefs.save_preferences()
 	to_chat(src, "You will[prefs.combat_toggles & XP_TEXT ? "" : " not"] see XP pop ups.")
 
-/client/verb/vocal_barks()
-	set name = "Toggle Vocal Barks"
-	set category = "Preferences.Options"
-	set desc = ""
-	if(prefs)
-		prefs.mute_barks = !prefs.mute_barks
-		prefs.save_preferences()
-	to_chat(src, "You will [prefs.mute_barks ? "not " : ""]hear vocal barks.")
-
 /client/verb/toggle_hitzonetext() // Whether the user can see a text popup for where they got hit.
 	set category = "Preferences.Options"
 	set name = "Toggle Hitzone Text"
@@ -289,7 +291,7 @@
 		prefs.combat_toggles ^= FLOATING_TEXT
 		prefs.save_preferences()
 	to_chat(src, "You will [prefs.combat_toggles & FLOATING_TEXT ? "see" : "not see any"] floating text.")
-
+/*
 /client/verb/toggle_deadchat() // Whether the user can see DSAY or not.
 	set name = "Show/Hide Deadchat"
 	set category = "Preferences.Options"
@@ -358,7 +360,7 @@
 		return
 	var/new_asaycolor = input(src, "Please select your ASAY color.", "ASAY color", prefs.asaycolor) as color|null
 	if(new_asaycolor)
-		prefs.asaycolor = sanitize_ooccolor(new_asaycolor)
+		prefs.asaycolor = sanitize_hexcolor(new_asaycolor) // TA EDIT
 		prefs.save_preferences()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Set ASAY Color")
 	return

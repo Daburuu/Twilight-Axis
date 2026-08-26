@@ -97,6 +97,11 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		message = trim(copytext(sanitize(message), 1, MAX_MESSAGE_LEN))
 	if(!message || message == "")
 		return
+	//TA edit - Bard chages start
+	if(!forced && is_blocked_by_auto_song())
+		to_chat(src, span_warning("I can't speak freely while performing the song."))
+		return
+	//TA edit - Bard chages end
 
 	if(ic_blocked)
 		//The filter warning message shows the sanitized message though.
@@ -135,7 +140,8 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	#if DM_VERSION < 513
 		var/randomnote = "~"
 	#else
-		var/randomnote = pick("&#9835;", "&#9834;", "&#9836;")
+		var/randomnote = pick(9835, 9834, 9836)
+		randomnote = ascii2text(randomnote)
 	#endif
 		spans |= SPAN_SINGING
 		message = "[randomnote] [capitalize(message)] [randomnote]"
@@ -162,6 +168,8 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	// language comma detection.
 	var/datum/language/message_language = get_message_language(message)
+	if(findtext(message, ",y", 1, 3) == 1 || findtext(message, ",mst", 1, 5) == 1) // TA EDIT
+		message_language = null // TA EDIT
 	if(message_language)
 		// No, you cannot speak in xenocommon just because you know the key
 		if(can_speak_in_language(message_language))
@@ -219,7 +227,8 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(client)
 		last_words = message
 		record_featured_stat(FEATURED_STATS_SPEAKERS, src)	//Yappin'
-	if(findtext(message, "Abyssor"))	//funni
+	var/regex/abyssor_regex = regex("Абиссор", "i")
+	if(abyssor_regex.Find(message))
 		record_round_statistic(STATS_ABYSSOR_REMEMBERED)
 
 	spans |= speech_span
@@ -524,6 +533,15 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_LIVING_SAY_SPECIAL, src, message)
 
+	//speech bubble
+	var/list/speech_bubble_recipients = list()
+	for(var/mob/M in listening)
+		if(M.client?.prefs)
+			if(M.client && !M.client.prefs.chat_on_map)
+				speech_bubble_recipients.Add(M.client)
+	var/image/I = image('icons/mob/talk.dmi', src, "[bubble_type][say_test(message)]", FLY_LAYER)
+	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(flick_overlay), I, speech_bubble_recipients, 30)
 	//Listening gets trimmed here if a vocal bark's present. If anyone ever makes this proc return listening, make sure to instead initialize a copy of listening in here to avoid wonkiness
 	if(SEND_SIGNAL(src, COMSIG_MOVABLE_QUEUE_BARK, listening, args) || vocal_bark || vocal_bark_id)
 		for(var/mob/M in listening)

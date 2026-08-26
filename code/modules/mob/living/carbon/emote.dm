@@ -47,7 +47,7 @@
 	vary = TRUE
 
 /mob/living/carbon/human/verb/emote_clap()
-	set name = "Clap"
+	set name = "Хлопать"
 	set category = "Emotes.Noises"
 
 	emote("clap", intentional = TRUE)
@@ -61,7 +61,7 @@
 	emote_type = EMOTE_AUDIBLE
 
 /mob/living/carbon/human/verb/emote_slowclap()
-	set name = "Slowclap"
+	set name = "Медленно хлопать"
 	set category = "Emotes.Noises"
 
 	emote("slowclap", intentional = TRUE)
@@ -75,7 +75,7 @@
 	restraint_check = TRUE
 
 /mob/living/carbon/human/verb/emote_clap1()
-	set name = "Clap once"
+	set name = "Хлопнуть"
 	set category = "Emotes.Noises"
 
 	emote("clap1", intentional = TRUE)
