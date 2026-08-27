@@ -737,6 +737,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["manor_name"] >> manor_name  //TA EDIT
 	S["manor_type"] >> manor_type  //TA EDIT
 	S["char_accent"] >> char_accent
+	var/saved_lactating
+	S["lactating"] >> saved_lactating
+	lactating = isnull(saved_lactating) ? initial(lactating) : !!saved_lactating
 	//Jobs
 	S["joblessrole"] >> joblessrole
 	//Load prefs
@@ -886,6 +889,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	// complex/other stuff
 	preset_bounty_enabled = sanitize_bool(preset_bounty_enabled, initial(preset_bounty_enabled))
 	update_mutant_colors = sanitize_bool(update_mutant_colors, initial(update_mutant_colors))
+	lactating = sanitize_bool(lactating, initial(lactating))
 
 	body_markings = SANITIZE_LIST(body_markings)
 	validate_body_markings()
@@ -1126,6 +1130,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["manor_name"]		, manor_name) //TA EDIT
 	WRITE_FILE(S["manor_type"]		, manor_type) //TA EDIT
 	WRITE_FILE(S["char_accent"]		, char_accent)
+	WRITE_FILE(S["lactating"]			, lactating)
 	WRITE_FILE(S["highlight_color"]		, highlight_color)
 	WRITE_FILE(S["taur_type"]			, taur_type)
 	WRITE_FILE(S["taur_color"]			, taur_color)

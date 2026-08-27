@@ -4530,6 +4530,13 @@ GLOBAL_LIST_EMPTY(loadout_items_by_category)
 	donatitem = TRUE
 	donat_tier = 2
 
+/datum/loadout_item/donator/kadeguandao
+	name = "Donator Kit - Dawn Cometh - Required: Halberd, Greataxe or Naginata"
+	category = list("Оружие", "Донат")
+	path = /obj/item/enchantingkit/weapon/kadeguandao
+	donatitem = TRUE
+	donat_tier = 2
+
 /datum/loadout_item/donator/walkthewaste
 	name = "Donator Item - Worn Bamboo Hat"
 	category = list("Головные уборы", "Донат")

@@ -22,6 +22,9 @@
 	character.gender = gender
 	character.set_species(chosen_species, icon_update = FALSE, pref_load = src)
 	character.dna.update_body_size()
+	var/obj/item/organ/breasts/breast_organ = character.getorganslot(ORGAN_SLOT_BREASTS)
+	if(breast_organ)
+		breast_organ.lactating = lactating
 	if(roundstart_checks)
 		if(CONFIG_GET(flag/humans_need_surnames) && ((pref_species.id == "human") || (pref_species.id == "humen")))
 			var/firstspace = findtext(real_name, " ")

@@ -1643,7 +1643,7 @@
 
 /obj/item/enchantingkit/weapon/kadeguandao
 	name = "'Dawn Cometh' morphing elixir"
-	desc = "A small container of special morphing dust, perfect to make a specific item."
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of a Halberd, a Greataxe or a Naginata"
 	target_items = list(
 		/obj/item/rogueweapon/halberd,
 		/obj/item/rogueweapon/spear/naginata,
