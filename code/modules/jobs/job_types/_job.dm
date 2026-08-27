@@ -89,6 +89,7 @@
 	var/whitelist_req = FALSE
 
 	var/bypass_jobban = FALSE
+	var/bypass_lastclass = TRUE
 
 	var/list/peopleiknow = list()
 	var/list/peopleknowme = list()

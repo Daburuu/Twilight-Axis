@@ -209,7 +209,6 @@ SUBSYSTEM_DEF(job)
 		if(length(job.allowed_ages) && !(player.client.prefs.age in job.allowed_ages))
 			JobDebug("FOC incompatible with age, Player: [player], Job: [job.title], Age: [player.client.prefs.age]")
 			continue
-		if(check_blacklist(player.client.ckey) && !job.bypass_jobban) continue
 		if((player.client.prefs.lastclass == job.title) && !job.bypass_lastclass) continue
 		if(!job.special_job_check(player))
 			JobDebug("FOC player did not pass special check, Player: [player], Job:[job.title]")
@@ -302,7 +301,6 @@ SUBSYSTEM_DEF(job)
 		if(!isnull(job.min_pq) && (get_playerquality(player.ckey) < job.min_pq)) continue
 		if(!isnull(job.max_pq) && (get_playerquality(player.ckey) > job.max_pq)) continue
 		#endif
-		if(check_blacklist(player.client.ckey) && !job.bypass_jobban) continue
 		if(!job.special_job_check(player))
 			JobDebug("GRJ player did not pass special check, Player: [player], Job:[job.title]")
 			continue
@@ -649,7 +647,6 @@ SUBSYSTEM_DEF(job)
 				#endif
 
 				if((player.client.prefs.lastclass == job.title) && (!job.bypass_lastclass)) continue
-				if(check_blacklist(player.client.ckey) && !job.bypass_jobban) continue
 				if(CONFIG_GET(flag/usewhitelist))
 					if(job.whitelist_req && (!player.client.whitelisted()))
 						continue

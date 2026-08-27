@@ -189,8 +189,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 	if(!ready && href_list["preference"])
 		if(client)
 			client.prefs.process_link(src, href_list)
-	else if(!href_list["late_join"])
-		new_player_panel()
 
 	if(href_list["showpoll"])
 		handle_player_polling()
@@ -376,7 +374,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 		humanc = character	//Let's retypecast the var to be human,
 
 	GLOB.joined_player_list += character.ckey
-	update_scaling_slots()
 
 	if(humanc)
 		var/fakekey = character.ckey

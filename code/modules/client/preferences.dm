@@ -30,6 +30,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 	//Antag preferences
 	var/list/be_special = list()		//Special role selection
+	var/chat_on_map = TRUE
 	var/showrolls = TRUE
 
 	// Custom Keybindings
@@ -126,9 +127,10 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 	var/donor_priority_last_round_index = 0 // TA EDIT
 
-	var/uplink_spawn_loc = UPLINK_PDA
 
 	var/list/exp = list()
+	var/preferred_map = null
+
 	var/list/menuoptions
 
 	var/datum/migrant_pref/migrant
@@ -145,6 +147,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/custom_cmode_file
 	var/custom_cmode_enabled = FALSE
 	var/tmp/last_custom_cmode_upload = 0 // TA EDIT END
+
 
 	var/crt = FALSE
 	var/grain = FALSE
@@ -230,13 +233,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	/// Per-character theme override for examine panel viewers
 	var/examine_theme
 
-	// Vocal bark prefs
-	var/bark_id = "mutedc3"
-	var/bark_speed = 4
-	var/bark_pitch = 1
-	var/bark_variance = 0.2
-	COOLDOWN_DECLARE(bark_previewing)
-	var/mute_barks = FALSE
 	/// Whether we can see the feint HUD bar.
 	var/feint_hud = FALSE
 
@@ -481,11 +477,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	if(!istype(pref_species))
 		return FALSE
 	if(!(pref_species.name in get_selectable_species()))
-		return FALSE
-	var/client/checking_client = parent
-	if(user?.client)
-		checking_client = user.client
-	if(checking_client && pref_species.patreon_req > checking_client.patreonlevel())
 		return FALSE
 	if(!pref_species.check_roundstart_eligible())
 		return FALSE

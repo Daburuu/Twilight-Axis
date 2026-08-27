@@ -120,6 +120,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["favorited_slots"]	>> favorited_slots
 	S["asaycolor"]			>> asaycolor
 	S["lastchangelog"]		>> lastchangelog
+	S["chat_on_map"]		>> chat_on_map
 	S["showrolls"]			>> showrolls
 	S["chatheadshot"]		>> chatheadshot
 	S["tgui_lock"]			>> tgui_lock
@@ -170,6 +171,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["clientfps"]			>> clientfps
 	S["ambientocclusion"]	>> ambientocclusion
 	S["auto_fit_viewport"]	>> auto_fit_viewport
+	S["preferred_map"]		>> preferred_map
 	S["menuoptions"]		>> menuoptions
 	S["attack_blip_frequency"] >> attack_blip_frequency
 
@@ -212,6 +214,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 /datum/preferences/proc/sanitize_preferences()
 	// bools
+	chat_on_map			= sanitize_bool(chat_on_map, initial(chat_on_map))
 	showrolls			= sanitize_bool(showrolls, initial(showrolls))
 	chatheadshot		= sanitize_bool(chatheadshot, initial(chatheadshot))
 	tgui_lock			= sanitize_bool(tgui_lock, initial(tgui_lock))
@@ -282,6 +285,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	asaycolor			= sanitize_ooccolor(sanitize_hexcolor(asaycolor, 6, TRUE, initial(asaycolor)))
 	lastchangelog		= sanitize_text(lastchangelog, initial(lastchangelog))
 	preferred_ui_language = sanitize_preferred_ui_language(preferred_ui_language)
+	preferred_map		= sanitize_text(preferred_map, initial(preferred_map))
 
 	if(parent && is_banned_from(parent.ckey, ROLE_SYNDICATE))
 		be_special = list()
@@ -361,6 +365,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	save_donor_job_boost_prefs(S) // TA EDIT
 	WRITE_FILE(S["mastervol"], mastervol)
 	WRITE_FILE(S["lastchangelog"], lastchangelog)
+	WRITE_FILE(S["chat_on_map"], chat_on_map)
 	WRITE_FILE(S["showrolls"], showrolls)
 	WRITE_FILE(S["chatheadshot"] , chatheadshot)
 	WRITE_FILE(S["tgui_lock"], tgui_lock)
@@ -381,6 +386,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["clientfps"], clientfps)
 	WRITE_FILE(S["ambientocclusion"], ambientocclusion)
 	WRITE_FILE(S["auto_fit_viewport"], auto_fit_viewport)
+	WRITE_FILE(S["preferred_map"], preferred_map)
 	WRITE_FILE(S["menuoptions"], menuoptions)
 	WRITE_FILE(S["key_bindings"], key_bindings)
 	WRITE_FILE(S["attack_blip_frequency"] , attack_blip_frequency)
@@ -637,21 +643,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	else
 		combat_music = GLOB.cmode_tracks_by_type[default_cmusic_type]
 
-/datum/preferences/proc/_load_barks(S)
-	S["bark_id"] >> bark_id
-	S["bark_speed"] >> bark_speed
-	S["bark_pitch"] >> bark_pitch
-	S["bark_variance"] >> bark_variance
-	S["mute_barks"] >> mute_barks
-
-	// this instead of sanitize_inlist because we don't always wanna pick
-	if(!(bark_id in GLOB.bark_list))
-		bark_id = pick(GLOB.bark_random_list)
-	var/datum/bark/B = GLOB.bark_list[bark_id]
-	bark_speed = round(clamp(bark_speed, B::minspeed, B::maxspeed), 1)
-	bark_pitch = clamp(bark_pitch, B::minpitch, B::maxpitch)
-	bark_variance = clamp(bark_variance, B::minvariance, B::maxvariance)
-	mute_barks = sanitize_bool(mute_barks, initial(mute_barks))
 
 /datum/preferences/proc/_load_appearence(S)
 	S["real_name"]			>> real_name
@@ -730,7 +721,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	_load_gear_list(S)
 
 	_load_combat_music(S)
-	_load_barks(S)
 
 	//Character
 	_load_appearence(S)
@@ -1172,12 +1162,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	// Descriptor entries
 	WRITE_FILE(S["descriptor_entries"] , descriptor_entries)
 	WRITE_FILE(S["custom_descriptors"] , custom_descriptors)
-	//Barks
-	WRITE_FILE(S["bark_id"]					, bark_id)
-	WRITE_FILE(S["bark_speed"]				, bark_speed)
-	WRITE_FILE(S["bark_pitch"]				, bark_pitch)
-	WRITE_FILE(S["bark_variance"]			, bark_variance)
-	WRITE_FILE(S["mute_barks"]				, mute_barks)
 
 	WRITE_FILE(S["dnr"] , dnr_pref)
 	WRITE_FILE(S["update_mutant_colors"] , update_mutant_colors)

@@ -106,11 +106,6 @@
 
 	character.char_accent = char_accent
 
-	// Barks
-	character.set_bark(bark_id)
-	character.vocal_speed = bark_speed
-	character.vocal_pitch = bark_pitch
-	character.vocal_pitch_range = bark_variance
 	if(parent)
 		var/list/L = get_player_curses(parent.ckey)
 		if(L)

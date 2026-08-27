@@ -59,12 +59,6 @@
 	extra_language = pick(list("None") + GLOB.languages_character_selection)
 	selected_patron = pick_assoc(GLOB.preference_patrons)
 	domhand = pick(1, 2)
-	// Random sounds!
-	bark_id = pick(GLOB.bark_list)
-	var/datum/bark/B = GLOB.bark_list[bark_id]
-	bark_speed = rand(B::minspeed * 100, B::maxspeed * 100) / 100
-	bark_pitch = rand(B::minpitch * 100, B::maxpitch * 100) / 100
-	bark_variance = rand(B::minvariance * 100, B::maxvariance * 100) / 100
 	voice_pitch = rand(MIN_VOICE_PITCH * 100, MAX_VOICE_PITCH * 100) / 100
 	// Default a bunch of stuff
 	reset_descriptors()

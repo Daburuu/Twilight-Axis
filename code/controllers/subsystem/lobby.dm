@@ -19,8 +19,6 @@ SUBSYSTEM_DEF(lobbymenu)
 	)
 	var/list/ready_players_by_job = list()
 	for(var/mob/dead/new_player/player in GLOB.player_list)
-		if(player.client?.ckey in GLOB.hiderole)
-			continue
 		var/job_choice = player.client?.prefs?.job_preferences
 		if(!job_choice)
 			continue

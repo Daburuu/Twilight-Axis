@@ -44,8 +44,8 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 	if(player.prefs.qsr_pref)
 		apply_qsr_trait(character, player)
 	character.mind.triumph_discount_remaining = get_donator_triumph_discount(player.ckey)
-	if(player.prefs.selected_loadout_items)
-		for(var/key in player.prefs.selected_loadout_items)
+	if(player.prefs.gear_list)
+		for(var/key in player.prefs.gear_list)
 			var/datum/loadout_item/item = GLOB.loadout_items_by_name[key]
 			if(!item)
 				continue

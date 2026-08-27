@@ -4,6 +4,9 @@
 #define BREAST_NUTRITION_COST_PER_UNIT	0.5
 #define BREAST_STORAGE_BASE 40
 
+/obj/item/organ/breasts
+	var/lactating = TRUE
+
 /datum/erp_sex_organ/breasts
 	erp_organ_type = SEX_ORGAN_BREASTS
 	var/breast_size = 1

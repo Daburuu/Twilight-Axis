@@ -529,8 +529,6 @@ SUBSYSTEM_DEF(ticker)
 			update_mercenary_slots()
 			update_adventurer_slots()
 			player.create_character(FALSE)
-		else
-			player.new_player_panel()
 		CHECK_TICK
 
 /datum/controller/subsystem/ticker/proc/collect_minds()

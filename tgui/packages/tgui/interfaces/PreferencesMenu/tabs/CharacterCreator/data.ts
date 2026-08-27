@@ -14,7 +14,6 @@ export type AllPagesData = {
   hide_pq: BooleanLike;
   triumphs: number;
 
-  agevet: BooleanLike;
 };
 
 // --------------- AppearanceData ---------------
@@ -248,17 +247,6 @@ export type IdentityData = {
   voice_pack: string;
   voice_pitch: number;
 
-  bark_id: string;
-  bark_name: string;
-  bark_speed: number;
-  min_bark_speed: number;
-  max_bark_speed: number;
-  bark_pitch: number;
-  min_bark_pitch: number;
-  max_bark_pitch: number;
-  bark_variance: number;
-  min_bark_variance: number;
-  max_bark_variance: number;
 
   virtues: VirtueWithMetadata[];
 
