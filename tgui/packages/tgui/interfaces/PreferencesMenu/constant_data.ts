@@ -12,7 +12,6 @@ export type ConstantData = {
   MIN_VOICE_PITCH: number;
   MAX_VOICE_PITCH: number;
   // lists
-  barksounds: string[];
   charflaws: Record<Path, ConstantCharflaw>;
   classes: Record<string, ConstantClass>;
   combat_music: Record<string, ConstantCombatMusic>;

@@ -2,9 +2,13 @@
 	if(joblessrole != RETURNTOLOBBY && joblessrole != BERANDOMJOB) // this is to catch those that used the previous definition and reset.
 		joblessrole = RETURNTOLOBBY
 
+	var/donor_boost_visible = donor_job_boost_ckey_eligible(user.ckey, user.client)
 	var/list/data = list(
 		"joblessrole" = joblessrole,
-		"classes" = list()
+		"classes" = list(),
+		"donor_boost_visible" = donor_boost_visible,
+		"donor_boost_available" = donor_boost_visible && donor_job_boost_available(src, user.ckey, user.client),
+		"donor_boost_rounds_remaining" = donor_boost_visible ? donor_job_boost_rounds_remaining(src, user.ckey, user.client) : 0
 	)
 
 	// just in case, force SSjob to load
@@ -27,6 +31,16 @@
 	data["unavailable"] = JOB_AVAILABLE
 	data["unavailable_details"] = ""
 	data["pref"] = job_preferences[job.title]
+	data["donor_boost_job_eligible"] = donor_job_boost_ckey_eligible(user.ckey, user.client) && donor_job_boost_job_eligible(job, user.ckey, user.client)
+	data["has_subclass_preferences"] = length(job.job_subclasses) || length(job.advclass_cat_rolls)
+	data["preferred_subclass"] = job_subclass_preferences[job.title]
+	data["preferred_subclass_strict"] = job_subclass_strict[job.title] ? TRUE : FALSE
+	if(!data["preferred_subclass"] && (job.has_subprefs || data["has_subclass_preferences"]))
+		var/list/roleprefs = job.get_roleprefs(user.client)
+		var/favorite_advclass = roleprefs?["favorite_advclass"]
+		if(favorite_advclass)
+			var/datum/advclass/favorite_type = favorite_advclass
+			data["preferred_subclass"] = initial(favorite_type.name)
 
 	if(is_banned_from(user.ckey, job.title))
 		data["unavailable"] = JOB_UNAVAILABLE_BANNED

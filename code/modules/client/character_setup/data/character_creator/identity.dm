@@ -36,17 +36,6 @@
 		"voice_pack" = voice_pack,
 		"voice_pitch" = voice_pitch,
 
-		"bark_id" = bark_id,
-		"bark_name" = null,
-		"bark_speed" = bark_speed,
-		"min_bark_speed" = null,
-		"max_bark_speed" = null,
-		"bark_pitch" = bark_pitch,
-		"min_bark_pitch" = null,
-		"max_bark_pitch" = null,
-		"bark_variance" = bark_variance,
-		"min_bark_variance" = null,
-		"max_bark_variance" = null,
 
 		"virtues" = ui_data_character_creator_identity_virtues(user),
 	)
@@ -74,7 +63,7 @@
 		var/datum/loadout_item/LI = GLOB.loadout_items_by_name[item_name]
 		if(!LI)
 			continue
-		loadout_cost += LI.cost
+		loadout_cost += 1
 		if(LI.triumph_cost)
 			loadout_tri_cost += LI.triumph_cost
 
@@ -85,15 +74,6 @@
 	data["selected_faith"] = selected_faith.name
 	data["selected_patron"] = selected_patron.name
 
-	var/datum/bark/B = GLOB.bark_list[bark_id]
-	data["bark_name"] = B::name
-
-	data["min_bark_speed"] = B::minspeed
-	data["max_bark_speed"] = B::maxspeed
-	data["min_bark_pitch"] = B::minpitch
-	data["max_bark_pitch"] = B::maxpitch
-	data["min_bark_variance"] = B::minvariance
-	data["max_bark_variance"] = B::maxvariance
 
 	return data
 
