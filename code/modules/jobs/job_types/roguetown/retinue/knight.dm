@@ -178,22 +178,22 @@
 		armor = armors[armorchoice]
 
 		var/onhelm = list( //TA EDIT START
-			"horns" = /obj/item/clothing/head/roguetown/tw_d_horns,
-			"towers" = /obj/item/clothing/head/roguetown/tw_d_castle_red,
-			"afreet" = /obj/item/clothing/head/roguetown/tw_d_efreet,
-			"sun" = /obj/item/clothing/head/roguetown/tw_d_sun,
-			"astrata" = /obj/item/clothing/head/roguetown/tw_d_peace,
-			"feathers" = /obj/item/clothing/head/roguetown/tw_d_feathers,
-			"lion" = /obj/item/clothing/head/roguetown/tw_d_lion,
-			"dragon" = /obj/item/clothing/head/roguetown/tw_d_dragon_red,
-			"swan" = /obj/item/clothing/head/roguetown/tw_d_swan,
-			"Le Fishe" = /obj/item/clothing/head/roguetown/tw_d_fish,
-			"mighty windmill" = /obj/item/clothing/head/roguetown/tw_d_windmill,
-			"oath" = /obj/item/clothing/head/roguetown/tw_d_oathtaker,
-			"skull" = /obj/item/clothing/head/roguetown/tw_d_skull
+			"horns" = /obj/item/clothing/head/roguetown/onhelm/tw_d_horns,
+			"towers" = /obj/item/clothing/head/roguetown/onhelm/tw_d_castle_red,
+			"afreet" = /obj/item/clothing/head/roguetown/onhelm/tw_d_efreet,
+			"sun" = /obj/item/clothing/head/roguetown/onhelm/tw_d_sun,
+			"astrata" = /obj/item/clothing/head/roguetown/onhelm/tw_d_peace,
+			"feathers" = /obj/item/clothing/head/roguetown/onhelm/tw_d_feathers,
+			"lion" = /obj/item/clothing/head/roguetown/onhelm/tw_d_lion,
+			"dragon" = /obj/item/clothing/head/roguetown/onhelm/tw_d_dragon_red,
+			"swan" = /obj/item/clothing/head/roguetown/onhelm/tw_d_swan,
+			"Le Fishe" = /obj/item/clothing/head/roguetown/onhelm/tw_d_fish,
+			"mighty windmill" = /obj/item/clothing/head/roguetown/onhelm/tw_d_windmill,
+			"oath" = /obj/item/clothing/head/roguetown/onhelm/tw_d_oathtaker,
+			"skull" = /obj/item/clothing/head/roguetown/onhelm/tw_d_skull
 			)
 		var/onhelmchoice = input(H, "Choose your decor.", "RAISE UP THE SYMBOL") as anything in onhelm
-		l_hand = onhelm[onhelmchoice] //TA EDIT END
+		mask = onhelm[onhelmchoice] //TA EDIT END
 
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
@@ -298,22 +298,22 @@
 		armor = armors[armorchoice]
 
 		var/onhelm = list( //TA EDIT START
-			"horns" = /obj/item/clothing/head/roguetown/tw_d_horns,
-			"towers" = /obj/item/clothing/head/roguetown/tw_d_castle_red,
-			"afreet" = /obj/item/clothing/head/roguetown/tw_d_efreet,
-			"sun" = /obj/item/clothing/head/roguetown/tw_d_sun,
-			"astrata" = /obj/item/clothing/head/roguetown/tw_d_peace,
-			"feathers" = /obj/item/clothing/head/roguetown/tw_d_feathers,
-			"lion" = /obj/item/clothing/head/roguetown/tw_d_lion,
-			"dragon" = /obj/item/clothing/head/roguetown/tw_d_dragon_red,
-			"swan" = /obj/item/clothing/head/roguetown/tw_d_swan,
-			"Le Fishe" = /obj/item/clothing/head/roguetown/tw_d_fish,
-			"mighty windmill" = /obj/item/clothing/head/roguetown/tw_d_windmill,
-			"oath" = /obj/item/clothing/head/roguetown/tw_d_oathtaker,
-			"skull" = /obj/item/clothing/head/roguetown/tw_d_skull
+			"horns" = /obj/item/clothing/head/roguetown/onhelm/tw_d_horns,
+			"towers" = /obj/item/clothing/head/roguetown/onhelm/tw_d_castle_red,
+			"afreet" = /obj/item/clothing/head/roguetown/onhelm/tw_d_efreet,
+			"sun" = /obj/item/clothing/head/roguetown/onhelm/tw_d_sun,
+			"astrata" = /obj/item/clothing/head/roguetown/onhelm/tw_d_peace,
+			"feathers" = /obj/item/clothing/head/roguetown/onhelm/tw_d_feathers,
+			"lion" = /obj/item/clothing/head/roguetown/onhelm/tw_d_lion,
+			"dragon" = /obj/item/clothing/head/roguetown/onhelm/tw_d_dragon_red,
+			"swan" = /obj/item/clothing/head/roguetown/onhelm/tw_d_swan,
+			"Le Fishe" = /obj/item/clothing/head/roguetown/onhelm/tw_d_fish,
+			"mighty windmill" = /obj/item/clothing/head/roguetown/onhelm/tw_d_windmill,
+			"oath" = /obj/item/clothing/head/roguetown/onhelm/tw_d_oathtaker,
+			"skull" = /obj/item/clothing/head/roguetown/onhelm/tw_d_skull
 			)
 		var/onhelmchoice = input(H, "Choose your decor.", "RAISE UP THE SYMBOL") as anything in onhelm
-		l_hand = onhelm[onhelmchoice] //TA EDIT END
+		mask = onhelm[onhelmchoice] //TA EDIT END
 
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
@@ -454,22 +454,22 @@
 		armor = armors[armorchoice]
 
 		var/onhelm = list( //TA EDIT START
-			"horns" = /obj/item/clothing/head/roguetown/tw_d_horns,
-			"towers" = /obj/item/clothing/head/roguetown/tw_d_castle_red,
-			"afreet" = /obj/item/clothing/head/roguetown/tw_d_efreet,
-			"sun" = /obj/item/clothing/head/roguetown/tw_d_sun,
-			"astrata" = /obj/item/clothing/head/roguetown/tw_d_peace,
-			"feathers" = /obj/item/clothing/head/roguetown/tw_d_feathers,
-			"lion" = /obj/item/clothing/head/roguetown/tw_d_lion,
-			"dragon" = /obj/item/clothing/head/roguetown/tw_d_dragon_red,
-			"swan" = /obj/item/clothing/head/roguetown/tw_d_swan,
-			"Le Fishe" = /obj/item/clothing/head/roguetown/tw_d_fish,
-			"mighty windmill" = /obj/item/clothing/head/roguetown/tw_d_windmill,
-			"oath" = /obj/item/clothing/head/roguetown/tw_d_oathtaker,
-			"skull" = /obj/item/clothing/head/roguetown/tw_d_skull
+			"horns" = /obj/item/clothing/head/roguetown/onhelm/tw_d_horns,
+			"towers" = /obj/item/clothing/head/roguetown/onhelm/tw_d_castle_red,
+			"afreet" = /obj/item/clothing/head/roguetown/onhelm/tw_d_efreet,
+			"sun" = /obj/item/clothing/head/roguetown/onhelm/tw_d_sun,
+			"astrata" = /obj/item/clothing/head/roguetown/onhelm/tw_d_peace,
+			"feathers" = /obj/item/clothing/head/roguetown/onhelm/tw_d_feathers,
+			"lion" = /obj/item/clothing/head/roguetown/onhelm/tw_d_lion,
+			"dragon" = /obj/item/clothing/head/roguetown/onhelm/tw_d_dragon_red,
+			"swan" = /obj/item/clothing/head/roguetown/onhelm/tw_d_swan,
+			"Le Fishe" = /obj/item/clothing/head/roguetown/onhelm/tw_d_fish,
+			"mighty windmill" = /obj/item/clothing/head/roguetown/onhelm/tw_d_windmill,
+			"oath" = /obj/item/clothing/head/roguetown/onhelm/tw_d_oathtaker,
+			"skull" = /obj/item/clothing/head/roguetown/onhelm/tw_d_skull
 			)
 		var/onhelmchoice = input(H, "Choose your decor.", "RAISE UP THE SYMBOL") as anything in onhelm
-		l_hand = onhelm[onhelmchoice] //TA EDIT END
+		mask = onhelm[onhelmchoice] //TA EDIT END
 
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
@@ -638,22 +638,22 @@
 			head = helmets[helmchoice]
 
 		var/onhelm = list( //TA EDIT START
-			"horns" = /obj/item/clothing/head/roguetown/tw_d_horns,
-			"towers" = /obj/item/clothing/head/roguetown/tw_d_castle_red,
-			"afreet" = /obj/item/clothing/head/roguetown/tw_d_efreet,
-			"sun" = /obj/item/clothing/head/roguetown/tw_d_sun,
-			"astrata" = /obj/item/clothing/head/roguetown/tw_d_peace,
-			"feathers" = /obj/item/clothing/head/roguetown/tw_d_feathers,
-			"lion" = /obj/item/clothing/head/roguetown/tw_d_lion,
-			"dragon" = /obj/item/clothing/head/roguetown/tw_d_dragon_red,
-			"swan" = /obj/item/clothing/head/roguetown/tw_d_swan,
-			"Le Fishe" = /obj/item/clothing/head/roguetown/tw_d_fish,
-			"mighty windmill" = /obj/item/clothing/head/roguetown/tw_d_windmill,
-			"oath" = /obj/item/clothing/head/roguetown/tw_d_oathtaker,
-			"skull" = /obj/item/clothing/head/roguetown/tw_d_skull
+			"horns" = /obj/item/clothing/head/roguetown/onhelm/tw_d_horns,
+			"towers" = /obj/item/clothing/head/roguetown/onhelm/tw_d_castle_red,
+			"afreet" = /obj/item/clothing/head/roguetown/onhelm/tw_d_efreet,
+			"sun" = /obj/item/clothing/head/roguetown/onhelm/tw_d_sun,
+			"astrata" = /obj/item/clothing/head/roguetown/onhelm/tw_d_peace,
+			"feathers" = /obj/item/clothing/head/roguetown/onhelm/tw_d_feathers,
+			"lion" = /obj/item/clothing/head/roguetown/onhelm/tw_d_lion,
+			"dragon" = /obj/item/clothing/head/roguetown/onhelm/tw_d_dragon_red,
+			"swan" = /obj/item/clothing/head/roguetown/onhelm/tw_d_swan,
+			"Le Fishe" = /obj/item/clothing/head/roguetown/onhelm/tw_d_fish,
+			"mighty windmill" = /obj/item/clothing/head/roguetown/onhelm/tw_d_windmill,
+			"oath" = /obj/item/clothing/head/roguetown/onhelm/tw_d_oathtaker,
+			"skull" = /obj/item/clothing/head/roguetown/onhelm/tw_d_skull
 			)
 		var/onhelmchoice = input(H, "Choose your decor.", "RAISE UP THE SYMBOL") as anything in onhelm
-		l_hand = onhelm[onhelmchoice] //TA EDIT END
+		mask = onhelm[onhelmchoice] //TA EDIT END
 
 	if(H.mind)
 		SStreasury.grant_savings(ECONOMIC_UPPER_CLASS, H)
@@ -879,22 +879,22 @@
 		head = helmets[helmchoice]
 
 	var/onhelm = list( //TA EDIT START
-		"horns" = /obj/item/clothing/head/roguetown/tw_d_horns,
-		"towers" = /obj/item/clothing/head/roguetown/tw_d_castle_red,
-		"afreet" = /obj/item/clothing/head/roguetown/tw_d_efreet,
-		"sun" = /obj/item/clothing/head/roguetown/tw_d_sun,
-		"astrata" = /obj/item/clothing/head/roguetown/tw_d_peace,
-		"feathers" = /obj/item/clothing/head/roguetown/tw_d_feathers,
-		"lion" = /obj/item/clothing/head/roguetown/tw_d_lion,
-		"dragon" = /obj/item/clothing/head/roguetown/tw_d_dragon_red,
-		"swan" = /obj/item/clothing/head/roguetown/tw_d_swan,
-		"Le Fishe" = /obj/item/clothing/head/roguetown/tw_d_fish,
-		"mighty windmill" = /obj/item/clothing/head/roguetown/tw_d_windmill,
-		"oath" = /obj/item/clothing/head/roguetown/tw_d_oathtaker,
-		"skull" = /obj/item/clothing/head/roguetown/tw_d_skull
+		"horns" = /obj/item/clothing/head/roguetown/onhelm/tw_d_horns,
+		"towers" = /obj/item/clothing/head/roguetown/onhelm/tw_d_castle_red,
+		"afreet" = /obj/item/clothing/head/roguetown/onhelm/tw_d_efreet,
+		"sun" = /obj/item/clothing/head/roguetown/onhelm/tw_d_sun,
+		"astrata" = /obj/item/clothing/head/roguetown/onhelm/tw_d_peace,
+		"feathers" = /obj/item/clothing/head/roguetown/onhelm/tw_d_feathers,
+		"lion" = /obj/item/clothing/head/roguetown/onhelm/tw_d_lion,
+		"dragon" = /obj/item/clothing/head/roguetown/onhelm/tw_d_dragon_red,
+		"swan" = /obj/item/clothing/head/roguetown/onhelm/tw_d_swan,
+		"Le Fishe" = /obj/item/clothing/head/roguetown/onhelm/tw_d_fish,
+		"mighty windmill" = /obj/item/clothing/head/roguetown/onhelm/tw_d_windmill,
+		"oath" = /obj/item/clothing/head/roguetown/onhelm/tw_d_oathtaker,
+		"skull" = /obj/item/clothing/head/roguetown/onhelm/tw_d_skull
 		)
 	var/onhelmchoice = input(H, "Choose your decor.", "RAISE UP THE SYMBOL") as anything in onhelm
-	l_hand = onhelm[onhelmchoice] //TA EDIT END
+	mask = onhelm[onhelmchoice] //TA EDIT END
 
 	if(HAS_TRAIT(H, TRAIT_GOODTRAINER))
 		REMOVE_TRAIT(H, TRAIT_GOODTRAINER, JOB_TRAIT)
