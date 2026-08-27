@@ -14,6 +14,7 @@ export type AllPagesData = {
   hide_pq: BooleanLike;
   triumphs: number;
 
+  agevet: BooleanLike;
 };
 
 // --------------- AppearanceData ---------------
@@ -96,6 +97,9 @@ export type Marking = {
 export type ClassData = {
   joblessrole: string;
   classes: Class[];
+  donor_boost_visible: BooleanLike;
+  donor_boost_available: BooleanLike;
+  donor_boost_rounds_remaining: number;
 };
 
 export type Class = {
@@ -104,6 +108,10 @@ export type Class = {
   unavailable_details: string;
   spawn_positions: number;
   pref: ClassPreference | null; // null means "NEVER"
+  donor_boost_job_eligible: BooleanLike;
+  has_subclass_preferences: BooleanLike;
+  preferred_subclass: string | null;
+  preferred_subclass_strict: BooleanLike;
 };
 
 export enum ClassAvailability {
@@ -164,6 +172,7 @@ export enum ClassPreference {
   JP_LOW = 1,
   JP_MEDIUM = 2,
   JP_HIGH = 3,
+  JP_BOOST = 4,
 }
 
 // --------------- DescriptorData ---------------
@@ -247,6 +256,17 @@ export type IdentityData = {
   voice_pack: string;
   voice_pitch: number;
 
+  bark_id: string;
+  bark_name: string;
+  bark_speed: number;
+  min_bark_speed: number;
+  max_bark_speed: number;
+  bark_pitch: number;
+  min_bark_pitch: number;
+  max_bark_pitch: number;
+  bark_variance: number;
+  min_bark_variance: number;
+  max_bark_variance: number;
 
   virtues: VirtueWithMetadata[];
 

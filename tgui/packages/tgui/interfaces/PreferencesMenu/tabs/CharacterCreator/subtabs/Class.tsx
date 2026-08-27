@@ -106,6 +106,9 @@ const Controls = (props) => {
 };
 
 const ExplainerKey = (props) => {
+  const { data } = useBackendStrict<ClassData>();
+  const { donor_boost_visible } = data;
+
   return (
     <Stack.Item>
       <Section
@@ -181,6 +184,20 @@ const ExplainerKey = (props) => {
               <Stack.Item>- High</Stack.Item>
             </Stack>
           </Stack.Item>
+
+          {donor_boost_visible ? (
+            <Stack.Item>
+              <Stack>
+                <PriorityButton
+                accentColor="#d4af37"
+                enabled
+                color="transparent"
+                name="High+"
+              />
+                <Stack.Item>- High+ (Donator)</Stack.Item>
+              </Stack>
+            </Stack.Item>
+          ) : null}
         </Stack>
       </Section>
     </Stack.Item>
@@ -286,6 +303,12 @@ export const Department = (props: { dept: DepartmentEnum }) => {
 
 export const ClassEntry = (props: { cls: Class }) => {
   const { cls } = props;
+  const { data } = useBackendStrict<ClassData>();
+  const {
+    donor_boost_available,
+    donor_boost_rounds_remaining,
+    donor_boost_visible,
+  } = data;
 
   const createSetPriority = createCreateSetPriorityFromName(cls.title);
 
@@ -301,6 +324,10 @@ export const ClassEntry = (props: { cls: Class }) => {
           ) : (
             <PriorityButtons
               createSetPriority={createSetPriority}
+              donorBoostAvailable={Boolean(donor_boost_available)}
+              donorBoostJobEligible={Boolean(cls.donor_boost_job_eligible)}
+              donorBoostRoundsRemaining={donor_boost_rounds_remaining}
+              donorBoostVisible={Boolean(donor_boost_visible)}
               priority={cls.pref}
             />
           )}
@@ -381,7 +408,13 @@ export const ClassTitle = (props: { cls: Class }) => {
           <Stack.Item italic fontSize={0.9}>
             Left-click to see subclass details!
           </Stack.Item>
-          {constClass.has_subprefs ? (
+          {cls.preferred_subclass ? (
+            <Stack.Item fontSize={0.9}>
+              Preferred subclass: <b>{cls.preferred_subclass}</b>
+              {cls.preferred_subclass_strict ? ' (Strict)' : ''}
+            </Stack.Item>
+          ) : null}
+          {constClass.has_subprefs || cls.has_subclass_preferences ? (
             <Stack.Item italic fontSize={0.9}>
               Right-click to see class-specific preferences!
             </Stack.Item>
@@ -422,7 +455,10 @@ export const ClassTitle = (props: { cls: Class }) => {
             : undefined
         }
         onClick={() => act('explainjob', { job: cls.title })}
-        onContextMenu={() => act('subprefs', { job: cls.title })}
+        onContextMenu={(event) => {
+          event.preventDefault();
+          act('subprefs', { job: cls.title });
+        }}
       >
         {getClassDisplayTitle(constantData, cls.title, titles_pref)}
       </Box>
@@ -435,18 +471,21 @@ type PriorityButtonProps = {
   color: string;
   modifier?: string;
   enabled: boolean;
+  disabled?: boolean;
+  accentColor?: string;
   onClick?: () => void;
 };
 
 const PriorityButton = (props: PriorityButtonProps) => {
-  const { color, enabled, modifier, name, onClick } = props;
+  const { accentColor, color, disabled, enabled, modifier, name, onClick } = props;
   const className = `PreferencesMenu__Class__PriorityButton`;
 
   return (
     <Stack.Item>
       <Button
         circular
-        color={enabled ? color : 'white'}
+        color={accentColor ? 'transparent' : enabled ? color : 'white'}
+        disabled={disabled}
         onClick={onClick}
         tooltip={name}
         tooltipPosition="bottom"
@@ -455,6 +494,12 @@ const PriorityButton = (props: PriorityButtonProps) => {
           modifier && `${className}--${modifier}`,
         ])}
         style={{
+          backgroundColor: accentColor
+            ? enabled
+              ? accentColor
+              : 'transparent'
+            : undefined,
+          border: accentColor ? `1px solid ${accentColor}` : undefined,
           height: PRIORITY_BUTTON_SIZE,
           minHeight: PRIORITY_BUTTON_SIZE,
           padding: '0',
@@ -501,11 +546,27 @@ function createCreateSetPriorityFromName(jobName: string): CreateSetPriority {
 
 type PriorityButtonsProps = {
   createSetPriority: CreateSetPriority;
+  donorBoostAvailable: boolean;
+  donorBoostJobEligible: boolean;
+  donorBoostRoundsRemaining: number;
+  donorBoostVisible: boolean;
   priority: ClassPreference | null;
 };
 
 const PriorityButtons = (props: PriorityButtonsProps) => {
-  const { createSetPriority, priority } = props;
+  const {
+    createSetPriority,
+    donorBoostAvailable,
+    donorBoostJobEligible,
+    donorBoostRoundsRemaining,
+    donorBoostVisible,
+    priority,
+  } = props;
+  const donorBoostTooltip = !donorBoostJobEligible
+    ? 'High+ is unavailable for this role'
+    : !donorBoostAvailable
+      ? `High+ is on cooldown for ${donorBoostRoundsRemaining} more round${donorBoostRoundsRemaining === 1 ? '' : 's'}`
+      : 'High+';
 
   return (
     <Stack
@@ -543,6 +604,17 @@ const PriorityButtons = (props: PriorityButtonsProps) => {
         enabled={priority === ClassPreference.JP_HIGH}
         onClick={createSetPriority(ClassPreference.JP_HIGH)}
       />
+
+      {donorBoostVisible ? (
+        <PriorityButton
+          accentColor="#d4af37"
+          color="transparent"
+          disabled={!donorBoostAvailable || !donorBoostJobEligible}
+          name={donorBoostTooltip}
+          enabled={priority === ClassPreference.JP_BOOST}
+          onClick={createSetPriority(ClassPreference.JP_BOOST)}
+        />
+      ) : null}
     </Stack>
   );
 };

@@ -220,18 +220,44 @@
 			roleprefs["favorite_advclass"] = null
 	return roleprefs
 
+/datum/job/proc/subprefs_subclass_html(client/C)
+	if(!C?.prefs)
+		return ""
+	if(!advclass_cat_rolls && !length(job_subclasses))
+		return ""
+	var/datum/preferences/prefs = C.prefs
+	var/list/roleprefs = get_roleprefs(C)
+	var/preferred_name = prefs.job_subclass_preferences[title]
+	if(!preferred_name)
+		var/favorite_advclass = roleprefs?["favorite_advclass"]
+		if(favorite_advclass)
+			var/datum/advclass/favorite_type = favorite_advclass
+			preferred_name = initial(favorite_type.name)
+	var/strict_text = prefs.job_subclass_strict[title] ? "Strict" : "Prefer"
+	var/display_name = preferred_name || "Choose"
+	var/HTML = "<b>Preferred subclass:</b> <a href='?src=[REF(src)];class=1'>[display_name]</a>"
+	if(preferred_name)
+		HTML += " <a href='?src=[REF(src)];subclassclear=1'>Clear</a><br/>"
+		if(length(job_subclasses))
+			HTML += "<b>Fallback mode:</b> <a href='?src=[REF(src)];subclassstrict=1'>[strict_text]</a><br/>"
+			HTML += prefs.job_subclass_strict[title] ? "<i>If this subclass is unavailable, skip this role.</i><br/><br/>" : "<i>If this subclass is unavailable, another subclass may be used.</i><br/><br/>"
+	else
+		HTML += "<br/><br/>"
+	return HTML
+
 /datum/job/proc/update_subprefs_window(mob/user)
-	if(!advclass_cat_rolls)
+	if(!advclass_cat_rolls && !length(job_subclasses))
 		return
-	var/client/C = usr.client
+	var/client/C = user.client
 	if(!C || !C.prefs)
 		return
 	get_roleprefs(C)
 	var/HTML = {"
+		[subprefs_subclass_html(C)]
 		<center><a href="?src=[REF(src)];subprefsexit=1">EXIT</a>\t\t<a href="?src=[REF(src)];subprefsreset=1">RESET</a></center>
 	"}
 	// the fact that the window width/height will be different each time is the main reason this isn't all done in a parent proc on /datum/job
-	var/datum/browser/popup = new(user, "[JOB_SUBPREFS_WINDOW_ID]", "<div align='center'>[title] Preferences</div>", 500, 250)
+	var/datum/browser/popup = new(user, "[JOB_SUBPREFS_WINDOW_ID]", "<div align='center'>[title] Preferences</div>", 500, 300)
 	popup.set_content(HTML)
 	popup.open(FALSE)
 	if(winexists(usr, "[JOB_SUBPREFS_WINDOW_ID]"))
@@ -818,7 +844,7 @@
 		update_subprefs_window(usr)
 	if(href_list["subprefsexit"])
 		usr << browse(null, "window=[JOB_SUBPREFS_WINDOW_ID]") // close subprefs window
-	if(!advclass_cat_rolls)
+	if(!advclass_cat_rolls && !length(job_subclasses))
 		return
 	var/client/C = usr.client
 	if(!C)
@@ -828,6 +854,62 @@
 		return
 	var/list/roleprefs = get_roleprefs(C)
 	if(!roleprefs)
+		return
+
+	if(href_list["class"])
+		var/list/class_sel = list()
+		var/datum/preferences/character_prefs = prefs.get_job_prefs(title)
+		if(length(job_subclasses))
+			for(var/subclass_path in job_subclasses)
+				var/datum/advclass/subclass_type = subclass_path
+				var/datum/advclass/subclass = SSrole_class_handler.get_advclass_by_name(initial(subclass_type.name))
+				if(!subclass)
+					continue
+				if(!subclass.check_preferences_requirements(character_prefs, C, FALSE, FALSE))
+					continue
+				class_sel[subclass.name] = subclass_path
+		else
+			for(var/ctag in advclass_cat_rolls)
+				var/list/subsystem_ctag_list = SSrole_class_handler.sorted_class_categories[ctag]
+				for(var/datum/advclass/advdatum in subsystem_ctag_list)
+					if(!advdatum.check_preferences_requirements(character_prefs, C, FALSE, FALSE))
+						continue
+					class_sel[advdatum.name] = advdatum.type
+		if(!length(class_sel))
+			to_chat(usr, span_warning("No compatible subclasses are available for [title]."))
+			update_subprefs_window(usr)
+			return
+		var/default_selection = prefs.job_subclass_preferences[title]
+		if(!default_selection)
+			var/favorite_advclass = roleprefs["favorite_advclass"]
+			if(favorite_advclass)
+				var/datum/advclass/favorite_type = favorite_advclass
+				default_selection = initial(favorite_type.name)
+		var/selection = tgui_input_list(usr, "What path do your talents follow?", "Subclass Select", class_sel, default_selection)
+		var/selected_path = class_sel[selection]
+		if(selected_path)
+			roleprefs["favorite_advclass"] = selected_path
+			if(length(job_subclasses))
+				var/datum/advclass/selected_type = selected_path
+				prefs.job_subclass_preferences[title] = initial(selected_type.name)
+			prefs.save_character()
+		update_subprefs_window(usr)
+		return
+	if(href_list["subclassclear"])
+		roleprefs["favorite_advclass"] = null
+		prefs.job_subclass_preferences -= title
+		prefs.job_subclass_strict -= title
+		prefs.save_character()
+		update_subprefs_window(usr)
+		return
+	if(href_list["subclassstrict"])
+		if(prefs.job_subclass_preferences[title])
+			if(prefs.job_subclass_strict[title])
+				prefs.job_subclass_strict -= title
+			else
+				prefs.job_subclass_strict[title] = TRUE
+			prefs.save_character()
+		update_subprefs_window(usr)
 		return
 
 	if(href_list["subprefsreset"])
@@ -900,7 +982,7 @@
 		"class_setup_examine" = class_setup_examine,
 		"tutorial" = tutorial,
 		"round_contrib_points" = round_contrib_points,
-		"has_subprefs" = has_subprefs,
+		"has_subprefs" = has_subprefs || length(job_subclasses) || length(advclass_cat_rolls),
 	)
 
 
