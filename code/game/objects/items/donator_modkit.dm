@@ -1260,6 +1260,15 @@
 	result_item = null
 	icon_loadout = /obj/item/clothing/head/roguetown/helmet/sallet/visored/limetease
 
+//limetease - Greatsword/Halberd
+/obj/item/enchantingkit/limetease_swordspear
+	name = "'avantyne-threaded sword' morphing elixir"
+	target_items = list(
+		/obj/item/rogueweapon/greatsword	= /obj/item/rogueweapon/greatsword/limetease,
+		/obj/item/rogueweapon/halberd		= /obj/item/rogueweapon/halberd/limetease
+	)
+	result_item = null
+
 //MortoSasye - Ice Staffs
 /obj/item/enchantingkit/morto_staff
 	name = "'Frozen Vow' morphing elixir"
