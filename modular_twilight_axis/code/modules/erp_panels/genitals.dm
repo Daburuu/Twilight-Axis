@@ -79,16 +79,6 @@
 	var/datum/customizer_entry/organ/vagina/vagina_entry = entry
 	imprint_pubic_hair_organ_dna(organ_dna, vagina_entry, prefs)
 
-/datum/customizer_choice/organ/vagina/generate_pref_choices(list/dat, datum/preferences/prefs, datum/customizer_entry/entry, customizer_type)
-	..()
-	var/datum/customizer_entry/organ/vagina/vagina_entry = entry
-	generate_pubic_hair_pref_choices(dat, prefs, vagina_entry, customizer_type)
-
-/datum/customizer_choice/organ/vagina/handle_topic(mob/user, list/href_list, datum/preferences/prefs, datum/customizer_entry/entry, customizer_type)
-	..()
-	var/datum/customizer_entry/organ/vagina/vagina_entry = entry
-	handle_pubic_hair_topic(user, href_list, prefs, vagina_entry)
-
 /datum/customizer_choice/organ/proc/validate_pubic_hair_entry(datum/preferences/prefs, datum/customizer_entry/entry)
 	var/list/valid_accessories = ta_pubic_hair_accessories()
 	if(!entry.vars.Find("pubic_hair_type"))
