@@ -199,9 +199,9 @@
 		if("manifest")
 			client.view_actors_manifest()
 			return TRUE
-		if("observe")
+	/*	if("observe")
 			make_me_an_observer()
-			return TRUE
+			return TRUE*/
 		if("show_preferences")
 			client.prefs.ShowChoices(src, PREFERENCE_TAB_CHARACTER_CREATOR)
 			return TRUE
