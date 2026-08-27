@@ -1,6 +1,6 @@
 import { HeadshotButton, SaveUndo } from 'pm/components';
 import { usePopupId } from 'pm/popups';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useBackendStrict, useSharedState } from 'tgui/backend';
 import {
   Box,
@@ -103,6 +103,30 @@ const Sidebar = (props) => {
     triumphs,
   } = data;
   const [popupId, setPopupId] = usePopupId();
+  const [previewReady, setPreviewReady] = useState(false);
+
+  useEffect(() => {
+    setPreviewReady(false);
+
+    if (!character_preview_view || popupId) {
+      return;
+    }
+
+    let resizeFrame = 0;
+    const mountFrame = window.requestAnimationFrame(() => {
+      setPreviewReady(true);
+      resizeFrame = window.requestAnimationFrame(() => {
+        window.dispatchEvent(new Event('resize'));
+      });
+    });
+
+    return () => {
+      window.cancelAnimationFrame(mountFrame);
+      if (resizeFrame) {
+        window.cancelAnimationFrame(resizeFrame);
+      }
+    };
+  }, [character_preview_view, popupId]);
 
   return (
     <Stack.Item mr={2} mt={1} width={15}>
@@ -122,8 +146,9 @@ const Sidebar = (props) => {
         </Stack.Item>
         <Stack.Item width={15} height={15}>
           {/* This needs to be turned off when there's a popup because otherwise it'll intersect */}
-          {character_preview_view && !popupId ? (
+          {character_preview_view && !popupId && previewReady ? (
             <ByondUi
+              key={character_preview_view}
               params={{
                 id: character_preview_view,
                 type: 'map',
