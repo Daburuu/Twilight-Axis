@@ -817,8 +817,7 @@
 	desc = "A small container of special morphing dust, perfect to make a specifc item. Required: Kriegmesser"
 	target_items = list(/obj/item/rogueweapon/sword/long/kriegmesser,
 						/obj/item/rogueweapon/greatsword)
-	result_item = null
-	icon_loadout = /obj/item/rogueweapon/example/waffai_broadsword
+	result_item = /obj/item/rogueweapon/example/waffai_broadsword
 
 /obj/item/enchantingkit/weapon/wafflamberge
 	name = "'Xenolalia' morphing elixir"
