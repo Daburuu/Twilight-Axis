@@ -252,8 +252,6 @@
 		if(!isnull(bandit_job.max_pq) && (get_playerquality(player.ckey) > bandit_job.max_pq))
 			continue
 		#endif
-		if(check_blacklist(player.client.ckey) && !bandit_job.bypass_jobban)
-			continue
 		if(CONFIG_GET(flag/usewhitelist) && bandit_job.whitelist_req && !player.client.whitelisted())
 			continue
 		if(!bandit_job.special_job_check(player))
