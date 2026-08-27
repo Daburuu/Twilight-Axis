@@ -7,7 +7,9 @@
 	return ui_interact(src)
 
 /mob/dead/new_player/ui_interact(mob/user, datum/tgui/ui)
-	if(SSticker.current_state > GAME_STATE_PREGAME)
+	if(SSticker.current_state >= GAME_STATE_SETTING_UP)
+		if(ui)
+			ui.close(can_be_suspended = FALSE)
 		return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -20,7 +22,7 @@
 		return
 	if(!client)
 		return
-	if(SSticker.current_state > GAME_STATE_PREGAME)
+	if(SSticker.current_state >= GAME_STATE_SETTING_UP)
 		return
 	if(lobby_reopen_pending)
 		return
@@ -33,7 +35,7 @@
 		return
 	if(!client)
 		return
-	if(SSticker.current_state > GAME_STATE_PREGAME)
+	if(SSticker.current_state >= GAME_STATE_SETTING_UP)
 		return
 	ui_interact(src)
 
@@ -41,7 +43,7 @@
 	return GLOB.new_player_state
 
 /mob/dead/new_player/ui_status(mob/user, datum/ui_state/state)
-	if(SSticker.current_state > GAME_STATE_PREGAME)
+	if(SSticker.current_state >= GAME_STATE_SETTING_UP)
 		return UI_CLOSE
 	return ..()
 
