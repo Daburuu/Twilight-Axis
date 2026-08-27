@@ -57,7 +57,6 @@
 
 
 /datum/outfit/job/roguetown/knight_enigma
-	//cloak = /obj/item/clothing/cloak/tabard/stabard/surcoat/guard
 	neck = /obj/item/clothing/neck/roguetown/gorget/steel
 	gloves = /obj/item/clothing/gloves/roguetown/plate
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
