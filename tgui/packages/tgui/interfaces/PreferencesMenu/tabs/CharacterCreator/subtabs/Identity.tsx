@@ -258,7 +258,7 @@ export const SubtabIdentityCardGameplay = (props) => {
               </Button>
             </LabeledGridList.Item>
             <LabeledGridList.Item label="Origin">
-              <Button fluid icon="bars" onClick={() => setPopupId('Origin')}>
+              <Button fluid icon="bars" onClick={() => act('open_origin_picker')}>
                 {virtue_origin}
               </Button>
             </LabeledGridList.Item>

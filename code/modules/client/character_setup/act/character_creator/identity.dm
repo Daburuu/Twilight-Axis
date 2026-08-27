@@ -190,6 +190,11 @@
 				user.playsound_local(user, voiceline, 100, frequency = voice_pitch)
 			return CHARACTER_ACT_DATA_UPDATE
 
+		if("open_origin_picker")
+			var/datum/origin_picker_panel/origin_picker = new(src)
+			origin_picker.ui_interact(user)
+			return CHARACTER_ACT_DATA_UPDATE
+
 		if("subvirtue")
 			return ui_act_character_creator_identity_subvirtue(action, params, ui, state)
 
