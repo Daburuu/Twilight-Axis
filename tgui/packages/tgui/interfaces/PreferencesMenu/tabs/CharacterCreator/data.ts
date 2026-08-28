@@ -112,6 +112,7 @@ export type Class = {
   has_subclass_preferences: BooleanLike;
   preferred_subclass: string | null;
   preferred_subclass_strict: BooleanLike;
+  character_slot: number | null;
 };
 
 export enum ClassAvailability {

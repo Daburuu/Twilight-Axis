@@ -303,7 +303,7 @@ export const Department = (props: { dept: DepartmentEnum }) => {
 
 export const ClassEntry = (props: { cls: Class }) => {
   const { cls } = props;
-  const { data } = useBackendStrict<ClassData>();
+  const { act, data } = useBackendStrict<ClassData>();
   const {
     donor_boost_available,
     donor_boost_rounds_remaining,
@@ -315,10 +315,25 @@ export const ClassEntry = (props: { cls: Class }) => {
   return (
     <Stack.Item style={{ minHeight: PRIORITY_BUTTON_SIZE + 4 }}>
       <Stack align="center">
-        <Stack.Item>
+        <Stack.Item grow minWidth={0}>
           <ClassTitle cls={cls} />
         </Stack.Item>
-        <Stack.Item grow textAlign="right">
+        <Stack.Item>
+          <Button
+            compact
+            color="transparent"
+            tooltip={
+              cls.character_slot
+                ? `Character Slot ${cls.character_slot}. Click to change.`
+                : 'Active Slot (Default). Click to change.'
+            }
+            onClick={() => act('set_job_slot', { job: cls.title })}
+            style={{ minWidth: 22, width: 22, padding: '0' }}
+          >
+            {cls.character_slot || 'A'}
+          </Button>
+        </Stack.Item>
+        <Stack.Item textAlign="right">
           {cls.unavailable ? (
             <UnavailableExplanation cls={cls} />
           ) : (
@@ -572,8 +587,9 @@ const PriorityButtons = (props: PriorityButtonsProps) => {
     <Stack
       style={{
         alignItems: 'center',
+        gap: '2px',
         justifyContent: 'flex-end',
-        paddingLeft: '0.3em',
+        paddingLeft: '0.15em',
       }}
     >
       <PriorityButton

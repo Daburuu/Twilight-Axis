@@ -42,6 +42,58 @@
 			verbose_pref_log_notification(user, "notice", "[title] preference set to [level == JP_BOOST ? "High+" : level == JP_HIGH ? "High" : level == JP_MEDIUM ? "Medium" : level == JP_LOW ? "Low" : "Never"]")
 			SetJobPreferenceLevel(job, level)
 			return CHARACTER_ACT_DATA_UPDATE // note: change this if we ever readd job clothing preview
+		if("set_job_slot")
+			if(SSticker.job_change_locked)
+				to_chat(user, span_warning("Try again later, SSticker is busy spawning players."))
+				return CHARACTER_ACT_DATA_UPDATE
+
+			var/job_title = params["job"]
+			if(!istext(job_title))
+				return CHARACTER_ACT_DATA_UPDATE
+
+			var/datum/job/job = SSjob.GetJob(job_title)
+			if(!job)
+				return CHARACTER_ACT_DATA_UPDATE
+
+			if(!path || !fexists(path))
+				return CHARACTER_ACT_DATA_UPDATE
+
+			var/list/valid_slots = list("Active Slot (Default)" = "default")
+			var/default_choice = "Active Slot (Default)"
+			var/current_slot = job_characters[job_title]
+			var/savefile/S = new /savefile(path)
+			var/datum/preferences/dummy_pref = new(parent)
+
+			for(var/i = 1 to max_save_slots)
+				if(i % 5 == 0)
+					CHECK_TICK
+
+				S.cd = "/character[i]"
+				var/slot_name
+				S["real_name"] >> slot_name
+				if(!slot_name)
+					continue
+
+				dummy_pref.fast_scan_for_job(S, i)
+				if(!job.validate_prefs_for_job(dummy_pref))
+					continue
+
+				var/slot_label = "Slot [i] - [dummy_pref.real_name] ([dummy_pref.pref_species.name])"
+				valid_slots[slot_label] = i
+				if(i == current_slot)
+					default_choice = slot_label
+
+			var/choice = tgui_input_list(user, "Choose character for [job_title]:", "Character Select", valid_slots, default_choice)
+			if(!choice)
+				return CHARACTER_ACT_DATA_UPDATE
+
+			if(valid_slots[choice] == "default")
+				job_characters -= job_title
+			else
+				job_characters[job_title] = valid_slots[choice]
+
+			save_character()
+			return CHARACTER_ACT_DATA_UPDATE
 		if("subprefs")
 			var/title = params["job"]
 			if(!istext(title))
@@ -98,4 +150,5 @@
 
 /datum/preferences/proc/ResetJobs()
 	job_preferences = list()
+	job_characters = list()
 	topjob = null
