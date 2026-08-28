@@ -141,6 +141,7 @@
 		/obj/item/rogueweapon/whip						= /obj/item/rogueweapon/whip/urumi
 		)
 	result_item = null
+	icon_loadout = /obj/item/rogueweapon/whip/urumi
 
 /obj/item/enchantingkit/triumph_weaponkit_pata
 	name = "'Pata' morphing elixir"
@@ -151,6 +152,7 @@
 		/obj/item/rogueweapon/katar						= /obj/item/rogueweapon/katar/pata
 		)
 	result_item = null
+	icon_loadout = /obj/item/rogueweapon/katar/pata
 
 /obj/item/enchantingkit/triumph_weaponkit_tri
 	name = "'Valorian Longsword' morphing elixir"
@@ -254,6 +256,7 @@
 		/obj/item/clothing/suit/roguetown/armor/leather					= /obj/item/clothing/suit/roguetown/armor/leather/triumph_padded
 		)
 	result_item = null
+	icon_loadout = /obj/item/clothing/suit/roguetown/armor/leather/triumph_padded
 	exact_type = TRUE
 
 /obj/item/enchantingkit/triumph_weaponkit_classicdaggers
@@ -357,6 +360,7 @@
 		/obj/item/rogueweapon/sword						= /obj/item/rogueweapon/sword/khanda
 		)
 	result_item = null
+	icon_loadout = /obj/item/rogueweapon/sword/khanda
 
 /obj/item/enchantingkit/weapon/triumph_weaponkit_hwi
 	name = "'Hwi' morphing elixir"
@@ -387,7 +391,6 @@
 	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of an Iron Sabre, a Steel Sabre, a Falx, or a Falchion."
 	target_items = list(
 		/obj/item/rogueweapon/sword/short/falchion,
-		/obj/item/rogueweapon/sword/saber/iron,
 		/obj/item/rogueweapon/sword/sabre,
 		/obj/item/rogueweapon/sword/falx
 		)
@@ -398,7 +401,6 @@
 	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of an Iron Sabre, a Steel Sabre, a Falx, or a Falchion."
 	target_items = list(
 		/obj/item/rogueweapon/sword/short/falchion,
-		/obj/item/rogueweapon/sword/saber/iron,
 		/obj/item/rogueweapon/sword/sabre,
 		/obj/item/rogueweapon/sword/falx
 		)
