@@ -94,6 +94,60 @@
 
 			save_character()
 			return CHARACTER_ACT_DATA_UPDATE
+		if("set_job_subclass")
+			if(SSticker.job_change_locked)
+				to_chat(user, span_warning("Try again later, SSticker is busy spawning players."))
+				return CHARACTER_ACT_DATA_UPDATE
+
+			var/job_title = params["job"]
+			if(!istext(job_title))
+				return CHARACTER_ACT_DATA_UPDATE
+
+			var/datum/job/job = SSjob.GetJob(job_title)
+			if(!job || !length(job.job_subclasses))
+				return CHARACTER_ACT_DATA_UPDATE
+
+			var/list/valid_subclasses = list("No subclass preference")
+			var/datum/preferences/character_prefs = get_job_prefs(job_title)
+			for(var/subclass_path in job.job_subclasses)
+				var/datum/advclass/subclass_type = subclass_path
+				var/datum/advclass/subclass = SSrole_class_handler.get_advclass_by_name(initial(subclass_type.name))
+				if(!subclass)
+					continue
+				if(!subclass.check_preferences_requirements(character_prefs, user.client, FALSE, FALSE))
+					continue
+				valid_subclasses += subclass.name
+
+			var/current_subclass = job_subclass_preferences[job_title]
+			var/default_subclass = "No subclass preference"
+			if(current_subclass && (current_subclass in valid_subclasses))
+				default_subclass = current_subclass
+
+			var/selected_subclass = tgui_input_list(user, "Choose a preferred subclass for [job_title]:", "Subclass Preference", valid_subclasses, default_subclass)
+			if(!selected_subclass)
+				return CHARACTER_ACT_DATA_UPDATE
+
+			if(selected_subclass == "No subclass preference")
+				job_subclass_preferences -= job_title
+				job_subclass_strict -= job_title
+			else
+				var/list/failure_modes = list(
+					"Try another role, otherwise return to lobby",
+					"Let me choose another subclass"
+				)
+				var/default_failure_mode = job_subclass_strict[job_title] ? failure_modes[1] : failure_modes[2]
+				var/failure_choice = tgui_input_list(user, "What should happen if [selected_subclass] is unavailable?", "Subclass Preference", failure_modes, default_failure_mode)
+				if(!failure_choice)
+					return CHARACTER_ACT_DATA_UPDATE
+				job_subclass_preferences[job_title] = selected_subclass
+				if(failure_choice == failure_modes[1])
+					job_subclass_strict[job_title] = TRUE
+				else
+					job_subclass_strict -= job_title
+
+			job.get_roleprefs(user.client)
+			save_character()
+			return CHARACTER_ACT_DATA_UPDATE
 		if("subprefs")
 			var/title = params["job"]
 			if(!istext(title))

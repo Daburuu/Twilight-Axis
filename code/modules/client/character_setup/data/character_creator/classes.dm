@@ -33,6 +33,7 @@
 	data["pref"] = job_preferences[job.title]
 	data["donor_boost_job_eligible"] = donor_job_boost_ckey_eligible(user.ckey, user.client) && donor_job_boost_job_eligible(job, user.ckey, user.client)
 	data["has_subclass_preferences"] = length(job.job_subclasses) || length(job.advclass_cat_rolls)
+	data["has_job_subclasses"] = length(job.job_subclasses) ? TRUE : FALSE
 	data["preferred_subclass"] = job_subclass_preferences[job.title]
 	data["preferred_subclass_strict"] = job_subclass_strict[job.title] ? TRUE : FALSE
 	data["character_slot"] = job_characters[job.title] ? job_characters[job.title] : null

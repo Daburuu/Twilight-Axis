@@ -110,6 +110,7 @@ export type Class = {
   pref: ClassPreference | null; // null means "NEVER"
   donor_boost_job_eligible: BooleanLike;
   has_subclass_preferences: BooleanLike;
+  has_job_subclasses: BooleanLike;
   preferred_subclass: string | null;
   preferred_subclass_strict: BooleanLike;
   character_slot: number | null;
