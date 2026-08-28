@@ -252,6 +252,7 @@ export type IdentityData = {
 
   virtue_origin: string;
   free_language: string;
+  char_accent: string;
 
   selected_faith: string;
   selected_patron: string;
