@@ -83,7 +83,7 @@
 		if(SSroguemachine.secret_mail?.len)
 			for(var/obj/item/I in SSroguemachine.secret_mail)
 				var/is_mine = FALSE
-				if(I.mailedto == H.real_name)
+				if(mail_name_match(I.mailedto, H.real_name)) // TA EDIT
 					is_mine = TRUE
 				else if((H.mind && (H.mind.assigned_role in list("Hand", "Vizier"))) || (H.mind && (H.mind.special_role in list("Hand", "Vizier")))) // TA edit
 					if(findtext(I.mailedto, "#"))
@@ -106,7 +106,7 @@
 		if(SSroguemachine.hermailermaster)
 			var/obj/item/roguemachine/mastermail/M = SSroguemachine.hermailermaster
 			for(var/obj/item/I in M.contents)
-				if(I.mailedto == H.real_name)
+				if(mail_name_match(I.mailedto, H.real_name)) // TA EDIT
 					if(!addl_mail)
 						I.forceMove(src.loc)
 						user.put_in_hands(I)
@@ -266,6 +266,15 @@
 	P.update_icon()
 	return P
 
+// TA EDIT START
+/proc/mail_name_match(recipient, target)
+	var/r = html_decode(recipient)
+	var/t = html_decode(target)
+	r = replacetext(r, "'", "")
+	t = replacetext(t, "'", "")
+	return (r == t)
+// TA EDIT END
+
 /obj/structure/roguemachine/mail/proc/check_free_send(mob/user, send2place) // TA EDIT BEGIN
 	var/is_court_agent = FALSE
 	if(ishuman(user))
@@ -282,7 +291,7 @@
 				break
 	else
 		for(var/mob/living/carbon/human/H_target in GLOB.human_list)
-			if(H_target.real_name == send2place)
+			if(mail_name_match(H_target.real_name, send2place))
 				if((H_target.mind?.assigned_role in list("Hand", "Vizier")) || (H_target.mind?.special_role in list("Hand", "Vizier")))
 					is_hand = TRUE
 				break
@@ -318,8 +327,8 @@
 			if(length(content) > 2000)
 				to_chat(user, span_warning("Letter too long."))
 				return TRUE
-			var/obj/item/paper/P = build_sanitized_letter(user, params["sender"], params["recipient"], content)
-			var/send2place = P.mailedto
+			var/obj/item/paper/P = build_sanitized_letter(params["sender"], params["recipient"], content)
+			var/send2place = html_decode(P.mailedto) // TA EDIT
 			var/sentfrom = P.mailer
 			var/free_send = check_free_send(user, send2place) // TA EDIT BEGIN
 			var/is_free = free_send_ready(user)
@@ -338,14 +347,14 @@
 						if((H.mind?.assigned_role in list("Hand", "Vizier")) || (H.mind?.special_role in list("Hand", "Vizier")))
 							is_target = TRUE
 					else
-						if(H.real_name == send2place)
+						if(mail_name_match(send2place, H.real_name)) // TA EDIT
 							is_target = TRUE
 
 					if(is_target)
 						H.apply_status_effect(/datum/status_effect/ugotmail)
 						H.playsound_local(H, 'sound/misc/mail.ogg', 100, FALSE, -1)
 
-				log_mail_send(user, sentfrom, send2place)
+				log_mail_send(user, sentfrom, P.mailedto) // TA EDIT
 				visible_message(span_warning("[user] sends something."))
 				playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 				return TRUE
@@ -363,7 +372,7 @@
 						playsound(X, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 						break
 				if(found)
-					log_mail_send(user, sentfrom, send2place)
+					log_mail_send(user, sentfrom, P.mailedto) // TA EDIT
 					visible_message(span_warning("[user] sends something."))
 					playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 					sent_ok = TRUE
@@ -373,7 +382,7 @@
 			else
 				var/mob/living/carbon/human/mailrecipient = null
 				for(var/mob/living/carbon/human/H in GLOB.human_list)
-					if(H.real_name == send2place)
+					if(mail_name_match(send2place, H.real_name)) // TA EDIT
 						mailrecipient = H
 				if(!mailrecipient)
 					to_chat(user, span_warning("There's no one by that name to receive it."))
@@ -386,10 +395,10 @@
 					STR.handle_item_insertion(P, prevent_warning=TRUE)
 					X.new_mail = TRUE
 					X.update_icon()
-					send_ooc_note("You got new letter waiting for you in HERMES.", name = send2place) // TA EDIT
+					send_ooc_note("You got new letter waiting for you in HERMES.", name = mailrecipient.real_name) // TA EDIT
 					mailrecipient.apply_status_effect(/datum/status_effect/ugotmail)
 					mailrecipient.playsound_local(mailrecipient, 'sound/misc/mail.ogg', 100, FALSE, -1)
-					log_mail_send(user, sentfrom, send2place)
+					log_mail_send(user, sentfrom, P.mailedto) // TA EDIT
 					visible_message(span_warning("[user] sends something."))
 					playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 					sent_ok = TRUE
@@ -768,7 +777,7 @@
 			to_chat(user, span_warning("The machine doesn't respond."))
 			return
 		if(alert(user, "Send Mail?",,"YES","NO") == "YES")
-			var/send2place = sanitize(input(user, "Where to? (Person or #number)", "ROGUETOWN", null))
+			var/send2place = html_decode(sanitize(input(user, "Where to? (Person or #number)", "ROGUETOWN", null)))
 			var/sentfrom = sanitize(input(user, "Who is this from? (Leave blank to send anonymously)", "ROGUETOWN", null))
 			if(!sentfrom)
 				sentfrom = "Anonymous"
@@ -789,14 +798,14 @@
 						if((H.mind?.assigned_role in list("Hand", "Vizier")) || (H.mind?.special_role in list("Hand", "Vizier")))
 							is_target = TRUE
 					else
-						if(H.real_name == send2place)
+						if(mail_name_match(send2place, H.real_name)) // TA EDIT
 							is_target = TRUE
 
 					if(is_target)
 						H.apply_status_effect(/datum/status_effect/ugotmail)
 						H.playsound_local(H, 'sound/misc/mail.ogg', 100, FALSE, -1)
 
-				log_mail_send(user, sentfrom, send2place)
+				log_mail_send(user, sentfrom, P.mailedto) // TA EDIT
 				visible_message(span_warning("[user] sends something."))
 				playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 				return
@@ -817,7 +826,7 @@
 						playsound(X, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 						break
 				if(found)
-					log_mail_send(user, sentfrom, send2place)
+					log_mail_send(user, sentfrom, P.mailedto) // TA EDIT
 					visible_message(span_warning("[user] sends something."))
 					playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 					return
@@ -828,7 +837,7 @@
 					return
 				var/mob/living/carbon/human/mailrecipient = null
 				for(var/mob/living/carbon/human/H in GLOB.human_list)
-					if(H.real_name == send2place)
+					if(mail_name_match(send2place, H.real_name)) // TA EDIT
 						mailrecipient = H
 				if(!mailrecipient)
 					to_chat(user, span_warning("There's no one by that name to receive it."))
@@ -849,10 +858,10 @@
 				if(!findmaster)
 					to_chat(user, span_warning("The master of mails has perished?"))
 				else
-					log_mail_send(user, sentfrom, send2place)
+					log_mail_send(user, sentfrom, P.mailedto) // TA EDIT
 					visible_message(span_warning("[user] sends something."))
 					playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
-					send_ooc_note("You got new letter waiting for you in HERMES.", name = send2place) // TA EDIT
+					send_ooc_note("You got new letter waiting for you in HERMES.", name = mailrecipient.real_name) // TA EDIT
 					if(mailrecipient)
 						mailrecipient.apply_status_effect(/datum/status_effect/ugotmail)
 						mailrecipient.playsound_local(mailrecipient, 'sound/misc/mail.ogg', 100, FALSE, -1)
@@ -987,7 +996,7 @@
 			to_chat(user, span_warning("I carefully re-seal the letter and place it back in the machine, no one will know."))
 		if(PA.mailer && PA.mailedto)
 			for(var/mob/living/carbon/human/H in GLOB.human_list)
-				if(H.real_name == PA.mailedto && !H.has_status_effect(/datum/status_effect/ugotmail)) // quietly readd the status if they tried to check their mail while the letter was being spied on
+				if(mail_name_match(PA.mailedto, H.real_name) && !H.has_status_effect(/datum/status_effect/ugotmail)) // TA EDIT
 					H.apply_status_effect(/datum/status_effect/ugotmail)
 		P.forceMove(loc)
 		var/datum/component/storage/STR = GetComponent(/datum/component/storage)
@@ -1008,7 +1017,7 @@
 /obj/structure/roguemachine/mail/proc/any_additional_mail(obj/item/roguemachine/mastermail/M, mob/living/carbon/human/H)
 	if(SSroguemachine.secret_mail?.len)
 		for(var/obj/item/I in SSroguemachine.secret_mail)
-			if(I.mailedto == H.real_name)
+			if(mail_name_match(I.mailedto, H.real_name)) // TA EDIT
 				return TRUE
 			else if((H.mind?.assigned_role in list("Hand", "Vizier")) || (H.mind?.special_role in list("Hand", "Vizier")))
 				if(findtext(I.mailedto, "#"))
@@ -1018,7 +1027,7 @@
 							return TRUE
 	if(M)
 		for(var/obj/item/I in M.contents)
-			if(I.mailedto == H.real_name) // TA EDIT END
+			if(mail_name_match(I.mailedto, H.real_name)) // TA EDIT END
 				return TRUE
 	return FALSE
 
