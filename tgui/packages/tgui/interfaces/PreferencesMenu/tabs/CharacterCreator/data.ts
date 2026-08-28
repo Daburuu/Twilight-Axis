@@ -199,6 +199,8 @@ export type ExamineData = {
   ooc_extra: string | null; // null indicates unset
   song_artist: string | null; // null indicates unset
   song_title: string | null; // null indicates unset
+  ooc_extra_img_link: string | null;
+  nsfw_ooc_extra_img_link: string | null;
 
   img_gallery: string[];
   nsfw_img_gallery: string[];

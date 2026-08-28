@@ -8,6 +8,8 @@
 		"ooc_extra" = ooc_extra,
 		"song_artist" = song_artist,
 		"song_title" = song_title,
+		"ooc_extra_img_link" = ooc_extra_img_link,
+		"nsfw_ooc_extra_img_link" = nsfw_ooc_extra_img_link,
 
 		"img_gallery" = img_gallery,
 		"nsfw_img_gallery" = nsfw_img_gallery,
