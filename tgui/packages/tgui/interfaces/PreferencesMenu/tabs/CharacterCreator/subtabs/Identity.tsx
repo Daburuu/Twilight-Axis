@@ -226,6 +226,7 @@ export const SubtabIdentityCardGameplay = (props) => {
     age,
     combat_music,
     dnr_pref,
+    defiant,
     domhand,
     free_language,
     loadout_cost,
@@ -294,6 +295,11 @@ export const SubtabIdentityCardGameplay = (props) => {
             <LabeledGridList.Item label="Unrevivable">
               <Button fluid onClick={() => act('dnr_pref')}>
                 {dnr_pref ? 'Yes' : 'No'}
+              </Button>
+            </LabeledGridList.Item>
+            <LabeledGridList.Item label="Defiant">
+              <Button fluid onClick={() => act('defiant')}>
+                {defiant ? 'Yes' : 'No'}
               </Button>
             </LabeledGridList.Item>
             <SubtabIdentityCardGameplayCardCulinary />

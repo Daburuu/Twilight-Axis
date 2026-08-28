@@ -129,6 +129,14 @@
 			verbose_pref_log_change(user, "notice", "Do-Not-Revive Preference", !dnr_pref ? "Do Not Revive" : "Revive", dnr_pref ? "Do Not Revive" : "Revive")
 			return CHARACTER_ACT_DATA_UPDATE
 
+		if("defiant")
+			defiant = !defiant
+			if(defiant)
+				to_chat(user, span_notice("You will now have resistance from people violating you, but be punished for trying to violate others." + " " + span_boldwarning("(COMBAT Mode will disable ERP interactions. Bypassing this is a bannable offense, AHELP if necessary.)")))
+			else
+				to_chat(user, span_boldwarning("You fully immerse yourself in the grim experience, waiving your resistance from people violating you, but letting you do the same unto other non-defiants"))
+			return CHARACTER_ACT_DATA_UPDATE
+
 		if("set_culinary_axis")
 			set_culinary_axis(params["axis"], text2num(params["flag"]))
 			verbose_pref_log_notification(user, "notice", "Culinary axis [params["axis"]] changed")

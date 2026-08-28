@@ -241,6 +241,7 @@ export type IdentityData = {
   domhand: number;
   combat_music: string;
   dnr_pref: BooleanLike;
+  defiant: BooleanLike;
 
   favorite_cuisine: number; // bitflag
   favorite_dish: number; // bitflag

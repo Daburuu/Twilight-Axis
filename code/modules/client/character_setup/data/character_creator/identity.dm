@@ -17,6 +17,7 @@
 		"domhand" = domhand,
 		"combat_music" = (combat_music.shortname ? combat_music.shortname : combat_music.name),
 		"dnr_pref" = dnr_pref,
+		"defiant" = defiant,
 
 		"favorite_cuisine" = favorite_cuisine,
 		"favorite_dish" = favorite_dish,
