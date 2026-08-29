@@ -153,10 +153,6 @@
 
 	var/list/nsfw_img_gallery = list()
 
-	var/ooc_extra_img
-	var/nsfw_ooc_extra_img
-
-
 	var/has_confessed = FALSE // Used to track if they have confessed it was written onto a confession paper
 
 	possible_rmb_intents = list(/datum/rmb_intent/feint,\
