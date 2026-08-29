@@ -344,7 +344,7 @@
 			if(!valid_headshot_link(user, link, FALSE, valid_ext))
 				return CHARACTER_ACT_DATA_UPDATE
 			ooc_extra_img_link = link
-			var/ext = lowertext(splittext(link, ".")[length(splittext(link, "."))])
+			var/ext = LOWER_TEXT(splittext(link, ".")[length(splittext(link, "."))])
 			switch(ext)
 				if("jpg", "jpeg", "png", "gif")
 					ooc_extra_img = "<div align='center'><br><img src='[link]' style='max-width: 100%;'/></div>"
@@ -372,7 +372,7 @@
 			if(!valid_headshot_link(user, link, FALSE, valid_ext))
 				return CHARACTER_ACT_DATA_UPDATE
 			nsfw_ooc_extra_img_link = link
-			var/ext = lowertext(splittext(link, ".")[length(splittext(link, "."))])
+			var/ext = LOWER_TEXT(splittext(link, ".")[length(splittext(link, "."))])
 			switch(ext)
 				if("jpg", "jpeg", "png", "gif")
 					nsfw_ooc_extra_img = "<div align='center'><br><img src='[link]' style='max-width: 100%;'/></div>"
