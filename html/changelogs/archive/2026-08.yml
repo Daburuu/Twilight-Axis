@@ -1594,6 +1594,7 @@
   Ketrai:
   - image: new deep one sprites
   - bugfix: deep ones drop the correct amount of meat now
+  - bugfix: Attempt at fixing a abyssor quest selection runtime
   Lamasmaster:
   - spellcheck: Bishop tutorial text.
   - rscadd: Blings out the church with the new equipment that has been added in over
@@ -1621,3 +1622,5 @@
   changelingonberry:
   - bugfix: fitting pouches to belts now accepts any subtype of pouch
   - bugfix: sergeant snout helm selector no longer fires twice on spawn
+  nauticall:
+  - bugfix: Background for parchments now load reliably.
