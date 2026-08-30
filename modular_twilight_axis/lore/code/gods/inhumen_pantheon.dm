@@ -201,6 +201,7 @@
 					/datum/action/cooldown/spell/baotha/emotional_sway			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/baothavice				= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/baothablessings			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/TAbaothablessings				= CLERIC_T1,
 					/obj/effect/proc_holder/spell/self/TAinsufflation					= CLERIC_T1,
 					/datum/action/cooldown/spell/miracle/heal 						  	= CLERIC_T1,
 					/datum/action/cooldown/spell/miracle/bloodmiracle					= CLERIC_T1,
