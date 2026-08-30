@@ -35,7 +35,7 @@
 	name = "Adventurer"
 	role_category = "Adventurer"
 	advclass_cat_rolls = list(CTAG_ADVENTURER = 20)
-*/
+
 /datum/migrant_role/bandit
 	name = "Bandit"
 	antag_datum = /datum/antagonist/bandit
@@ -51,3 +51,4 @@
 	name = "Gnoll"
 	antag_datum = /datum/antagonist/gnoll
 	advclass_cat_rolls = list(CTAG_GNOLL = 20)
+*/

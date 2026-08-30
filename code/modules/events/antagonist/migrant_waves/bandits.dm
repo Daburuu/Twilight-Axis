@@ -7,7 +7,7 @@
 	weight = 0
 
 	earliest_start = 30 MINUTES
-	min_players = 30
+	min_players = 45 // TA Edit
 
 	tags = list(
 		TAG_COMBAT,

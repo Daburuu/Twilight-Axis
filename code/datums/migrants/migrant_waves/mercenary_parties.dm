@@ -2,7 +2,7 @@
 
 // The Pentarchy - It can naturally roll and can be bought for 55 triumphs, but has some restrictions because at least 4 slots must be filled and the characters must be there. They cover the entire roster.
 
-/datum/migrant_role/migrant_mercenary
+/*/datum/migrant_role/migrant_mercenary
 	name = "Mercenary"
 	role_category = "Mercenary"
 	advclass_cat_rolls = list(CTAG_MERCENARY = 20)
@@ -77,3 +77,4 @@
 		"5" = "The Pentarchy rides whole. United in one company, one purpose - oh, who are we joking about. You five have always been the oddest bedfellow.",
 		"4" = "The Pentarchy rides whole! Five blades! United as one! Except for the fifth one! No idea where they went! Guess we're the Tetrarchy now! Hoorah!"
 	)
+*/
