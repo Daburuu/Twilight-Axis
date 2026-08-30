@@ -416,7 +416,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 
 	to_chat(user, span_notice("You begin pouring the lyfestruth over [target.name]..."))
 
-	if(do_after(user, 6 SECONDS, target))
+	if(do_after(user, 6 SECONDS, target = target)) // TA EDIT
 		if(!target || target.stat != DEAD)
 			return
 		apply_effect(target, user)
@@ -955,7 +955,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 	else
 		to_chat(user, span_notice("You begin administering the vial to your own forehead..."))
 
-	if(do_after(user, 6 SECONDS, target))
+	if(do_after(user, 6 SECONDS, target = target)) // TA EDIT
 		apply_firstlaw_insight(target, user)
 
 /obj/item/alchserum/matthios_insight/proc/apply_firstlaw_insight(mob/living/carbon/human/T, mob/user)
@@ -991,7 +991,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 
 	to_chat(user, span_notice("You begin gently administering the concoction to [target.name]'s eyes..."))
 
-	if(do_after(user, 6 SECONDS, target))
+	if(do_after(user, 6 SECONDS, target = target)) // TA EDIT
 		apply_sleep(target, user)
 
 /obj/item/alchserum/matthios_goodnite/proc/apply_sleep(mob/living/target, mob/user)
@@ -1004,6 +1004,10 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 
 	to_chat(target, span_notice("A heavy calm overtakes your body..."))
 	sleep(5)
+	if(!user || !target || user.z != target.z || get_dist(user, target) > 1) // TA EDIT START
+		return
+	if(target != user)
+		log_combat(user, target, "put to sleep", src) // TA EDIT END
 	visible_message(span_notice("[target.name] suddenly goes limp, overtaken by unnatural sleep."))
 
 	target.SetSleeping(600)
