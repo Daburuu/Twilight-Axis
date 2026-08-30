@@ -197,10 +197,10 @@
 	desc = "Баота — богиня гедонизма, мирских наслаждений и страстей. «Живи, люби, смейся!» — говорила она, глядя на суету вокруг себя и усилия окружающих, стремящихся двигать куда-то мир."
 	worshippers = "Избалованные богачи, маргиналы, эскаписты."
 	undead_hater = TRUE
-	miracles = list(/datum/action/cooldown/spell/touch/orison						= CLERIC_ORI,
-					/datum/action/cooldown/spell/baotha/emotional_sway			= CLERIC_T0,
-					/obj/effect/proc_holder/spell/invoked/baothavice				= CLERIC_T0,
-					/obj/effect/proc_holder/spell/invoked/baothablessings			= CLERIC_T0,
+	miracles = list(/datum/action/cooldown/spell/touch/orison					        = CLERIC_ORI,
+					/obj/effect/proc_holder/spell/invoked/TAbaothavice					= CLERIC_T0,
+					//obj/effect/proc_holder/spell/self/TAbless_drink					= CLERIC_T0,
+					/obj/effect/proc_holder/spell/targeted/touch/TAloversruin			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/TAbaothablessings				= CLERIC_T1,
 					/obj/effect/proc_holder/spell/self/TAinsufflation					= CLERIC_T1,
 					/datum/action/cooldown/spell/miracle/heal 						  	= CLERIC_T1,
