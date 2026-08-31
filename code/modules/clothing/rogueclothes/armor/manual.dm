@@ -236,7 +236,6 @@
 	repairmsg_full = "My lunacy core is already whole."
 // TA EDIT END
 
-
 /*
  * SEWABLE (& potentially hammerable) ARMOUR
  */
