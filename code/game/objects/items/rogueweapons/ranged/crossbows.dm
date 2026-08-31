@@ -3,7 +3,7 @@
 	var/newtime = max(20, reloadtime - user.STASTR - (user.get_skill_level(ranged_skill) * 2))
 	if(chambered)
 		newtime *= chambered.charge_time_mult
-	return max(0, newtime) + ARCHER_NPC_MIN_AIM_TIME + ARCHER_NPC_NOCK_TIME
+	return (max(0, newtime) + ARCHER_NPC_MIN_AIM_TIME + ARCHER_NPC_NOCK_TIME) * ARCHER_NPC_ROF_PENALTY
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	has_item_quality = TRUE
@@ -13,7 +13,7 @@
 	matter that relies more on raw strength than dexterity to master. </br>A favorite \
 	amongst the Keep's ever-dutiful watchmen, both for its relative ease-of-use and \
 	effectiveness against Psydonia's unchivalrous inhabitants."
-	icon = 'icons/roguetown/weapons/misc32.dmi'
+	icon = 'icons/roguetown/weapons/ranged32.dmi'
 	icon_state = "crossbow0"
 	item_state = "crossbow"
 	experimental_onhip = TRUE
