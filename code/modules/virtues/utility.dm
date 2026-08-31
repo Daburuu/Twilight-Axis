@@ -4,7 +4,7 @@
 	ui_fa_icon = "crown"
 	restricted = TRUE
 	max_choices = 1
-	races = list(/datum/species/construct, /datum/species/dullahan)
+	races = list(/datum/species/construct, /datum/species/dullahan, /datum/species/ooze) //TA EDIT
 	added_traits = list(TRAIT_NOBLE, TRAIT_EXPERT_HUNTER)
 	added_skills = list(list(/datum/skill/misc/reading, 1, 6))
 	added_stashed_items = list("Hefty Coinpurse" = /obj/item/storage/belt/rogue/pouch/coins/virtuepouch)
@@ -207,8 +207,9 @@
 		"Orcish" = /datum/language/orcish,
 		"Infernal" = /datum/language/hellspeak,
 		"Draconic" = /datum/language/draconic,
-		"Celestial" = /datum/language/celestial,
-		"Ranesheni" = /datum/language/raneshi,
+		"Valorian" = /datum/language/valorian, //TA EDIT
+		"Sama'glos" = /datum/language/raneshi, //TA EDIT
+		"Gyedzenese" = /datum/language/gyedzenese, //TA EDIT
 		"Grenzelhoftian" = /datum/language/grenzelhoftian,
 		"Kazengunese" = /datum/language/kazengunese,
 		"Lingyuese" = /datum/language/lingyuese,

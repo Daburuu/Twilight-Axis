@@ -525,15 +525,9 @@ GLOBAL_LIST_EMPTY(species_list)
 /proc/deadchat_broadcast(message, source=null, mob/follow_target=null, turf/turf_target=null, speaker_key=null, message_type=DEADCHAT_REGULAR)
 	message = span_deadsay("[source]<span class='linkify'>[message]</span>")
 	for(var/mob/M in GLOB.player_list)
-		var/datum/preferences/prefs
-		if(M.client.prefs)
-			prefs = M.client.prefs
-		else
-			prefs = new
-
 		var/override = FALSE
-		if(M.client.holder && (prefs.chat_toggles & CHAT_DSAY))
-			override = TRUE
+	//	if(M.client.holder && (prefs.chat_toggles & CHAT_DSAY))
+	//		override = TRUE
 		if(HAS_TRAIT(M, TRAIT_SIXTHSENSE))
 			override = TRUE
 		if(isnewplayer(M) && !override)
@@ -618,7 +612,6 @@ GLOBAL_LIST_EMPTY(species_list)
 
 		if(QDELETED(src) || !client || choice != "Yes")
 			lobbyer.ready = PLAYER_NOT_READY
-			lobbyer.new_player_panel()
 			return FALSE
 	else
 		var/choice = alert(src, "Are you sure you wish to let go and observe?", "LET GO", "Yes", "No")

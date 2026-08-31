@@ -94,7 +94,6 @@ const Sidebar = (props) => {
   const [constantData] = useConstantPrefs();
   const { act, data } = useBackendStrict<AllPagesData>();
   const {
-    agevet,
     character_preview_view,
     hide_pq,
     pq,
@@ -211,33 +210,7 @@ const Sidebar = (props) => {
                 Triumphs: {triumphs}
               </Button>
             </Stack.Item>
-            <Stack.Item>
-              <Button fluid icon="baby" onClick={() => act('agevet')}>
-                Verified:{' '}
-                {agevet ? (
-                  <Box inline color="#74cde0">
-                    YAE!
-                  </Box>
-                ) : (
-                  <Box inline color="#897472">
-                    NAE?
-                  </Box>
-                )}
-              </Button>
-            </Stack.Item>
             <Stack.Item grow />
-            <Stack.Item>
-              <Button
-                fluid
-                icon="scroll"
-                onClick={() => {
-                  act('lore_primer');
-                  setPopupId('LorePrimer');
-                }}
-              >
-                Lore Primer
-              </Button>
-            </Stack.Item>
             <Stack.Item>
               <Button
                 fluid
