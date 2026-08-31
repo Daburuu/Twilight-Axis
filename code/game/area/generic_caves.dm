@@ -106,12 +106,24 @@
 				/mob/living/simple_animal/hostile/retaliate/rogue/ooze_blob = 10)
 	converted_type = /area/rogue/outdoors/caves
 
+/area/rogue/under/cave/grim/hamlet
+	name = "hamtunnels"
+	icon_state = "cave"
+	loot_budget = LOOT_BUDGET_HAMTUNNELS
+	ambientsounds = AMB_BASEMENT
+	ambientnight = AMB_BASEMENT
+	deathsight_message = "basements and tunnels thick with the misty humidity of the hamlet's coast"
+	droning_sound = 'sound/music/area/grimcaves.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	converted_type = /area/rogue/outdoors/caves
+
 /area/rogue/under/cave/spider/grim
 	name = "infested cave"
 	icon_state = "spider"
 	first_time_text = "INFESTED TUNNELS"
-	droning_sound = 'sound/music/area/grimcaves.ogg'
 	deathsight_message = "a tunnel writhing with the movement of shadowed arachnids"
+	droning_sound = 'sound/music/area/grimcaves.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
 
