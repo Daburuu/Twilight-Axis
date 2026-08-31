@@ -1,6 +1,8 @@
 // Unarmed base weapon defense equivalents — fed into the same (skill * 20) + (wdef * 10) formula as weapons
 
 /mob/living/proc/attempt_parry(datum/intent/attack_intent, mob/living/user)
+	if(!user)
+		return FALSE
 	var/prob2defend = 0
 	var/mob/living/defender = src
 	var/mob/living/attacker = user
@@ -55,6 +57,19 @@
 	var/obj/item/rogueweapon/shield/buckler/offhand_buckler = get_inactive_held_item()	// buckler code
 	var/obj/item/rogueweapon/shield/buckler/mainhand_buckler = get_active_held_item()
 
+	// TA Edit start - new Ronin Class
+	var/need_override = TRUE
+	if((istype(mainhand) && mainhand.can_parry) || (istype(offhand) && offhand.can_parry))
+		need_override = FALSE
+
+	if(need_override)
+		var/obj/item/override_parry_weapon = ronin_parry_override(src, attack_intent, user)
+		if(override_parry_weapon)
+			mainhand = override_parry_weapon
+			offhand = null
+			used_weapon = override_parry_weapon
+	// TA Edit end - new Ronin Class
+
 	if(istype(offhand, /obj/item/rogueweapon/shield/buckler))
 		offhand_buckler.bucklerskill(defender)
 	if(istype(mainhand, /obj/item/rogueweapon/shield/buckler))
@@ -74,6 +89,8 @@
 	else
 		used_weapon = offhand
 		highest_defense += offhand_defense
+
+
 
 	var/defender_skill = 0
 	var/attacker_skill = 0
@@ -211,6 +228,11 @@
 	if(HAS_TRAIT(attacker, TRAIT_ARMOUR_LIKED))
 		if(HAS_TRAIT(attacker, TRAIT_FENCERDEXTERITY))
 			prob2defend -= 5
+
+	// TA addition start - new ronin class
+	if(HAS_TRAIT(src, TRAIT_PARRYEXPERT))
+		prob2defend += 30
+	// TA addition end - new ronin class
 
 	prob2defend = clamp(prob2defend, 5, 90)
 	if(HAS_TRAIT(user, TRAIT_HARDSHELL) && defender.client)	//Dwarf-merc specific limitation w/ their armor on in pvp
