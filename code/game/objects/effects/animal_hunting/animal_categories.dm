@@ -39,7 +39,7 @@
 		/area/rogue/outdoors/rtfield/rockhill = 50, //TA_EDIT_START
 		/area/rogue/outdoors/bograt/north = 30,
 		/area/rogue/outdoors/woodsrat/north = 30,
-		/area/rogue/outdoors/woodsrat/south = 30 //TA_EDIT_END
+		/area/rogue/outdoors/woodsrat/south = 30, //TA_EDIT_END
 		// Pilgrim counterparts
 		/area/rogue/outdoors/woods/grim = 30,
 		/area/rogue/outdoors/woods/grim/north = 30,
@@ -75,7 +75,7 @@
 		/area/rogue/outdoors/woods/southwest = 50,
 		/area/rogue/outdoors/woods/northwest = 50,
 		/area/rogue/outdoors/woodsrat/north = 50, //TA_EDIT_START
-		/area/rogue/outdoors/woodsrat/south = 50 //TA_EDIT_END
+		/area/rogue/outdoors/woodsrat/south = 50, //TA_EDIT_END
 		// Pilgrim counterparts
 		/area/rogue/outdoors/woods/grim = 50,
 		/area/rogue/outdoors/woods/grim/north = 50,
@@ -117,7 +117,7 @@
 		/area/rogue/outdoors/bograt/north = 20, //TA_EDIT_START
 		/area/rogue/outdoors/woodsrat/north = 20,
 		/area/rogue/outdoors/woodsrat/south = 20,
-		/area/rogue/outdoors/mountains/decap/somewhere = 50 //TA_EDIT_END
+		/area/rogue/outdoors/mountains/decap/somewhere = 50, //TA_EDIT_END
 		// Pilgrim counterparts
 		/area/rogue/outdoors/woods/grim = 20,
 		/area/rogue/outdoors/woods/grim/north = 20,
@@ -155,7 +155,7 @@
 		/area/rogue/outdoors/beach/forest/south = 1000,
 		/area/rogue/outdoors/bograt/west = 1000, //TA_EDIT_START
 		/area/rogue/outdoors/bograt/south = 1000,
-		/area/rogue/outdoors/bograt/sunken = 1000 //TA_EDIT_END
+		/area/rogue/outdoors/bograt/sunken = 1000, //TA_EDIT_END
 		// Pilgrim counterparts
 		/area/rogue/outdoors/beach/forest/grim = 1000,
 		/area/rogue/outdoors/beach/forest/north/grim = 1000,
@@ -209,7 +209,7 @@
 		/area/rogue/under/cavewet/bogcaves/south = 60,
 		/area/rogue/under/cavewet/bogcaves/north = 60,
 		/area/rogue/under/cavewet/bogcaves/coastcaves = 60,
-		/area/rogue/outdoors/bograt/sunken = 60 //TA_EDIT
+		/area/rogue/outdoors/bograt/sunken = 60, //TA_EDIT
 		// Pilgrim counterparts
 		/area/rogue/outdoors/bog/north/grim = 60,
 		/area/rogue/outdoors/bog/north/grim/ne = 60,
