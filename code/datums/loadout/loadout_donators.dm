@@ -1028,4 +1028,5 @@
 	name = "Donator Item - Tabis"
 	path = /obj/item/enchantingkit/donator_rivercadaver_tabis
 	ckeywhitelist = list("rivercadaver","muhsollini","no_originality","helenmoder")
+	sort_category = "Donator"
 */
