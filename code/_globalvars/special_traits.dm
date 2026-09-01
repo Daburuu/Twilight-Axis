@@ -34,6 +34,8 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 /proc/apply_character_post_equipment(mob/living/carbon/human/character, client/player)
 	if(!player)
 		player = character.client
+	if(!player || !player.prefs) // TA EDIT
+		return // TA EDIT
 	apply_charflaw_equipment(character, player)
 	apply_prefs_virtue(character, player)
 	apply_prefs_race_bonus(character, player)
@@ -82,6 +84,8 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 	return TRUE
 
 /proc/apply_voicepacks(mob/living/carbon/human/character, client/player)
+	if(!player || !player.prefs)
+		return
 	if(player.prefs.voice_pack != "Default")
 		var/datum/voicepack/VP = GLOB.voice_packs[GLOB.voice_packs_list[player.prefs.voice_pack]]
 		character.dna.species.soundpack_m = VP
