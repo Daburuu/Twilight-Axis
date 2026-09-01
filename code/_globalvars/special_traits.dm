@@ -55,6 +55,9 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 				character.mind.special_items["[item.name][TRIUMPH_STASH_SUFFIX]"] = item.path
 			else
 				character.mind.special_items[item.name] = item.path
+			var/list/loadout_metadata = player.prefs.gear_list[key] // TA EDIT START
+			if(islist(loadout_metadata) && loadout_metadata.len)
+				character.mind.special_items_metadata[item.name] = deepCopyList(loadout_metadata) // TA EDIT END
 	var/datum/job/assigned_job = SSjob.GetJob(character.mind?.assigned_role)
 	var/list/prefs = player.prefs?.job_subprefs
 	if(prefs)

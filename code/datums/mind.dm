@@ -1439,12 +1439,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 							I.salvage_result = /obj/item/ash
 						var/list/metadata = user.mind.special_items_metadata[base_name]
 						if(islist(metadata))
-							if(metadata["color"])
-								I.add_atom_colour(metadata["color"], FIXED_COLOUR_PRIORITY)
-							if(metadata["detail_color"] && I.detail_tag)
-								I.detail_color = metadata["detail_color"]
-							if(metadata["altdetail_color"] && I.altdetail_tag)
-								I.altdetail_color = metadata["altdetail_color"]
+							I.apply_loadout_color_metadata(metadata) // TA EDIT
 							if(metadata["custom_name"])
 								I.name = sanitize(metadata["custom_name"])
 							if(metadata["custom_desc"])
