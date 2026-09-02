@@ -263,6 +263,7 @@
 	recharge_time = 2 MINUTES
 	devotion_cost = 30
 	miracle = TRUE
+	mandatory_invocation = FALSE // TA ADDITION - some spells with invocation can be casted even if owner can't speak
 	var/stamregenmod = 5	//How many % of stamina we regain after cast, scales with holy skill.
 
 /obj/effect/proc_holder/spell/self/abyssor_wind/cast(list/targets, mob/user)
