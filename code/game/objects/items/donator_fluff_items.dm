@@ -282,8 +282,8 @@
 	name = "bronze heartplate"
 	desc = "A curious - and particularly revealing - variant of a bronze cuirass. It's said that the intentionally provocative design \
 	excels at diverting strikes that'd otherwise pierce the wearer's unprotected regions."
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/donor_clothes.dmi'
 	item_state = "heartplateb"
 	icon_state = "heartplateb"
 
@@ -682,9 +682,9 @@
 	desc = "A pair of interlocked steel plate arm harnesses, composed of pauldrons, rerebraces, couters, and vambraces - all snugly latched around the limb and secured to one another thanks to a series of leather straps, metal aglets, and sliding rivets. The engineering is so meticulous that flexibility of the limb is hardly impeded."
 	item_state = "armharness"
 	icon_state = "armharness"
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
-	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/donor_sleeves_armor.dmi'
+	sleeved = 'modular_twilight_axis/icons/clothing/onmob/donor_sleeves_armor.dmi'
 
 /obj/item/clothing/head/roguetown/decoration/orle
 	name = "noble striped decoration"
@@ -931,6 +931,9 @@
 /obj/item/clothing/suit/roguetown/shirt/apothshirt/donator
 	name = "doublet"
 	desc = "A snug-fitting tunic, favored by Azurians during the chillier daes of autumn. It has been dyed with a pale, green tone."
+	icon_state = "jadehalfmask"
+	item_state = "jadehalfmask"
+	smeltresult = /obj/item/ingot/aaslag
 
 //
 
@@ -1252,7 +1255,7 @@
 	name = "Wortträger"
 	desc = "An imported Grenzelhoftian panzerstecher, a superbly crafted implement devoid of armory marks- merely bearing a maker's mark and the Zenitstadt seal. This one has a grip of walnut wood, and a pale saffira set within the crossguard. The ricasso is engraved with Ravoxian scripture."
 	icon_state = "mansa"
-	icon = 'icons/obj/items/donor_weapons_64.dmi'
+	icon = 'modular_twilight_axis/icons/obj/items/donor_weapons_64.dmi'
 
 //Srusu's donator item - dress
 /obj/item/clothing/suit/roguetown/shirt/dress/emerald
@@ -1308,7 +1311,7 @@
 	boobed = FALSE
 	flags_inv = HIDECROTCH|HIDEBOOB
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_CLOAK|ITEM_SLOT_ARMOR
-	icon = 'icons/clothing/donor_clothes.dmi'
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	sleeved = null
 	nodismemsleeves = TRUE
@@ -1340,7 +1343,7 @@
 	icon_state = "formfit"
 	item_state = "formfit"
 	color = "#ffffff"
-	icon = 'icons/clothing/donor_clothes.dmi'
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 
 //Bat's donator item - custom harp sprite
@@ -2590,6 +2593,7 @@ As Excaliber."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_adeathmask"
+	item_state = "chiv_adeathmask" // TA EDIT
 	smeltresult = /obj/item/ingot/aaslag
 	chunkcolor = "#532e25"
 	worn_offsets = list("x" = 0, "y" = 1) //Offset to account for the adjustable aura.
@@ -2608,6 +2612,7 @@ As Excaliber."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_abevor"
+	item_state = "chiv_abevor" // TA EDIT
 	smeltresult = /obj/item/ingot/aaslag
 	chunkcolor = "#532e25"
 
@@ -2618,6 +2623,9 @@ As Excaliber."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_acuirass"
+	item_state = "chiv_acuirass" // TA EDIT
+	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi' // TA EDIT
+	sleevetype = "chiv_acuirass" // TA EDIT
 	smeltresult = /obj/item/ingot/aaslag
 	chunkcolor = "#532e25"
 	allowed_sex = list(FEMALE) //Donator-exclusive to a Female Aasimar character. Applies to all other non-headpieces in the '/aasimar' branch.
@@ -2629,6 +2637,9 @@ As Excaliber."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_acuirass"
+	item_state = "chiv_acuirass" // TA EDIT
+	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi' // TA EDIT
+	sleevetype = "chiv_acuirass" // TA EDIT
 	smeltresult = /obj/item/ingot/aaslag
 	chunkcolor = "#532e25"
 	allowed_sex = list(FEMALE) //Donator-exclusive to a Female Aasimar character. Applies to all other non-headpieces in the '/aasimar' branch.
@@ -2640,6 +2651,9 @@ As Excaliber."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_achaussus"
+	item_state = "chiv_achaussus" // TA EDIT
+	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi' // TA EDIT
+	sleevetype = "chiv_achaussus" // TA EDIT
 	smeltresult = /obj/item/ingot/aaslag
 	chunkcolor = "#532e25"
 	allowed_sex = list(FEMALE)
@@ -2651,6 +2665,7 @@ As Excaliber."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_aboots"
+	item_state = "chiv_aboots" // TA EDIT
 	smeltresult = /obj/item/ingot/aaslag
 	chunkcolor = "#532e25"
 	allowed_sex = list(FEMALE)
@@ -2662,6 +2677,7 @@ As Excaliber."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_agauntlets"
+	item_state = "chiv_agauntlets" // TA EDIT
 	smeltresult = /obj/item/ingot/aaslag
 	chunkcolor = "#532e25"
 	allowed_sex = list(FEMALE)
@@ -2673,6 +2689,7 @@ As Excaliber."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_abracers"
+	item_state = "chiv_abracers" // TA EDIT
 	smeltresult = /obj/item/ingot/aaslag
 	chunkcolor = "#532e25"
 	allowed_sex = list(FEMALE)
@@ -3013,8 +3030,8 @@ As Excaliber."
 	Let the world, through my deeds, once more see Your favor!" //A bit messy, but it works. Might be worth revisiting to properly optimize, later.
 	item_state = "apostleburgeonet"
 	icon_state = "apostleburgeonet"
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon = 'modular_twilight_axis/icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/donor_clothes.dmi'
 	adjustable = CAN_CADJUST
 	emote_environment = 3
 	body_parts_covered = FULL_HEAD

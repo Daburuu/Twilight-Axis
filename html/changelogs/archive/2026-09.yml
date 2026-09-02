@@ -68,13 +68,34 @@
   radarseas:
   - balance: Keep Footknights now have steel instead of iron warhammers. Since specials
       on other weapons made its prior case of being a straight-upgrade moot.
+  msw7007:
+  - rscadd: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0430 \u0432\u043E\u0437\
+      \u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C \u0441\u0430\u043C\u043E\u043C\
+      \u0443 \u0432\u043E \u0432\u0440\u0435\u043C\u044F \u0441\u0435\u043A\u0441\u0430\
+      \ \u0441 \u043A\u043D\u043E\u0442\u043E\u043C \u0434\u043E\u0431\u0440\u043E\
+      \u0432\u043E\u043B\u044C\u043D\u043E \u0437\u0430\u043A\u043D\u043E\u0442\u0430\
+      \u0442\u044C\u0441\u044F."
+  - bugfix: "\u0411\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u043A\u0430 \u0415\u0420\
+      \u041F-\u043F\u0430\u043D\u0435\u043B\u0438 \u0434\u043B\u044F \u0444\u0430\u043C\
+      \u0438\u043B\u044C\u044F\u0440\u043E\u0432"
+  - bugfix: "\u0424\u0438\u043A\u0441 \u043F\u0440\u043E\u0433\u043B\u0430\u0442\u044B\
+      \u0432\u0430\u043D\u0438\u044F \u043F\u0440\u0438 \u0448\u0438\u0444\u0442-\u043A\
+      \u043B\u0438\u043A\u0435"
+  - bugfix: "\u0424\u0438\u043A\u0441 \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\
+      \u0438\u044F \u0441\u0435\u043C\u0435\u043D\u0438 \u0432\u043E \u0440\u0442\u0443\
+      \ \u043F\u0440\u0438 \u0441\u043C\u0435\u0440\u0442\u0438 \u0438 \u0432\u043E\
+      \u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u0438 \u043F\u0440\u043E\u0433\
+      \u043B\u0430\u0442\u044B\u0432\u0430\u0442\u044C \u0441\u0435\u043C\u044F \u0442\
+      \u0440\u0443\u043F\u043E\u043C"
   zRainbowcat:
+  - rscadd: Lunacy embracer buff
   - qol: Added repairing to cooling backpack via hammer and engineering
   - bugfix: Fixed a bug that counted readiness in lobby as time on mercenary, so merc
       statue link was always expired even before server actually started round
   - bugfix: confessional hood coverage
   - bugfix: Added a different name for bullion recipe variant which fixed conflict
       between two
+  - bugfix: hud works normally with ranged weapons
 2026-09-02:
   FreeStylaLT:
   - image: Added an icon for the Perfect Tracker virtue.
