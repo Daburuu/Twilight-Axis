@@ -401,11 +401,19 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 */
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		// TA EDIT - ORIGINAL: if((invocation_type == "whisper" || invocation_type == "shout") && (!H.can_speak_vocal() || !H.getorganslot(ORGAN_SLOT_TONGUE)))
-		// TA EDIT - some spells with invocation can be casted even if owner can't speak
-		if((invocation_type == "whisper" || invocation_type == "shout") && (!H.can_speak_vocal() || !H.getorganslot(ORGAN_SLOT_TONGUE)) && mandatory_invocation)
+		// TA EDIT START - Some spells can be casted even if invocation can't be said
+		// ORIGINAL:
+		/*
+		if((invocation_type == "whisper" || invocation_type == "shout") && (!H.can_speak_vocal() || !H.getorganslot(ORGAN_SLOT_TONGUE)))
 			to_chat(user, span_warning("I can't get the words out!"))
 			return FALSE
+		*/
+		// ORIGINAL END
+		if(mandatory_invocation)
+			if((invocation_type == "whisper" || invocation_type == "shout") && (!H.can_speak_vocal() || !H.getorganslot(ORGAN_SLOT_TONGUE)))
+				to_chat(user, span_warning("I can't get the words out!"))
+				return FALSE
+		// TA EDIT END
 
 		if(HAS_TRAIT(H, TRAIT_PARALYSIS) && !stat_allowed)
 			to_chat(user, span_warning("My body is paralyzed!"))
