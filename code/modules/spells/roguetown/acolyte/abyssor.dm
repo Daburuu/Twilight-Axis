@@ -104,7 +104,7 @@
 /obj/effect/proc_holder/spell/invoked/aquatic_compulsion/cast(list/targets, mob/user = usr)
 	. = ..()
 	if(!user || !user.client)
-		return 
+		return
 	var/mob/living/carbon/human/H = user
 	var/turf/T = targets[1]
 
@@ -258,12 +258,15 @@
 	sound = 'sound/magic/abyssor_splash.ogg'
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = FALSE
+	// TA REMOVAL START - Second Wind now casted without invocation
+	/*
 	invocations = list("What is drowned shall rise anew!")
 	invocation_type = "shout"
+	*/
+	// TA REMOVAL END
 	recharge_time = 2 MINUTES
 	devotion_cost = 30
 	miracle = TRUE
-	mandatory_invocation = FALSE // TA ADDITION - some spells with invocation can be casted even if owner can't speak
 	var/stamregenmod = 5	//How many % of stamina we regain after cast, scales with holy skill.
 
 /obj/effect/proc_holder/spell/self/abyssor_wind/cast(list/targets, mob/user)
@@ -531,12 +534,12 @@
 /obj/effect/proc_holder/spell/invoked/call_dreamfiend/cast(list/targets, mob/living/user)
 	. = ..()
 	var/mob/living/carbon/target = targets[1]
-	
+
 	if(!istype(target))
 		to_chat(user, span_warning("This spell only works on creatures capable of dreaming!"))
 		revert_cast()
 		return FALSE
-	
+
 	if(!summon_dreamfiend(
 		target = target,
 		user = user,
@@ -581,7 +584,7 @@
 		return FALSE
 
 	var/turf/spawn_turf = pick(turfs)
-	
+
 	F = new F(spawn_turf)
 	F.ai_controller.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, target)
 	F.ai_controller.set_blackboard_key(BB_MAIN_TARGET, target)
@@ -722,7 +725,7 @@
 				to_chat(user, span_warning("The whispers in your head grow louder..."))
 	else
 		casts_in_stage = min(casts_in_stage + 1, 100)
-	
+
 	target.apply_status_effect(
 		/datum/status_effect/buff/abyssal,
 		stats["str"],
@@ -775,7 +778,7 @@
 		STATKEY_SPD = speed_malus,
 		STATKEY_PER = perception_malus
 	)
-	
+
 	return ..()
 
 /datum/status_effect/buff/abyssal/on_apply()
