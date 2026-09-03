@@ -4,13 +4,13 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_patrons = list(/datum/patron/inhumen/zizo, /datum/patron/divine/noc)
 	outfit = /datum/outfit/job/roguetown/mercenary/imperial_spellblade
-	maximum_possible_slots = 1 
+	maximum_possible_slots = 1
 	class_select_category = CLASS_CAT_GRENZELHOFT
 	extra_context = "Класс обязательно требует покровителя Нок или Зизо. Этот класс наёмника имеет выбор между двумя стилями игры: через лёгкие доспехи с Dodge Expert или через средние доспехи с Maille Training."
-	category_tags = list(CTAG_MERCENARY)
+	category_tags = list(CTAG_MERCENARY, CTAG_MERCPARTY_VANGUARD)
 	traits_applied = list(TRAIT_ARCYNE)
 	subclass_stats = list(
-		STATKEY_PER = 2, 
+		STATKEY_PER = 2,
 		STATKEY_CON = 1,
 		STATKEY_WIL = 1,
 	)
@@ -139,7 +139,7 @@
 				"Volf-Face Helm"		= /obj/item/clothing/head/roguetown/helmet/heavy/volfplate,
 				"None"
 			)
-		
+
 			var/helmchoice = input(H, "Choose your Helm.", "LIGHT SHINES THROUGH") as anything in helmets
 			if(helmchoice != "None")
 				head = helmets[helmchoice]
