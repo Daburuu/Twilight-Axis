@@ -1,3 +1,33 @@
+/proc/sanitize_custom_descriptor_text(text)
+	if(!istext(text))
+		return null
+
+	text = STRIP_HTML_SIMPLE(LOWER_TEXT(text), CUSTOM_DESCRIPTOR_TEXT_LENGTH)
+	if(!is_english_custom_descriptor_text(text))
+		return null
+
+	return text
+
+/proc/is_english_custom_descriptor_text(text)
+	if(!istext(text))
+		return FALSE
+
+	var/has_letter = FALSE
+
+	for(var/i in 1 to length(text))
+		var/char = text2ascii(text, i)
+
+		if(char >= 97 && char <= 122)
+			has_letter = TRUE
+			continue
+
+		if(char == 32 || char == 39 || char == 45)
+			continue
+
+		return FALSE
+
+	return has_letter
+
 /datum/preferences/proc/validate_descriptors()
 	for(var/choice_type in pref_species.descriptor_choices)
 		var/datum/descriptor_choice/choice = DESCRIPTOR_CHOICE(choice_type)
@@ -28,7 +58,9 @@
 	for(var/i in 1 to CUSTOM_DESCRIPTOR_AMOUNT)
 		var/datum/custom_descriptor_entry/custom_entry = custom_descriptors[i]
 		custom_entry.prefix_type = sanitize_integer(custom_entry.prefix_type, 1, CUSTOM_PREFIX_AMOUNT, CUSTOM_PREFIX_HAS_A)
-		custom_entry.content_text = STRIP_HTML_SIMPLE(LOWER_TEXT(custom_entry.content_text), CUSTOM_DESCRIPTOR_TEXT_LENGTH)
+		custom_entry.content_text = sanitize_custom_descriptor_text(custom_entry.content_text)
+		if(isnull(custom_entry.content_text))
+			custom_entry.content_text = ""
 
 /datum/preferences/proc/reset_descriptors()
 	descriptor_entries = list()
