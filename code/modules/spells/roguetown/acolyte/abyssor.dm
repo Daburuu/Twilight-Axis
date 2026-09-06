@@ -258,8 +258,12 @@
 	sound = 'sound/magic/abyssor_splash.ogg'
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = FALSE
+	// TA REMOVAL START - Second Wind now casted without invocation
+	/*
 	invocations = list("What is drowned shall rise anew!")
 	invocation_type = "shout"
+	*/
+	// TA REMOVAL END
 	recharge_time = 2 MINUTES
 	devotion_cost = 30
 	miracle = TRUE
