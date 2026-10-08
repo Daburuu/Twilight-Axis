@@ -1,5 +1,5 @@
 #define MAX_RAISED_SKELETONS 2
-#define TWILIGHT_NECRO_CRYSTAL_MAX_SUMMONS 1
+#define TWILIGHT_NECRO_CRYSTAL_MAX_SUMMONS 2
 #define TWILIGHT_NECRO_CRYSTAL_MAX_CHARGES 1
 
 /datum/advclass/wretch/necromancer/post_equip(mob/living/carbon/human/spawned, client/player_client)
@@ -156,9 +156,13 @@
 	target.patron = master.patron
 	target.faction = list("undead", "[master.real_name]_faction")
 	target.ambushable = FALSE
-	target.underwear = "Nude"
+	if(target.underwear)
+		var/obj/item/bodypart/underwear_chest = target.get_bodypart(BODY_ZONE_CHEST)
+		if(underwear_chest && target.underwear.undies_feature)
+			underwear_chest.remove_bodypart_feature(target.underwear.undies_feature)
+		QDEL_NULL(target.underwear)
 	target.can_do_sex = FALSE
-	target.cmode_music = 'sound/music/combat_cult.ogg'
+	target.cmode_music = sound("sound/music/combat_cult.ogg")
 
 	ADD_TRAIT(target, TRAIT_NOLIMBDISABLE, TRAIT_GENERIC)
 	ADD_TRAIT(target, TRAIT_INFINITE_STAMINA, TRAIT_GENERIC)

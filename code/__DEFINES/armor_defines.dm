@@ -13,8 +13,8 @@
 #define PEN_NONE			0	// No penetration. Training weapons, base cuts/chops.
 #define PEN_LIGHT			1	// Falx cut, axe chop. Penetrates trash armor (NPC cloth/bad leather).
 #define PEN_MEDIUM			2	// Sword thrusts, longsword chop. Penetrates player light armor (gambeson, hardened leather).
-#define PEN_HEAVY			3	// Spear, estoc. Penetrates mail/brigandine/plate.alist
-#define PEN_BSTEEL			4	// Halfsword, dagger pick. Penetrates plate fully, blacksteel.
+#define PEN_HEAVY			3	// Halfsword, spear, estoc. Penetrates mail/brigandine/plate.alist
+#define PEN_BSTEEL			4	// Frei halfsword, dagger pick. Penetrates plate fully, blacksteel.
 
 // Damage Blocking tiers (0-4). Armor clothing.
 #define DBLOCK_NONE			0	// No blocking. Unarmored skin.
@@ -63,7 +63,7 @@
 // For now. Steel vs Iron will be a difference of 75% integrity without rating differences.
 // So Iron will actually be pretty decent and there shouldn't be a compulsive need to upgrade.
 
-#define ARMOR_INTEG_FAILURE 0.1	//Percentage of damage the armor breaks at. 0.1 = 10%
+#define GENERIC_INTEG_FAILURE 0.1	//Percentage of damage the item breaks at. 0.1 = 10%
 
 // Helmet
 #define ARMOR_INT_HELMET_ANTAG 600
@@ -90,8 +90,6 @@
 #define ARMOR_INT_CHEST_PLATE_STEELLIGHT 450
 #define ARMOR_INT_CHEST_PLATE_PSYDON 400 // You get free training, less int
 #define ARMOR_INT_CHEST_PLATE_IRON 375
-#define ARMOR_INT_CHEST_PLATE_BRIGANDINE 350
-#define ARMOR_INT_CHEST_PLATE_BRIGANDINE_WEIGHT_MODIFIER 100
 #define ARMOR_INT_CHEST_PLATE_IRONLIGHT 325
 #define ARMOR_INT_CHEST_PLATE_DECREPIT 250
 #define ARMOR_INT_CHEST_PLATE_DECREPITLIGHT 200
@@ -101,16 +99,22 @@
 #define ARMOR_INT_CHEST_MEDIUM_STEEL 300
 #define ARMOR_INT_CHEST_MEDIUM_IRON 225
 #define ARMOR_INT_CHEST_MEDIUM_SCALE 200 // More coverage, less integrity
+#define ARMOR_INT_CHEST_PLATE_BRIGANDINE 350 //weaker protection, more integrity.
+#define ARMOR_INT_CHEST_PLATE_BRIGANDINE_WEIGHT_MODIFIER 100 //Deducted from Light AC brigandine parts, added to Heavy AC brigandine parts.
 #define ARMOR_INT_CHEST_MEDIUM_DECREPIT 150
 
 // LIGHT
-#define ARMOR_INT_CHEST_LIGHT_ELITE 300 // Snowflake top-tier light armor
+#define ARMOR_INT_CHEST_LIGHT_ANTAG 360 //1.5x Master.
+#define ARMOR_INT_CHEST_LIGHT_ELITE 300 //1.25x Master. Snowflake top-tier light armor
 #define ARMOR_INT_CHEST_LIGHT_MASTER 240 // High tier cloth / leather armor
 #define ARMOR_INT_CHEST_LIGHT_MEDIUM 200 // Medium tier cloth / leather armor
 #define ARMOR_INT_CHEST_LIGHT_BASE 160
-#define ARMOR_INT_CHEST_LIGHT_STEEL 150
+#define ARMOR_INT_CHEST_LIGHT_BRONZE 180
+#define ARMOR_INT_CHEST_LIGHT_STEEL 180
 #define ARMOR_INT_CHEST_LIGHT_IRON 150
 #define ARMOR_INT_CHEST_CIVILIAN 100
+#define ARMOR_INT_LIGHT_FENCER_MODIFIER 30 //bonus integrity for Fencer items over standard light armor.
+#define ARMOR_INT_LIGHT_BETWEENTIER_MODIFIER 25 //Penalty for studded leather, bonus for various other variants.
 
 // LEG PIECES - Leg Armor
 #define ARMOR_INT_LEG_ANTAG 600
@@ -141,6 +145,19 @@
 #define ARMOR_INT_SIDE_GOLD 5 // Integrity for golden / ceremonial pieces
 #define ARMOR_INT_SIDE_COVERAGE_BONUS 50 //bonus integrity for side pieces lacking coverage, eg. gorgets
 
+//MASKS - Facemasks
+#define ARMOR_INT_MASK_BRONZE 150 //Integrity for bronze facemasks.
+#define ARMOR_INT_MASK_STEEL 200 //Integrity for steel facemasks.
+#define ARMOR_INT_MASK_IRON 100 //Integrity for iron facemasks.
+#define ARMOR_INT_MASK_GOLD 150 //Integrity for gold facemasks. No idea why so durable when they have iron protection also.
+#define ARMOR_INT_MASK_STEEL_MAILLE 250 //Integrity for steel maille facemasks. Less defence than plate masks, more integ.
+#define ARMOR_INT_MASK_IRON_MAILLE 150 //Integrity for iron maille facemasks.
+#define ARMOR_INT_MASK_LEATHER 180 //Integrity for leather facemasks.
+#define ARMOR_INT_MASK_CLOTH 150 //Integrity for cloth facemasks.
+#define ARMOR_INT_MASK_WOOD 100 //Integrity for carved wood facemasks.
+#define ARMOR_INT_MASK_BONE 100 //Integrity for bone/skull facemasks.
+#define ARMOR_INT_MASK_STONE 50 //Integrity for carved stone facemasks.
+
 /*--------------------\
 | ARMOR VALUE DEFINES |
 \--------------------*/
@@ -163,10 +180,9 @@
 #define ARMOR_LEATHER list("blunt" = DR_ULTRA, "slash" = DBLOCK_MEDIUM, "stab" = DBLOCK_MEDIUM, "piercing" = DBLOCK_HEAVY, "fire" = DR_MEDIUM, "bullet" = DR_LIGHT)
 
 // LIGHT ARMOR - SNOWFLAKE. Not comfortable with them, but not touching it atm.
-#define ARMOR_DRAGONSKIN list("blunt" = DR_SUPER, "slash" = DBLOCK_MEDIUM, "stab" = DBLOCK_MEDIUM, "piercing" = DBLOCK_MEDIUM, "fire" = DR_MEDIUM, "bullet" = DR_LIGHT) // Iconoclast dragon skin. Fire resistant.
 #define ARMOR_DRAGONHIDE list("blunt" = DR_SUPER, "slash" = DBLOCK_MEDIUM, "stab" = DBLOCK_LIGHT, "piercing" = DBLOCK_LIGHT, "fire" = DR_MEDIUM, "bullet" = DR_LIGHT) // snowflake armor for dragonhide - a bit worse than hard leather but w/ decent fire resist
 
-#define ARMOR_CULTNECK list("blunt" = DR_LIGHT, "slash" = DR_SUPER, "stab" = DR_SUPER, "piercing" = DR_SUPER, "fire" = DR_HEAVY) // snowflake armor for dragonhide - a bit worse than hard leather but w/ decent fire resist
+#define ARMOR_CULTNECK list("blunt" = DR_LIGHT, "slash" = DR_SUPER, "stab" = DR_SUPER, "piercing" = DR_SUPER, "fire" = DR_HEAVY, "bullet" = DR_SUPER) // snowflake armor for dragonhide - a bit worse than hard leather but w/ decent fire resist
 
 // BRIGANDINE — All brigandine parts. Better blunt and arrow padding than plate, but sword stabs and above will pen. Best light armor gets for melee. Medium/heavy classes should still wear maille under it!
 #define ARMOR_BRIGANDINE list("blunt" = DR_HEAVY, "slash" = DBLOCK_HEAVY, "stab" = DBLOCK_MEDIUM, "piercing" = DBLOCK_HEAVY, "fire" = DR_NONE, "bullet" = DR_HEAVY)
@@ -195,6 +211,8 @@
 #define ARMOR_GNOLL_STANDARD list("blunt" = DR_SUPER, "slash" = DBLOCK_HEAVY, "stab" = DBLOCK_HEAVY, "piercing" = DBLOCK_HEAVY, "fire" = DR_MEDIUM, "bullet" = DR_SUPER)
 #define ARMOR_GNOLL_STRONG list("blunt" = DR_MEDIUM, "slash" = DBLOCK_BSTEEL, "stab" = DBLOCK_BSTEEL, "piercing" = DBLOCK_HEAVY, "fire" = DR_MEDIUM, "bullet" = DR_ULTRA)
 #define ARMOR_BLACKOAK list("blunt" = DR_ULTRA, "slash" = DBLOCK_LIGHT, "stab" = DBLOCK_BSTEEL, "piercing" = DBLOCK_MEDIUM, "fire" = DR_NONE, "bullet" = DR_MEDIUM) // Wood: great vs blunt/stab, bad vs slash
+#define ARMOR_INSULATED_BRIGANDINE list("blunt" = DR_HEAVY, "slash" = DBLOCK_HEAVY, "stab" = DBLOCK_MEDIUM, "piercing" = DBLOCK_HEAVY, "fire" = DR_ULTRA, "bullet" = DR_HEAVY)
+#define ARMOR_INSULATED_LEATHER list("blunt" = DR_ULTRA, "slash" = DBLOCK_MEDIUM, "stab" = DBLOCK_MEDIUM, "piercing" = DBLOCK_HEAVY, "fire" = DR_ULTRA, "bullet" = DR_LIGHT)
 
 // Indestructible / Meme
 #define ARMOR_INDESTRUCTIBLE list("blunt" = DR_ULTRA, "slash" = DBLOCK_BSTEEL, "stab" = DBLOCK_BSTEEL, "piercing" = DBLOCK_BSTEEL, "fire" = DR_ULTRA, "bullet" = DR_ULTRA) // Magical / indestructible items

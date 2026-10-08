@@ -12,7 +12,7 @@
 	var/brewing = 0
 	var/should_brew = FALSE
 	pass_flags = PASSTABLE | PASSMOB
-	inherent_spell = list(/datum/action/cooldown/spell/projectile/lesser_fetch/fae)
+	inherent_spell = list(/datum/action/cooldown/spell/projectile/fetch/fae)
 	movement_type = FLYING
 	t1_spell = list(/datum/action/cooldown/spell/rootcheck, /datum/action/cooldown/spell/invisibility/fae)
 	t2_spell = list(/datum/action/cooldown/spell/fae_brew, /obj/effect/proc_holder/spell/invoked/reagent_bite)
@@ -52,9 +52,10 @@
 		TRAIT_UNCONVERTIBLE,
 	)
 	origin = "The Faewyld"
-	origin_default = /datum/virtue/origin/familiar/fae
+	origin_default = /datum/virtue/origin/unselectable/fae
+	species_traits = list(NO_UNDERWEAR, NO_ORGAN_FEATURES, NO_BODYPART_FEATURES, NOBLOOD, NOSTOMACH)
 
-/mob/living/carbon/human/species/familiar/fae/Initialize()
+/mob/living/carbon/human/species/familiar/fae/Initialize(mapload)
 	. = ..()
 	create_reagents(90, TRANSPARENT)
 	adjust_skillrank_up_to(/datum/skill/craft/alchemy, SKILL_LEVEL_APPRENTICE)
@@ -69,10 +70,10 @@
 	if(reagents)
 		if(reagents.flags & TRANSPARENT)
 			if(length(reagents.reagent_list))
-				if(user.can_see_reagents() || (user.Adjacent(src) && (user.get_skill_level(/datum/skill/craft/alchemy) >= 2 || HAS_TRAIT(user, TRAIT_CICERONE)))) //Show each individual reagent
+				if(user.can_identify_reagents(src))
 					ret.Insert(LAZYLEN(ret)-1, "[src.p_they(TRUE)] contain[src.gender==PLURAL?"":"s"]:")
 					for(var/datum/reagent/R in reagents.reagent_list)
-						ret.Insert(LAZYLEN(ret)-1, "[round(R.volume, 0.1)] [UNIT_FORM_STRING(round(R.volume, 0.1))] of <font color=[R.color]>[R.name]</font>")
+						ret.Insert(LAZYLEN(ret)-1, reagents.examine_line(R))
 				else //Otherwise, just show the total volume
 					var/total_volume = 0
 					var/reagent_color
@@ -141,6 +142,11 @@
 				if(!istype(ing,/obj/item/alch))
 					continue
 				var/obj/item/alch/alching = ing
+				if(alching.complete_pot != null)
+					if(outcomes[alching.complete_pot] != null)
+						outcomes[alching.complete_pot] += 5
+					else
+						outcomes[alching.complete_pot] = 5
 				if(alching.major_pot != null)
 					if(outcomes[alching.major_pot] != null)
 						outcomes[alching.major_pot] += 3
@@ -169,7 +175,7 @@
 						qdel(ing)
 					src.reagents.add_reagent(/datum/reagent/yuck, min(reagents.maximum_volume - reagents.total_volume, 90)) // do not overfill
 					// Learn from your failure (Yeah you can technically still grind this way you just blow through a lot of ingredients)
-					familiar_summoner?.adjust_experience(/datum/skill/craft/alchemy, amt2raise, FALSE)
+					add_sleep_experience(familiar_summoner, /datum/skill/craft/alchemy, amt2raise)
 					return
 				for(var/obj/item/ing in src.ingredients)
 					qdel(ing)
@@ -183,7 +189,7 @@
 				record_featured_stat(FEATURED_STATS_ALCHEMISTS, familiar_summoner)
 				record_round_statistic(STATS_POTIONS_BREWED)
 				//give xp for /datum/skill/craft/alchemy
-				familiar_summoner?.adjust_experience(/datum/skill/craft/alchemy, amt2raise, FALSE)
+				add_sleep_experience(familiar_summoner, /datum/skill/craft/alchemy, amt2raise)
 				playsound(src, "bubbles", 100, TRUE)
 				playsound(src,'sound/misc/smelter_fin.ogg', 30, FALSE)
 				ingredients = list()

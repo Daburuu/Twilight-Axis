@@ -4,6 +4,143 @@
 //ZIZO//
 ////////
 
+/datum/action/cooldown/spell/zizo/bone_cataclysm/proc/explode_skeleton(mob/living/S, mob/living/caster, datum/beam/B)
+	if(B && !QDELETED(B))
+		B.End()
+
+	if(!S || QDELETED(S))
+		return
+
+	if(!caster || QDELETED(caster))
+		return
+
+	var/turf/T = get_turf(S)
+	if(!T)
+		return
+
+	var/faction_tag = "[caster.real_name]_faction"
+
+	S.visible_message(span_danger("[S] erupts into a storm of bone fragments!"))
+	new /obj/effect/temp_visual/explosion(T)
+	playsound(T, 'sound/misc/explode/explosion.ogg', 50)
+
+	var/list/thrownatoms = list()
+
+	for(var/turf/nearby in get_hear(1, T))
+		for(var/atom/movable/AM in nearby)
+			thrownatoms += AM
+
+	for(var/atom/movable/AM in thrownatoms)
+		if(QDELETED(AM))
+			continue
+
+		if(AM == S)
+			continue
+
+		if(AM.anchored)
+			continue
+
+		if(isliving(AM))
+			var/mob/living/M = AM
+
+			if(M == caster)
+				continue
+
+			if(M.mind?.current)
+				if(faction_tag in M.mind.current.faction)
+					continue
+			else if(faction_tag in M.faction)
+				continue
+
+			if(!M.mind && M.resting && M.stat != CONSCIOUS)
+				M.gib(TRUE, TRUE, TRUE, FALSE)
+
+			if(!M.mind)
+				M.Stun(50)
+
+			M.set_resting(TRUE, TRUE)
+			to_chat(M, span_danger("The blast hurls you backwards!"))
+
+		var/atom/throwtarget = get_edge_target_turf(T, get_dir(T, get_step_away(AM, T)))
+		AM.safe_throw_at(throwtarget, 2, 1, caster, force = MOVE_FORCE_EXTREMELY_STRONG)
+
+	for(var/mob/living/carbon/C in view(4, T))
+		if(C.stat == DEAD && C.mind)
+			continue
+
+		if(C == caster)
+			continue
+
+		if(C.mind?.current)
+			if(faction_tag in C.mind.current.faction)
+				continue
+		else if(faction_tag in C.faction)
+			continue
+
+		var/dist = get_dist(C, T)
+		var/min_splinters
+		var/max_splinters
+
+		switch(dist)
+			if(0, 1)
+				min_splinters = 3
+				max_splinters = 4
+			if(2)
+				min_splinters = 1
+				max_splinters = 3
+			if(3)
+				min_splinters = 1
+				max_splinters = 2
+			else
+				continue
+
+		var/splinter_count = rand(min_splinters, max_splinters)
+		var/brute_damage = rand(10, 20)
+
+		C.adjustBruteLoss(brute_damage)
+
+		for(var/i in 1 to splinter_count)
+			if(!length(C.bodyparts))
+				break
+
+			var/obj/item/bodypart/limb = pick(C.bodyparts)
+			var/obj/item/bone/profane_splinter/P = new
+
+			limb.add_embedded_object(P, FALSE, TRUE)
+
+		C.apply_status_effect(/datum/status_effect/debuff/clickcd, 8 SECONDS)
+		C.apply_status_effect(/datum/status_effect/debuff/exposed, 10 SECONDS)
+		to_chat(C, span_userdanger("Bone splinters bury themselves deep into your flesh!"))
+
+	new /obj/effect/decal/remains/human(T)
+	qdel(S)
+
+/datum/action/cooldown/spell/zizo/bone_cataclysm/proc/despawn_skeleton(mob/living/S, mob/living/caster, datum/beam/B)
+	if(B && !QDELETED(B))
+		B.End()
+
+	if(!S || QDELETED(S))
+		return
+
+	if(!caster || QDELETED(caster))
+		return
+
+	var/turf/T = get_turf(S)
+	if(!T)
+		return
+
+	S.visible_message(
+		span_warning("[S] crumbles apart into pale dust as its essence is siphoned away!"),
+		span_warning("Ashes to ashes, dust to dust...")
+	)
+
+	playsound(T, 'sound/magic/swap.ogg', 50, TRUE)
+	caster.energy_add(120)
+	caster.stamina_add(-50)
+	new /obj/item/ash(T)
+	new /obj/item/ash(T)
+	qdel(S)
+
 /datum/action/cooldown/spell/zizo/rituos/proc/run_ritual_chant(mob/living/carbon/human/user, path_choice)
 	var/list/chant_lines
 
@@ -48,9 +185,10 @@
 		ADD_TRAIT(user, TRAIT_STEELHEARTED, "[type]")
 		ADD_TRAIT(user, TRAIT_JACKOFALLTRADES, "[type]")
 		ADD_TRAIT(user, TRAIT_SELF_SUSTENANCE, "[type]")
+		ADD_TRAIT(user, TRAIT_WARLOCK, "[type]")
 		ADD_TRAIT(user, TRAIT_UNLYCKERABLE, "[type]")
 		ADD_TRAIT(user, TRAIT_NOWW, "[type]")
-		grant_poke_spell(user)
+		grant_poke_spell_zizo(user)
 
 	user.visible_message(
 		span_boldwarning("Arcyne runes sear themselves across [user]'s skin, glowing with a sickly light before fading beneath the flesh!"),
@@ -61,8 +199,12 @@
 	sleep(30)
 	to_chat(user, "<i>...Why do I still struggle to comprehend anything beyond a mere grasp of the arcane? What am I missing?</i>")
 
-/datum/action/cooldown/spell/zizo/rituos/proc/apply_unlife_path(mob/living/carbon/human/user)
-
+/datum/action/cooldown/spell/zizo/rituos/proc/apply_unlife_path(mob/living/carbon/human/user, head_too) // TA EDIT - ORIGINAL: .../proc/apply_unlife_path(mob/living/carbon/human/user)
+	// TA ADDITION START - T3 miracle can make you a real skeleton
+	if(head_too)
+		user.become_skeleton_zizo()
+		return FALSE
+	// TA ADDITION END
 	user.mob_biotypes |= MOB_UNDEAD
 
 	ADD_TRAIT(user, TRAIT_NOMOOD, "[type]")
@@ -75,6 +217,7 @@
 	ADD_TRAIT(user, TRAIT_ZOMBIE_IMMUNE, "[type]")
 	ADD_TRAIT(user, TRAIT_SILVER_WEAK, "[type]")
 	ADD_TRAIT(user, TRAIT_UNLYCKERABLE, "[type]")
+	ADD_TRAIT(user, TRAIT_WARLOCK, "[type]")
 	ADD_TRAIT(user, TRAIT_NOWW, "[type]")
 
 	for(var/obj/item/bodypart/part in user.bodyparts)
@@ -105,7 +248,7 @@
 		user.mind.setup_mage_aspects(list("mastery" = FALSE, "major" = 0, "minor" = 2, "utilities" = 4))
 		user.mind.AddSpell(new /datum/action/cooldown/spell/bonechill)
 		user.mind.AddSpell(new /datum/action/cooldown/spell/bonemend)
-		grant_poke_spell(user)
+		grant_poke_spell_zizo(user)
 
 	user.visible_message(
 		span_boldwarning("[user]'s flesh burns away in necrotic flames, revealing bone beneath as they are consumed by the Lesser Work!"),
@@ -115,83 +258,6 @@
 	to_chat(user, span_purple("You have performed the Rituos to perfection. You should be a full-fledged Lich by now... and yet..."))
 	sleep(30)
 	to_chat(user, "<i>...Vestiges of mortality still cling to me...? Why?</i>")
-
-/mob/living/carbon/human/proc/zizo_spam_rejection()
-	visible_message(span_userdanger("[src]'s body suddenly convulses as the Lesser Work reaches completion!<br>"), span_userdanger("The Work collapses in on itself...! Something has gone terribly WRONG!<br>"))
-	to_chat(src, span_artery("<br><br>OH. IT'S YOU.<br><br>"))
-	src.playsound_local(get_turf(src), 'sound/magic/scryed_on.ogg', 200)
-	if(!HAS_TRAIT(src, TRAIT_NOMOOD))
-		src.freak_out()
-	sleep(30)
-	to_chat(src, span_purple("DO YOU THINK I DON'T NOTICE?<br><br>"))
-	sleep(20)
-	to_chat(src, span_purple("PATHETIC.<br><br>"))
-	sleep(20)
-	to_chat(src, span_purple("YOU ARE NOT CLEVER. YOU ARE INSOLENT.<br><br>"))
-	sleep(20)
-	to_chat(src, span_purple("AND I HATE INSOLENT THINGS.<br><br>"))
-	sleep(20)
-	to_chat(src, span_purple("KINDLY, UNDO YOURSELF."))
-	new /obj/effect/temp_visual/zizorite(get_turf(src))
-	Stun(100)
-	Knockdown(100)
-	emote("superagony")
-	src.playsound_local(get_turf(src), 'sound/magic/scryed_on.ogg', 200)
-	playsound(get_turf(src), 'sound/misc/zizo.ogg', 200)
-	to_chat(src, span_userdanger("--MY LUX- NO-! SHE SEES IT! SHE SEES WHAT I TRIED TO DO-!! SHIT!!!"))
-	ADD_TRAIT(src, TRAIT_DNR, "zizo_rejection")
-	sleep(50)
-	new /obj/effect/temp_visual/zizorite(get_turf(src))
-	playsound(get_turf(src), 'sound/magic/churn.ogg', 200)
-	playsound(get_turf(src), 'sound/combat/dismemberment/dismem (2).ogg', 100)
-	visible_message(span_userdanger("[src] suddenly explodes into a pile or gore and remains!"), span_artery("The Lesser Work rejects you entirely. A hopeful lesson for another timeline."))
-	gib()
-
-/mob/living/carbon/human/proc/zizo_vampire_rejection()
-	visible_message(span_userdanger("[src]'s body suddenly convulses as the Lesser Work reaches completion!<br>"),
-	span_userdanger("The Work rejects my cursed blood!<br>"))
-	src.playsound_local(get_turf(src), 'sound/magic/scryed_on.ogg', 200)
-	if(!HAS_TRAIT(src, TRAIT_NOMOOD))
-		src.freak_out()
-	to_chat(src, span_purple("<br><br>OH. WONDERFUL. I KNOW WHAT YOU ARE ATTEMPTING.<br><br>"))
-	sleep(40)
-	to_chat(src, span_purple("YOU THINK SO LITTLE OF MY WORK? INSOLENT FOOL.<br><br>"))
-	sleep(15)
-	to_chat(src, span_purple("YOU HAVE NOT DISCOVERED SOME HIDDEN TRUTH.<br><br>"))
-	sleep(15)
-	to_chat(src, span_purple("YOU HAVE NOT FOUND A LOOPHOLE.<br><br>"))
-	sleep(15)
-	to_chat(src, span_purple("YOU HAVE NOT OUTWITTED ME.<br><br>"))
-	sleep(15)
-	to_chat(src, span_purple("YOU HAVE MERELY WASTED MY TIME.<br><br>"))
-	sleep(20)
-	to_chat(src, span_purple("MY PRECIOUS TIME.<br><br>"))
-	sleep(20)
-	to_chat(src, span_purple("SO. ALLOW ME TO REPAY THE FAVOR."))
-	new /obj/effect/temp_visual/zizorite(get_turf(src))
-	Stun(40)
-	Knockdown(40)
-	emote("superagony")
-	src.playsound_local(get_turf(src), 'sound/magic/scryed_on.ogg', 200)
-	playsound(get_turf(src), 'sound/misc/zizo.ogg', 200)
-	to_chat(src, span_userdanger("--MY LUX IS BEING TORN OFF THROUGH MY HEAD!! MY HEAD!! MYHEADMYHEADMYHEADMYHEADMYHEHEAHEHEA!!"))
-	ADD_TRAIT(src, TRAIT_DNR, "zizo_rejection")
-	sleep(50)
-	new /obj/effect/temp_visual/zizorite(get_turf(src))
-	playsound(get_turf(src), 'sound/magic/churn.ogg', 200)
-	playsound(get_turf(src), 'sound/combat/dismemberment/dismem (2).ogg', 100)
-	var/obj/item/bodypart/head = get_bodypart(BODY_ZONE_HEAD)
-	head?.skeletonize(TRUE)
-	update_body()
-	visible_message(span_userdanger("[src] SCREAMS in UNBELIEVABLE AGONY as their face is torn away, leaving only a hollow skull..."), span_artery("The Lesser Work rejects you entirely. A hopeful lesson for another timeline."))
-	sleep(20)
-	visible_message(span_userdanger("Their Lux has been completely and utterly annihilated..."), span_userdanger("Your lux has been completely and utterly annihilated..."))
-	sleep(100) //Give everyone a good window to be traumatised horribly + clear away death screen, for that EXTRA spite of spite
-	new /obj/effect/temp_visual/zizorite(get_turf(src))
-	playsound(get_turf(src), 'sound/magic/churn.ogg', 200)
-	playsound(get_turf(src), 'sound/combat/dismemberment/dismem (2).ogg', 100)
-	visible_message(span_userdanger("[src] suddenly explodes into a pile or gore and remains!"))
-	gib()
 
 ////////////
 //MATTHIOS//
@@ -290,28 +356,6 @@
 /proc/cmp_coin_value_desc(obj/item/roguecoin/A, obj/item/roguecoin/B)
 	return B.sellprice - A.sellprice
 
-/atom/movable/screen/alert/status_effect/debuff/doomed
-	name = "Doom"
-	desc = "You have precisely 3 seconds to live. See you on the other side."
-	icon_state = "permadeath"
-
-/datum/status_effect/debuff/doom
-	id = "doom"
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/doomed
-	duration = 3 SECONDS
-	status_type = STATUS_EFFECT_UNIQUE
-
-/datum/status_effect/debuff/doom/on_apply()
-	. = ..()
-	owner.add_filter(MAMMON_FILTER, 2, list("type" = "outline", "color" = "#911096ff", "alpha" = 175, "size" = 2))
-
-/datum/status_effect/debuff/doom/on_remove()
-	. = ..()
-	var/mob/living/L = owner
-	if(!istype(L))
-		return
-	L.gib()
-
 /atom/movable/screen/alert/status_effect/buff/mammonite
 	name = "Mammonite Strike"
 	desc = "My next strike is empowered by wealth."
@@ -358,7 +402,7 @@
 	if(QDELETED(src) || QDELETED(owner) || QDELETED(target))
 		return
 	if(should_mammon_gib(target))
-		do_mammon_execution(target) // only works vs NPCs! Knocks them back and chance to gib them if you spent over 80 mammon on this (guaranteed if over half the max_cap).
+		do_mammon_execution(target)
 	else
 		do_mammon_strike(target, weapon)
 	consume()
@@ -381,11 +425,12 @@
 /datum/status_effect/buff/mammonite/proc/do_mammon_execution(mob/living/target)
 	if(QDELETED(owner) || QDELETED(target))
 		return
-	owner.visible_message(span_boldwarning("[target] suddenly contorts, twists and lets out a blood-curling screech--!"), span_notice("Their life was worth less than the investment."))
+	owner.visible_message(span_boldwarning("[target] suddenly contorts and twists as gilded flames light them up--!"), span_notice("BEHOLD! THE WEIGHT OF THINE GREED!"))
 	target.emote("superagony")
 	mammon_coin_burst(get_turf(target))
 	playsound(get_turf(target), 'sound/combat/hits/burn (2).ogg', 60, TRUE)
-	target.apply_status_effect(/datum/status_effect/debuff/doom)
+	target.fire_act(20, 20)
+	target.Stun(100)
 	target.safe_throw_at(target, 3, 1, owner, force = MOVE_FORCE_EXTREMELY_STRONG)
 
 /datum/status_effect/buff/mammonite/proc/do_mammon_strike(mob/living/target, obj/item/weapon)
@@ -393,10 +438,16 @@
 		return
 
 	var/damage = bonus_damage
+	var/mammon_spent = round(bonus_damage / 3)
 	var/npc_mult = target.mind ? 1 : 2
-	var/apen = damage * 0.75
+	var/apen = clamp(round(mammon_spent / 20), PEN_NONE, PEN_BSTEEL)
+	var/bclass = BCLASS_BLUNT
+	var/damtype = BRUTE
+	if(mammon_spent >= 80)
+		bclass = BCLASS_BURN
+		damtype = BURN
 
-	arcyne_strike(owner, target, weapon, damage, owner.zone_selected, BCLASS_SMASH, apen, "Mammonite", FALSE, FALSE, FALSE, BRUTE, npc_mult, 1)
+	arcyne_strike(owner, target, weapon, damage, owner.zone_selected, bclass, apen, "Mammonite", FALSE, FALSE, FALSE, damtype, npc_mult, 1)
 	owner.visible_message(span_danger("[owner]'s strike crashes down with the weight of greed!"), span_notice("My investment pays off in full!"))
 	mammon_coin_burst(get_turf(target))
 	playsound(get_turf(target), 'sound/combat/hits/burn (2).ogg', 60, TRUE)
@@ -422,7 +473,7 @@
 	layer = ABOVE_MOB_LAYER
 	duration = 6
 
-/obj/effect/temp_visual/coinburst/Initialize()
+/obj/effect/temp_visual/coinburst/Initialize(mapload)
 	. = ..()
 	var/matrix/M = matrix()
 	M.Scale(0.25, 0.25) // 25% size
@@ -430,3 +481,57 @@
 	animate(src, pixel_x = pixel_x + rand(-16,16), pixel_y = pixel_y + rand(8,20), alpha = 0, time = duration, easing = EASE_OUT)
 
 #undef MAMMON_FILTER
+
+////////////////////
+/// BARTER UTILS ///
+////////////////////
+
+/proc/validate_matthios_item(obj/item/I, mob/user)
+	if(!I)
+		return FALSE
+	if(I.GetComponent(/datum/component/cursed_item) || I.GetComponent(/datum/component/martyrweapon) || I.GetComponent(/datum/component/silverbless))
+		to_chat(user, span_warning("You feel like Matthios would not like this at all, there is a warding quality to it."))
+		return FALSE
+	if(I.override_state)
+		to_chat(user, span_warning("You feel like Matthios would not like this at all, as it is too quirky."))
+		return FALSE
+	if(I.GetComponent(/datum/component/decal/blood))
+		to_chat(user, span_warning("You feel like Matthios would not like this at all, as it is bloodstained."))
+		return FALSE
+	if(I.obj_broken)
+		to_chat(user, span_warning("You feel like Matthios would not like this at all, as it is broken."))
+		return FALSE
+	if(I.max_integrity != I.obj_integrity)
+		to_chat(user, span_warning("You feel like Matthios would not like this at all, as it is damaged."))
+		return FALSE
+	if(I.is_important)
+		to_chat(user, span_warning("You feel like Matthios would not like this at all, it just doesn't mesh with Him."))
+		return FALSE
+	if(istype(I, /obj/item/roguecoin))
+		to_chat(user, span_warning("You feel like Matthios would not like this at all, He could take it as an insult."))
+		return FALSE
+	if(istype(I, /obj/structure/handcart))
+		to_chat(user, span_warning("Doing it like this would make this Barter less personal than He would like."))
+		return FALSE
+	if(I.get_real_price() < 1)
+		to_chat(user, span_info("This is worthless, both for you and for Him. You know better."))
+		return FALSE
+	var/category = (GLOB.derived_categories && GLOB.derived_categories[I.type]) || ITEM_CAT_MISCELLANEOUS
+	var/bucket = get_navigator_bucket_for_item(I, category)
+	if(bucket == NAVIGATOR_BUCKET_MISCELLANEOUS)
+		if(GLOB.bulk_trade_item_types && GLOB.bulk_trade_item_types[I.type])
+			to_chat(user, span_warning("You feel like Matthios would not like this at all, bulk goods are meaningless for Gods."))
+			return FALSE
+	var/refusal = get_barter_refusal_message(bucket)
+	if(refusal)
+		to_chat(user, span_warning(refusal))
+		return FALSE
+	return TRUE
+
+/proc/get_barter_refusal_message(bucket)
+	switch(bucket)
+		if(NAVIGATOR_BUCKET_REFUSED_FOOD)
+			return "You feel like Matthios would not like this at all, He doesn't need food or drinks."
+		if(NAVIGATOR_BUCKET_REFUSED_BULK)
+			return "You feel like Matthios would not like this at all, His hoard is no warehouse."
+	return null

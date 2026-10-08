@@ -19,9 +19,9 @@
 	equip_delay_self = 2.5 SECONDS
 	unequip_delay_self = 2.5 SECONDS
 
-/obj/item/clothing/head/roguetown/armingcap/padded/ComponentInitialize()
+/obj/item/clothing/head/roguetown/armingcap/ComponentInitialize()
 	AddComponent(/datum/component/armour_filtering/positive, TRAIT_FENCERDEXTERITY)
-	AddComponent(/datum/component/armour_filtering/positive, TRAIT_HONORBOUND)
+	AddComponent(/datum/component/armour_filtering/negative, TRAIT_HONORBOUND)
 
 /obj/item/clothing/head/roguetown/armingcap/padded
 	name = "padded arming cap"
@@ -30,6 +30,10 @@
 	item_state = "paddedarmingcap"
 	armor = ARMOR_PADDED
 	max_integrity = ARMOR_INT_HELMET_CLOTH + 60
+
+/obj/item/clothing/head/roguetown/armingcap/padded/ComponentInitialize()
+	AddComponent(/datum/component/armour_filtering/positive, TRAIT_FENCERDEXTERITY)
+	AddComponent(/datum/component/armour_filtering/negative, TRAIT_HONORBOUND)
 
 /obj/item/clothing/head/roguetown/helmet/leather
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
@@ -110,6 +114,11 @@
 	experimental_inhand = FALSE
 	experimental_onhip = FALSE
 
+/obj/item/clothing/head/roguetown/helmet/leather/saiga/druid //armored skull for drip. haha, no.
+	name = "worn saiga skull"
+	desc = "The skull of a once-fearsome saiga. Looks like its sustained some damage and won't protect your skull."
+	armor = ARMOR_CLOTHING //no armor
+
 /obj/item/clothing/head/roguetown/helmet/leather/advanced
 	name = "hardened leather helmet"
 	desc = "Sturdy, durable, flexible. A comfortable and reliable hood made of hardened leather."
@@ -176,7 +185,7 @@
 			var/mob/living/carbon/H = user
 			H.update_inv_head()
 
-/obj/item/clothing/head/roguetown/grenzelhofthat/Initialize()
+/obj/item/clothing/head/roguetown/grenzelhofthat/Initialize(mapload)
 	. = ..()
 	update_icon()
 
@@ -198,8 +207,10 @@
 
 /obj/item/clothing/head/roguetown/grenzelhofthat/loadout
 	name = "aesthetic grenzelhoft plume hat"
+	equip_delay_self = 0 //TA EDIT
+	unequip_delay_self = 0 //TA EDIT
 
-/obj/item/clothing/head/roguetown/grenzelhofthat/loadout/Initialize()
+/obj/item/clothing/head/roguetown/grenzelhofthat/loadout/Initialize(mapload)
 	. = ..()
 	loadoutize()
 
@@ -242,6 +253,20 @@
 /obj/item/clothing/head/roguetown/mentorhat/loadout
 	name = "aesthetic worn bamboo hat"
 
-/obj/item/clothing/head/roguetown/mentorhat/loadout/Initialize()
+/obj/item/clothing/head/roguetown/mentorhat/loadout/Initialize(mapload)
 	. = ..()
 	loadoutize()
+
+/obj/item/clothing/head/roguetown/inqhat/lamplighter
+	name = "lampwicker's hat"
+	desc = "A seared and stained tricorn hat."
+	icon = 'icons/roguetown/clothing/special/lamplighter.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/lamplighter.dmi'
+	icon_state = "lamphat1"
+
+/obj/item/clothing/head/roguetown/inqhat/lamplighter/warden
+	name = "lampwarden's hat"
+	desc = "A seared and stained widebrim hat."
+	icon = 'icons/roguetown/clothing/special/lamplighter.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/lamplighter.dmi'
+	icon_state = "lamphat2"

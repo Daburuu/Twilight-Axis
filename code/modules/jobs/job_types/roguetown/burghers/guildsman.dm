@@ -23,7 +23,7 @@
 	max_pq = null
 	round_contrib_points = 3
 	advjob_examine = TRUE // So that everyone know which subjob they have picked
-	cmode_music = 'sound/music/cmode/towner/combat_towner3.ogg'
+	cmode_music = sound("sound/music/cmode/towner/combat_towner3.ogg")
 	job_subclasses = list(
 		/datum/advclass/guildsman/artificer,
 		/datum/advclass/guildsman/blacksmith,
@@ -166,7 +166,7 @@
 						/obj/item/recipe_book/ceramics = 1,
 						/obj/item/recipe_book/builder = 1,
 						/obj/item/clothing/mask/rogue/spectacles/golden = 1, //putting them in the bag because bad eye sight virtue strips these
-						/obj/item/contraption/linker = 1,
+						/obj/item/rogueweapon/contraption/linker = 1,
 						/obj/item/mini_flagpole/artificer = 1,
 						/obj/item/rogueweapon/spellbook = 1,
 						)

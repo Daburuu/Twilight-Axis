@@ -14,7 +14,7 @@
 			<li><b>Shift Click</b> to examine an object or person. Clicking a (?) or opening a "Mechanics" link tends to give more explanation.</li>
 			<li><b>Right Clicking</b> someone with an object in hand OFFERS it to them. Doing it while sneaking will offer it stealthily. Combat Mode (see below) ensures you do not offer it by accident and use your stance's right click (More in the stances and special section).</li>
 			<li><b>Holding Right Click</b> lets you turn around in place to where you are looking at, unless it is done to an object that has a specific right click override.</li>
-			<li><b>Click Dragging</b> someone from their sprite onto your own opens their equipment, letting you strip items off them or put items onto them.</li>
+			<li><b>Click Dragging</b> someone from their sprite onto your own opens their equipment, letting you strip items off them or put items onto them. Dragging your own sprite onto yourself opens the same menu for your own equipment.</li>
 			<li>Pressing <b>F</b> turns you into "Locked Eyes" mode, locking your character to face the direction you are facing instead of turning fluidly to face where you are moving. Moving in a direction you are not facing slows you down. This can be tactically toggled on and off by advanced players to ensure they are facing their enemy.</li>
 			<li><b>Z</b> drops an item, and can be used to release a Grab too.</li>
 			<li><b>Q</b> and <b>E</b> swap between your left and right hand.</li>
@@ -100,16 +100,16 @@
 		<div>
 		<p>Your character has different stats, based on your role, your race, and your chosen Statpack, if any.</p>
 
-		<p>STR and PER have a softcap, at [STRENGTH_SOFTCAP] and [RANGED_STAT_SOFTCAP] respectively, beyond which their effect scales less aggressively. The rest have no softcap and scale flat all the way up.</p>
+		<p>STR and PER have a softcap on the damage they add, at [STRENGTH_SOFTCAP] and [RANGED_PER_DAMAGE_SOFTCAP] respectively, beyond which they scale less aggressively. The rest have no softcap and scale flat all the way up.</p>
 
 		<ul>
 			<li><b>STR</b>: Improves the damage you deal on your weapon, and the effectiveness of your penetrative attacks on strength scaling weapon. Softcaps at [STRENGTH_SOFTCAP] - every point up to it is worth [round(STRENGTH_MULT * 100)]% damage, every point past it only [round(STRENGTH_CAPPEDMULT * 100)]%.</li>
-			<li><b>PER</b>: Improves the damage you deal with scaling ranged weapon like Bow or Slings, improves your ROF with these weapons. And increases your chance of hitting a precise bodypart significantly. Like STR, it pays well up to its softcap at [RANGED_STAT_SOFTCAP] and much less after.</li>
-			<li><b>INT</b>: Improves the chance of your FEINTING or not being FEINTED. Also useful for Mages in particular for reducing the cooldown and stamina cost of their spells - [round(COOLDOWN_REDUCTION_PER_INT * 100)]% off each per point above [SPELL_SCALING_THRESHOLD], no longer improving past [SPELL_POSITIVE_SCALING_THRESHOLD]. Below [SPELL_SCALING_THRESHOLD], it scales into the negative.</li>
+			<li><b>PER</b>: Improves the damage you deal with scaling ranged weapon like Bow or Slings. It also raises your chance of hitting a precise bodypart in melee, and sets the accuracy of your spells outright. Like STR, its damage pays well up to its softcap at [RANGED_PER_DAMAGE_SOFTCAP] and much less after.</li>
+			<li><b>INT</b>: Improves the chance of your FEINTING or not being FEINTED. Also useful for Mages in particular for reducing the cooldown and stamina cost of their spells - [round(COOLDOWN_REDUCTION_PER_INT * 100)]% off the cooldown and [round(FATIGUE_REDUCTION_PER_INT * 100)]% off the cost per point above [SPELL_SCALING_THRESHOLD], no longer improving past [SPELL_POSITIVE_SCALING_THRESHOLD]. Below [SPELL_SCALING_THRESHOLD], it scales into the negative.</li>
 			<li><b>CON</b>: Increases the effective HP of your limbs and makes them harder to disable or score a critical wound on.</li>
 			<li><b>WIL</b>: Increases your Energy and Stamina pool, and also increases your pain tolerance. Every point above or below average widens or narrows those pools appreciably.</li>
 			<li><b>SPD</b>: Increases your Movement speed, and also makes SWIFT balance weapon more effective.</li>
-			<li><b>FOR</b>: Increases your chance of scoring critical wounds once the limb is sufficiently damaged. Positive effects are small, but it has a devastating effect when in the negative and causes you to miss a large proportion of your attack.</li>
+			<li><b>FOR</b>: Tips contested rolls your way - disarms, dodges, parries and the like - and helps you avoid mishaps outside of combat. Its upside is small, but below 10 it turns devastating, making you outright fumble a growing share of your attacks.</li>
 		</ul>
 		</div>
 	"}
@@ -225,13 +225,20 @@
 		</ul>
 
 		<h3>Accuracy</h3>
-		<p>Attacks aimed at the chest always hit the chest. Attacks aimed elsewhere must roll for accuracy. A Stab has the most accuracy, a Cut is slightly less reliable, and Blunt attacks do not benefit at all. Skill increases accuracy at +[ACC_SKILL_BONUS_PER_LEVEL] per level, and Perception above 10 matters as much as skills until it goes past [RANGED_STAT_SOFTCAP]. Perception below 10 will lower your hit rate significantly.</p>
+		<p>Attacks aimed at the chest always hit the chest. Attacks aimed elsewhere must roll for accuracy. A Stab has the most accuracy, a Cut is slightly less reliable, and Blunt attacks do not benefit at all. Skill increases accuracy at +[ACC_SKILL_BONUS_PER_LEVEL] per level. Perception above 10 adds +[ACC_PER_BONUS_PER_POINT] a point up to +[ACC_PER_BONUS_CAP], while Perception below 10 costs [ACC_PER_PENALTY_PER_POINT] a point - deliberately harsher than the bonus.</p>
 
 		<p>The zone matters as much as the blow. Aiming for a whole limb, like a head or leg or arm, will always be easier to hit the subzone. Picking out parts of someone's face is the hardest target of all.</p>
 
-		<p>No matter how good or bad your aim is, its effects are clamped</p>
+		<p>No matter how good or bad your aim is, the final chance is clamped between [ACC_MIN]% and [ACC_MAX]%.</p>
 
 		<p>A target you have Exposed, made Vulnerable, or held in an aggressive grab is far easier to strike precisely. Someone off their feet is easier to aim at, too. SHORT weapons also aim better, at +[ACC_SHORT_WEAPON_BONUS].</p>
+
+		<h3>Ranged and Spells</h3>
+		<p>Ranged accuracy is simpler than melee. Your weapon skill sets the ceiling, at [ACC_RANGED_BASE] plus [ACC_RANGED_PER_SKILL] per level. Spells read Perception in place of any skill, each point above [ACC_SPELL_PER_BASELINE] worth as much as a level of training - and each point below it costing the same. Some weapons multiply the result.</p>
+
+		<p>Shoot closer than a projectile's minimum range, or past its maximum, and the shot can only land on the chest. Past [ACC_RANGED_VISUAL_REACH] tiles, about as far as you can see, accuracy falls by [ACC_RANGED_FARSIGHT_PENALTY] for every further tile, so only a practiced shot keeps any of it at that distance. Loosing at a floor above or below costs another [ACC_RANGED_ZCROSS_PENALTY].</p>
+
+		<p>The same zones apply, but the ceilings are harsher than in melee. A limb or the head can never exceed [RANGED_MAX_PRECISE_HIT_CHANCE]%, hands and feet [RANGED_MAX_ULTRA_PRECISE_HIT_CHANCE]%, and a face zone [RANGED_MAX_FACE_HIT_CHANCE]%. As in melee, a shot aimed at the chest always lands there.</p>
 		</div>
 	"}
 
@@ -523,7 +530,7 @@
 
 		<p>Riposting lasts for six seconds, and can be broken by using it up or FEINTING you. Feinting someone RIPOSTING is guaranteed, and is one of its primary counters - though it costs the feinter a [(BASE_RCLICK_CD + 10 SECONDS) / 10] second cooldown to do it.</p>
 
-		<p>Attacking while Riposting will cost you a significant amount of stamina and cancel it. Specifically, striking someone who has no guard of their own while yours is up is treated as squandering it, and costs you [BAD_GUARD_FATIGUE_DRAIN]% of your green bar. Jumping, kicking, being kicked, or shooting a ranged weapon  will all break it too. Letting it simply expire costs you nothing but the cooldown.</p>
+		<p>Attacking while Riposting will cost you a significant amount of stamina and cancel it. Specifically, striking someone who has no guard of their own while yours is up is treated as squandering it, and costs you [BAD_GUARD_FATIGUE_DRAIN]% of your green bar. Jumping, kicking, being kicked, or shooting a ranged weapon	will all break it too. Letting it simply expire costs you nothing but the cooldown.</p>
 
 		<p>Riposte can be canceled ahead of time by swapping your hand, straining you but leaving you with less room for your opponent to expose.</p>
 
@@ -538,13 +545,15 @@
 /datum/book_entry/combat/ranged/inner_book_html(mob/user)
 	return {"
 		<div>
-		<p>Ranged Weapons are split into three main families. Both bows and slings lean on Perception, which raises their damage at [round(RANGED_STAT_MULT * 100)]% per point up to [RANGED_STAT_SOFTCAP], and [round(RANGED_STAT_CAPPEDMULT * 100)]% per point beyond it. Perception also cuts their draw time, though that is a flat reduction with no softcap on it.</p>
+		<p>Ranged Weapons are split into three main families. Both bows and slings lean on Perception, which raises their damage at [round(RANGED_PER_DAMAGE_MULT * 100)]% per point up to [RANGED_PER_DAMAGE_SOFTCAP], and [round(RANGED_PER_DAMAGE_CAPPEDMULT * 100)]% per point beyond it.</p>
+
+		<p>How precisely a shot lands on the body, and how range, floors and your skill or Perception change it, is covered in <i>Where to Aim</i>.</p>
 
 		<h3>Bow</h3>
 		<p>Bows are rapid-firing, exhausting weapons that deal PIERCING damage. Bows are split into:</p>
 		<ul>
-			<li><b>Crude Selfbow and Recurve Bow</b>, fast and the default bow. They shoot exactly the same.</li>
-			<li><b>Longbow</b>, scaling slightly with STR, each arrow dealing a significantly higher amount of damage in exchange for a lower ROF.</li>
+			<li><b>Yew Hunting Bow and Recurve Bow</b>, fast and the default bows.</li>
+			<li><b>Longbow</b>, slower to draw if your strength is below 10, each arrow dealing a significantly higher amount of damage in exchange for a lower ROF.</li>
 		</ul>
 
 		<p>The most common arrows are Broadhead Arrows, which deal a large amount of integrity and normal damage but cannot pierce most armor. Bodkin Arrows pierce through armor and can bleed an opponent out or inflict critical wounds through armor, but have a much lower base damage.</p>
@@ -554,18 +563,18 @@
 		<p>Bows must be charged after nocking an arrow. You can nock an arrow quickly by left clicking a quiver. Charging for too long and not releasing will deplete your stamina rapidly.</p>
 
 		<h3>Crossbow</h3>
-		<p>Crossbows can be kept loaded on your back and then shot rapidly, and aim can be held indefinitely without issue. However, reloading a crossbow immobilizes you. Crossbows do not scale their damage to perception, unlike the other two weapons. Perception does however improve their accuracy and reload speed.</p>
+		<p>Crossbows can be kept loaded on your back and then shot rapidly, and holding aim costs no stamina. However, reloading a crossbow immobilizes you. Crossbows do not scale their damage to perception, unlike the other two weapons.</p>
 
 		<p>Crossbow Bolts pierce nearly all armor by default.</p>
 
-		<p>Bolts are carried in quivers. Unlike bows, they cannot be quick-loaded by clicking the quiver, you must manually RMB the quiver to take the bolt out then load it into the crossbow.</p>
+		<p>Bolts are carried in bolt pouches, which hold [QUIVER_CAPACITY_BOLT].</p>
 
-		<p>Variants include Slurbows, which are underpowered Crossbows that can be reloaded on the move, and Siegebows, which are devastating bows that are extremely awkward to load and use. Only certain classes start with one, but anyone can craft or buy them.</p>
+		<p>Variants include Slurbows, which are underpowered Crossbows that can be reloaded on the move and with one hand, and Siegebows, which are devastating bows that are extremely awkward to load and use. Only certain classes start with one, but anyone can craft or buy them.</p>
 
 		<h3>Slings</h3>
 		<p>Slings are a fast, cheap alternative to bow. Their projectiles inflict blunt damage, making them great against metallic armor but not so great against light armor.</p>
 
-		<p>Slings are compact, and can be used one handed unlike a bow - they load straight from the pouch even with your offhand full. Their sling bullet pouch carries 40 bullets as opposed to a quiver carrying 20 arrows. Their ammo is generally cheaper to come by, too.</p>
+		<p>Slings are compact, and can be used one handed unlike a bow - they load straight from the pouch even with your offhand full. Their sling bullet pouch carries [QUIVER_CAPACITY_SLING] bullets as opposed to a quiver carrying [QUIVER_CAPACITY_SHEAF] arrows. Their ammo is generally cheaper to come by, too.</p>
 		</div>
 	"}
 
@@ -599,7 +608,7 @@
 			<li>Other resources may exist or be added to at some point.</li>
 		</ul>
 
-		<p>Intelligence improves  arcyne casting. Every point above 10 takes [round(COOLDOWN_REDUCTION_PER_INT * 100)]% off both the cooldown and the stamina cost of a spell, up to [SPELL_POSITIVE_SCALING_THRESHOLD], and every point below 10 adds the same back on. Miracles are the exception - they do not scale with any stat, so a low INT cleric is not punished for it.</p>
+		<p>Intelligence improves	arcyne casting. Every point above 10 takes [round(COOLDOWN_REDUCTION_PER_INT * 100)]% off the cooldown and [round(FATIGUE_REDUCTION_PER_INT * 100)]% off the stamina cost of a spell, up to [SPELL_POSITIVE_SCALING_THRESHOLD], and every point below 10 adds the same back on. Miracles are the exception - they do not scale with any stat, so a low INT cleric is not punished for it.</p>
 
 		<h3>Mages</h3>
 		<p>Mages in AP operate under a Major-Minor-Utilities aspect system. They use their spellbook to pick what kind of Major Aspect they specialize in, which determines their offensive potential and some utilities.</p>
@@ -707,5 +716,63 @@
 			<li>Middle-Clicking at the groin while it is exposed will remove your underwear.</li>
 			<li>Middle-Click dragging yourself onto another player begins mechanical intimacy, provided both of you have consented to it. Your middle-click intent must be unset for the drag to be read as such, and the person you drag onto must have their ERP Panel enabled - it is found under Preferences -> Options as "Toggle ERP Panel", and is off unless you turn it on. Attempting it on someone who has not enabled it simply fails and tells you both so. It is entirely opt-in on their side, so respect the answer the panel gives you.</li>
 		</ul>
+		</div>
+	"}
+
+
+/datum/book_entry/combat/looting
+	name = "19. Looting, Contracts & Scrapping"
+
+/datum/book_entry/combat/looting/inner_book_html(mob/user)
+	return {"
+		<div>
+		<h3>Finding PVE Content</h3>
+		<p>Adventurers and Mercenaries looking for PVE content can go to the Grand Contract Ledger and take on contracts. Alternatively, they can go outside to explore the many fixed dungeons that are present outside.</p>
+
+		<h3>Simple and Complex NPCs</h3>
+		<p>NPCs / Mobs are split into Complex and Simple Animals. Simple Animals are wolves, direbears etc., and usually represent non-humanoid animals. These can be butchered by middle click with a SHORT blade - like the hunting knife most adventurers start with.</p>
+
+		<h3>Simple Animals, and Aiming</h3>
+		<p>Aiming for different parts on a complex NPC will yield different results and allows you to bypass incomplete armor coverage. On simple animals like direbears, wolves or minotaur, aiming for certain body parts can cripple them, slow them down, lower their damage or in some case, cause an instant death. Penetrative stabbing / piercing weapons will also deal more part damage, especially those with HEAVY penetration like spears. Certain parts are impossible to hit standing in melee range, and must have the animals toppled by cutting their legs. Ranged Weapons deals less part damage than melee weapons.
+		</p>
+
+		<p>Complex are human-like animals, and includes skeletons and highwaymen. Whenever a complex NPC is killed and not dusted, you can use the STRIPPING Menu (Click drag their sprite onto yourself) to strip them. <b>Loot Everything</b> loots everything in order, <b>Loot Smeltable</b> loots everything that smelts to a metallic result, and <b>Loot Fabric</b> loots everything that scavenges to fabric. These are only available on a dead NPC that has never ever been possessed by a player.</p>
+
+		<h3>Hauling It Home</h3>
+		<p>You can make a handcart out of 3 small logs and 1 rope, which is quite handy for carrying your rightfully stolen loot back to town, to sell at the SMITH'S SCRAPPER or the TAILOR'S RAG-PICKER respectively.</p>
+		</div>
+	"}
+
+
+/datum/book_entry/combat/hunting
+	name = "20. Hunting"
+
+/datum/book_entry/combat/hunting/inner_book_html(mob/user)
+	return {"
+		<div>
+		<h3>Starting a Hunt</h3>
+		<p>You can find mounds of disturbed earth. Fresh mounds are dark brown, and you can left click with a free hand to start a hunt. You cannot interact with a mound you are on top of. Higher Hunting skill makes interaction quicker.</p>
+
+		<p>You cannot scout another mound after you have just scouted a new one. Continuing a trail is not affected. </p>
+
+		<h3>Following the Trail</h3>
+		<p>Follow the direction of the track to find the next mound. Only you and anyone hunting with you can see it, and it is lighter brown in colour. Examining a revealed track tells you which way the target went.</p>
+
+		<p>Right click your eyeball to get directions to the nearest track you are tracking, provided it is on screen. It will tell you the direction and roughly how far off it is.</p>
+
+		<p>Find enough mounds and you will find an animal at the end. Mounds respawn over time where they were.</p>
+
+		<h3>What You Find</h3>
+		<p>Higher Hunting skill yields better animals, and mounds will give more information. Skilled hunters can lean fresh trail toward a kind of prey.</p>
+
+		<h3>Hunting Maps</h3>
+		<p>Buy hunting maps to improve your odds at finding certain animals, and click one onto a fresh mound. Some are of more use to a skilled hunter than an unskilled one, and some wear out.</p>
+
+		<p>If you see a white stag, think twice before attacking. Maybe just run, to be safe.</p>
+
+		<h3>Group Hunts</h3>
+		<p>A hunt can be run as a party. It forms when the first mound is read, including anyone nearby. The most skilled hunter present leads it.</p>
+
+		<p>Every member can see the trail. Stick together - stray too far from the trail and you are quietly dropped from the hunt, and it stops showing itself to you. Everyone will gain hunting experience and more beasts will show up in a group hunt.</p>
 		</div>
 	"}

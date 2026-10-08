@@ -48,6 +48,7 @@
 	var/triumph_total = 0
 	/// Threshold at which this wave is guaranteed to be next
 	var/triumph_threshold = 25
+	var/triumph_weight_multiplier = 6 // TA EDIT
 	/// Whether triumph contributions reset after wave spawns
 	var/reset_contributions_on_spawn = TRUE
 
@@ -114,7 +115,7 @@
 	)
 
 /datum/migrant_wave/assassin
-	name = "Assassin Hit"
+	name = "Death Cult Rising"
 	track = MIGRANT_TRACK_SPECIAL
 	weight = 12
 	min_round_time = 60 MINUTES
@@ -128,7 +129,7 @@
 	)
 
 /datum/migrant_wave/gnolls
-	name = "Gnoll raid"
+	name = "Gnoll Raid"
 	track = MIGRANT_TRACK_SPECIAL
 	weight = 12
 	min_round_time = 45 MINUTES

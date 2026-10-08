@@ -79,7 +79,6 @@
 #define TRAIT_SPELLBLOCK "spellblock"
 /// Applied after using a non-bloodheal vampire, blocking you from using mages abilities
 #define TRAIT_SPELL_VAMPIRE_BLOCK "spell_vampire_block"
-#define TRAIT_NOC_CURSE "noc_curse"
 #define TRAIT_NOSTAMINA "nostamina"
 #define TRAIT_ATHEISM_CURSE "atheism_curse"
 #define TRAIT_CONJURED_SUMMON "conjured_summon"
@@ -89,3 +88,9 @@
 #define CONJURE_RECOIL_LIGHT 0
 #define CONJURE_RECOIL_PARTIAL 1
 #define CONJURE_RECOIL_FULL 2
+
+// CONJURATION SUMMON REPLACEMENT MODE
+// Summons at capacity = the entire group get replaced. Best used with summon amount = the capacity.
+#define CONJURE_SUMMON_GROUP 0
+// Summons are individual - casting at capacity dismisses the oldest.
+#define CONJURE_SUMMON_SINGLES 1

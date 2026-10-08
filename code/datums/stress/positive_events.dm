@@ -14,11 +14,6 @@
 /datum/stressevent/convert/recipient
 	desc = span_green("I was a blind fool, before. Now I see what I have been missing.")
 
-/datum/stressevent/seeblessed
-	timer = 30 MINUTES
-	stressadd = -2
-	desc = span_green("I feel joy within these halls.")
-
 /datum/stressevent/viewsinpunish
 	timer = 5 MINUTES
 	stressadd = -2
@@ -126,32 +121,37 @@
 	stressadd = 1
 	desc = span_red("This music is quite grating. It struggles to sound how it intends.")
 
-/datum/stressevent/music/two
+/datum/stressevent/music/novice
+	stressadd = 0
+	desc = span_green("This music is alright, but the player needs practice.")
+	timer = 1 MINUTES
+
+/datum/stressevent/music/apprentice
 	stressadd = -1
 	desc = span_green("This music is very relaxing!")
 	timer = 2 MINUTES
 
-/datum/stressevent/music/three
+/datum/stressevent/music/journeyman
 	stressadd = -1
 	desc = span_green("This music drains away my stress.")
 	timer = 4 MINUTES
 
-/datum/stressevent/music/four
+/datum/stressevent/music/expert
 	stressadd = -2
 	desc = span_green("This music is great!")
 	timer = 6 MINUTES
 
-/datum/stressevent/music/five
+/datum/stressevent/music/master
 	stressadd = -3
 	timer = 8 MINUTES
 	desc = span_green("This music is wonderful!")
 
-/datum/stressevent/music/six
+/datum/stressevent/music/legendary
 	stressadd = -4
 	timer = 10 MINUTES
 	desc = span_boldgreen("This music is exceptional! Bravo!")
 
-/datum/stressevent/music/musicbox
+/datum/stressevent/musicbox
 	stressadd = -1
 	desc = span_green("This music is very relaxing.")
 	timer = 1 MINUTES
@@ -165,6 +165,11 @@
 	stressadd = -1
 	desc = span_blue("I feel soothed in this warm, clean water.")
 	timer = 1 MINUTES
+
+/datum/stressevent/bathbomb
+	stressadd = -1
+	desc = span_blue("The softly-scented water calms and refreshes.")
+	timer = 5 MINUTES
 
 /datum/stressevent/bathwater/on_apply(mob/living/user)
 	. = ..()
@@ -230,7 +235,7 @@
 /datum/stressevent/puzzle_impossible
 	stressadd = -4
 	desc = span_boldgreen("I solved an extremely difficult puzzle. Xylix is smiling at me, and surely even \
-	 Noc must find it impressive.")
+		Noc must find it impressive.")
 	timer = 15 MINUTES
 
 /datum/stressevent/noble_fine_food
@@ -273,16 +278,28 @@
 	stressadd = -1
 	desc = span_green("My meditations were rewarding.")
 
+/datum/stressevent/meditation_undivided
+	timer = 20 MINUTES
+	stressadd = -4
+	desc = span_undivided("My communion with the Divines proved fruitful.")
+
 /datum/stressevent/bathcleaned
-    timer = 20 MINUTES
-    stressadd = -3
-    desc = span_green("I feel immaculate!")
+	timer = 20 MINUTES
+	stressadd = -3
+	desc = span_green("I feel immaculate!")
 
 /datum/stressevent/bath
-    timer = 10 MINUTES
-    stressadd = -1
-    desc = span_green("I'm just a bit cleaner.")
+	timer = 10 MINUTES
+	stressadd = -1
+	desc = span_green("I'm just a bit cleaner.")
 
+/datum/stressevent/alchsoap
+	timer = 20 MINUTES
+	stressadd = -1
+	desc = span_blue("Eora's love lingers with me and brightens my mood.")
+
+/datum/stressevent/alchsoap/baotha
+	desc = span_blue("A nostalgic longing returns to me. Her touch reminds me of a simpler time...")
 
 /datum/stressevent/pacified
 	timer = 30 MINUTES
@@ -417,43 +434,43 @@
 /datum/stressevent/blackberrysmoke
 	timer = 1 MINUTES
 	stressadd = -1
-	desc = list(span_blue("A sweet-tart sensation on the tongue."))
-	
+	desc = list(span_blue("A sweet-tart sensation lingers on my tongue."))
+
 /datum/stressevent/applesmoke
 	timer = 1 MINUTES
 	stressadd = -1
-	desc = list(span_blue("A feeling of sourness and coolness on the tongue."))
+	desc = list(span_blue("A cooling feeling and sour-taste linger on my tongue."))
 
 /datum/stressevent/chocolatesmoke
 	timer = 1 MINUTES
 	stressadd = -1
-	desc = list(span_purple("A pleasant feeling of rawness and bitterness on the tongue."))
-	
+	desc = list(span_purple("A pleasant feeling of rawness and bitterness lingers on my tongue."))
+
 /datum/stressevent/strawberrysmoke
 	timer = 1 MINUTES
 	stressadd = -1
-	desc = list(span_blue("A pleasant feeling of sourness and sweetness on the tongue."))
-	
+	desc = list(span_blue("The pleasant taste of sourness and sweetness lingers on my tongue."))
+
 /datum/stressevent/carrotsmoke
 	timer = 1 MINUTES
 	stressadd = -1
-	desc = list(span_blue("A pleasant feeling of very carrot on the tongue."))
-	
+	desc = list(span_blue("A pleasant feeling! Very... carrot-ey on the tongue."))
+
 /datum/stressevent/limesmoke
 	timer = 1 MINUTES
 	stressadd = -1
 	desc = list(span_blue("A pleasant feeling of sweet and refreshing on the tongue."))
-	
+
 /datum/stressevent/salviasmoke
 	timer = 1 MINUTES
 	stressadd = -1
-	desc = list(span_blue("A pleasant feeling spicy, earthy and bitter on the tongue."))
-	
+	desc = list(span_blue("A pleasant feeling! Spicy, earthy and bitter on the tongue."))
+
 /datum/stressevent/valerianasmoke
 	timer = 1 MINUTES
 	stressadd = -1
-	desc = list(span_blue("A pleasant feeling bitter-spicy and tart on the tongue."))
-	
+	desc = list(span_blue("A pleasant feeling! Bitter-spicy and tart on the tongue."))
+
 /datum/stressevent/zweed
 	timer = 5 MINUTES
 	stressadd = -2
@@ -467,7 +484,7 @@
 /datum/stressevent/abysssmoke
 	timer = 1 MINUTES
 	stressadd = 0
-	desc = list(span_blue("A pleasant feeling slight sourness and sweetnesson... and salty on the tongue? You feel an unpleasant chill run down your spine. You can't shake the feeling of someone staring from behind you..."))
+	desc = list(span_blue("A pleasant feeling! Slight sourness, sweetnesson-- and salty on the tongue? You feel an unpleasant chill run down your spine. You can't shake the feeling of someone staring at you from behind..."))
 
 //
 
